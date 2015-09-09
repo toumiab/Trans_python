@@ -1,0 +1,18 @@
+\frametitle{Variables en Python}
+
+  \begin{itemize}
+  \item Il n'est pas nécessaire de déclarer une variable avant de l'utiliser.
+\item La déclaration d'une variable et son initialisation se fait en même temps.
+\item Une variable peut changer de type au cours de l'exécution d'un programme.
+  \item Noms de variables sensibles à la casse
+  \end{itemize}
+  \begin{exemple}
+  \begin{lstlisting}[frame=none]
+>>> a = 42
+>>> b = 33.5
+>>> B = "une chaîne de caractères"
+>>> a= a + 1.5
+>>> a
+43.5
+  \end{lstlisting}
+  \end{exemple}
