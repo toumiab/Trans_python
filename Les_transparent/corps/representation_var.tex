@@ -99,30 +99,37 @@ $\Rightarrow$ complément à deux
   \frametitle{Exemple}
 
   \begin{exemple}[Représentation de 525.5 en simple précision]
-    \begin{itemize}
+    
+		\begin{itemize}
     \item<1-8> 525.5 $\xrightarrow{base 2}$ 1000001101.1
-    \item<2-8>  \only<2,6->{$1000001101.1 = + 1.0000011011 \times 2^9$}
+    \item<2->  \only<2,6,7,8>{$1000001101.1 = + 1.0000011011 \times 2^9$}
       \only<3>{$1000001101.1 = \textcolor{red}{+} 1.0000011011 \times 2^9$}
       \only<4>{$1000001101.1 = + 1.0000011011 \times 2^{\textcolor{red}{9}}$}
       \only<5>{$1000001101.1 = +1.\textcolor{red}{0000011011} \times 2^9$}
+		
       \begin{itemize}
       \item<3-8> signe : 0
       \item<4-8> exposant : 127+9=136 $\leadsto$ 10001000
       \item<5-8> mantisse : 0000011011
-      \item<6-8>\only<6-8>{[$\Rightarrow$] 01000100000000110110000000000000 }
-      \end{itemize}
+      \item<6-8>[$\Rightarrow$] 01000100000000110110000000000000 
+		
+     \end{itemize}
+	
     \end{itemize}
-  \end{exemple}
+  
+	\end{exemple}
 
 
-  \only<7->{
-	\begin{remarque}[]
+ 
+	\begin{remarque}<7,8>
+
 		\begin{itemize}
 		\item<7-> Le type \emph{float} en Python utilise une double précision (64 bits).
 		\item<8> Les autres biothèques utilisées dans Python (ex. numpy) utilisent autres formats.
 	\end{itemize}
+
 	\end{remarque}
-}
+
 \end{frame}
 
 
