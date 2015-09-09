@@ -1,0 +1,742 @@
+
+\section{Liste chaînée}
+
+\begin{frame}
+  \frametitle{Principe}
+  \begin{defi}[Liste chaînée]
+    Liste chaînée : structure algorithmique \emph{dynamique}. Accès
+    \emph{séquentiel} aux éléments.
+  \end{defi}
+  \pause
+  \only<-6>{
+    Plusieurs types de listes~:
+    \begin{itemize}
+    \item<3-> simplement chaînée
+    \item<4-> doublement chaînée
+    \item<5-> triée
+    \item<6-> circulaire
+    \end{itemize}}
+
+  \only<7->{\vspace{1cm}
+    \begin{tikzpicture}[scale=1,node distance=1.5cm]
+      \tikzstyle{noeud}=[rectangle, draw=black, rounded corners, ball
+      color=blue!50, drop shadow, text centered, text=white, text
+      width=2cm,text height=1cm]
+      \tikzstyle{fleche}=[->,shorten >=1pt,auto,thick,bend left=10]
+      \node[noeud] (a) {};
+      \node[noeud,right=of a] (b) {};
+      \node[noeud,right=of b] (c) {};
+      \only<7-9>{
+        \draw[fleche] (a) to (b);
+        \draw[fleche] (b) to (c);
+      }
+      \only<8>{
+        \draw[fleche] (b) to (a);
+        \draw[fleche] (c) to (b);
+      }
+      \only<9>{
+        \draw[fleche,bend left=30] (c) to (a);
+      }
+    \end{tikzpicture}
+  }
+ % \only<7>{\input{liste_simple.latex}}
+ % \only<8>{\input{liste_double.latex}}
+ % \only<9>{\includegraphics{liste_circ}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{TAD liste}
+  \begin{itemize}[<+->]
+  \item Liste composée d'éléments (noeuds)
+  \item Noeuds chaînés entre eux :
+  \item Chaque noeud connaît son successeur
+  \item Fin de liste : \emph{null}
+  \item Chaque noeud peut connaître son prédécesseur (liste doublement
+    chaînée)
+  \item Liste = premier élément (noeud) + opérations
+    \begin{itemize}
+    \item Insertion
+    \item Suppression
+    \item Recherche
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Classe noeud}
+  \begin{itemize}
+  \item Noeud : données\uncover<2->{ + variable pour le chaînage}
+  \item<3-> Constructeur (next initialisé à \emph{null})
+  \item<4-> Accesseurs ...
+  \end{itemize}
+
+  \begin{exemple}
+    \begin{semiverbatim}
+      \vspace{-0.5cm}
+      public class Node \{
+
+      \hspace{1cm}private int value;
+
+      \uncover<2->{
+        \hspace{1cm}private {\color<2>{red}Node} next;
+
+      }
+      \uncover<3->{
+        \hspace{1cm}public Node(int val) \{
+
+        \hspace{2cm}value = val ; {\color<3>{red}next = null;}
+
+        \hspace{1cm}\}
+
+      }
+      \uncover<4->{
+        \hspace{1cm}...
+
+      \} }
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+\section{Manipulation de listes}
+
+
+\subsection{Parcours}
+
+\begin{frame}
+  \frametitle{Parcours de liste}
+
+  Principe : 
+  \begin{itemize}
+  \item partir du début de la liste
+  \item avancer tant que l'élément est différent de \emph{null}
+  \end{itemize}
+  ~\\
+
+  \only<1>{\vspace{4.5cm}}
+  \only<2->{
+    \begin{tikzpicture}[scale=1,node distance=1.2cm]
+      \tikzstyle{noeud}=[rectangle, draw=black, rounded corners, ball color=blue!50, drop
+      shadow, text centered, text=white, text width=1.2cm,text height=1cm]
+      \tikzstyle{fleche}=[->,shorten >=1pt,auto,thick]
+      \node[noeud] (a) {};
+      \node[noeud,right=of a] (b) {};
+      \node[noeud,right=of b] (c) {};
+      \node[right=of c] (n) {null};
+      \draw[fleche] (a) to (b);
+      \draw[fleche] (b) to (c);
+      \draw[fleche] (c) to (n);
+      \node[node distance=0.5cm,above=of a] (f) {first};
+      \draw[fleche] (f) to (a);
+      \only<2>{
+      \node[node distance=0.5cm,below=of a] (x) {cour}; \draw[fleche] (x) to (a);}
+      \only<3>{
+      \node[node distance=0.5cm,below=of b] (x) {cour}; \draw[fleche] (x) to (b);}
+      \only<4>{
+      \node[node distance=0.5cm,below=of c] (x) {cour}; \draw[fleche] (x) to (c);}
+      \only<5>{
+      \node[node distance=0.5cm,below=of n] (x) {cour}; \draw[fleche] (x) to (n);}
+     
+    \end{tikzpicture}
+  }
+%  \only<2>{\includegraphics{parcours_liste1}}
+%  \only<3>{\includegraphics{parcours_liste2}}
+%  \only<4>{\includegraphics{parcours_liste3}}
+%  \only<5>{\includegraphics{parcours_liste4}}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Algorithme de parcours}
+  \only<1>{
+\begin{algorithm2e}[H]
+  \caption{Parcours de liste}
+  \KwIn{premier : noeud \tcp{ tête de liste}} 
+  \KwData{n : noeud \tcp{ noeud courant}}
+  $n \gets premier$ \;
+  \While{$n \neq null$} {
+    $n \gets n.suivant $\;
+  }
+\end{algorithm2e}
+  % \begin{algorithmic}[1]
+  %   \Procedure{parcours}{}
+  %     \Var
+  %       \State premier : noeud \Comment tête de liste
+  %       \State n : noeud \Comment noeud courant
+  %     \EndVar
+  %     \State $n \gets premier$
+  %     \While{$n \neq null$}
+  %       \State $n \gets n.suivant $
+  %     \EndWhile
+  %   \EndProcedure
+  % \end{algorithmic}
+}
+  \only<2>{
+    Parcours d'une liste avec une boucle \emph{for}~:
+    \begin{semiverbatim}
+      for (Node n = first ; n != null ; n = n.getNext())
+
+      \{
+
+      \hspace{1cm}// action
+
+      \}
+    \end{semiverbatim}
+  }
+  \only<3>{
+    Parcours d'une liste avec une boucle \emph{while}~:
+    \begin{semiverbatim}
+      Node n = first ; 
+
+      while (n != null)
+
+      \{
+
+      \hspace{1cm}// action
+
+      \hspace{1cm}n = n.getNext();
+
+      \}
+    \end{semiverbatim}
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Recherche d'un élément dans une liste}
+  Exemple de parcours~: recherche d'élément\\
+  Principe~:
+  \begin{itemize}[<+->]
+  \item Partir du début de la liste
+  \item Avancer tant que l'élément n'est pas trouvé
+  \item Et que la fin de liste n'est pas atteinte
+  \item Si l'algorithme se termine sur la fin de liste, l'élément n'est pas
+    présent
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Algorithme}
+\begin{algorithm2e}[H]
+  \caption{Recherche d'élément dans une liste}
+    \KwIn{int val}
+    \KwData{debut : noeud \tcp{ tête de liste}}
+    \KwData{n : noeud \tcp{ noeud courant}}
+    $n \gets debut$ \;
+    \While{$n \neq null$ et $n.valeur \neq val$} {
+      $n \gets n.suivant$ \;
+    }
+    retourner \emph{n} \;
+\end{algorithm2e}
+  % \begin{algorithmic}[1]
+  %   \Procedure{rechList}{int val}
+  %     \Var
+  %       \State debut : noeud \Comment tête de liste
+  %       \State n : noeud \Comment noeud courant
+  %     \EndVar
+  %     \State $n \gets debut$
+  %     \While{$n \neq null$ et $n.valeur \neq val$}
+  %       \State $n \gets n.suivant$
+  %     \EndWhile
+  %     \State retourner \emph{n}
+  %   \EndProcedure
+  % \end{algorithmic}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Complexité}
+  \begin{itemize}[<+->]
+  \item Nombre d'opérations nécessaire pour rechercher un élément ?
+  \item Liste de taille $n$
+  \item Complexité $\Theta(n)$ (pire des cas et moyenne)
+  \item[$\Rightarrow$] Méthode de représentation peu efficace
+  \end{itemize}
+\end{frame}
+
+\subsection{Insertions}
+
+
+\begin{frame}
+  \frametitle{Insertion en début de liste}
+  Principe~:
+  \begin{itemize}
+  \item<2-> Attacher le début de la liste à \emph{nouv}
+  \item<3-> Le nouveau début de liste est \emph{nouv}
+  \end{itemize}
+  ~\\
+  \begin{tikzpicture}[scale=1,node distance=1cm]
+    \tikzstyle{noeud}=[rectangle, draw=black, rounded corners, ball color=blue!50, drop
+    shadow, text centered, text=white, text width=1.2cm,text height=0.8cm]
+    \tikzstyle{fleche}=[->,shorten >=1pt,auto,thick]
+    \node[noeud] (a) {};
+    \node[noeud,right=of a] (b) {};
+    \node[noeud,right=of b] (c) {};
+    \node[right=of c] (z) {null};
+    \draw[fleche] (a) to (b);
+    \draw[fleche] (b) to (c);
+    \draw[fleche] (c) to (z);
+    \only<1,2>{
+      \node[node distance=0.5cm,left=of a] (f) {first};
+      \draw[fleche] (f) to (a);
+    }
+    \node[noeud,node distance=1cm,below=of a] (n) {};
+    \node[node distance=0.5cm,below=of n] (nn) {nouv};
+    \draw[fleche] (nn) to (n);
+    \only<1>{
+      \node[right=of n] (zn) {null};
+      \draw[fleche] (n) to (zn);
+    }
+    \only<2->{
+      \draw[fleche] (n) to (a);
+    }
+    \only<3>{
+      \node[node distance=0.5cm,left=of n] (f) {first};
+      \draw[fleche] (f) to (n);
+    }
+  \end{tikzpicture}
+
+%  \only<1>{\includegraphics[height=4cm]{insert_first1}}
+%  \only<2>{\includegraphics[height=4cm]{insert_first2}}
+%  \only<3>{\includegraphics[height=4cm]{insert_first3}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Algorithme}
+  \only<1>{
+\begin{algorithm2e}[H]
+  \caption{Insertion en début de liste}
+  \KwIn{nouv : noeud à ajouter}
+  \KwData{debut : noeud \tcp{tête de liste}}
+  $nouv.suivant \gets debut$\;
+  $debut \gets nouv$\;
+\end{algorithm2e}
+  % \begin{algorithmic}[1]
+  %   \Procedure{insertFirst}{nouv : noeud à ajouter}
+  %     \Var
+  %       \State debut : noeud \Comment tête de liste
+  %     \EndVar
+  %     \State $nouv.suivant \gets debut$
+  %     \State $debut \gets nouv$
+  %   \EndProcedure
+  % \end{algorithmic}
+  }
+  \only<2>{
+    \begin{semiverbatim}
+      public void insertFirst(Node nouv)
+
+      \{
+
+      \hspace{1cm}nouv.setNext(first); 
+
+      \hspace{1cm}first = nouv; 
+
+      \}
+    \end{semiverbatim}
+
+    Complexité : $\Theta(1)$
+  }
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Insertion en fin de liste}
+  Principe~:
+  \begin{itemize}
+  \item<1-> Se placer en début de liste
+  \item<2-> Avancer jusqu'au dernier élément
+  \item<4-> Accrocher le nouvel élément après le dernier élément
+  \end{itemize}
+\only<-4>{
+  \begin{tikzpicture}[scale=1,node distance=1cm]
+    \tikzstyle{noeud}=[rectangle, draw=black, rounded corners, ball color=blue!50, drop
+    shadow, text centered, text=white, text width=1.2cm,text height=0.6cm]
+    \tikzstyle{fleche}=[->,shorten >=1pt,auto,thick]
+    \node[noeud] (a) {};
+    \node[noeud,right=of a] (b) {};
+    \node[noeud,right=of b] (c) {};
+    \draw[fleche] (a) to (b);
+    \draw[fleche] (b) to (c);
+    \only<-3>{
+    \node[right=of c] (z) {null};
+    \draw[fleche] (c) to (z);}
+    \node[node distance=0.5cm,above=of a] (f) {first};
+    \draw[fleche] (f) to (a);
+    \only<1>{
+      \node[node distance=0.5cm,below=of a] (x) {cour};
+      \draw[fleche] (x) to (a);
+    }
+    \only<2>{
+      \node[node distance=0.5cm,below=of b] (x) {cour};
+      \draw[fleche] (x) to (b);
+    }
+    \only<3->{
+      \node[node distance=0.5cm,below=of c] (x) {cour};
+      \draw[fleche] (x) to (c);
+    }
+
+    \node[noeud,node distance=1cm,below=of z] (n) {};
+    \node[node distance=0.5cm,below=of n] (nn) {nouv};
+    \draw[fleche] (nn) to (n);
+    \node[right=of n] (zn) {null};
+    \draw[fleche] (n) to (zn);
+    \only<4>{
+      \draw[fleche] (c) to (n);
+    }
+  \end{tikzpicture}
+}
+%  \only<1>{\includegraphics[height=4cm]{insert_last1}}
+%  \only<2>{\includegraphics[height=4cm]{insert_last2}}
+%  \only<3>{\includegraphics[height=4cm]{insert_last3}}
+%  \only<4>{\includegraphics[height=4cm]{insert_last4}}
+  \only<5->{
+    \begin{remarques}
+      \begin{itemize}
+      \item<5-> Ne pas oublier le cas particulier où la liste est vide
+      \item<6-> Complexité : $\Theta(n)$
+      \end{itemize}
+    \end{remarques}
+  }
+\end{frame}
+
+\begin{frame}
+\frametitle{Algorithme}
+{\small
+\begin{algorithm2e}[H]
+  \caption{Insertion en fin de liste}
+  \KwIn{nouv : noeud à ajouter}
+  \KwData{debut : noeud \tcp{ tête de liste}}
+  \KwData{ n : noeud \tcp{ noeud courant}}\pause
+  \eIf{$liste = \emptyset$ \tcp{ cas particulier liste vide}} {
+    $debut \gets nouv$ \;
+    }\pause
+    {
+      $n \gets debut$\;
+      \While{$n.suivant \neq null$} {
+        $n \gets n.suivant$ \;
+      }\pause
+       $n.suivant \gets nouv$\;
+    }
+\end{algorithm2e}
+}
+  % \begin{algorithmic}[1]
+  %   \Procedure{insertLast}{nouv : noeud à ajouter}
+  %     \If{$liste = \emptyset$} \Comment CP liste vide
+  %       \State $debut \gets nouv$
+  %     \Else \Comment CG : se placer sur le dernier élément
+  %       \State $n \gets debut$
+  %       \While{$n.suivant \neq null$}
+  %         \State $n \gets n.suivant$
+  %       \EndWhile \Comment n~: dernier élément
+  %       \State $n.suivant \gets nouv$
+  %     \EndIf
+  %   \EndProcedure
+  % \end{algorithmic}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Insertion dans une liste triée}
+  Principe $\simeq$ insertion en fin de liste~:
+  \begin{itemize}
+  \item<1-> Se placer en début de liste
+  \item<2-> Avancer jusqu'au dernier élément inférieur à l'élément à insérer
+  \item<3-> Accrocher le nouvel élément après l'élément courant
+  \end{itemize}
+  \only<-4>{
+    \begin{tikzpicture}[scale=1,node distance=1cm]
+    \tikzstyle{noeud}=[rectangle, draw=black, rounded corners, ball color=blue!50, drop
+    shadow, text centered, text=white, text width=1.2cm,text height=0.6cm]
+    \tikzstyle{fleche}=[->,shorten >=1pt,auto,thick]
+    \node[noeud] (a) {1};
+    \node[noeud,right=of a] (b) {5};
+    \node[noeud,right=of b] (c) {9};
+    \draw[fleche] (a) to (b);
+    \node[right=of c] (z) {null};
+    \draw[fleche] (c) to (z);
+    \node[node distance=0.5cm,above=of a] (f) {first};
+    \draw[fleche] (f) to (a);
+    \only<1>{
+      \node[node distance=0.5cm,below=of a] (x) {cour};
+      \draw[fleche] (x) to (a);
+    }
+    \only<2->{
+      \node[node distance=0.5cm,below=of b] (x) {cour};
+      \draw[fleche] (x) to (b);
+    }
+    \node[noeud,node distance=1cm,below right=of b] (n) {6};
+    \node[node distance=0.5cm,below=of n] (nn) {nouv};
+    \draw[fleche] (nn) to (n);
+    \only<-2>{
+      \node[right=of n] (zn) {null};
+      \draw[fleche] (n) to (zn);
+    }
+    \only<-3>{
+      \draw[fleche] (b) to (c);
+    }
+    \only<3->{
+      \draw[fleche] (n) to (c);
+    }
+    \only<4>{
+      \draw[fleche] (b) to (n);
+    }
+  \end{tikzpicture}
+  }
+  \only<5->{
+    \begin{remarques}
+      \begin{itemize}
+      \item Attention aux cas particuliers~:
+      \begin{itemize}
+      \item<6-> liste vide
+      \item<7-> insertion du plus petit élément
+      \end{itemize}
+    \item<8->  Complexité : $\Theta(n)$
+    \end{itemize}
+    \end{remarques}
+  }
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Remarque sur l'insertion dans une liste triée}
+  \begin{remarque}
+    \begin{itemize}[<+->]
+    \item Deux cas particuliers à tester
+    \item Ruse :
+      \begin{itemize}
+      \item créer un élément temporaire \emph{tmp}
+      \item accrocher le début de la liste après \emph{tmp}
+      \item parcourir la liste à partir de \emph{tmp}
+      \end{itemize}
+    \item[$\Rightarrow$] plus de cas particulier !
+    \end{itemize}
+  \end{remarque}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Algorithme}
+\begin{algorithm2e}[H]
+  \caption{Insertion dans une liste triée}
+  \KwIn{nouv : noeud à ajouter}
+  créer noeud \emph{tmp}\;
+  $tmp.next \gets debut$ \;
+  $n \gets tmp$\;\pause
+  \While{$n.suivant \neq null$ et $n.suivant < nouv$} {
+    $n \gets n.suivant$ \;
+  }\pause
+  $nouv.suivant \gets n.suivant$\;
+  $n.suivant \gets nouv$\;
+  $debut \gets tmp.suivant$ \tcp{ supprimer l'élément temporaire}
+\end{algorithm2e}
+  % \begin{algorithmic}[1]
+  %   \Procedure{insertSort}{nouv : noeud à ajouter}
+  %     \State créer noeud \emph{tmp}
+  %     \State $tmp.next \gets debut$
+  %     \State $n \gets tmp$
+  %     \While{$n.suivant \neq null$ et $n.suivant < nouv$}
+  %       \State $n \gets n.suivant$
+  %     \EndWhile \Comment n~: bon endroit dans la liste
+  %     \State $nouv.suivant \gets n.suivant$
+  %     \State $n.suivant \gets nouv$
+  %     \State $debut \gets tmp.suivant$ \Comment supprimer l'élément temporaire
+  %   \EndProcedure
+  % \end{algorithmic}
+\end{frame}
+
+
+\subsection{Suppression}
+
+
+\begin{frame}
+  \frametitle{Suppression}
+  Principe~:
+  \begin{itemize}
+  \item Partir du début de la liste
+  \item Se placer avant l'élément à supprimer
+  \item Modifier le chaînage pour supprimer l'élément
+  \end{itemize}
+  ~\\
+  \only<-4>{
+    \begin{tikzpicture}[scale=1,node distance=1cm]
+    \tikzstyle{basen}=[rectangle, draw=black, rounded corners, ball color=blue!50, text centered, text=white, text width=1.2cm,text height=0.6cm]
+    \tikzstyle{noeud}=[basen,drop  shadow]
+    \tikzstyle{fleche}=[->,shorten >=1pt,auto,thick]
+    \node[noeud] (a) {1};
+    \node[noeud,right=of a] (b) {2};
+    \only<-3>{\node[noeud,right=of b,ball color=red] (c) {3};}
+    \only<4>{\node[basen,right=of b,opacity=0] (c) {};}
+    \node[noeud,right=of c] (d) {4};
+    \draw[fleche] (a) to (b);
+    \node[right=of d] (z) {null};
+    \draw[fleche] (d) to (z);
+    \only<-3>{\draw[fleche] (c) to (d);}
+    \node[node distance=0.5cm,above=of a] (f) {first};
+    \draw[fleche] (f) to (a);
+    \only<1>{
+      \node[node distance=0.5cm,below=of a] (x) {cour};
+      \draw[fleche] (x) to (a);
+    }
+    \only<2->{
+      \node[node distance=0.5cm,below=of b] (x) {cour};
+      \draw[fleche] (x) to (b);
+    }
+    \only<-2>{
+      \draw[fleche] (b) to (c);
+    }
+    \only<3->{
+      \draw[fleche,bend left] (b) to (d);
+    }
+  \end{tikzpicture}
+  }
+  \only<5->{
+    \begin{remarques}
+      \begin{itemize}
+      \item<5-> Cas particuliers~:
+        \begin{itemize}
+        \item<6-> liste vide
+        \item<7-> suppression du premier élément
+        \end{itemize}
+      \item<8-> Complexité : $\Theta(n)$
+      \end{itemize}
+    \end{remarques}
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Algorithme}
+\begin{algorithm2e}[H]
+  \caption{Suppression d'un élément dans une liste}
+  \KwIn{val : entier \tcp{ val : valeur du noeud à supprimer}}
+  créer noeud \emph{tmp}\;
+  $tmp.next \gets debut$\;
+  $n \gets tmp$\;\pause
+  \While{$n.suivant \neq null$ et $n.suivant.val \neq val$} {
+    $n \gets n.suivant$\;
+  }\pause
+  $n.suivant \gets n.suivant.suivant$\;
+  $debut \gets tmp.suivant$\;
+\end{algorithm2e}
+  % \begin{algorithmic}[1]
+  %   \Procedure{suppr}{val : entier} \Comment val : valeur du noeud à supprimer
+  %     \State créer noeud \emph{tmp}
+  %     \State $tmp.next \gets debut$
+  %     \State $n \gets tmp$
+  %     \While{$n.suivant \neq null$ et $n.suivant.val \neq val$}
+  %       \State $n \gets n.suivant$
+  %     \EndWhile \Comment n~: bon endroit dans la liste
+  %     \State $n.suivant \gets n.suivant.suivant$
+  %     \State $debut \gets tmp.suivant$
+  %   \EndProcedure
+  % \end{algorithmic}
+\end{frame}
+
+
+
+\section{Autres types de listes}
+
+
+\subsection{Liste doublement chaînée}
+
+\begin{frame}
+  \frametitle{Principe}
+  \begin{itemize}
+  \item Chaque noeud connaît son successeur
+  \item et son prédécesseur
+  \item[$\Rightarrow$] variable d'instance supplémentaire
+  \end{itemize}
+  \pause
+  \begin{alertblock}{Attention}
+    Bien gérer la cohérence du double chaînage
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Liste doublement chaînée}
+  \begin{tikzpicture}[scale=1,node distance=1.2cm]
+    \tikzstyle{basen}=[rectangle, draw=black, rounded corners, ball color=blue!50, text centered, text=white, text width=1.2cm,text height=0.6cm]
+    \tikzstyle{noeud}=[basen,drop  shadow]
+    \tikzstyle{fleche}=[->,shorten >=1pt,auto,thick]
+    \tikzstyle{flecheb}=[fleche,bend left=10]
+    \node[noeud] (a) {};
+    \node[noeud,right=of a] (b) {};
+    \node[noeud,right=of b] (c) {};
+    \node[node distance=0.7cm,above=of a] (f) {first};
+    \node[node distance=0.7cm,above=of c] (l) {last};
+    \node[left=of a] (na) {null};
+    \node[right=of c] (nc) {null};
+    \draw[flecheb] (a) to (b);
+    \draw[flecheb] (b) to (c);
+    \draw[flecheb] (b) to (a);
+    \draw[flecheb] (c) to (b);
+    \draw[fleche] (f) to (a);
+    \draw[fleche] (l) to (c);
+    \draw[fleche] (a) to (na);
+    \draw[fleche] (c) to (nc);
+  \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Classe Node}
+  \begin{semiverbatim}
+public class Node
+
+\{
+
+  \hspace{1cm}private int value;
+
+  \hspace{1cm}private Node next;
+
+  \hspace{1cm}private Node prev;
+
+  \hspace{1cm}...
+
+\}
+    
+  \end{semiverbatim}
+\end{frame}
+
+
+
+\subsection{Listes circulaires}
+
+\begin{frame}
+  \frametitle{Principe}
+  \begin{itemize}
+  \item Le successeur d'un noeud peut être un noeud précédent
+  \item Attention lors des parcours
+  \item[$\Rightarrow$] risque de boucle infinie
+  \end{itemize}
+%  \includegraphics[height=2cm]{liste_circ}
+  \begin{tikzpicture}[scale=1,node distance=1.5cm]
+    \tikzstyle{basen}=[rectangle, draw=black, rounded corners, ball color=blue!50, text centered, text=white, text width=1.2cm,text height=0.6cm]
+    \tikzstyle{noeud}=[basen,drop  shadow]
+    \tikzstyle{fleche}=[->,shorten >=1pt,auto,thick]
+    \node[noeud] (a) {};
+    \node[noeud,right=of a] (b) {};
+    \node[noeud,right=of b] (c) {};
+    \node[node distance=0.7cm,above=of a] (f) {first};
+    \draw[fleche] (a) to (b);
+    \draw[fleche] (b) to (c);
+    \draw[fleche] (f) to (a);
+    \draw[fleche,bend left=30] (c) to (a);
+  \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Détection de cycle}
+  \begin{itemize}[<+->]
+  \item Problème : comment détecter que la liste contient un cycle ?
+  \item Solution : 
+    \begin{itemize}
+    \item utiliser deux variables de type noeud :
+    \item une qui avance d'un noeud par tour
+    \item une qui avance de deux noeuds par tour
+    \item si un aboutit à la fin de la liste : liste non circulaire
+    \item si les deux se rejoignent : liste circulaire
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+
+%% projets
+
+%% tests unitaires

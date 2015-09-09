@@ -1,0 +1,269 @@
+%%
+%% This is file `quot2.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% quot2.dtx 
+%% 
+%% This file is part of the QUOT2 package, a package a package for
+%% creating decorative chapter headings with quotations, a postscript
+%% output device is needed. Copyright (C) 1998 Karsten Tinnefeld.
+%% 
+%% This file is NOT part of the LaTeX2e system, but intended for use with
+%% it.
+%% 
+%% This file is free software; you can redistribute it and/or modify it
+%% under the terms of the GNU Library General Public License as published
+%% by the Free Software Foundation; either version 2 of the License, or
+%% (at your option) any later version.
+%% 
+%% This document is distributed in the hope that it will be useful, but
+%% WITHOUT ANY WARRANTY; without even the implied warranty of
+%% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+%% General Public License for more details.
+%% 
+%% You should have received a copy of the GNU General Public License
+%% somehow; if not, write to the Free Software Foundation, Inc., 675 Mass
+%% Ave, Cambridge, MA 02139, USA.
+%% 
+%% Error Reports in case of UNCHANGED versions to
+%% 
+%%              Karsten Tinnefeld
+%%              Leostrasse 11
+%%              D-44225 Dortmund
+%%              Germany
+%%       Email: tinnefeld@irb.cs.uni-dortmund.de
+%% 
+%%%%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}[1996/12/01]
+\ProvidesPackage{quot2}
+  [1998/02/09 v0.9f Decorative Chapter Headings with Quotes]
+\newif\if@usecolor\@usecolortrue
+\DeclareOption{grey}{\@usecolortrue}
+\DeclareOption{nogrey}{\@usecolorfalse}
+\newcommand*{\@newfontcmd}{\@ifundefined{@defaultcnfont}{\newcommand*}{%
+    \PackageWarning{quot2}{%
+      You have tried to specify more than one font to be\MessageBreak
+      used for the chapter numbers. I ignore the font\MessageBreak
+      `\CurrentOption'}
+    \providecommand*}}
+\DeclareOption{charter}{\@newfontcmd{\@defaultcnfont}{bch}}
+\DeclareOption{palatino}{\@newfontcmd{\@defaultcnfont}{ppl}}
+\DeclareOption{avantgarde}{\@newfontcmd{\@defaultcnfont}{pag}}
+\DeclareOption{bookman}{\@newfontcmd{\@defaultcnfont}{pbk}}
+\DeclareOption{courier}{\@newfontcmd{\@defaultcnfont}{pcr}}
+\DeclareOption{helvetica}{\@newfontcmd{\@defaultcnfont}{phv}}
+\DeclareOption{newcentury}{\@newfontcmd{\@defaultcnfont}{pnc}}
+\DeclareOption{times}{\@newfontcmd{\@defaultcnfont}{ptm}}
+\DeclareOption{utopia}{\@newfontcmd{\@defaultcnfont}{put}}
+\ProcessOptions\relax
+\providecommand*{\@defaultcnfont}{pbk}
+\if@usecolor
+  \IfFileExists{color.sty}{%
+    \RequirePackage{color}
+    \definecolor{chaptergrey}{rgb}{0.6,0.6,0.6}}{%
+    \PackageError{quot2}{%
+      The color package is apparently unavailable.\MessageBreak
+      Turn off the `grey' option and come back again}{%
+      Since you did not say `nogrey', quot2 defined chapter
+      numbers to appear\MessageBreak grey. You do not need a color
+      printer, since most printing devices can cope\MessageBreak with
+      grey scales, but you need the color package coming with the
+      graphics\MessageBreak bundle available from CTAN.}}
+\else
+  \providecommand*{\color}[1]{}
+\fi
+\newsavebox{\ChpNumBox}
+%\definecolor{ChapBlue}{rgb}{0.00,0.65,0.65}
+\definecolor{ChapBlue}{rgb}{0.44,0.76,0.89}
+
+% debut head fncychap
+
+%%%% DEFINITION OF Chapapp variables
+\newcommand{\CNV}{\huge\bfseries}
+\newcommand{\ChNameVar}[1]{\renewcommand{\CNV}{#1}}
+
+
+%%%% DEFINITION OF TheChapter variables
+\newcommand{\CNoV}{\huge\bfseries}
+\newcommand{\ChNumVar}[1]{\renewcommand{\CNoV}{#1}}
+
+\newif\ifUCN
+\UCNfalse
+\newif\ifLCN
+\LCNfalse
+\def\ChNameLowerCase{\LCNtrue\UCNfalse}
+\def\ChNameUpperCase{\UCNtrue\LCNfalse}
+\def\ChNameAsIs{\UCNfalse\LCNfalse}
+
+%%%%% Fix for AMSBook 971008
+
+\@ifundefined{@chapapp}{\let\@chapapp\chaptername}{}
+
+
+%%%%% Fix for Bjarne and appendix 980211
+
+\newif\ifinapp
+\inappfalse
+\renewcommand\appendix{\par
+  \setcounter{chapter}{0}%
+  \setcounter{section}{0}%
+  \inapptrue%
+  \renewcommand\@chapapp{\appendixname}%
+  \renewcommand\thechapter{\@Alph\c@chapter}}
+
+%%%%% Fix for frontmatter, mainmatter, and backmatter 040920
+
+\@ifundefined{@mainmatter}{\newif\if@mainmatter \@mainmattertrue}{}
+
+%%%%%
+
+
+
+\newcommand{\FmN}[1]{%
+\ifUCN
+   {\MakeUppercase{#1}}\LCNfalse
+\else
+   \ifLCN
+      {\MakeLowercase{#1}}\UCNfalse
+   \else #1
+   \fi
+\fi}
+
+
+%%%% DEFINITION OF Title variables
+\newcommand{\CTV}{\Huge\bfseries}
+\newcommand{\ChTitleVar}[1]{\renewcommand{\CTV}{#1}}
+
+%%%% DEFINITION OF the basic rule width
+\newlength{\RW}
+\setlength{\RW}{1pt}
+\newcommand{\ChRuleWidth}[1]{\setlength{\RW}{#1}}
+
+\newif\ifUCT
+\UCTfalse
+\newif\ifLCT
+\LCTfalse
+\def\ChTitleLowerCase{\LCTtrue\UCTfalse}
+\def\ChTitleUpperCase{\UCTtrue\LCTfalse}
+\def\ChTitleAsIs{\UCTfalse\LCTfalse}
+\newcommand{\FmTi}[1]{%
+\ifUCT
+   {\MakeUppercase{#1}}\LCTfalse
+\else
+   \ifLCT
+      {\MakeLowercase{#1}}\UCTfalse
+   \else {#1}
+   \fi
+\fi}
+
+% fin head fncychap
+
+%\ChNumVar{\fontsize{76}{80}\usefont{OT1}{pzc}{m}{n}\selectfont}
+\ChNumVar{\fontsize{38}{40}\usefont{OT1}{pzc}{m}{n}\selectfont}
+\ChTitleVar{\raggedleft\Large\sffamily\bfseries}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+% quotchap
+
+\AtEndOfPackage{%
+  \newcommand*{\chapnumfont}{%
+    \usefont{T1}{\@defaultcnfont}{b}{n}\fontsize{100}{130}\selectfont%
+    \color{chaptergrey}}
+  \let\size@chapter\huge
+  \providecommand*{\chapterheadstartvskip}{\vspace*{2.3\baselineskip}}
+  \providecommand*{\chapterheadendvskip}{\vspace{1.7\baselineskip}}
+  \providecommand*{\sectfont}{\relax}
+  \@ifundefined{@mainmattertrue}{\newif\if@mainmatter\@mainmattertrue}{}}
+\newenvironment{savequote}[1][10cm]{%
+  \begin{lrbox}{\@quotebox}
+    \begin{minipage}[t]{#1}\footnotesize\slshape
+      \ignorespaces}{%
+      \unskip\end{minipage}\end{lrbox}
+  \global\setbox\@quotebox\copy\@quotebox
+  \global\let\@printcites\@iprintcites
+  \ignorespacesafterend}
+\newcommand{\qauthor}[1]{%
+  \par\smallskip
+  {\raggedleft\upshape #1\qquad\hbox{}\par}\bigskip}
+\newsavebox{\@quotebox}
+\let\@printcites\relax
+
+\renewcommand{\@makechapterhead}[1]{
+  \reset@font
+  \parindent \z@ 
+  \vspace*{10\p@}%
+  \hbox{%
+    \vbox{\hsize=2cm
+      \begin{tabular}{c}
+        \scshape \strut \@chapapp{} \\
+        \colorbox{ChapBlue}{%
+          \vrule depth 7em width 0pt%
+          \vrule height 0pt depth 0pt width 1ex%
+          {\CNoV \thechapter}%
+          \vrule height 0pt depth 0pt width 1ex%
+          }
+      \end{tabular}%
+      }%
+    \vbox{%
+      \hfill \copy\@quotebox\vss\vskip 1em %\@printcites
+      \advance\hsize by -2cm
+      \hrule\par
+      \vskip 6pt%
+      \hspace{1em}%
+      {\CTV\FmTi{#1}}
+      }%
+    }%
+  \vskip 30\p@
+}
+\renewcommand{\@makeschapterhead}[1]{%
+%  {\let\c@secnumdepth\m@ne\@makechapterhead{#1}}
+  \reset@font
+  \parindent \z@ 
+  \vspace*{10\p@}%
+ \hbox{%
+    \vbox{\hsize=2cm
+      \begin{tabular}{c}
+        \scshape \strut \vphantom{\@chapapp{}} \hphantom{\@chapapp{}} \\
+        \colorbox{ChapBlue}{%
+%        \fbox{%
+          \vrule depth 7em width 0pt%
+          \vrule height 0pt depth 0pt width 1ex%
+          {\LARGE \bfseries \strut \hphantom{\thechapter}}%
+          \vrule height 0pt depth 0pt width 1ex%
+          }
+      \end{tabular}%
+      }%
+    \vbox{%
+%      \hfill \copy\@quotebox\vss\vskip 1em %\@printcites
+      \advance\hsize by -2cm    
+      \hrule\par
+      \vskip 6pt%
+      \hspace{1em}%
+      {\CTV\FmTi{#1}}\\
+      }%
+    }%
+  \vskip 30\p@
+}
+\newcommand*{\@iprintcites}{%
+  \vbox to\z@{\copy\@quotebox\vss}
+  \global\let\@printcites\relax}
+%% \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%%   Dollar        \$     Percent       \%     Ampersand     \&
+%%   Acute accent  \'     Left paren    \(     Right paren   \)
+%%   Asterisk      \*     Plus          \+     Comma         \,
+%%   Minus         \-     Point         \.     Solidus       \/
+%%   Colon         \:     Semicolon     \;     Less than     \<
+%%   Equals        \=     Greater than  \>     Question mark \?
+%%   Commercial at \@     Left bracket  \[     Backslash     \\
+%%   Right bracket \]     Circumflex    \^     Underscore    \_
+%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%%   Right brace   \}     Tilde         \~}
+\endinput
+%%
+%% End of file `quot2.sty'.

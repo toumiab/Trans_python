@@ -1,0 +1,97 @@
+\section{Principes généraux}
+
+\subsection{Généralités : variables et données}
+
+\begin{frame}
+  \frametitle{Variables et données}
+  \only<1>{
+	\begin{itemize}
+		\item Tous les éléments manipulés dans un programme python sont des objets (données).
+		\item Une variable n'est que la référence à l'objet.
+		\item Toute variable référence un objet d'un type bien connu (entier, réel, chaîne de caractères, ...)
+		\item Un emplacement mémoire (adresse binaire) contient des données (binaire)
+		\item Données de taille variable (selon le type défini : entier, réel, ...)
+		\item Python gère ses ressources (mémoire, descripteurs de fichiers...) sans intervention du programmeur, par un mécanisme de comptage de références 
+ \end{itemize}
+}
+  \only<2-5>{
+	\begin{itemize}
+	\item Exemple : 
+	 \end{itemize}
+	}
+	\only<2>{
+    \includegraphics[width=10cm, height = 4cm]{images/espacenom1.png}
+  }
+	\only<3>{
+    \includegraphics[width=10cm,height = 4cm]{images/espacenom2.png}
+  }
+	\only<4>{
+    \includegraphics[width=10cm,height = 4cm]{images/espacenom3.png}
+  }
+	\only<5>{
+    \includegraphics[width=10cm,height = 4.2cm]{images/espacenom4.png}
+  }
+	\end{frame}	
+	
+	
+	
+
+\begin{frame}[fragile]
+  \frametitle{Variables en Python}
+
+  \begin{itemize}
+  \item Il n'est pas nécessaire de déclarer une variable avant de l'utiliser.
+	\item La déclaration d'une variable et son initialisation se fait en même temps.
+	\item Une variable peut changer de type au cours de l'exécution d'un programme.
+  \item Noms de variables sensibles à la casse
+  \end{itemize}
+  \begin{exemple}
+  \begin{lstlisting}[frame=none]
+	>>> a = 42
+	>>> b = 33.5
+	>>> B = "une chaîne de caractères" 
+	>>> a= a + 1.5
+	>>> a
+	43.5
+  \end{lstlisting}
+  \end{exemple}
+	\end{frame}
+	
+	
+	\begin{frame}
+  \frametitle{Variables en Python}
+  \begin{itemize}	
+	\item Règles de nommage :
+    \begin{itemize}
+    \item ne peut commencer par un chiffre ou un ``\_'' (''\_'' est à réserver pour certaines situations)
+    \item peut contenir des chiffres, et ``\_''
+    \item ne peut pas contenir de séparateur
+    \item ne doit pas être un mot clé (33 mots clé en Python 3)
+    \item peut contenir des accents, mais déconseillé
+    \end{itemize}
+  \item Choisir des noms parlants (rester raisonnable)
+  \end{itemize}
+  \pause
+  \texttt{surelyReachableObjectsWhichHaveToBeMarkedAsSuch}
+\end{frame}
+
+
+\subsection{Fonctions utiles }
+	\begin{frame}
+  \frametitle{Fonctions utiles}
+  \begin{itemize}
+
+	\item Quelques fonctions utiles intégrées à Python :
+	    \begin{itemize}
+				\item la fonction \emph{help()} donne l'accès à l'aide en ligne. \emph{help(obj)} permet de consulter l'aide sur l'objet obj.
+				\item la fonction \emph{dir()} la liste des noms accessibles dans la portée actuelle. \emph{dir(obj)} retourne la liste 
+				de tous les attributs valides de l'objet obj.
+				\item la fonction \emph{type(objet)} retourne le type de l'objet obj.
+				\item la fonction \emph{print(objet)} permet d'afficher le contenu de l'objet obj.
+			\end{itemize}
+  \end{itemize}
+  \begin{remarque}
+    On invoque une fonction en utilisant l'opérateur \emph{()} sur l'objet fonction et en plaçant les paramètres entre les parenthèses.
+  \end{remarque}
+\end{frame}
+

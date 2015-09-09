@@ -1,0 +1,814 @@
+
+\section{Les tableaux}
+
+
+\subsection{Déclaration}
+
+
+
+\begin{frame}
+  \frametitle{Les tableaux}
+  
+  \begin{defi}[Tableau]
+    Structure de données contenant plusieurs éléments du même type
+    (primitif ou composite).
+  \end{defi}
+\pause
+  \begin{exemple}[Déclaration de tableaux]
+    \begin{semiverbatim}
+      int idEtudiant[];
+
+      char[] notes;
+
+      double coordonnees[][];
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Création d'un tableau}
+  \begin{itemize}
+  \item Nécessité de définir la taille du tableau
+  \item[$\Rightarrow$] utilisation de \emph{new}
+  \end{itemize}
+
+\pause
+
+  \begin{exemple}[Création de tableaux]
+    \begin{semiverbatim}
+      int idEtudiant[] = \textcolor{red}{new} int [20];
+
+      char[] notes = \textcolor{red}{new} char [20];
+
+      double coordonnees[][] = \textcolor{red}{new} double [10][5];
+    \end{semiverbatim}
+  \end{exemple}
+  \pause
+  \begin{exemple}[Création et initialisation de tableau]
+    \begin{semiverbatim}
+      char[] notes = \{'A','B','C','D','F'\};
+
+      double coordonnees[][] = \{\{0.0,0.1\},\{0.2,0.3\}\};
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Accès aux éléments des tableaux}
+  \begin{itemize}
+  \item Accéder à un élément = accéder à une case du tableau
+  \item Opérateur \texttt{[]}
+  \item Première case : 0
+  \item Tableaux multidimensionnels : plusieurs indices
+  \item Taille du tableau : \emph{tab.length}, \emph{tab[0].length}, \ldots{}
+  \end{itemize}
+
+  \begin{exemple}[Accès à un tableau]
+    \begin{semiverbatim}
+      char note1;
+      note1 = notes[0];
+
+      notes[4] = 'Z';
+
+      double ligne2Col1 = coordonnees[1][0];
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Tableaux et boucles}
+  Utiliser les boucles facilite le parcours des tableaux.
+  \begin{exemple}
+    \begin{semiverbatim}
+      tab[0]=1 ; tab[1]=2 ; ... tab[9]=10;
+    \end{semiverbatim}
+    Remplacé par :
+    \begin{semiverbatim}
+      for (int i=0 ; i<tab.length ; i++)
+
+      \hspace{1cm}tab[i] = i+1;
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+
+
+
+
+\begin{frame}
+  \frametitle{Récapitulatif}
+  \begin{itemize}[<+->]
+  \item Déclaration d'un tableau
+  \item Création d'un tableau
+  \item Remplissage du tableau
+  \item Utilisation du tableau
+  \end{itemize}
+
+  \begin{exemple}
+    \begin{semiverbatim}
+      int tableau[]\only<2->{=new int[10]};
+      \only<1-2>{
+
+~
+
+~
+
+      }
+      \only<3->{
+
+        for (int i=0 ; i<tableau.length ; i++)
+
+        \hspace{1cm}tableau[i] = i;
+      }
+      \only<3>{
+
+      }
+
+      \only<4>{
+        System.out.println(tableau[0]);
+      }
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Affichage du contenu d'un tableau}
+
+  \begin{itemize}
+  \item<1-> Méthode d'affichage « naïve »~: afficher la variable
+  \item<3-> Méthode correcte : afficher les cases une à une
+  \end{itemize}
+
+  \only<1,2>{
+    \uncover<2>{
+      \begin{alertblock}{Incorrect}
+        \begin{semiverbatim}
+          int tab[] = new int[10];
+
+          System.out.println(tab);
+
+          ~
+
+          ~
+        \end{semiverbatim}
+      \end{alertblock}
+    }
+  }
+  \only<3>{
+    \begin{exampleblock}{Correct}
+      \begin{semiverbatim}
+        int tab[] = new int[10];
+        
+        for (int i=0 ; i<tab.length ; i++) \{
+
+          ~~~System.out.print(tab[i]);
+
+          \}
+      \end{semiverbatim}
+    \end{exampleblock}
+  }
+  \only<4>{
+    \begin{exampleblock}{Correct (depuis Java 5.0)}
+      \begin{semiverbatim}
+        int tab[] = new int[10];
+        
+        for (int val: tab) \{
+
+          ~~~System.out.print(val);
+
+          \}
+      \end{semiverbatim}
+    \end{exampleblock}
+  }
+  \only<5>{
+    \begin{exampleblock}{Autre écriture (depuis Java 5.0)}
+      \begin{semiverbatim}
+        int tab[] = new int[10];
+        
+        System.out.print(Arrays.toString(val));
+      \end{semiverbatim}
+    \end{exampleblock}
+  }
+  \uncover<2->{
+  \begin{block}{Affichage}
+    \begin{semiverbatim}
+      \only<1>{
+
+      }\only<2>{
+      [I@187c6c7
+    }\only<3->{
+      0 0 0 0 0 0 0 0 0 0
+    }
+    \end{semiverbatim}
+  \end{block}}
+\end{frame}
+
+
+\subsection{Remplissage, mélange d'un tableau}
+
+\begin{frame}[fragile]
+  \frametitle{Remplissage aléatoire d'un tableau}
+
+  \begin{itemize}
+  \item Utilisation de la classe \emph{Random}
+  \end{itemize}
+
+  \begin{exemple}
+  \begin{lstlisting}[frame=none]
+      Random alea = new Random();
+      int tab[] = new int[10];
+      for (int i=0 ; i<tab.length ; i++)
+        tab[i] = alea.nextInt(10);
+  \end{lstlisting}
+  \end{exemple}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{Mélange d'un tableau}
+  \begin{algorithm2e}[H]
+    \caption{Mélange()}
+    \KwIn{tab : entier[]}
+    \KwData{i, n : entier}
+    $n \gets taille(tab)-1$ \;
+    \While{$n>0$} {
+      $i \gets $ nombre aléatoire entre 0 et $n$ inclus \;
+      permuter $tab[n]$ et $tab[i]$ \;
+      décrémenter $n$ \;
+    }
+  \end{algorithm2e}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Mélange d'un tableau}
+  \begin{lstlisting}
+  // no max des elements
+  int n = tableau.length-1; 
+  int tmp;
+  while (n>0) {
+    int i = alea.nextInt(n+1);
+    tmp = tableau[i];
+    tableau[i] = tableau[n];
+    tableau[n] = tmp;
+    n--;
+  }
+  \end{lstlisting}
+\end{frame}
+
+\section{Algorithmes de tris}
+
+
+\subsection{Tri par sélection}
+
+\begin{frame}
+  \frametitle{Principe général}
+  \begin{itemize}
+  \item Rechercher le plus petit élément du tableau
+  \item Le permuter avec le premier élément
+  \item Recommencer entre le deuxième plus petit et le deuxième élément
+  \end{itemize}
+
+  \begin{exemple}
+    \only<1>{
+      \begin{tabular}{|l|l|l|l|l|}
+        \hline
+        7 & 2 & 1 & 8 & 4\\
+        \hline
+      \end{tabular}
+    }
+    \only<2>{
+      \begin{tabular}{|l|l|l|l|l|}
+        \hline
+        \textcolor{red}{7} & 2 & \textcolor{red}{1} & 8 & 4\\
+        \hline
+      \end{tabular}
+    }
+    \only<3>{
+      \begin{tabular}{|l|l|l|l|l|}
+        \hline
+        1 & 2 & 7 & 8 & 4\\
+        \hline
+      \end{tabular}
+    }
+    \only<4>{
+      \begin{tabular}{|l|l|l|l|l|}
+        \hline
+        1 & \textcolor{red}{2} & 7 & 8 & 4\\
+        \hline
+      \end{tabular}
+    }
+    \only<5>{
+      \begin{tabular}{|l|l|l|l|l|}
+        \hline
+        1 & 2 & 7 & 8 & 4\\
+        \hline
+      \end{tabular}
+    }
+    \only<6>{
+      \begin{tabular}{|l|l|l|l|l|}
+        \hline
+        1 & 2 & \textcolor{red}{7} & 8 & \textcolor{red}{4}\\
+        \hline
+      \end{tabular}
+    }
+    \only<7>{
+      \begin{tabular}{|l|l|l|l|l|}
+        \hline
+        1 & 2 & 4 & 8 & 7\\
+        \hline
+      \end{tabular}
+    }
+    \only<8>{
+      \begin{tabular}{|l|l|l|l|l|}
+        \hline
+        1 & 2 & 4 & \textcolor{red}{8} & \textcolor{red}{7}\\
+        \hline
+      \end{tabular}
+    }
+    \only<9>{
+      \begin{tabular}{|l|l|l|l|l|}
+        \hline
+        1 & 2 & 4 & 7 & 8\\
+        \hline
+      \end{tabular}
+    }
+  \end{exemple}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Algorithme tri par sélection}
+{\small
+\begin{algorithm2e}[H]
+  \caption{triSel}
+  \KwIn{tab : entier[]}
+  \KwData{indMin, i, j, n : entier}
+  $n \gets taille(tab)$ \;
+  \For{$i \in [0, n-2]$} {\pause
+    $indMin \gets i$ \;
+    \For{$j \in [i+1, n-1]$} {
+      \If{$tab[j]<tab[indMin]$} {
+        $indMin \gets j$ \;\pause
+      }
+    }
+    inverser($tab[indMin],tab[i]$)\;
+  }
+\end{algorithm2e}
+}
+  % \begin{algorithmic}[1]
+  %   \Procedure{triSel}{entier tab[]}
+  %     \Var
+  %       \State indMin, i, j, n : entier
+  %     \EndVar
+  %     \State $n \gets taille(tab)$
+  %     \For{$i \in [0, n-2]$}\pause
+  %       \State $indMin \gets i$
+  %       \For{$j \in [i+1, n-1]$}
+  %         \If{$tab[j]<tab[indMin]$}
+  %           \State $indMin \gets j$\pause
+  %         \EndIf
+  %       \EndFor
+  %       \State inverser($tab[indMin],tab[i]$)
+  %     \EndFor
+  %   \EndProcedure
+  % \end{algorithmic}}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{Algorithme tri par sélection}
+  \begin{lstlisting}
+public void triSel(int tab[]) {
+  int indMin; // indice du plus petit element
+  int elemTmp; // element temporaire
+  for (int i=0 ; i<tab.length ; i++) {
+    indMin = i;
+    for (int j=i+1 ; j<tab.length ; j++)
+      if (tab[j] < tab[indMin])
+        indMin = j;
+    elemTmp = tab[indMin];
+    tab[indMin] = tab[i];
+    tab[i] = elemTmp;
+  }
+}
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Étude de la complexité du tri}
+  Complexité $C(n)$ : ordre de grandeur du nombre d'opérations d'un algorithme.
+  \pause
+  Notation $\Theta$~:
+  $$
+  \Theta(g(n)) =
+  \left\{\begin{array}{l}
+      f(n) : \exists c_1,c_2\in \nbR^+, n_0\in\nbN / \\
+      \forall n\geq n_0 , 0 \leq c_1g(n) \leq f(n) \leq c_2g(n)
+    \end{array}
+  \right\}
+  $$
+  \pause
+  $\Theta(g(n))$ représente l'ensemble des fonctions de même ordre que $g(n)$.
+\end{frame}
+
+\begin{frame}
+  Tri par sélection :
+  \begin{itemize}
+  \item Boucle externe : $i=n-2$ fois
+  \item Boucle interne : $n-i$ fois
+  \item Somme :
+    $$\sum_{i=0}^{n-2}(n-i)=\sum_{j=1}^{n-1}j=\frac{n(n-1)}{2}=\frac12n^2-\frac12n$$
+  \end{itemize}
+  $$
+  C(n) \only<1>{=\frac12n^2-\frac12n}
+  \only<2>{\simeq \frac12n^2}
+  \only<3>{\simeq n^2}
+  \only<4>{\in \Theta(n^2)}
+  \only<5>{= \Theta(n^2)}
+  $$
+\end{frame}
+
+
+\subsection{Tri bulles}
+
+\begin{frame}
+  \frametitle{Principe du tri bulles}
+  \begin{itemize}
+  \item Très simple à mettre en oeuvre
+  \item Comparaisons locales : un élément et son successeur
+  \item Faire remonter l'élément le plus grand, puis le deuxième plus
+    grand, ... 
+  \end{itemize}
+
+  \begin{exemple}
+    \only<1>{
+      \begin{tabular}{|l|l|l|l|l|}
+        \hline
+        7 & 2 & 1 & 8 & 4\\
+        \hline
+      \end{tabular}
+    }
+    \only<2>{
+      \begin{tabular}{|l|l|l|l|l|}
+        \hline
+        \textcolor{red}{7} & \textcolor{red}{2} & 1 & 8 & 4\\
+        \hline
+      \end{tabular}
+    }
+    \only<3>{
+      \begin{tabular}{|l|l|l|l|l|}
+        \hline
+        2 & 7 & 1 & 8 & 4\\
+        \hline
+      \end{tabular}
+    }
+    \only<4>{
+      \begin{tabular}{|l|l|l|l|l|}
+        \hline
+        2 & \textcolor{red}{7} & \textcolor{red}{1} & 8 & 4\\
+        \hline
+      \end{tabular}
+    }
+    \only<5>{
+      \begin{tabular}{|l|l|l|l|l|}
+        \hline
+        2 & 1 & 7 & 8 & 4\\
+        \hline
+      \end{tabular}
+    }
+    \only<6>{
+      \begin{tabular}{|l|l|l|l|l|}
+        \hline
+        2 & 1 & \textcolor{red}{7} & \textcolor{red}{8} & 4\\
+        \hline
+      \end{tabular}
+    }
+    \only<7>{
+      \begin{tabular}{|l|l|l|l|l|}
+        \hline
+        2 & 1 & 7 & 8 & 4\\
+        \hline
+      \end{tabular}
+    }
+    \only<8>{
+      \begin{tabular}{|l|l|l|l|l|}
+        \hline
+        2 & 1 & 7 & \textcolor{red}{8} & \textcolor{red}{4}\\
+        \hline
+      \end{tabular}
+    }
+    \only<9>{
+      \begin{tabular}{|l|l|l|l|l|}
+        \hline
+        2 & 1 & 7 & 4 & 8\\
+        \hline
+      \end{tabular}
+    }
+    \only<10>{
+      \begin{tabular}{|l|l|l|l|l|}
+        \hline
+        \textcolor{red}{2} & \textcolor{red}{1} & 7 & 4 & 8\\
+        \hline
+      \end{tabular}
+    }
+  \end{exemple}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Algorithme du tri bulles}
+{\small
+\begin{algorithm2e}[H]
+  \caption{Algorithme du tri bulles}
+  \KwIn{tab : entier[]}
+  \KwData{i, j, n : entier}
+  $n \gets taille(tab)$\;
+  \For{$i \in [n-1,1]$} {\pause
+    \For{$j \in [0, i-1]$} {\pause
+      \If{$tab[j]>tab[j+1]$} {\pause
+        inverser($tab[j],tab[j+1]$)\;
+      }
+    }
+  }
+\end{algorithm2e}
+  %  \begin{algorithmic}[1]
+  %   \Procedure{triBul}{entier tab[]}
+  %     \Var
+  %       \State i, j, n : entier
+  %     \EndVar
+  %     \State $n \gets taille(tab)$
+  %     \For{$i \in [n-1,1]$}\pause
+  %       \For{$j \in [0, i-1]$}\pause
+  %         \If{$tab[j]>tab[j+1]$}\pause
+  %           \State inverser($tab[j],tab[j+1]$)
+  %         \EndIf
+  %       \EndFor
+  %     \EndFor
+  %   \EndProcedure
+  % \end{algorithmic}
+}
+\end{frame}
+
+\subsection{Tri par insertion}
+
+\begin{frame}
+  \frametitle{Principe du tri par insertion}  
+  \begin{itemize}
+  \item<1-> Principe : découper le tableau en deux parties
+  \item<2-> Une partie triée
+  \item<3-> Une partie non triée
+  \item<4-> Insérer le premier nombre non trié (clé) \only<5->{ dans la partie
+      triée} 
+  \item<7-> Continuer en agrandissant la partie triée
+  \end{itemize}
+~\\
+
+  \only<1>{
+    \begin{center}\begin{tabular}{|l|l|l|l|l|}
+      \hline
+      5 & 2 & 6 & 3 & 1\\
+      \hline
+    \end{tabular}\end{center}
+  }
+  \only<2>{
+    \begin{center}\begin{tabular}{|l|l|l|l|l|}
+      \hline
+      \textcolor{red}{5} & 2 & 6 & 3 & 1\\
+      \hline
+    \end{tabular}\end{center}
+  }
+  \only<3>{
+    \begin{center}\begin{tabular}{|l|l|l|l|l|}
+      \hline
+      5 & \textcolor{red}{2} & \textcolor{red}{6} & \textcolor{red}{3} & \textcolor{red}{1}\\
+      \hline
+    \end{tabular}\end{center}
+  }
+  \only<4>{
+    \begin{center}\begin{tabular}{|l|l|l|l|l|}
+      \hline
+      5 & \textcolor{red}{2} & 6 & 3 & 1\\
+      \hline
+    \end{tabular}\end{center}
+  }
+  \only<5>{
+    \begin{center}\begin{tabular}{|l|l|l|l|l|}
+      \hline
+      \textcolor{blue}{5} & 2 & 6 & 3 & 1\\
+      \hline
+    \end{tabular}\end{center}
+  }
+  \only<6>{
+    \begin{center}\begin{tabular}{|l|l|l|l|l|}
+      \hline
+      2 & 5 & 6 & 3 & 1\\
+      \hline
+    \end{tabular}\end{center}
+  }
+  \only<7>{
+    \begin{center}\begin{tabular}{|l|l|l|l|l|}
+      \hline
+      \textcolor{blue}{2} & \textcolor{blue}{5} & \textcolor{red}{6} & 3 & 1\\
+      \hline
+    \end{tabular}\end{center}
+  }
+  \only<8>{
+    \begin{center}\begin{tabular}{|l|l|l|l|l|}
+      \hline
+      2 & 5 & 6 & 3 & 1\\
+      \hline
+    \end{tabular}\end{center}
+  }
+  \only<9>{
+    \begin{center}\begin{tabular}{|l|l|l|l|l|}
+      \hline
+      \textcolor{blue}{2} & \textcolor{blue}{5} & \textcolor{blue}{6} & \textcolor{red}{3} & 1\\
+      \hline
+    \end{tabular}\end{center}
+  }
+  \only<10>{
+    \begin{center}\begin{tabular}{|l|l|l|l|l|}
+      \hline
+      2 & 3 & 5 & 6 & 1\\
+      \hline
+    \end{tabular}\end{center}
+  }
+  \only<11>{
+    \begin{center}\begin{tabular}{|l|l|l|l|l|}
+      \hline
+      \textcolor{blue}{2} & \textcolor{blue}{3} & \textcolor{blue}{5} & \textcolor{blue}{6} & \textcolor{red}{1}\\
+      \hline
+    \end{tabular}\end{center}
+  }
+  \only<12>{
+    \begin{center}\begin{tabular}{|l|l|l|l|l|}
+      \hline
+      1 & 2 & 3 & 5 & 6\\
+      \hline
+    \end{tabular}\end{center}
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{algorithme}
+{\small  
+\begin{algorithm2e}[H]
+  \caption{Algorithme du tri par insertion}
+  \KwIn{tab : entier[]}
+  \KwData{i, j, n, cle : entier}
+  $n \gets taille(tab)$ \;
+  \For{$i \in [1,n-1]$} {\pause
+    $cle  \gets tab[i]$ \tcp{valeur à insérer dans la partie triée}
+    $j \gets i$\;\pause
+    \While{$j > 0$ et $tab[j-1]>cle$} {
+       $tab[j] \gets tab[j-1]$ \tcp{décaler l'élément j d'un cran à droite}
+       décrémenter $j$ \;\pause
+     }
+       $tab[j] \gets cle$ \tcp{insérer \emph{cle} à sa place}
+     }
+\end{algorithm2e}
+% \begin{algorithmic}[1]
+%     \Procedure{triIns}{entier tab[]}
+%       \Var
+%         \State i, j, n, cle : entier
+%       \EndVar
+%       \State $n \gets taille(tab)$
+%       \For{$i \in [1,n-1]$}\pause
+%         \State $cle  \gets tab[i]$ \Comment valeur à insérer dans la partie triée
+%         \State $j \gets i$\pause
+%         \While{$j > 0$ et $tab[j-1]>cle$}
+%           \State $tab[j] \gets tab[j-1]$ \Comment décaler l'élément j 
+%           \State décrémenter $j$\pause
+%         \EndWhile
+%         \State $tab[j] \gets cle$ \Comment insérer \emph{cle} à sa place
+%       \EndFor
+%     \EndProcedure
+%   \end{algorithmic}
+}
+\end{frame}
+
+
+
+\subsection{Tri shell}
+
+\begin{frame}
+  \frametitle{Principe du tri shell}
+  \begin{itemize}[<+->]
+  \item Proposé en 1959 par Donald L. Shell
+  \item Tri par insertion optimisé
+  \item Inconvénient du tri par insertion : insérer une clé en début de
+    tableau
+  \item Idée : faire un ``pré-tri'' avec un par grossier $h$
+  \item puis affiner le tri en diminuant $h$
+  \item finir avec $h=1$ (tri par insertion)
+  \item Choix de la suite $h_n$ important
+  \item exemple de suite : $u_0=1 ; u_{n+1} = 3u_n+1$, $h_n$ défini par
+    \begin{itemize}
+    \item $h_0 =$ le plus grand $u_n$ tel que $u_{n}<N$ (N : taille du tableau)
+    \item $h_{n+1} = \frac{h_n-1}{3}$
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Algorithme du tri shell}
+{\small  
+\begin{algorithm2e}[H]
+  \caption{Tri Shell}
+  \KwIn{tab : entier[]}
+  \KwData{i, j, n, cle,h : entier}
+  $n \gets taille(tab)$ \;
+  $h \gets 1$ \;
+  \While{$3h+1 < n$  \tcp{calcul de $h_0$}} {
+    $h \gets 3h+1$ \;
+  }
+  \ldots{}
+\end{algorithm2e}
+% \begin{algorithmic}[1]
+%     \Procedure{triShell}{entier tab[]}
+%       \Var
+%         \State i, j, n, cle, h : entier
+%       \EndVar
+%       \State $n \gets taille(tab)$
+%       \State $h \gets 1$
+%       \While{$3h+1 < n$} \Comment calcul de $h_0$
+%         \State $h \gets 3h+1$
+%       \EndWhile
+%       \State\ldots{}
+%     \EndProcedure
+%   \end{algorithmic}
+}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Algorithme du tri shell}
+{\small  
+\begin{algorithm2e}[H]
+  \caption{Tri Shell}
+  \While{$h>0$} {\pause
+    \For{$i \in [h,n-1]$} {
+      $cle  \gets tab[i]$ \tcp{valeur à insérer dans la partie triée}
+      $j \gets i$\;
+      \While{$j \geqslant h$ et $tab[j-h]>cle$} {
+        $tab[j] \gets tab[j-h]$ \tcp{décaler de \emph{h} crans à droite}
+        $j \gets j-h$ \;
+      }\pause
+      $tab[j] \gets cle$ \tcp{insérer \emph{cle} à sa place}
+    }\pause
+    $h \gets h/3$ \tcp{équivalent à (h-1)/3}
+}
+\end{algorithm2e}
+% \begin{algorithmic}[1]
+%     \Procedure{triShell}{entier tab[]}
+%       \While{$h>0$}\pause
+%         \For{$i \in [h-1,n-1]$}
+%           \State $cle \gets tab[i]$ \Comment valeur à insérer
+%           \State $j \gets i$
+%           \While{$j \geqslant h$ et $tab[j-h]>cle$}
+%             \State $tab[j] \gets tab[j-h]$ 
+%             \State $j \gets j-h$
+%           \EndWhile\pause
+%           \State $tab[j] \gets cle$ \Comment insérer \emph{cle} à sa place
+%         \EndFor \pause
+%         \State $h \gets h/3$ \Comment equivalent à (h-1)/3
+%       \EndWhile
+%     \EndProcedure
+%   \end{algorithmic}
+}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Étude du tri shell}
+  \begin{itemize}[<+->]
+  \item Complexité dépend de la suite $h_n$ utilisée
+  \item Meilleure suite inconnue
+  \item Complexités dans le pire des cas connues :
+    \begin{itemize}
+    \item $h_i=2^{i+1}-1 \leadsto \Theta(n^\frac32)$
+    \end{itemize}
+  \item Complexités moyennes connues :
+    \begin{itemize}
+    \item $h_i=2^{i+1}-1 \leadsto \Theta(n^\frac32)$
+    \item $h_i=2^p3^q \leadsto \Theta(n \log^2 n)$
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\subsection{Autres tris}
+
+\begin{frame}
+  \frametitle{Autres tris}
+  Il existe d'autres tris plus performants mais plus complexes.
+  \begin{itemize}
+  \item tri par segmentation (quicksort)
+  \item tri par partition/fusion
+  \item tri par arbre binaire de recherche équilibré
+  \item tri par tas
+  \end{itemize}
+
+  Exemples : \url{https://moodle.ensieta.fr/course/view.php?id=548}
+\end{frame}

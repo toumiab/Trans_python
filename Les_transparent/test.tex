@@ -1,0 +1,89 @@
+\section{Les tableaux}
+
+
+\subsection{Déclaration}
+
+
+
+\begin{frame}
+  \frametitle{Les tableaux}
+  
+  \begin{defi}[Tableau]
+    Structure de données contenant plusieurs éléments du même type
+    (primitif ou composite).
+  \end{defi}
+\pause
+  \begin{exemple}[Déclaration de tableaux]
+    \begin{semiverbatim}
+      {\color[rgb]{0,0.7,0}{{\scriptsize // \textit{idEtudiants} est un tableau à une dimension de \emph{int}}}}
+      
+      int idEtudiants[]; 
+		
+			{\color[rgb]{0,0.7,0}{{\scriptsize//\textit{Notes} est un tableau à une dimension de \emph{char}}}}
+			
+      char[] notes;
+
+      {\color[rgb]{0,0.7,0}{{\scriptsize //\textit{coordonnees} est un tableau à deux dimensions \emph{double}}}}
+      
+        double coordonnees[][];
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Création d'un tableau}
+  \begin{itemize}
+  \item Nécessité de définir la taille du tableau
+  \item[$\Rightarrow$] utilisation de \emph{new}
+  \end{itemize}
+
+\pause
+
+  \begin{exemple}[Création de tableaux]
+    \begin{semiverbatim}
+      int idEtudiant[] = \textcolor{red}{new} int [20];
+
+      char[] notes = \textcolor{red}{new} char [20];
+
+      double coordonnees[][] = \textcolor{red}{new} double [10][5];
+    \end{semiverbatim}
+  \end{exemple}
+  \pause
+  \begin{exemple}[Création et initialisation de tableau]
+    \begin{semiverbatim}
+      char[] notes = \{'A','B','C','D','F'\};
+
+      double coordonnees[][] = \{\{0.0,0.1\},\{0.2,0.3\}\};
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Création d'un tableau}
+   \begin{exemple}[Création de tableaux]
+    \begin{semiverbatim}
+  
+      \temporal<1> {\color{black}}{\color{black}}{\color{gray!25}} int ti[] = \textbf{new} int [10];
+        
+      \temporal<2> {\color{gray!25}}{\color{black}}{\color{gray!25}} char[] tc = \textbf{new} char [15];
+         
+      \temporal<3> {\color{gray!25}}{\color{black}}{\color{gray!25}} int t2[][] = \textbf{new} int[5][10];
+          
+      \temporal<4> {\color{gray!25}}{\color{black}}{\color{gray!25}}  int t21[][] = \{\{1, 2, 3\}, \{4, 5, 6\}\};
+      
+    \end{semiverbatim}
+  \end{exemple}
+
+ % \pdflatex{tableau1.png}
+% \hspace{.4cm}
+ %\vspace{-.1cm}
+
+\only<1>{\includegraphics[width=4cm]{tableau1.jpg}}
+\only<2>{\includegraphics[width=6cm]{tableau2.jpg}}
+\only<3>{\includegraphics[width=6cm]{tableau3.jpg}}
+\only<4>{\includegraphics[width=5cm]{tableau4.jpg}}
+
+
+
+\end{frame}

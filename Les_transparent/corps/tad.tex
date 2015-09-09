@@ -1,0 +1,835 @@
+
+\section{Type abstrait de données}
+
+
+\subsection{Définition}
+
+\begin{frame}
+  \frametitle{Définition}
+
+  \begin{defi}[Type abstrait de données]
+    Concept d'utilisation de données ne tenant pas en compte leur
+    réprésentation interne.
+  \end{defi}
+
+  \pause
+  \begin{itemize}
+  \item Conception d'un algorithme : démarche descendante \pause
+  \item Initialement : on est loin de l'implantation\ldots{} \pause 
+    puis on affine\pause 
+  \item Étape initiale : type abstrait de données (TAD)\pause
+  \item Définir les opérations sur le TAD
+  \item Cacher la représentation interne\pause
+  \item<alert@7> Objet simplifié 
+  \end{itemize}
+  \pause
+  Utilité : briques réutilisables
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exemple : rationnels}
+  \begin{itemize}[<+->]
+  \item TAD nombre rationnel
+  \item Opérations : 
+    \begin{itemize}
+    \item création
+    \item extraction numérateur et dénominateur
+    \item addition, soustraction, multiplication, division
+    \item test d'égalité
+    \end{itemize}
+  \item Représentation interne : par exemple deux entiers
+  \item Contrainte interne : numérateur strictement positif
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exemple : rationnels}
+
+  \begin{itemize}
+  \item \only<1>{Définition d'un nouveau \textcolor{red}{type}}
+\only<2>{Représentation \textcolor{red}{interne}}
+\only<3-5>{\textcolor{red}{Initialisation} de la représentation interne}
+\only<6>{Opérations}
+  \item \only<1>{Classe}
+\only<2>{Variables d'instance}
+\only<3-5>{Constructeur}
+\only<6>{Méthodes}
+  \end{itemize}
+
+  \begin{semiverbatim}
+    {\color<1>{red}public class Rationnel} \{
+\only<2>{
+
+  \hspace{1cm}\textcolor{red}{private} int numerateur;
+
+    \hspace{1cm}\textcolor{red}{private} int denominateur;}
+
+    \hspace{1cm}...
+\only<3>{
+
+  \hspace{1cm}public \textcolor{red}{Rationnel}(int num, int den) \{
+
+    \hspace{2cm}if (den == 0) \{
+
+        \hspace{3cm}numerateur = 0;
+
+        \hspace{3cm}denominateur = 0;
+
+      \hspace{2cm}\}}
+\only<4>{
+
+    \hspace{2cm}else if(den > 0) \{
+
+        \hspace{3cm}numerateur = num;
+
+        \hspace{3cm}denominateur = den;
+
+      \hspace{2cm}\}}
+\only<5>{
+
+    \hspace{2cm}else \{
+
+        \hspace{3cm}numerateur = -num;
+
+        \hspace{3cm}denominateur = -den;
+
+      \hspace{2cm}\}
+
+  \hspace{1cm}\}}
+\only<6>{
+
+  \hspace{1cm}public void \textcolor{red}{mult}(Rationnel r) \{
+
+    \hspace{2cm}numerateur *= r.numerateur;
+
+    \hspace{2cm}denominateur *= r.denominateur;
+
+  \hspace{1cm}\}
+
+  \}}
+  \end{semiverbatim}
+\vspace{5cm}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exemple : rationnels}
+  \includegraphics[height=6cm]{rationnel}
+
+\end{frame}
+
+
+
+\section{Notion d'objet}
+
+
+\subsection{Concepts fondamentaux}
+
+\begin{frame}
+  \frametitle{Concepts}
+  Objectif :
+  \begin{itemize}
+  \item Augmenter la réutilisabilité
+  \item[$\Rightarrow$] modularité du code, notion de composants
+  \end{itemize}
+
+  \pause
+  Concepts mis en place :
+  \begin{itemize}
+  \item {\color<3>{red}encapsulation}
+  \item héritage
+  \item polymorphisme
+  \end{itemize}
+
+  \uncover<4>{
+    \begin{defi}[Encapsulation]
+      Mécanisme permettent de cacher l'implantation d'un TAD. Fournit une
+      interface pour accéder aux données.
+    \end{defi}
+  }
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Notion de classe et d'instance}
+  \begin{itemize}
+  \item Classe $\simeq$ type
+  \item Instancier la classe $\simeq$ déclarer une variable de ce type
+  \item Objet : variable dont le type est une classe
+  \end{itemize}
+  \pause
+  Classe $\leadsto$ plan
+
+  Instance $\leadsto$ réalisation
+  \pause
+  \begin{alertblock}{Important}
+    Un programme est composé d'instances et non de classes
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exemple}
+
+  \only<1,3,6>{
+    \begin{itemize}
+    \item<1-> Classe Rationnel
+    \item<3-> Création d'instances / objets
+    \item<6-> Utilisation d'objets
+    \end{itemize}}
+  % \only<2>{
+  %   \includegraphics[height=7cm]{classe_objet1}
+  % }
+  % \only<4>{
+  %   \includegraphics[height=7cm]{classe_objet2_0}
+  % }
+  % \only<5>{
+  %   \includegraphics[height=7cm]{classe_objet2}
+  % }
+  % \only<7>{
+  %   \includegraphics[height=7cm]{classe_objet3}
+  % }
+  \only<2,4,5,7>{
+    \begin{center}
+      \tikzstyle{classe}=[rectangle, draw=black, rounded corners,
+      fill=blue!20, drop shadow, text centered, text=black, text width=2cm,
+      rectangle split, rectangle split parts=2]
+      \tikzstyle{uses}=[thick, arrows={-angle 60}, shorten >= 2pt]
+      \pgfdeclarelayer{background}
+      \pgfdeclarelayer{foreground}
+      \pgfsetlayers{background,main,foreground}
+      \begin{tikzpicture}[node distance=1cm]
+        \node (classe) {\textbf{Classe Rationnel}};
+        \uncover<3->{
+          \node (figure) [classe, node distance=4mm,below=of classe]
+          {
+            \texttt{\textcolor<7>{blue}{num=2\\den=3}}
+            \nodepart{second}\texttt{\textcolor<7>{red}{mult()}\\equals()}
+          };
+          \node (obj1) [below=of figure, xshift=-1cm] {\textcolor<7>{red}{x}};
+          \only<-5>{\draw[uses] (obj1) to (figure.south);}
+          \only<7>{\draw[uses,color=red] (obj1) to (figure.south);}
+        }
+        \node (main) [node distance=1mm,below=of obj1,xshift=1cm] {\texttt{main()}};
+        \uncover<5->{
+          \node (figure2) [classe, right=of figure]
+          {
+            \texttt{num=1\\den=5}
+            \nodepart{second}\texttt{mult()\\equals()}
+          };
+          \node (obj2) [below=of figure2, xshift=-1cm] {y};
+          \draw[uses] (obj2) to (figure2.south);
+        }
+
+        \begin{pgfonlayer}{background}
+          % Compute a few helper coordinates
+          \path (obj1.west |- classe.north)+(-0.5,0.3) node (a) {};
+          \path (main.south -| figure2.east)+(+0.3,-0.2) node (b) {};
+          \path[fill=yellow!20,rounded corners, draw=black!50, dashed] (a) rectangle (b);
+        \end{pgfonlayer}
+        
+      \end{tikzpicture}
+    \end{center}
+  }
+\end{frame}
+
+\subsection{POO en Java}
+
+\begin{frame}
+  \frametitle{Notion de classe et d'objet en Java}
+  \begin{itemize}
+  \item Une classe définie dans un fichier \emph{.java}
+  \item Nom de la classe dans le fichier après le \emph{public class}
+  \item Usage : faire commencer le nom de la classe par une majuscule
+  \end{itemize}
+  \pause
+  \begin{remarques}
+    \begin{itemize}
+    \item En Java, une seule classe \textcolor{red}{publique} par
+      fichier\pause
+    \item En général, les classes sont publiques\pause
+    \item[$\Rightarrow$] une seule classe par fichier
+    \end{itemize}
+  \end{remarques}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Instanciation de classes}
+  \only<1,2,4,6>{
+    \begin{itemize}
+    \item Utiliser une classe $\Rightarrow$ créer une instance
+    \item Instance = variable $\Rightarrow$ se manipule comme une variable
+      \begin{itemize}
+      \item<2-> déclaration
+      \item<4-> initialisation
+      \item<6-> utilisation
+      \end{itemize}
+    \end{itemize}
+    \begin{exemple}
+      \begin{semiverbatim}
+        \uncover<2->{Rationnel x;}
+        
+        \uncover<4->{x = new Rationnel(2,3);}
+
+        \uncover<6->{x.mult(x);}
+      \end{semiverbatim}
+    \end{exemple}}
+  \only<3,5,7>{
+    \begin{center}
+      \tikzstyle{classe}=[rectangle, draw=black, rounded corners,
+      fill=blue!20, drop shadow, text centered, text=black, text width=2cm,
+      rectangle split, rectangle split parts=2]
+      \tikzstyle{uses}=[thick, arrows={-angle 60}, shorten >= 2pt]
+      \pgfdeclarelayer{background}
+      \pgfdeclarelayer{foreground}
+      \pgfsetlayers{background,main,foreground}
+      \begin{tikzpicture}[node distance=1cm]
+        \node (classe) {\textbf{Classe Rationnel}};
+        
+        \uncover<5->{
+          \node (figure) [classe, node distance=4mm,below=of classe]
+          {
+            \texttt{num=2\\den=3}
+            \nodepart{second}\texttt{\textcolor<7>{red}{mult()}\\equals()}
+          };
+        }
+          \node (obj1) [below=of figure, xshift=-1cm] {\textcolor<7>{red}{x}};
+        \uncover<5->{
+          \only<-5>{\draw[uses] (obj1) to (figure.south);}
+          \only<7>{\draw[uses,color=red] (obj1) to (figure.south);}
+        }
+        \node (main) [node distance=1mm,below=of obj1,xshift=1cm] {\texttt{main()}};
+
+        \begin{pgfonlayer}{background}
+          % Compute a few helper coordinates
+          \path (obj1.west |- classe.north)+(-0.5,0.3) node (a) {};
+          \path (main.south -| classe.east)+(+0.3,-0.2) node (b) {};
+          \path[fill=yellow!20,rounded corners, draw=black!50, dashed] (a) rectangle (b);
+        \end{pgfonlayer}
+        
+      \end{tikzpicture}
+    \end{center}
+  }
+  % \only<3>{
+  %   \includegraphics[height=7cm]{unobjet1}
+  % }
+  % \only<5>{
+  %   \includegraphics[height=7cm]{unobjet2}
+  % }
+  % \only<7>{
+  %   \includegraphics[height=7cm]{unobjet3}
+  % }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Variables d'instance}
+  \begin{itemize}
+  \item Attributs de la classe
+  \item En général masqués à l'extérieur de la classe : \textcolor{red}{private}
+  \item Règle de nommage : nom commence par une minuscule
+  \end{itemize}
+  \pause
+  \begin{exemple}[Rationnels]
+    deux variables entières :
+    \begin{semiverbatim}
+      public class Rationnel \{
+
+      \hspace{1cm}private int numerateur;
+
+      \hspace{1cm}private int denominateur;
+
+      \hspace{1cm}...
+
+      \}
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Modificateurs d'accès}
+  Quatre modificateurs d'accès possibles :
+  \begin{itemize}[<+->]
+  \item public : utilisable depuis toutes les classes
+  \item private : utilisable uniquement dans sa classe
+  \item protected : utilisable depuis la classe et les sous-classes
+  \item default (rien) : utilisable dans le paquetage courant
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Accesseurs}
+  \only<1-5>{
+    \textcolor{red}{Encapsulation}
+    \begin{itemize}[<+->]
+    \item Variables privées : comment y accéder ?
+    \item[$\Rightarrow$] utilisation de méthodes get et set
+    \end{itemize}
+    \uncover<3->{
+      \begin{exemple}
+        \textcolor{red}{private} int numerateur;
+        
+        \uncover<4->{\textcolor{red}{public} int getNumerateur() \{
+
+          \hspace{1cm}return numerateur;
+
+          \}}
+
+
+        \uncover<5->{\textcolor{red}{public} void setNumerateur(int num) \{
+
+          \hspace{1cm}numerateur = num;
+
+          \}}
+      \end{exemple}}}
+  \only<6>{
+    \begin{center}
+      \tikzstyle{classe}=[rectangle, draw=black, rounded corners,
+      fill=blue!20, drop shadow, text centered, text=black, text width=2cm,
+      rectangle split, rectangle split parts=2]
+      \tikzstyle{uses}=[thick, arrows={-angle 60}, shorten >= 2pt]
+      \pgfdeclarelayer{background}
+      \pgfdeclarelayer{foreground}
+      \pgfsetlayers{background,main,foreground}
+      \begin{tikzpicture}[node distance=1cm]
+        \node (classe) {\textbf{Classe Rationnel}};
+        
+        \node (figure) [classe, node distance=4mm,below=of classe]
+        {
+          \texttt{num=2\\den=3}
+          \nodepart{second}\texttt{getNum()\\setNum()}
+        };
+        \node (obj1) [below=of figure, xshift=-1cm] {x};
+        \draw[uses] (obj1) to (figure.south);
+        \node (main) [node distance=1mm,below=of obj1,xshift=1cm] {\texttt{main()}};
+        \draw[uses] (figure.second east)+(-0.25,-0.3) .. controls +(1.5,0.3) and +(1.5,0.3) .. ([xshift=-0.5cm,yshift=-3mm] figure.north east);
+        \draw[uses] (figure.second east)+(-0.25,0.25) .. controls +(1,0.3) and +(1,0.3) .. ([xshift=-0.5cm,yshift=-3mm] figure.north east);
+
+        \begin{pgfonlayer}{background}
+          % Compute a few helper coordinates
+          \path (obj1.west |- classe.north)+(-0.5,0.3) node (a) {};
+          \path (main.south -| classe.east)+(+0.8,-0.2) node (b) {};
+          \path[fill=yellow!20,rounded corners, draw=black!50, dashed] (a) rectangle (b);
+        \end{pgfonlayer}
+        
+      \end{tikzpicture}
+    \end{center}
+%    \includegraphics[height=6cm]{getSet}
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Constructeur}
+  \begin{itemize}
+  \item Rôle : initialiser l'objet (\textcolor{blue}{variables d'instance})
+  \item Appelé par l'opérateur \textcolor{red}{new}
+  \item Méthode sans type de retour portant le nom de la classe
+  \end{itemize}
+
+  \begin{exemple}[Constructeur]
+    public Rationnel(int num, int den) \{
+
+    \hspace{1cm}\textcolor{blue}{numerateur} = num;
+
+    \hspace{1cm}\textcolor{blue}{denominateur} = den;
+
+    \}
+  \end{exemple}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Contexte d'exécution}
+  \begin{itemize}
+  \item Une variable = une instance = un contexte d'exécution
+  \item chaque variable contient ses données propres
+  \end{itemize}
+
+  \begin{exemple}
+    \begin{semiverbatim}
+      Rationnel x1 = new Rationnel(1,2);
+
+      Rationnel x2 = new Rationnel(2,3);
+
+      System.out.println(x1.getNumerateur());
+
+      System.out.println(x2.getNumerateur());
+
+      $\Rightarrow$ 1 2
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+\begin{frame}
+  \frametitle{L'objet \emph{this}}
+  \only<1,2>{
+    \begin{itemize}
+    \item \emph{this} : objet représentant le contexte courant
+    \item utilisable uniquement dans une méthode d'instance
+    \item est implicite dans la plupart des cas
+    \end{itemize}
+    \pause
+    \begin{exemple}[Utilisation de \emph{this}]
+      \begin{semiverbatim}
+        \textcolor{red}{private int numerateur;}
+        
+        public int getNumerateur() \{
+      
+        \hspace{1cm}int numerateur = 0;
+
+        \hspace{1cm}return \textcolor{red}{this.}numerateur;
+
+        \}
+      \end{semiverbatim}
+    \end{exemple}}
+  \only<3>{
+  \begin{center}
+    \tikzstyle{classe}=[rectangle, draw=black, rounded corners,
+    fill=blue!20, drop shadow, text centered, text=black, text width=2cm,
+    rectangle split, rectangle split parts=2]
+    \tikzstyle{uses}=[thick, arrows={-angle 60}, shorten >= 2pt]
+    \pgfdeclarelayer{background}
+    \pgfdeclarelayer{foreground}
+    \pgfsetlayers{background,main,foreground}
+    \begin{tikzpicture}[node distance=1cm, font=\small]
+      \node (classe) {\textbf{Classe Rationnel}};
+      \node (figure) [classe, node distance=4mm,below=of classe]
+      {
+        \texttt{\textcolor{red}{num=2}\\den=3}
+        \nodepart{second}\texttt{\textcolor{red}{getNum()}\\setNum()}
+      };
+    
+      \node (obj1) [below=of figure, xshift=-1cm] {x};
+      \draw[uses] (obj1) to (figure.south);
+      \node (main) [node distance=1mm,below=of obj1,xshift=1cm] {\texttt{main()}};  
+      \draw[uses,color=red] (figure.second east)+(-0.4,0.18) .. controls +(1.1,0.3) and +(1.1,0.3) .. ([xshift=-7mm,yshift=-2.7mm] figure.north east);
+      \begin{pgfonlayer}{background}
+        % Compute a few helper coordinates
+        \path (obj1.west |- classe.north)+(-0.5,0.3) node (a) {};
+        \path (main.south -| classe.east)+(+0.8,-0.2) node (b) {};
+        \path[fill=yellow!20,rounded corners, draw=black!50, dashed] (a) rectangle (b);
+      \end{pgfonlayer}
+    \end{tikzpicture}
+  \end{center}
+%    \includegraphics[height=6cm]{getNum}
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exemple d'exécution}
+  \only<1,3,5,7,9,11,13,15,17>{
+    \begin{semiverbatim}
+      public class Rationnel \{
+
+      \hspace{1cm}private int {\color<15>{blue}num}; 
+
+      \hspace{1cm}private int {\color<17>{blue}den};
+
+      \hspace{1cm}public int {\color<11>{blue}getNum}() \{ {\color<13>{red}return this.num;} \}
+
+      \hspace{1cm}public void {\color<9>{blue}mult}(Rationnel x) \{
+
+      \hspace{2cm}{\color<15>{red}num} *= {\color<11>{red}x.getNum()};
+
+      \hspace{2cm}{\color<17>{red}den} *= x.getDen();
+
+      \hspace{1cm}\}
+
+      \hspace{1cm}public static void {\color<1>{red}main}(String args[]) \{
+
+      \hspace{2cm}{\color<3>{red}Rationnel x} {\color<5>{red}= new Rationnel(1,2);}
+
+      \hspace{2cm}{\color<7>{red}Rationnel y = new Rationnel(3,5);}
+
+      \hspace{2cm}{\color<9>{red}x.mult(y);}
+
+      \hspace{1cm}\}
+
+      \}
+    \end{semiverbatim}}
+  \only<2,4,6,8,10,12,14,16,18> {
+    \begin{center}
+      \tikzstyle{classe}=[rectangle, draw=black, rounded corners,
+      fill=blue!20, drop shadow, text centered, text=black, text width=2cm,
+      rectangle split, rectangle split parts=2]
+      \tikzstyle{uses}=[thick, arrows={-angle 60}, shorten >= 2pt]
+      \pgfdeclarelayer{background}
+      \pgfdeclarelayer{foreground}
+      \pgfsetlayers{background,main,foreground}
+      \begin{tikzpicture}[node distance=1cm, font=\small]
+        \node (classe) {\textbf{Classe Rationnel}};
+        \uncover<6->{
+          \node (figure) [classe, node distance=4mm,below=of classe]
+          {
+            \texttt{\textcolor<16>{red}{num=\only<-14>{1}\only<16->{3}}\\
+              \textcolor<18>{red}{den=\only<-16>{2}\only<18>{10}}}
+            \nodepart{second}\texttt{getNum()\\setNum()\\\textcolor<10>{red}{\textcolor<12->{blue}{mult()}}}
+          };
+        }
+        \uncover<4->{ \node (obj1) [below=of figure, xshift=-1cm] {\textcolor<10>{red}{x}};}
+        \uncover<6->{ \draw[uses] (obj1) to (figure.south);}
+        \node (main) [node distance=1mm,below=of obj1,xshift=1cm] {\texttt{main()}};
+        \uncover<8->{
+          \node (figure2) [classe, right=of figure]
+          {
+            \texttt{\textcolor<14>{red}{num=3}\\den=5}
+            \nodepart{second}\texttt{\textcolor<12>{red}{\textcolor<14>{blue}{getNum()}}\\setNum()\\mult()}
+          };
+          \node (obj2) [below=of figure2, xshift=-1cm] {y};
+          \draw[uses] (obj2) to (figure2.south);
+        }
+
+        \only<10>{ 
+          \draw[uses,color=red] (obj1) to (figure.south);
+          \draw[uses,dashed, color=purple] ([xshift=-5mm,yshift=-4mm] figure.second east) to (obj2);
+        }
+        \only<12,14>{
+          \draw[uses,color=blue] ([xshift=-5mm,yshift=-4mm] figure.second east) to ([xshift=4mm,yshift=4mm] figure2.second west);
+        }
+        \only<14>{
+          \draw[uses,color=red] (figure2.second east)+(-4mm,3.5mm) .. controls +(1.2,0.25) and +(1.2,0.25) .. ([xshift=-7mm,yshift=-2.7mm] figure2.north east);
+        }
+        \only<16>{
+          \draw[uses,color=red] (figure.second east)+(-5.5mm,-4mm) .. controls +(1.2,0.2) and +(1.2,0.2) .. ([xshift=-7mm,yshift=-2.7mm] figure.north east);
+        }
+        \only<18>{
+          \draw[uses,color=red] (figure.second east)+(-5.5mm,-4mm) .. controls +(1.2,0.15) and +(1.2,0.15) .. ([xshift=-5.5mm,yshift=-7mm] figure.north east);
+        }
+        \begin{pgfonlayer}{background}
+          % Compute a few helper coordinates
+          \path (obj1.west |- classe.north)+(-0.5,0.3) node (a) {};
+          \path (main.south -| figure2.east)+(+0.8,-0.2) node (b) {};
+          \path[fill=yellow!20,rounded corners, draw=black!50, dashed] (a) rectangle (b);
+        \end{pgfonlayer}
+        
+      \end{tikzpicture}
+    \end{center}
+  }
+  % \only<2>{
+  %   \includegraphics[height=7cm]{ex_rat1}
+  % }
+  % \only<4>{
+  %   \includegraphics[height=7cm]{ex_rat2}
+  % }
+  % \only<6>{
+  %   \includegraphics[height=7cm]{ex_rat3}
+  % }
+  % \only<8>{
+  %   \includegraphics[height=7cm]{ex_rat4}
+  % }
+  % \only<10>{
+  %   \includegraphics[height=7cm]{ex_rat5}
+  % }
+  % \only<12>{
+  %   \includegraphics[height=7cm]{ex_rat6}
+  % }
+  % \only<14>{
+  %   \includegraphics[height=7cm]{ex_rat7}
+  % }
+  % \only<16>{
+  %   \includegraphics[height=7cm]{ex_rat8}
+  % }
+  % \only<18>{
+  %   \includegraphics[height=7cm]{ex_rat9}
+  % }
+\end{frame}
+
+\section{Retour sur la notion de TAD}
+
+
+\subsection{TAD Pile}
+
+\begin{frame}
+  \frametitle{Pile}
+  
+  \begin{itemize}
+  \item Principe : empiler et dépiler des éléments par le haut de la pile
+  \item Pile = LIFO (Last In First Out)
+  \item Fonctionnalités :
+    \begin{itemize}
+    \item Empiler, dépiler
+    \item Examiner le sommet (sans dépiler)
+    \item Tester si la pile est pleine ou vide
+    \end{itemize}
+  \end{itemize}
+
+  \begin{center}
+\begin{tikzpicture}
+  \draw (0,2) -- (0,0) -- (1.5,0) -- (1.5,2);
+  \foreach \y in {0.3,0.6,...,1.8} {
+    \draw (0,\y) -- (1.5,\y);
+  }
+  \draw (0.75,1.8) node (top) {};
+  \draw (-0.5,2.5) node (e) {Empiler};
+  \draw (2,2.5) node (d) {Dépiler};
+  \draw[->, auto, thick] (e) -- (top.west);
+  \draw[->, auto, thick] (top.east) -- (d);
+\end{tikzpicture}
+%    \includegraphics[height=3cm]{pile}
+  \end{center}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Représentation de la pile}
+  Exemple : pile d'entiers
+  \begin{itemize}
+  \item Choix d'une représentation interne : tableau d'entiers + position du sommet de la pile
+  \item Création d'une pile : allouer le tableau
+  \item Empiler, dépiler, extraire le sommet : accéder au tableau
+  \item Pile vide ou pleine : tester la taille du tableau
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Pile en Java}
+  \begin{exemple}[Pile]
+    \begin{semiverbatim}
+public class Pile \{
+
+\only<1>{  \hspace{1cm}private int contenu[];
+
+  \hspace{1cm}private int sommet;}
+\only<2>{  \hspace{1cm}public Pile(int taille)  \{
+
+    \hspace{2cm}contenu = new int[taille];
+
+    \hspace{2cm}sommet = -1; // pile vide
+
+  \hspace{1cm}\}}
+\only<3>{  \hspace{1cm}public boolean estVide()  \{
+
+    \hspace{2cm}return sommet==-1;
+
+  \hspace{1cm}\}
+
+ \hspace{1cm} public boolean estPleine()  \{
+
+    \hspace{2cm}return sommet==contenu.length-1;
+
+  \hspace{1cm}\}}
+\only<4>{  \hspace{1cm}public void empiler(int val) \{
+
+    \hspace{2cm}if (!estPleine()) \{
+
+        \hspace{3cm}sommet++; 
+
+        \hspace{3cm}contenu[sommet] = val; 
+
+      \hspace{2cm}\}
+
+  \hspace{1cm}\}}
+\only<5>{  \hspace{1cm}public int depiler()  \{
+
+    \hspace{2cm}int val;
+
+    \hspace{2cm}if (!estVide())  \{
+
+        \hspace{3cm}val = contenu[sommet]; 
+
+        \hspace{3cm}sommet--; 
+
+      \hspace{2cm}\}
+
+    \hspace{2cm}else
+
+      \hspace{3cm}val = -1; 
+
+    \hspace{2cm}return val;
+
+  \hspace{1cm}\}}
+\only<6>{  \hspace{1cm}public int getSommet()  \{
+
+    \hspace{2cm}int val;
+
+    \hspace{2cm}if (!estVide())
+
+      \hspace{3cm}return contenu[sommet];
+
+    \hspace{2cm}else
+
+      \hspace{3cm}return -1; 
+
+  \hspace{1cm}\}}
+
+\}      
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Utilisation de piles}
+  \begin{itemize}
+  \item Pile d'appel
+  \item Calcul d'expressions arithmétiques préfixées (ex : + 2 * 3 2)
+  \item Simulation de récursivité en itératif
+  \item Parcours de graphes
+  \item ...
+  \end{itemize}
+\end{frame}
+
+
+\subsection{TAD File}
+
+\begin{frame}
+  \frametitle{TAD File}
+  \begin{itemize}
+  \item Principe : Insérer et supprimer des éléments de la file
+  \item File = FIFO (First In First Out)
+  \item Fonctionnalités :
+    \begin{itemize}
+    \item Insérer, supprime
+    \item Examiner la tête (sans défiler)
+    \item Tester si la file est pleine ou vide
+    \end{itemize}
+  \end{itemize}
+  \begin{center}
+\begin{tikzpicture}
+  \draw (0,1) -- (2,1);
+  \draw (0,0) -- (2,0);
+  \foreach \x in {0.3,0.6,...,1.8} {
+    \draw (\x,0) -- (\x,1);
+  }
+  \draw (-1.2,0.8) node (e) {Enfiler};
+  \draw (3,0.8) node (d) {Défiler};
+  \draw[->, auto, thick] (e) -- (0.1,0.5);
+  \draw[->, auto, thick] (1.7,0.5) -- (d);
+\end{tikzpicture}
+%    \includegraphics[height=3cm]{file}
+  \end{center}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Représentation de la file}
+  Exemple : file d'entiers
+  \begin{itemize}
+  \item Représentation interne : liste chaînée, vecteur, tableau + 2 indices
+  \item Création d'une file : initialiser la liste ou le vecteur, allouer le tableau
+  \item Enfiler, défiler, extraire la tête : accéder au tableau
+  \item File vide ou pleine : tester les indices d'entrée et de sortie
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Utilisation des files}
+  \begin{itemize}
+  \item File d'attente
+  \item File de priorité
+  \item Gestion de flux de données
+  \item Parcours de graphes
+  \end{itemize}
+\end{frame}
+
+\subsection{Autres TAD}
+
+
+\begin{frame}
+  \frametitle{Autres TAD}
+  \begin{itemize}
+  \item Complexes
+  \item Polynômes
+  \item Listes
+  \item Arbres
+  \item ...
+  \end{itemize}
+\end{frame}

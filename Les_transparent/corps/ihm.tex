@@ -1,0 +1,726 @@
+
+\section{Création d'une interface graphique}
+
+
+\subsection{Généralités}
+
+
+\begin{frame}
+  \frametitle{Pourquoi une IHM ?}
+  Intérêt : 
+  \begin{itemize}[<+->]
+  \item Présenter des informations de manière synthétique
+  \item Permettre d'interagir avec le programme
+  \end{itemize}
+
+  \uncover<3->{Caractéristiques~:}
+  \begin{itemize}[<+->]
+  \item Code sans difficulté technique
+  \item Code souvent long et peu lisible
+  \item Code pas intéressant à écrire
+  \item Consulter la documentation de l'API
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Panorama}
+  Différentes hiérarchies de classes~
+  \begin{itemize}
+  \item \emph{java.awt}
+  \item \emph{javax.swing}
+  \end{itemize}\pause
+
+  Différents types de composants~:
+  \begin{itemize}
+  \item<2-> \alert<3>{Fenêtres}
+  \only<3>{
+    \begin{itemize}
+    \item \emph{JFrame}
+    \item \emph{JDialog}
+    \item \emph{JApplet}
+    \end{itemize}
+  }
+  \item<4-> \alert<5>{Conteneurs}
+  \only<5>{
+    \begin{itemize}
+    \item \emph{JPanel}
+    \item \emph{JScrollPane}
+    \end{itemize}
+  }
+  \item<6-> \alert<7>{Objets graphiques}
+  \only<7>{
+    \begin{itemize}
+    \item \emph{JButton}
+    \item \emph{JLabel}
+    \end{itemize}
+  }
+  \end{itemize}
+
+\end{frame}
+
+
+\subsection{Fenêtre simple}
+
+\begin{frame}
+  \frametitle{Création d'une fenêtre}
+  \only<1,3,5,7>{
+    \begin{itemize}
+    \item Créer une fenêtre : instancier la classe \emph{JFrame}.
+    \item<3-> Rendre la fenêtre visible
+    \item<5-> Redimensionner la fenêtre
+    \item<7-> Changer le \emph{look and feel}
+    \end{itemize}
+
+    \begin{semiverbatim}
+      \uncover<7->{\alert<7>{JFrame.setDefaultLookAndFeelDecorated(true);}}
+
+      \alert<1>{JFrame fenetre = new JFrame("Titre de la fenetre");}
+
+      \uncover<3->{\alert<3>{fenetre.setVisible(true);}}
+
+      \uncover<5->{\alert<5>{fenetre.setSize(320,200);}}
+    \end{semiverbatim}
+  }
+  \only<2>{
+    Rien n'apparaît...
+  }
+  \only<4>{
+    \begin{figure}
+      \centering
+      \includegraphics[scale=0.5]{jframe_v1}
+      \caption{Fenêtre version 1}
+    \end{figure}
+  }
+  \only<6>{
+    \begin{figure}
+      \centering
+      \includegraphics[scale=0.5]{jframe_v2}
+      \caption{Fenêtre version 2}
+    \end{figure}
+  }
+  \only<8>{
+    \begin{figure}
+      \centering
+      \includegraphics[scale=0.5]{jframe_v3}
+      \caption{Fenêtre version 3}
+    \end{figure}
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Composition d'une fenêtre}
+  Objet de type \emph{JFrame}
+  \begin{itemize}
+  \item Barre de titre
+  \item Conteneur (\emph{getContentPane()})
+  \item Propriétés (\emph{get/set})
+    \begin{itemize}
+    \item taille
+    \item visibilité
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\subsection{Placement des objets dans une fenêtre}
+
+\begin{frame}
+  \frametitle{Utilisation des gestionnaires d'agencement (\emph{Layout})}
+  \only<1,4,7,10>{
+  Différents types d'agencement~:
+    \begin{itemize}
+    \item Par défaut dans un fenêtre : \emph{BorderLayout}
+    \item<4-> Possibilité de choisir un \emph{GridLayout}
+    \item<7-> ou un \emph{FlowLayout}
+    \item<10-> ou encore un \emph{BoxLayout}
+    \end{itemize}
+  }
+  \only<2>{
+    \begin{figure}
+      \centering
+      \includegraphics[scale=0.5]{layout1}
+      \caption{BorderLayout}
+    \end{figure}
+  }
+  \only<3>{
+    \begin{semiverbatim}
+    JFrame fenetre = new JFrame("Titre de la fenetre");
+
+    Container c = fenetre.getContentPane();
+
+    c.add(new JButton("Nord"), BorderLayout.NORTH);      
+    \end{semiverbatim}
+  }
+  \only<5>{
+    \begin{figure}
+      \centering
+      \includegraphics[scale=0.5]{layout2}
+      \caption{GridLayout}
+    \end{figure}
+  }
+  \only<6>{
+    \begin{semiverbatim}
+    JFrame fenetre = new JFrame("Titre de la fenetre");
+
+    Container c = fenetre.getContentPane();
+
+    c.setLayout(new GridLayout(3,2));
+
+    c.add(new JButton("Un"));      
+    \end{semiverbatim}
+  }
+  \only<8>{
+    \begin{figure}
+      \centering
+      \includegraphics[scale=0.5]{layout3}
+      \caption{FlowLayout}
+    \end{figure}
+  }
+  \only<9>{
+    \begin{semiverbatim}
+    JFrame fenetre = new JFrame("Titre de la fenetre");
+
+    Container c = fenetre.getContentPane();
+
+    c.setLayout(new FlowLayout());
+
+    c.add(new JButton("Un"));      
+    \end{semiverbatim}
+  }
+  \only<11>{
+    \begin{figure}
+      \centering
+      \includegraphics[scale=0.5]{layout4}
+      \caption{BoxLayout}
+    \end{figure}
+  }
+  \only<12>{
+    \begin{semiverbatim}
+    JFrame fenetre = new JFrame("Titre de la fenetre");
+
+    Container c = fenetre.getContentPane();
+
+    c.setLayout(new BoxLayout(c, BoxLayout.Y\_AXIS));
+
+    c.add(new JButton("Un"));      
+    \end{semiverbatim}
+  }
+
+\end{frame}
+
+
+\subsection{Classe interface graphique}
+
+\begin{frame}[fragile]
+  \frametitle{Définition d'une classe}
+
+  \begin{itemize}
+  \item Classe héritant de \emph{JFrame}
+  \item Variables d'instance~: divers composants de l'interface
+  \item Constructeur~: construction de l'interface
+  \end{itemize}
+
+  Exemple~:
+  \begin{lstlisting}[frame=single]
+public class Visu extends JFrame {
+  private JButton boutonOK;
+  public Visu() {
+    boutonOK = new JButton();
+    boutonOK.setText("OK");
+    this.getContentPane().add(
+          boutonOK,BorderLayout.SOUTH);
+  }
+  \end{lstlisting}
+\end{frame}
+
+\section{Gestion des évènements}
+
+
+\subsection{Évènements associés à des objets}
+
+\begin{frame}
+  \frametitle{Principe}
+  Principe général~:
+  \begin{itemize}
+  \item Ajouter un ``écouteur'' à l'objet
+  \item Écouteur : classe implantant un \emph{Listener} ou héritant d'un
+    \emph{Adapter}
+  \item  interface \emph{ActionListener}~: redéfinir
+    \emph{actionPerformed}
+  \item interface \emph{MouseListener} ou classe \emph{MouseAdapter}~:
+    redéfinir \emph{mouseClicked, mouseEntered, mouseExited, mousePressed} et
+    \emph{mouseReleased}
+  \item interface \emph{KeyListener} ou classe \emph{KeyAdapter}~: redéfinir
+    \emph{keyPressed}, \emph{keyReleased} et \emph{keyTyped}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Exemple}
+  Écouteur~:
+  \begin{lstlisting}[frame=single]
+class unEcouteur implements ActionListener {
+  public void actionPerformed(ActionEvent e) {
+    System.out.println("clic");
+  }
+}
+  \end{lstlisting}
+
+  Utilisation~:
+  \begin{lstlisting}[frame=single]
+JButton monBouton = new JButton();
+monBouton.addActionListener(new unEcouteur());
+  \end{lstlisting}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Critique de la méthode}
+  Avantage~:
+  \begin{itemize}
+  \item Principe simple
+  \end{itemize}
+  \pause
+  Inconvénient~:
+  \begin{itemize}
+  \item Obligation d'écrire une classe par écouteur !
+  \item Problème de partage des données
+  \end{itemize}
+  \pause
+  Solution~:
+  \begin{itemize}
+  \item Utiliser des classes internes
+  \end{itemize}
+\end{frame}
+
+
+\subsection{Classes internes}
+
+
+\begin{frame}
+  \frametitle{Principe des classes internes}
+  \begin{itemize}
+  \item Principe : définir une classe à l'intérieur d'une autre classe
+  \item[$\Rightarrow$] partage des données
+  \item La classe interne peut utiliser les attributs privés de la classe
+    externe.
+  \item La classe interne utilise les données de la classe externe comme les
+    siennes.
+  \item Un objet interne est lié à un objet externe.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Exemple de classe interne}
+  \begin{lstlisting}[frame=single]
+public class MaClasseExterne {
+  private int x;
+  private MaClasseInterne y = 
+             new MaClasseInterne();
+  public void action() {
+    y.go();
+  }
+
+  class MaClasseInterne {
+    void go() {
+      x=42;
+    }
+  }
+}
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Gestion d'évènements grâce à des classes internes}
+  Application des classes internes~:
+  \begin{itemize}
+  \item gestion des évènements
+  \item une classe interne par écouteur
+  \end{itemize}
+  Avantage~:
+  \begin{itemize}
+  \item plus de problème de partage de données
+  \end{itemize}
+  Inconvénient~:
+  \begin{itemize}
+  \item toujours une classe par écouteur
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Gestion d'évènement et classe interne}
+  \begin{lstlisting}[frame=single]
+public class Visu extends JFrame {
+  private JLabel monTexte;
+  private JButton boutonGo;
+  public Visu() {
+    ...
+    boutonGo.addActionListener(new EcouteurGo());
+  }
+
+  class EcouteurGo implements ActionListener {
+    public void actionPerformed(ActionEvent e) {
+      monTexte.setText("Clic");
+    }
+  }
+}
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Autre possibilité}
+  \begin{itemize}
+  \item possibilité : créer des objets dans créer de classe
+  \item même principe qu'avec les classes internes
+  \item possibilité d'utiliser les variables de la classe externe
+  \end{itemize}
+
+  \begin{lstlisting}[frame=single]
+boutonFin.addActionListener(new ActionListener(){
+  public void actionPerformed(ActionEvent e) {
+    System.exit(0);
+  }
+});
+  \end{lstlisting}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Évènements liés à la fenêtre}
+  Il existe des évènements liés à la fermeture d'une fenêtre~:
+  \begin{itemize}[<+-|alert@+>]
+  \item quitter l'application : \emph{EXIT\_ON\_CLOSE}
+  \item ne rien faire : \emph{DO\_NOTHING\_ON\_CLOSE}
+  \item cacher la fenêtre : \emph{HIDE\_ON\_CLOSE}
+  \item cacher et libérer la fenêtre : \emph{DISPOSE\_ON\_CLOSE}
+  \end{itemize}
+
+  \begin{semiverbatim}
+    this.setDefaultCloseOperation(
+
+    \hspace{2cm}\only<1>{JFrame.EXIT\_ON\_CLOSE}\only<2>{WindowConstants.DO\_NOTHING\_ON\_CLOSE}\only<3>{WindowConstants.HIDE\_ON\_CLOSE}\only<4>{WindowConstants.DISPOSE\_ON\_CLOSE});
+  \end{semiverbatim}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Évènements liés à la fenêtre}
+  Autre possibilité~: ajouter un \emph{WindowAdapter} ou un
+  \emph{WindowListener}
+  \begin{semiverbatim}
+    this.addWindowListener(new EcouteurWindow());\pause
+
+
+    class EcouteurWindow extends WindowAdapter \{
+
+    \hspace{0.8cm}public void windowClosing (WindowEvent e) ...
+     
+    \hspace{0.8cm}public void windowActivated (WindowEvent e) ...
+
+    \hspace{0.8cm}public void windowDeactivated (WindowEvent e) ...
+
+    \hspace{0.8cm}...
+
+  \}
+  \end{semiverbatim}
+\end{frame}
+
+
+\section{Dessin dans une fenêtre}
+
+
+\subsection{Utilisation de la classe Graphics}
+
+\begin{frame}
+\frametitle{Généralités}
+  \begin{itemize}
+  \item API \emph{awt}~: méthodes de dessin en 2D
+  \item Zone de dessin~: conteneur. Par ex. \emph{JFrame} ou \emph{JPanel}
+  \item Objet permettant de dessiner~: \emph{Graphics2D}
+  \item Possibilité de définir une classe (interne ou non) héritant de
+    \emph{JPanel} 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Graphics}
+  Quelques méthodes de la classe \emph{Graphics}~:
+  \begin{description}[<+->][drawRect, drawOval, drawLine]
+  \item[clearRect] : efface une partie de l'image
+  \item[drawRect, drawOval, drawLine] : affiche une figure
+  \item[drawImage] : dessine une image
+  \item[drawString] : affiche un texte
+  \item[fillRect, fillOval, fillArc] : dessine et colorie une figure
+  \item[setColor] : modifie la couleur du pinceau
+  \end{description}\pause
+  Voir également \emph{Graphics2D}.
+\end{frame}
+
+
+\subsection{Rafraichissement des fenêtres}
+
+\begin{frame}
+  \frametitle{repaint}
+
+  Rafraîchissement d'une fenêtre graphique~:
+  \begin{itemize}
+  \item Appeler la méthode \emph{paint(Graphics g)}
+  \item Cette méthode appelle \emph{paintComponent(Graphics g)}
+  \end{itemize}
+
+  Pour chaque composant (particulièrement les conteneurs)
+  \begin{itemize}
+  \item Possibilité de redéfinir \emph{paint/paintComponent}
+  \end{itemize}
+\pause
+  \begin{remarque}
+    Ne jamais appeler explicitement \emph{paint/paintComponent}. Utiliser
+    \emph{repaint}.
+  \end{remarque}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exemple d'animation}
+  \begin{semiverbatim}
+    class PanneauDessin extends JPanel  \{
+
+\only<1>{    \hspace{0.5cm}private Color c1;
+
+    \hspace{0.5cm}private Color c2;
+
+    \hspace{0.5cm}public PanneauDessin() \{
+
+      \hspace{1cm}c1 = new Color(alea.nextInt(256),
+
+      \hspace{2.5cm}alea.nextInt(256),alea.nextInt(256));
+
+      \hspace{1cm}c2 = new Color(alea.nextInt(256),
+
+      \hspace{2.5cm}alea.nextInt(256),alea.nextInt(256));
+
+    \hspace{0.5cm}\}}
+\only<2->{    \hspace{0.5cm}public void \textcolor{blue}{paintComponent}(Graphics g) \{\pause
+
+      \hspace{1cm}\textcolor{red}{super.paintComponent(g);}\pause
+
+      \hspace{1cm}Graphics2D g2 = (Graphics2D)g;\pause
+
+      \hspace{1cm}GradientPaint grad = 
+
+      \hspace{2.5cm}new GradientPaint(x,y,c1,x+40,y+40,c2);
+
+      \hspace{1cm}g2.setPaint(grad);\pause
+
+      \hspace{1cm}g2.fillOval(x,y,40,40);
+
+    \hspace{0.5cm}\}}
+
+  \}    
+  \end{semiverbatim}
+\end{frame}
+
+
+
+\section{Quelques classes de l'API}
+
+\begin{frame}
+  \frametitle{JLabel}
+
+  \begin{itemize}
+  \item \emph{JLabel} : texte non interactif
+  \item Possibilité d'ajouter des images
+  \end{itemize}
+
+  \only<1>{
+    \begin{semiverbatim}
+      Container c = fenetre.getContentPane();
+
+      ImageIcon \textcolor{purple}{icon} = new ImageIcon("icon.png");
+
+      c.setLayout(new GridLayout(3,1));
+
+      c.add(new \textcolor{blue}{JLabel}("JLabel 1",JLabel.RIGHT));
+
+      c.add(new \textcolor{blue}{JLabel}("JLabel 2",\textcolor{purple}{icon},JLabel.CENTER));
+
+      c.add(new \textcolor{blue}{JLabel}("JLabel 3"));    
+    \end{semiverbatim}}
+  \only<2>{
+    \begin{figure}
+      \centering
+      \includegraphics[scale=0.5]{jlabel}
+    \end{figure}
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Champs de saisie}
+  \begin{itemize}
+  \item \emph{JTextField} : texte sur une ligne
+  \item \emph{JTextArea} : texte sur plusieurs lignes
+  \item<3-> \emph{JScrollPane} : barre de défilement
+  \end{itemize}
+
+  \only<1>{
+    \begin{semiverbatim}
+      Container c = fenetre.getContentPane();
+
+      c.add(new \textcolor{blue}{JTextField}("JTF"),BorderLayout.NORTH);
+
+      c.add(new \textcolor{blue}{JTextArea}("JTA"),BorderLayout.CENTER);
+    \end{semiverbatim}}
+  \only<2>{
+    \begin{figure}
+      \centering
+      \includegraphics[scale=0.5]{jtext}
+    \end{figure}
+  }
+  \only<3>{
+    \begin{semiverbatim}
+      Container c = fenetre.getContentPane();
+
+      c.add(new JTextField("JTF"),BorderLayout.NORTH);
+
+      JScrollPane sp=new \textcolor{blue}{JScrollPane}(new \textcolor{blue}{JTextArea}("JTA"));
+    
+      c.add(sp,BorderLayout.CENTER);
+    \end{semiverbatim}}
+  \only<4>{
+    \begin{figure}
+      \centering
+      \includegraphics[scale=0.5]{scrollbar}
+    \end{figure}
+  }
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Boutons}
+  \begin{itemize}
+  \item \emph{JButton}
+  \item \emph{JCheckBox}
+  \item \emph{JRadioButton}
+  \item<3-> \emph{ButtonGroup} : regroupe les boutons
+  \end{itemize}
+  \only<1>{
+    \begin{semiverbatim}
+    c.add(new \textcolor{blue}{JButton}("JButton"),BorderLayout.NORTH);
+
+    JPanel p1 = new JPanel();
+
+    p1.add(new \textcolor{blue}{JCheckBox}("Selectionne 2",true));
+
+    JPanel p2 = new JPanel();
+
+    JRadioButton rb1=new \textcolor{blue}{JRadioButton}("Select",true);
+
+    p2.add(rb1);
+    \end{semiverbatim}}
+  \only<2>{
+    \begin{figure}
+      \centering
+      \includegraphics[scale=0.5]{boutons}
+    \end{figure}
+  }
+  \only<3>{
+    \textcolor{blue}{ButtonGroup gr} = new ButtonGroup();
+
+    \textcolor{purple}{JRadioButton rb1}=new JRadioButton("Selectionne",true);
+
+    \textcolor{blue}{gr}.add(\textcolor{purple}{rb1});
+  }
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{Listes}
+  \begin{itemize}
+  \item \emph{JList}
+  \item \emph{JComboBox}
+  \end{itemize}
+  \only<1>{
+    \begin{semiverbatim}
+      String entrees[]={"Premiere", "Deuxieme", "Troisieme"};
+
+      \textcolor{blue}{JComboBox comb} = new JComboBox(entrees);
+
+      \textcolor{blue}{comb}.setSelectedIndex(1);
+
+      c.add(\textcolor{blue}{comb},BorderLayout.NORTH);
+
+      \textcolor{blue}{comb}.addItem("Derniere");
+
+      \textcolor{purple}{JList lst} = new JList(entrees2);
+
+      c.add(\textcolor{purple}{lst},BorderLayout.WEST);
+    \end{semiverbatim}}
+  \only<2>{
+    \begin{figure}
+      \centering
+      \includegraphics[scale=0.5]{jcombobox}
+    \end{figure}
+  }
+
+\end{frame}
+
+\section{Conception de programmes avec interface graphique}
+
+\begin{frame}
+  \begin{alertblock}{Important}
+    Séparer au maximum le programme de l'interface graphique. \pause
+    Séparer ce que fait le programme de la manière dont il le représente.
+  \end{alertblock}\pause
+
+  \begin{itemize}[<+->]
+  \item Exemple~: projets d'informatique.
+  \item[$\Rightarrow$] Question : comment
+    lier le programme et l'interface \emph{a posteriori} ?
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Lien programme / interface graphique}
+
+  Programme : \emph{Simulation}
+  \begin{itemize}[<+-|alert@+>]
+  \item Interface : variable de type \emph{Simulation}
+  \item Méthodes des boutons : appeler des méthodes de \emph{Simulation}
+  \end{itemize}
+
+  \begin{semiverbatim}
+    public class Visualisation extends JFrame \{
+
+    \hspace{1cm}...
+
+\only<1>{    \hspace{1cm}private Simulation leProgramme;}
+\only<2>{\hspace{1cm}public void actionPerformed(ActionEvent e) \{
+
+          \hspace{2cm}leProgramme.simule();
+
+          \hspace{2cm}repaint();
+
+        \hspace{1cm}\}}
+  \end{semiverbatim}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Remarques sur la création d'IHM}
+  \begin{itemize}[<+->]
+  \item Travail fastidieux
+  \item Beaucoup de traitements systématiques
+  \item Éditeur \emph{WYSIWYG} très utile
+  \item[$\Rightarrow$] solution : utiliser un IDE
+  \item Exemples~:
+    \begin{itemize}
+    \item \emph{eclipse} avec le \emph{plugin jigloo} (\url{http://www.cloudgarden.com/jigloo/})
+    \item \emph{eclipse} avec le \emph{plugin VE}
+%    \item \emph{jbuilder}
+    \item \emph{NetBeans} (\url{http://netbeans.org/})
+    \end{itemize}
+  \end{itemize}
+
+  
+\end{frame}
+

@@ -1,0 +1,671 @@
+\section{Introduction}
+
+
+%\subsection{Histoire de Python}
+
+%http://histoire.info.online.fr
+
+%\begin{frame}
+%\frametitle{Préhistoire}
+%\only<-2,4,8>{
+  %\begin{itemize}
+  %\item<1-> -500 : Moyen Orient $\Rightarrow$ premier ``outil'' de calcul :
+    %l'abaque et le boulier.
+  %\item<2-> 1623 : Wilhelm Schickard $\Rightarrow$ ``horloge calculante''. 
+    %Calcul mécanique (roues dentées) : additions, soustractions,
+    %multiplications et mémorisation résultats intermédiaires.
+  %\item<4-> 1642 : Pascal $\Rightarrow$ Pascaline. Additions et soustractions. 
+    %Première machine à calculer de l'histoire
+%%  \item 1728 : Falcon  $\Rightarrow$ métier à tisser utilisant cartes perforées.
+%%  \item 1770 : Hahn (Allemagne) $\Rightarrow$ première machine à calculer
+%%    4 opérations (cylindre denté inventé par
+%%    Leibnitz en 1671).
+  %\item<8-> 1833 : Babbage  $\Rightarrow$ machine à différences
+    %puis machine analytique $\simeq$ ordinateur moderne : unité de
+    %calcul, mémoire, registre et entrée des données (carte perforée).
+    %Jamais terminé
+  %\end{itemize}
+%}
+  %\only<3>{
+    %\begin{center}
+      %\includegraphics[height=6cm]{images/CalculatingClock}
+    %\end{center}
+  %}
+  %\only<5>{
+    %\begin{center}
+      %\includegraphics[height=6cm]{images/Pascaline}
+    %\end{center}
+  %}
+  %\only<6>{
+    %\begin{center}
+      %\includegraphics[height=5cm]{images/Pascaline2}
+    %\end{center}
+  %}
+  %\only<7>{
+    %\begin{center}
+      %\includegraphics[height=6cm]{images/Pascaline3}
+    %\end{center}
+  %}
+  %\only<9>{
+    %\begin{center}
+      %\includegraphics[height=6cm]{images/DifferenceEngine}
+    %\end{center}
+  %}
+%
+%\end{frame}
+%
+%%
+%%Ada was 18 years old when she met Charles Babbage. Knowing of her interest in
+%%mathematics and machines, Babbage invited her to study the plans for his
+%%engine. She translated the paper written by Menabrea, and added her own
+%%thoughts and footnotes. When she was done, the paper was three times longer
+%%and it was published by Babbage with only the initials "A.A.L." to show who
+%%had authored it. It wasn't that Babbage kept Ada's name off the paper, it was
+%%that the customs of the day did not allow Ada, a woman and a wife of an earl
+%%publish books: it just wasn't ladylike. 
+%
+%%Years later it was discovered that "A.A.L." was, indeed, Lady Ada
+%%Lovelace. It was also discovered that the paper she wrote was really the
+%%first explanation of how a a set of instructions for computing machine might
+%%be programmed. Ada was the world's first computer programmer. 
+%%
+%
+%\begin{frame}
+%\frametitle{Préhistoire}
+  %\begin{itemize}[<+->]
+  %\item 1840 : Ada Lovelace (collaboratrice Babbage) : principe des itérations
+    %successives dans l'exécution d'une 
+    %opération. Nommé selon le mathématicien arabe \emph{Al Khawarizmi (780-850)}~:
+    %algorithme. 
+  %\item 1854 : Boole $\Rightarrow$ tout
+    %processus logique peut être décomposé en une suite d'opérations logiques
+    %(ET, OU, NON) et deux états (ZERO-UN, OUI-NON, VRAI-FAUX).
+%%  \item 1884 : Herman Hollerith $\Rightarrow$ tabulatrice à cartes perforées
+%%    Première machine à traiter l'information.
+%%  \item 1886 : Don E. Felt de Chicago : Comptometer. Calculatrice à touches.
+%%    1889 : première calculatrice de bureau avec imprimante.
+  %\item 1904 : Premier tube à vide (diode) par John Fleming.
+  %\end{itemize}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{Préhistoire}
+%\only<1-4>{
+  %\begin{itemize}
+  %\item<1-> 1935 : IBM 601 : calculateur à relais utilisant
+    %des cartes perforées. 1 multiplication/s. Vendu à 1500 exemplaires.
+  %\item<2-> 1937 : Alan M. Turing document sur les nombres
+    %calculables : utilisation de Machine de Turing $\Rightarrow$
+    %indécidabilité de HALT.
+%%  \item 1938 : Thèse de Shannon : parallèle entre
+%%    circuits électriques et algèbre Booléenne. Chiffre binaire~: bit.
+  %\item<3-> 1939 : John Atanasoff et Clifford Berry : additionneur 16
+    %bits binaire. Premier calculateur à tubes à vide.
+  %\item<4-> 1940 : Déchiffrage des messages de l'armée Allemande : les Anglais
+    %créent les calculateurs Robinson  et Colossus (direction de Turing). 
+    %Premières machines utilisant arithmétique binaire,
+    %horloge interne, mémoire tampon, lecteurs de bande, opérateurs
+    %booléens, sous programmes et imprimantes. "Secret défense" jusqu'en 1975.
+%
+  %\end{itemize}
+%}
+  %\only<5>{
+    %\begin{center}
+      %\includegraphics[height=6cm]{Colossus1}
+    %\end{center}
+  %}
+  %\only<6>{
+    %\begin{center}
+      %\includegraphics[height=6cm]{Colossus2}
+    %\end{center}
+  %}
+%
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{Préhistoire}
+%\only<1,3,5>{
+  %\begin{itemize}
+  %\item<1-> 1941 : Calculateur binaire ABC par John Atanasoff et
+    %Clifford Berry. Machine à lampes, mémoire et
+    %circuits logiques. 
+    %Premier calculateur à algèbre de Boole. Mémoire (2 tambours) : 60 mots de
+    %50 bits. Cadence 60 Hz, 1 addition/s. 
+    %Premier vrai ordinateur (?) programme non stocké en mémoire.
+  %\item<3-> 1941 : Konrad Zuse : Z3, Premier calculateur avec programme
+    %enregistré. 
+    %Machine de 2600 relais, console pour l'opérateur et
+    %lecteur de bandes contenant (instructions). Mémoire : 64 nombres de 22
+    %bits. 
+    %4 additions/s et 1 multiplication en 4 secondes. Détruite dans un
+    %bombardement allié en Avril 1945.
+  %\item<5-> 1945 : Un insecte coincé dans les circuits bloque le 
+    %calculateur Mark I. La mathématicienne Grace Murray Hopper décide 
+    %que tout ce qui arrête un programme s'appellera \textsc{bug}. 
+  %\end{itemize}
+%}
+  %\only<2>{
+    %\begin{center}
+      %\includegraphics[height=6cm]{ABC}
+    %\end{center}
+  %}
+  %\only<4>{
+    %\begin{center}
+      %\includegraphics[height=6cm]{Z3_replic}
+    %\end{center}
+  %}
+%
+%\end{frame}
+%
+%
+%\begin{frame}
+  %\frametitle{Premiers ordinateurs}
+%
+  %\only<1,5->{
+    %\begin{itemize}
+    %\item<1-> 1946 : ENIAC (Electronic Numerical Integrator and
+      %Computer) par P. Eckert et J. Mauchly. Programmation par câblage des
+      %différents éléments. 
+      %19000 tubes, 30 tonnes,  72 m2, consomme 140 kilowatts. 
+      %Horloge : 100 KHz. Vitesse : $\simeq$ 330 multiplications/s
+    %\item<5-> Décembre 1947 : Invention du transistor par William Bradford
+      %Shockley, Walter H. Brattain et John Bardeen dans les laboratoires de
+      %Bell Telephone.
+    %\item<6-> Juin 1948 : NewMan, Williams (université de
+      %Manchester) terminent un prototype appelé Manchester Mark I
+      %avec mémoire composée de tubes cathodiques.
+      %Stocker 1 bit : allumer un point sur le tube. Pour lire : pointer
+      %le rayon au même endroit et mesurer la tension. 
+      %Mémoire de 1024 bits sur un tube. 
+      %Machine programmée en binaire.
+    %\end{itemize}
+  %}
+  %\only<2>{
+    %\begin{center}
+      %\includegraphics[height=7cm]{eniac4}
+    %\end{center}
+  %}
+  %\only<3>{
+    %\begin{center}
+      %\includegraphics[height=7cm]{eniac5}
+    %\end{center}
+  %}
+  %\only<4>{
+    %\begin{center}
+      %\includegraphics[height=7cm]{eniac6}
+    %\end{center}
+  %}
+%\end{frame}
+%
+%
+%\begin{frame}
+  %\frametitle{Premiers ordinateurs}
+  %\only<1,7->{
+    %\begin{itemize}
+    %\item<1,7-> 1949 - 1951 : Premier ordinateur temps réel : le Whirlwind crée
+      %au MIT par Jay Forrester, Ken Olsen et leur équipe.
+    %\item<7-> Le Whirlwind : 
+      %\begin{itemize}
+      %\item 27 instructions
+      %\item 20000 instructions/s
+      %\item Mémoire : 1024 registres de 16 bits
+      %\item Entrée sortie de données par clavier / ruban perforé
+      %\item Affichage de graphiques sur écran cathodique en 32x32
+      %\item Surface occupée : 300 $m^2$ - Consommation : 150 kW
+      %\end{itemize}
+    %\item<8-> 1950 : Invention de l'assembleur par Maurice V. Wilkes de
+      %l'université de Cambridge.
+    %\item<9-> 1951 : Invention du premier compilateur A0 par Grace Murray
+      %Hopper. Code source $\leadsto$ binaire
+    %\end{itemize}
+  %}
+  %\only<2>{
+    %\begin{center}
+      %\includegraphics[width=8cm]{whirlwind}\\
+      %Salle des machines du Whirlwind
+    %\end{center}
+  %}
+%
+  %\only<3>{
+    %\begin{center}
+      %\includegraphics[height=6cm]{whirlwind2}\\
+      %Une allée du Whirlwind
+    %\end{center}
+  %}
+  %\only<4>{
+    %\begin{center}
+      %\includegraphics[height=6cm]{detail-whirlwind}\\
+      %Multiplicateur 5 bits
+    %\end{center}
+  %}
+  %\only<5>{
+    %\begin{center}
+      %\includegraphics[height=6cm]{ecran-whirlwind}\\
+      %Écran du Whirlwind
+    %\end{center}
+  %}
+  %\only<6>{
+    %\begin{center}
+      %\includegraphics[height=6cm]{tubes-whirl}\\
+      %Mémoire à tubes : 64 mots de 16 bits par tube
+    %\end{center}
+  %}
+%
+%\end{frame}
+%
+%
+%\begin{frame}
+  %\frametitle{Premiers ordinateurs}
+%
+%\only<1,3,5->{
+  %\begin{itemize}
+  %\item<1,3,5-> 1955 : IBM 704. 
+    %Première machine avec coprocesseur mathématique. 
+    %Puissance : 5 kFLOPS.
+    %Mémoire à tores de ferrite de 32768 mots de 36 bits.
+    %Machine très fiable : une panne par semaine.
+    %Développement de FORTRAN.
+  %\item<1,3,5-> 1956 : Premier ordinateur à transistors : le TRADIC
+  %\item<1,3,5-> 1956 : Premier disque dur (IBM), le RAMAC 305 (Random Access Method of
+    %Accounting and Control).
+    %50 disques de 61 cm de diamètre (5 Mo).
+  %\item<3,5-> 1958 : Ordinateur à transistors : le CDC 1604.
+  %\item<5-> 1968 : Premiers ordinateurs à circuits intégrés
+  %\item<5-> 1970 : Première puce mémoire (Intel) carré de 0.5 mm de côté
+    %(capacité : 1kBit soit 128 octets) 
+  %\end{itemize}
+%}
+  %\only<2>{
+    %\begin{center}
+      %\includegraphics[height=6cm]{ramac305}
+    %\end{center}
+  %}
+  %\only<4>{
+    %\begin{center}
+      %\includegraphics[width=11cm]{cdc1g}
+    %\end{center}
+  %}
+%
+%
+%\end{frame}
+%
+%\begin{frame}
+  %\frametitle{Les temps modernes}
+%
+  %\only<1>{
+  %\begin{itemize}
+  %\item Novembre 1971 : Intel met en vente le premier microprocesseur
+    %\begin{itemize}
+    %\item Processeur 4 bits  108 KHz
+    %\item 640 octets de mémoire
+    %\item 60000 instructions/s
+    %\item 2300 transistors en 10$\mu$
+    %\item Prix : \$200 
+    %\end{itemize}
+  %\item Avril 1972 : Premier microprocesseur 8 bits : le 8008 (Intel)
+  %\item 1974 : Le 68000 (Motorola)
+  %\item 1974 : Le 1802 tournant à 6.4 MHz (RCS) : premier RISC
+  %\item Juin 1976 : microprocesseur 16 bits : le TMS 9900 (TI)
+  %\item 1976 : le CRAY I
+  %\end{itemize}
+%}
+  %\only<2>{
+    %\begin{center}
+      %\includegraphics[height=6cm]{Cray-1}
+    %\end{center}
+  %}
+  %\only<3>{
+    %\begin{center}
+      %\includegraphics[height=6cm]{Cray-1-inside}
+    %\end{center}
+  %}
+%\end{frame}
+
+\subsection{Les langages}
+
+
+\begin{frame}
+  \frametitle{Histoire des langages}
+  
+  \begin{itemize}[<+->]
+  \item Début : langage machine
+  \item Assembleur en 1950
+  \item Fortran en 1954
+	\item Matlab 1970 
+  \item C en 1971
+	\item Python en 1994 (première idée en 1990)
+	\item Java  en 1995
+	
+  \end{itemize}
+  \pause
+  Historique : \href{file:lang_a4.pdf}{http://www.levenez.com}
+
+  \pause
+  Langage choisi~: Python
+\end{frame}
+
+\begin{frame}
+  \frametitle{Histoire des langages}
+ \only<1->{
+ Historiques des versions \\\url{https://en.wikipedia.org/wiki/History_of_Python}
+  \begin{itemize}
+     \item  Python 1.0 - January 1994
+			\only<2>{
+			\begin{itemize} 
+					\item Python 1.5 - December 31, 1997
+					\item Python 1.6 - September 5, 2000
+			\end{itemize}
+			}
+			
+  \item <3-> Python 2.0 - October 16, 2000
+	\only<4>{
+		\begin{itemize}
+		 \item Python 2.1 - April 17, 2001
+     \item Python 2.2 - December 21, 2001
+     \item Python 2.3 - July 29, 2003
+     \item Python 2.4 - November 30, 2004
+     \item Python 2.5 - September 19, 2006
+     \item Python 2.6 - October 1, 2008
+     \item Python 2.7 - July 3, 2010
+	 \end{itemize}
+	}
+  \item<5-> Python 3.0 - December 3, 2008
+	 \only<6>{
+	\begin{itemize} 
+		\item  Python 3.1 - June 27, 2009
+		\item  Python 3.2 - February 20, 2011
+		\item  Python 3.3 - September 29, 2012
+		\item  Python 3.4 - March 16, 2014
+  \end{itemize}
+	}
+\end{itemize}
+}
+\end{frame}
+
+\subsection{Langage Python}
+
+\begin{frame}
+  \frametitle{Langage Python}
+  \only<10>{
+    \centering
+		\includegraphics[width=10cm]{images/comparaisonLangages.png}
+		}
+	  \only<11>{
+		\includegraphics[width=10cm]{images/interpreter.png}
+	
+	}
+	\only<1-9>{
+    \begin{itemize}[<+->]
+    \item  Python est interprété 
+    \item  Python est orienté objet et permet une programmation impérative
+    \item  Python est fortement typé
+		\item  Python est typé dynamiquement
+    \item  Python assure la gestion de la mémoire
+    \item  Python est multitâche
+		\item  Python interagit avec les programmes des autres langages
+		\item  Python est indépendant de toute plate-forme
+		\item  Python est agréable et facile à lire
+    \end{itemize}
+  }
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exécution d'un programme Python}
+	\only<1>{
+    \begin{remarque}[Un programme Python]
+		Un programme est une suite d'instructions Python qui peut être exécuté de différentes  manières :
+		\begin{itemize}
+			\item \textbf{En mode interactif} 
+			\item \textbf{En script } 
+		\end{itemize}
+		\end{remarque}
+		}
+	\only<2-5>{
+	\begin{itemize}
+		\item \textbf{En mode interactif} :
+		  
+		\begin{itemize}
+				\item avec l'\emph{interpréteur python} : via un terminal de commandes lancé avec la commande 'python' ou via le \emph{shell python}
+				 \begin{itemize}
+					\item  Les instructions python à insérer après l'invite de commande ($>>>$), ou à l'invite de poursuit (...)  
+					\item  Les instructions sont exécutées immédiatement
+					\item  Le résultat d'une instruction est affiché sur le terminal		
+   		   \end{itemize}
+				 \only<2>{
+				 \includegraphics[width=6cm]{images/console.png} 
+				 }
+				\item <3-> avec \emph{ipython} : est une sourcouche de l'interpréteur Python offrant une plusieurs facilités. En version web : \emph{IPython Notebook }
+				 \only<3>{
+				 \includegraphics[width=6cm]{images/ipython.png} 
+				 }
+				 \only<4>{
+				 \includegraphics[width=6cm]{images/ipython1.png} 
+				 }
+					\item <5->  avec \emph{bpython} : analogue à ipython en plus léger et plus commode, il propose une coloration syntaxique sur la ligne de commande
+			     	 \only<5>{
+				 \includegraphics[width=7cm]{images/bpython.png} 
+				 }
+		\end{itemize}
+	\end{itemize}
+	}			
+\end{frame}
+
+
+
+
+
+
+\begin{frame}
+   \frametitle{Exécution d'un programme Python}
+  %\only<2>{
+    %\includegraphics[width=11cm]{images/compil1}
+  %}
+  \only<2>{
+    \includegraphics[width=11cm]{images/compil2}
+  }
+  \only<4>{
+    \includegraphics[width=11cm]{images/compil3}
+  }
+  \only<1,3>{
+    \begin{itemize}
+		\item <1,3> \textbf{En mode script} (Programming mode): 
+      \begin{itemize}
+			  \item<1>Écriture du programme Python (éditeur de texte) dans un fichier portant l'extension \emph{.py}
+				\item<3> Exécution (\$ \texttt{python monprogramme.py})
+      \end{itemize}
+    \end{itemize}
+  }
+\end{frame}
+
+\subsection{Implémentations de Python}
+\begin{frame}
+  \frametitle{Implémentations de Python}
+
+  \begin{itemize}
+  \item Autres implémentations Python : \url{https://www.python.org/download/alternatives/}
+    \begin{itemize}
+    \item Python (Cpython), codée en C
+		\item IronPython, codée en C$\#$ et fonctionne sur les plate-formes .NET
+    \item Jython, Python s'éxécutant sur une VM java
+    \item PyPy, Python plus rapide, codé avec le compilateur JIT)
+    \item Stackless Python, une branche de CPython supportant les microthreads
+    \end{itemize} 
+	\end{itemize}
+\end{frame}
+
+
+\subsection{Installation et environnement de développement}
+
+\begin{frame}
+ \frametitle{Installation d'un environnement Python}
+  
+\begin{itemize}
+   \item Sous Windows, Python n'est pas installé par défaut. \pause
+	 \item Sous GNU/Linux et Mac OS X, Python et la librairie standard sont intégrés \pause
+	 \begin{itemize}
+				 \item depuis Ubuntu 14.04 on dispose en parallèle de Pyhon v2 et v3
+				 \item Mac OS X 10.8, 10.9 et 10.10, Apple propose que Python 2.7
+				\pause
+		\end{itemize}
+	  \item Installation :
+	 	 \begin{itemize}
+		 \item Windows : \emph{WinPython} distribution spécifique à Windows et très facile à mettre en \oe uvre. Il intègre notamment : IPython, Spyder, NumPy, SciPy, MatplotLib, Pandas, SymPy, PIP... \pause
+		\item GNU/Linux Ubuntu $\geq$ 14.04 : installation standard via les dépôts officiels Ubuntu de Canonical
+		\item Mac OS X : \emph{Anaconda } distribution Python multiplateforme très répandue dans les milieux scientifiques
+	 \end{itemize}
+	\end{itemize}
+	
+\end{frame}	
+	
+\begin{frame}
+ \frametitle{Environnement de développement}
+  
+\begin{itemize}
+   \item bloc-note, notepad++, vim, emacs ;
+   \item IDE (Integrated Development Environment) : 
+	 \url{https://wiki.python.org/moin/IntegratedDevelopmentEnvironments}
+    \begin{itemize}
+			\item Netbeans (Sun) avec Python/jPython
+			\item Eclipse (IBM) avec le plugin PyDev
+			\item \emph{Spyder }
+			\item Komodo IDE
+			\item LiCipse avec PyDev
+			\item pyCharm
+			\item ....
+   \end{itemize}
+		\end{itemize}
+		
+\end{frame}	
+
+\begin{frame}
+\frametitle{Python et le calcul scientifique}
+	\begin{itemize}
+	%	\justifying
+		\item rapide à apprendre (mais long à maîtriser) ;
+		\item alternative (très) sérieuse à Matlab, Scilab, Octave ;
+		\item bibliothèques de calcul et de visualisation très complète et performante ;
+		\item parallélisation possible facilement (efficacité, etc.) ;
+		\item communauté nombreuse et active ;
+		\item multi-plateformes (scripts python sur Abaqus sur vos machines -- Windows -- et sur le cluster -- Linux)
+		
+	\end{itemize}
+\end{frame}
+
+% ---------------------------------------------------------------------------------Slide ----
+\begin{frame}
+\frametitle{Python et le calcul scientifique}
+	\begin{itemize}
+		%\justifying
+		\item rapide à apprendre (mais long à maîtriser) ;
+		\item alternative (très) sérieuse à Matlab, Scilab, Octave ;
+		\item bibliothèques de calcul et de visualisation très complète et performante ;
+		\item parallélisation possible facilement (efficacité, etc.) ;
+		\item communauté nombreuse et active ;
+		\item multi-plateformes (scripts python sur Abaqus sur vos machines -- Windows -- et sur le cluster -- Linux)
+		
+	\end{itemize}
+\end{frame}
+
+
+% ---------------------------------------------------------------------------------Slide ----
+\begin{frame}
+\frametitle{Les principales librairies}
+\textbf{1. Calcul scientifique} \\
+\footnotesize{Pour plus d'information, consulter~: \url{http://numpy.org/} et \url{http://scipy.org/}}
+
+	\begin{columns}
+	    % colonne 1
+		\begin{column}{5cm}
+			\begin{center}
+				numpy \\
+				\includegraphics[width=1.5cm]{./images/numpylogo.png}
+			\end{center}
+		
+				\begin{itemize}
+		\item broadcasting
+		\item multiplication de matrice
+		\item traitement du signal
+		\item traitement d'images	
+		\end{itemize}	
+		
+			
+		\end{column}
+		% colonne 2
+		\begin{column}{6.5cm}
+			\begin{center}
+				scipy \\
+				\includegraphics[width=1.5cm]{./images/scipylogo.png}
+			\end{center}
+			\begin{itemize}	
+     \item optimisation 
+		\item interpolation
+		\item intégration numérique
+		\item algèbre linéaire 
+	\end{itemize}
+			
+			
+		\end{column}
+	    % colonne 3
+		%\begin{column}{0.33\textwidth}
+			%\begin{center}
+				%matplotlib \\
+				%\includegraphics[width=2cm]{./figs/matplotliblogo.png}
+			%\end{center}
+		%\end{column}	
+	\end{columns}
+	
+\end{frame}
+
+
+
+% ---------------------------------------------------------------------------------Slide ----
+\begin{frame}
+\frametitle{Les principales librairies}
+\textbf{2. Visualisation de données}\\
+\footnotesize{Plus d'informations sur les sites des modules~: \verb!http://matplotlib.org/!.}
+	\begin{center}
+		matplotlib \\
+		%\includegraphics[width=2cm]{./figs/matplotliblogo.png}
+	\end{center}
+	\vspace{-0.5cm}
+	\begin{columns}
+	    % colonne 1
+		\begin{column}{0.5\textwidth}
+			\begin{center}
+				\includegraphics[width=3cm]{./images/errorbar_limits_01.png} \\
+				\includegraphics[width=3.5cm]{./images/streamplot_demo_features_00.png}
+			\end{center}
+		\end{column}
+		% colonne 2
+		\begin{column}{0.5\textwidth}
+			\begin{center}
+				\includegraphics[width=3cm]{./images/griddata_demo.png} \\
+				\includegraphics[width=3cm]{./images/trisurf3d_demo.png}
+			\end{center}
+		\end{column}
+	\end{columns}
+	
+\end{frame}
+
+
+% ---------------------------------------------------------------------------------Slide ----
+\begin{frame}{Les autres librairies}{}
+	\begin{itemize}
+		%\justifying
+		\item numexpr (\verb!https://code.google.com/p/numexpr/!) ;
+		\item NLopt (\verb!http://ab-initio.mit.edu/wiki/index.php/NLopt!) ;
+		\item scikits (\verb!https://scikits.appspot.com/!) ;
+		\item pyQt4 (\verb!http://www.riverbankcomputing.co.uk/software/pyqt/download!) ;
+		\item PIL (\verb!http://www.pythonware.com/products/pil/!) ;
+		\item sympy (\verb!http://sympy.org/fr/index.html!) ;
+		\item guiqwt/guidata \verb!https://code.google.com/p/{guiqwt,guidata}/!)
+		\item pyqtgraph (\verb!http://www.pyqtgraph.org/!) ;
+		\item SfePy (\verb!http://sfepy.org/doc-devel/index.html!) ;
+		\item FEniCS (\verb!http://fenicsproject.org/!).
+	\end{itemize}	
+\end{frame}
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "../java01"
+%%% End: 

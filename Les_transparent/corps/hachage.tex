@@ -1,0 +1,301 @@
+\section{Tables de hachage}
+
+\begin{frame}
+  \frametitle{Principe}
+
+  \only<1-2,4>{
+    \begin{itemize}
+    \item<1-> Objectif~: structure de données accessible en $\Theta(1)$
+    \item<2-> Idée~: ranger les éléments dans un tableau
+    \item<4-> Associer à une donnée une clé
+    \item<4-> Clé = case du tableau
+    \item<4-> Clé~: fonction de hachage
+    \end{itemize}
+  }
+  \only<3>{
+    \centering
+    \begin{tikzpicture}
+      \tikzstyle{noeud}=[circle,draw=black,fill,ball color=red!60,drop shadow,minimum size=7mm];
+      \tikzstyle{fleche}=[->,shorten >=1pt,auto,semithick];
+      \shade[top color=blue!60,bottom color=blue!20,drop shadow] (2.5,3) circle (2);
+      \shade[top color=green!50,bottom color=green!10] (5.5,1) rectangle (6,5);
+      \draw[step=0.5] (5.49,0.99) grid (6,5);
+      \foreach \a/\x/\y in {a/3/1.7,b/3.4/2.6,c/2.3/3,d/2.9/4.4} {
+        \draw (\x,\y) node[noeud] (\a) {\a};
+      }
+      \draw[fleche] (a) -- (5.8,1.8);
+      \draw[fleche] (b) -- (5.8,2.8);
+      \draw[fleche] (c) -- (5.8,3.3);
+      \draw[fleche] (d) -- (5.8,4.3);
+    \end{tikzpicture}
+  }
+  \only<5>{
+    \centering
+    \begin{tikzpicture}[scale=0.8]
+      \tikzstyle{noeud}=[circle,draw=black,fill,ball color=red!60,drop
+      shadow,minimum size=7mm];
+      \tikzstyle{fleche}=[->,shorten >=11pt,auto,semithick];
+      \shade[top color=green!50,bottom color=green!10] (0,0) rectangle (1,6);
+      \draw (0,0) grid (1,6);
+      \foreach \y in {0,...,5} {
+        \draw (0.4,\y+0.5) node {\y};
+      }
+      \foreach \a/\y in {a/2,b/4,c/0,d/3} {
+        \draw[fleche] (0.6,\y+0.5) --  ++(2.5,0) node[noeud] (\a) {\a};
+      }
+    \end{tikzpicture}
+%    \includegraphics[height=4cm]{hash5}
+  }
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Fonction de hachage}
+  \only<1-6>{
+  \begin{itemize}[<+->]
+  \item Cas idéal~: fonction injective
+  \item Mais contrainte de mémoire
+  \item[$\Rightarrow$] limiter la valeur maximale de la fonction
+  \item[$\Rightarrow$] risque de collisions
+  \item[$\Rightarrow$] chaque case du tableau doit contenir un ensemble de
+    valeurs
+  \item[$\Rightarrow$] utilisation de listes chaînées
+  \end{itemize}
+}
+  \only<7>{
+    \centering
+    \begin{tikzpicture}
+      \tikzstyle{noeud}=[circle,draw=black,fill,ball color=red!60,drop shadow,minimum size=7mm];
+      \tikzstyle{fleche}=[->,shorten >=1pt,auto,semithick];
+      \shade[top color=blue!60,bottom color=blue!20,drop shadow] (2.5,3) circle (2);
+      \shade[top color=green!50,bottom color=green!10] (5.5,1) rectangle (6,5);
+      \draw[step=0.5] (5.49,0.99) grid (6,5);
+      \foreach \a/\x/\y in {a/3/1.7,b/3.4/2.6,c/2.3/3,d/2.9/4.4} {
+        \draw (\x,\y) node[noeud] (\a) {\a};
+      }
+      \draw[fleche] (a) -- (5.8,1.8);
+      \draw[fleche] (b) -- (5.8,2.8);
+      \draw[fleche] (c) -- (5.8,3.3);
+      \draw[fleche] (d) -- (5.8,4.3);
+        \draw (3.5,3.5) node[noeud] (e) {e};
+        \draw[fleche] (e) -- (5.8,3.4);
+    \end{tikzpicture}
+  }
+  \only<8>{
+    \centering
+    \begin{tikzpicture}[scale=0.8]
+      \tikzstyle{noeud}=[circle,draw=black,fill,ball color=red!60,drop
+      shadow,minimum size=7mm];
+      \tikzstyle{fleche}=[->,shorten >=11pt,auto,semithick];
+      \shade[top color=green!50,bottom color=green!10] (0,0) rectangle (1,6);
+      \draw (0,0) grid (1,6);
+      \foreach \y in {0,...,5} {
+        \draw (0.4,\y+0.5) node {\y};
+      }
+      \foreach \a/\y in {a/2,b/4,c/0,d/3} {
+        \draw[fleche] (0.6,\y+0.5) --  ++(2.5,0) node[noeud] (\a) {\a};
+      }
+      \draw[fleche] (c) --  ++(2.5,0) node[noeud]  {e};
+    \end{tikzpicture}
+%    \includegraphics[height=4cm]{hash5}
+  }
+
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{Algorithmes}
+  Accéder à la table de hachage~:
+  \begin{itemize}
+  \item Calculer le code $k$ associé à l'élément
+  \item Accéder à la liste de la case $k$ du tableau
+  \item cf. algorithmes sur les listes chaînées
+  \end{itemize}
+  Calcul de la clé~:
+  \begin{itemize}
+  \item Utilisation d'un tableau de $n$ cases
+  \item Fonction de hachage~:\[
+\begin{array}{llll}
+  h: & {\mathcal K} & \rightarrow & [0,n-1] \subset \nbN\\
+     & e & \mapsto & h(e)
+\end{array}
+    \]
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Algorithmes}
+  \begin{block}{Insertion \only<1>{sans}\only<2>{avec} collision}
+    \begin{algorithm2e}[H]
+      \caption{Insertion}
+      \KwIn{Table T, Element e}
+      \only<1>{T[h(e)] $\gets$e \;}
+      \only<2->{T[h(e)].insereEnTeteDeListe(e)\;}
+    \end{algorithm2e}    
+  \end{block}
+
+  \begin{block}{Recherche \only<1>{sans}\only<2>{avec} collision}
+    \begin{algorithm2e}[H]
+      \caption{Recherche}
+      \KwIn{Table T, Element e}
+      \only<1>{retourner T[h(e)]\;}
+      \only<2>{retourner T[h(e)].rechercheDansLaListe(e)\;}
+    \end{algorithm2e}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Hachage}
+  \only<1,3>{
+    Taux de remplissage~:
+    \begin{itemize}
+    \item Table $T$, $m$ alvéoles, $n$ éléments
+    \item Taux de remplissage~: $\alpha=n/m$
+    \end{itemize}
+    \begin{itemize}
+    \item $h(x)$ détermine une case du tableau
+    \item[$\Rightarrow$] $\forall x, h(x) < n$
+    \item Cas extrême~: uniquement des collisions $\leadsto \Theta(n)$
+    \item<3> Cas extrême~: répartition uniforme  $\leadsto \Theta(1+\alpha)$
+      % \item Comment obtenir cette fonction~?
+      % \item[$\leadsto$] utilisation du modulo (\texttt{\%})
+      % \item Il est conseillé d'adapter la fonction à chaque problème
+    \end{itemize}
+  }
+  \only<2>{
+    \centering
+    \begin{tikzpicture}[scale=0.8,node distance=1cm]
+      \tikzstyle{noeud}=[circle,draw=black,fill,ball color=red!60,drop
+      shadow,minimum size=7mm];
+      \tikzstyle{fleche}=[->,shorten >=2pt,auto,semithick];
+      \shade[top color=green!50,bottom color=green!10] (0,0) rectangle (1,6);
+      \draw (0,0) grid (1,6);
+      \foreach \y in {0,...,5} {
+        \draw (0.4,\y+0.5) node (\y) {\y};
+      }
+      \node[noeud,right=of 1]  (d) {d}; 
+      \draw[fleche] (1) -- (d);
+      \def\lastn{d}
+      \foreach \n in {b,a,e,c} {
+        \node[noeud,right=of \lastn]  (\n) {\n}; 
+        \draw[fleche] (\lastn) -- (\n);
+        \global\let\lastn=\n
+      }
+    \end{tikzpicture}
+  }
+  \only<4>{
+    \centering
+    \begin{tikzpicture}[scale=0.8,node distance=1.5cm]
+      \tikzstyle{noeud}=[circle,draw=black,fill,ball color=red!60,drop
+      shadow,minimum size=7mm];
+      \tikzstyle{fleche}=[->,shorten >=2pt,auto,semithick];
+      \shade[top color=green!50,bottom color=green!10] (0,0) rectangle (1,6);
+      \draw (0,0) grid (1,6);
+      \foreach \y in {0,...,5} {
+        \draw (0.4,\y+0.5) node (\y) {\y};
+      }
+      \foreach \a/\y in {a/2,b/5,c/0,d/3,e/1} {
+        \node[noeud, right=of \y] (\a) {\a};
+        \draw[fleche] (\y) --  (\a);
+      }
+    \end{tikzpicture}
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Définition d'une fonction de hachage}
+  \only<1>{
+  \begin{itemize}
+  \item Bonne fonction de hachage~?
+  \item[$\leadsto$] bonne répartition ($\simeq$ répartition uniforme)
+  \end{itemize}
+    \begin{exemple}[Méthode de la division]
+      \begin{itemize}
+      \item Associer un entier $k$ à un élément
+      \item $h(k) = k \mod m$
+      \item Attention au choix de $m$
+        \begin{itemize}
+        \item Éviter $m=2^p$, éviter les nombres proches des puissances de 2
+        \item Bon choix~: nombre premier éloigné des puissances de 2
+        \item Exemple~: 2000 éléments, $\alpha\simeq 3$ accepté $\leadsto m=701$
+        \end{itemize}
+      \end{itemize}
+    \end{exemple}
+  }
+  \only<2>{
+    \begin{exemple}[Méthode de la multiplication]
+      \begin{itemize}
+      \item Soit $A \in ]0,1[$, $h(k) = \lfloor m (kA \mod 1) \rfloor$
+      \item Choix de $m$ non critique ; en général $m=2^p$
+      \item Choix de $A$~?
+        \begin{itemize}
+        \item On veut $k$ sur un mot de $w$ bits
+        \item $A = s/2^w$ avec $0<s<2^w$
+        \item Knuth suggère $A\approx(\sqrt{5}-1)/2$
+        \end{itemize}
+      \item Ex.
+        \begin{itemize}
+        \item $k=123456, p=14, m=2^{14}=16384, w=32$
+        \item $A=2654435769/2^{32} \approx (\sqrt{5}-1)/2$
+        \item $m(kA \mod 1)=67.187744140625 \leadsto h(k)=67$
+        \end{itemize}
+      \end{itemize}
+    \end{exemple}
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exemple}
+  \only<1>{
+    \begin{exemple}[Hachage de mots]
+      \begin{itemize}
+      \item Mot~: suite de lettres ($w=a_0a_1a_2\ldots a_{p-1}$)
+      \item Lettres codées par des entiers (ex. \textit{ASCII})
+      \item Si uniquement lettres minuscules, utiliser $[0,25]$
+      \item On note $'a'$ le code \textit{ASCII} de la lettre a
+      \item Exemple~: coder "secret", "cretes"
+      \end{itemize}
+    \end{exemple}
+  }
+  \only<2>{
+    \begin{alertblock}{Mauvaise fonction~: $h(w) = \sum_{i=0}^{p-1}a_i \mod m$}
+      \begin{itemize}
+      \item Exemple avec $m=43$
+      \item "secret" $\leadsto$ 21
+      \item "cretes" $\leadsto$ 21
+      \item "cat" $\leadsto$ 21
+      \item "av" $\leadsto$ 21
+      \item "va" $\leadsto$ 21
+      \end{itemize}
+    \end{alertblock}
+  }
+  \only<3>{
+    \begin{block}{Bonne fonction~: $h(w) = \sum_{i=0}^{p-1}a_i\times26^i \mod m$}
+      \begin{itemize}
+      \item Exemple avec $m=43$
+      \item "secret" $\leadsto$ 11
+      \item "cretes" $\leadsto$ 25
+      \item "cat" $\leadsto$ 26
+      \item "av" $\leadsto$ 22
+      \item "va" $\leadsto$ 13
+      \end{itemize}
+    \end{block}
+  }
+  \only<4->{
+    Comment calculer $h(w) = \sum_{i=0}^{p-1}a_i\times26^i \mod m$~?
+    \begin{itemize}
+    \item<4-> Problème~: éviter de calculer explicitement $26^i$
+    \item<5-> En Java, calcul de $26^i$ en entier OK jusqu'à $i=6$
+    \item<6-> Solution~: forme de Horner
+    \item<7-> $h(w) = a_0 + 26(a_1 + 26(a_2 + 26 (\ldots )))$
+    \item<7-> Calculé en Java avec une boucle
+    \end{itemize}
+  }
+\end{frame}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "../java10"
+%%% End: 

@@ -1,0 +1,551 @@
+
+\section{Méthodes}
+
+
+\subsection{Déclaration de méthodes}
+\frametitle{Intérêt des méthodes}
+\begin{frame}
+  \begin{itemize}
+  \item Découpage du programme en sous-programmes : méthodes
+  \item Avantage : modularité, réutilisabilité
+  \item Évite les copier/coller !
+  \item Structure le code
+  \end{itemize}
+
+  Exemples~:
+  \begin{itemize}
+  \item Initialisation/affichage d'un tableau
+  \item Fonctions de calcul
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exemple}
+  \begin{itemize}
+  \item<2-> Signature de la méthode
+  \item<3-> Bloc de la méthode
+  \item<4-> Déclaration de variables locales, instructions
+  \item<5> Retour d'une valeur
+  \end{itemize}
+
+  \begin{exemple}
+    Fonction $y=x^2$ :
+    \begin{semiverbatim}
+      {\color<2>{red}public double carre(double x)} {\color<3>{red}\{}
+
+      {\color<4>{red}\hspace{1cm}double y = x * x;}
+
+      {\color<5>{red}\hspace{1cm}return y;}
+
+      {\color<3>{red}\}}
+    \end{semiverbatim}
+  \end{exemple}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Méthode sans valeur de retour}
+  \begin{itemize}
+  \item Type de retour : void
+  \item Pas de return
+  \end{itemize}
+  \begin{exemple}
+    \begin{semiverbatim}
+    public \textcolor{red}{void} affiche(int t[]) \{
+
+    \hspace{1cm}for (int i=0 ; i$<$t.length ; i++)
+
+    \hspace{2cm}System.out.println(t[i]);
+
+    \}
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Méthode avec plusieurs \emph{return}}
+  \begin{itemize}
+  \item Possibilité de placer le \emph{return} dans un test
+  \item<2- | alert@2> Tous les chemins d'exécution doivent conduire à un
+    \emph{return}
+  \end{itemize}
+
+  \uncover<3->{
+    \only<-3>{
+  \begin{exemple}
+    \begin{semiverbatim}
+      public double valeurAbsolue(double x) \{
+
+        \hspace{1cm}if (x<0)
+
+          \hspace{2cm}return -x;
+
+        \hspace{1cm}else
+
+          \hspace{2cm}return x;
+
+      \}      
+    \end{semiverbatim}
+  \end{exemple}}
+\only<4>{
+  \begin{alertblock}{Erreur à la compilation}
+    \begin{semiverbatim}
+      public double valeurAbsolue(double x) \{
+
+        \hspace{1cm}if (x<0)
+
+          \hspace{2cm}return -x;
+
+        \hspace{1cm}else if (x>=0)
+
+          \hspace{2cm}return x;
+
+      \}      
+    \end{semiverbatim}
+  \end{alertblock}
+}
+}
+    \uncover<4>{CalcAbs.java:16: missing return statement}
+
+\end{frame}
+
+
+\subsection{Appel de méthodes}
+
+\begin{frame}[fragile]
+  \frametitle{Appel simple}
+  \begin{itemize}
+  \item Appel d'une méthode : indiquer son nom
+  \item Passage de paramètres
+  \end{itemize}
+
+  \begin{exemple}
+    \begin{lstlisting}[frame=none]
+      public void maMethode() {
+        double x = -2, x2, x3, y;
+        x2 = carre(x);
+        x3 = carre(5);
+        y = x + x2 + valeurAbsolue(x);
+        System.out.println(y);
+      }
+    \end{lstlisting}
+  \end{exemple}
+\end{frame}
+
+
+\subsection{Appel de méthodes depuis le main}
+
+\begin{frame}
+  \frametitle{Appel depuis le \emph{main}}
+  \only<1>{
+    \begin{semiverbatim}
+      public int factorielle(int n) \{
+
+      \hspace{1cm}int resultat = 1;
+      
+      \hspace{1cm}for (int i=2 ; i<=n ; i++) \{
+      
+      \hspace{2cm}resultat *= i;
+      
+      \hspace{1cm}\}
+      
+      \hspace{1cm}return resultat;
+      
+      \}    
+    \end{semiverbatim}
+  }
+  \only<2->{
+    \begin{semiverbatim}
+      public static void main(String args[]) \{
+      
+      \hspace{1cm}\textcolor{red}{MaClasse unObjet = new MaClasse();}
+
+      \hspace{1cm}int nombre = 5;
+
+      \hspace{1cm}int res = \textcolor{red}{unObjet.}factorielle(nombre);
+
+      \}
+    \end{semiverbatim}
+    \uncover<3>{
+    \begin{alertblock}{Sinon~}
+    \begin{semiverbatim}
+      non-static method factorielle() cannot be referenced from a static
+      context
+    \end{semiverbatim}
+    \end{alertblock}
+}
+}
+\end{frame}
+
+
+\subsection{Paramètres des méthodes}
+
+\begin{frame}[fragile]
+  \frametitle{Paramètres formels/paramètres effectifs}
+  \begin{exemple}[paramètre formel/paramètre effectif]
+    \begin{lstlisting}[frame=none]
+      public void m1(int parametreFormel) {
+        int i = parametreFormel + 22;
+        System.out.println(i);
+      }
+      public void m2() {
+        int parametreEffectif = 20;
+        m1(parametreEffectif);
+        m1(20);
+      }
+    \end{lstlisting}
+  \end{exemple}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Passage de paramètres}
+  \only<1,3->{
+  Deux types de passages de paramètres :
+  \begin{itemize}
+  \item<1-> paramètres de type simple : passage par valeur
+  \item<1-> paramètres de type composite : passage par variable
+  \item<3-> Résultat :
+    \begin{semiverbatim}
+      autreMethode : 0
+
+      dans uneMethode : 1
+
+      fin de autreMethode : 0
+    \end{semiverbatim}
+  \end{itemize}
+}
+  \only<2>{\small
+  \begin{exemple}
+    \begin{semiverbatim}
+    public void uneMethode(int param) \{
+
+    \hspace{1cm}param++;
+
+    \hspace{1cm}System.out.println("dans uneMethode : "+param);
+
+    \}
+
+    public void autreMethode() \{
+
+    \hspace{1cm}int i=0;
+
+    \hspace{1cm}System.out.println("autreMethode : "+i);
+
+    \hspace{1cm}uneMethode(i);
+
+    \hspace{1cm}System.out.println("fin de autreMethode : "+i);
+
+    \}    
+    \end{semiverbatim}
+  \end{exemple}
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Paramètres de type composite}
+
+  \begin{exemple}[Paramètres de type composite]
+    \begin{semiverbatim}
+      \only<1>{
+      public void modifieVariable1(int tableau[]) \{
+
+      \hspace{1cm}tableau[0]=42;
+
+      \}
+
+      public void modifieVariable2(int tableau[]) \{
+
+      \hspace{1cm}tableau = new int[10];
+
+      \hspace{1cm}tableau[0]=3;
+
+      \}}
+      \only<2>{public void utiliseMethode() \{
+
+      \hspace{1cm}int tab[] = new int[5];
+
+      \hspace{1cm}tab[0] = 1;
+
+      \hspace{1cm}System.out.println(tab.length+" "+tab[0]);
+
+      \hspace{1cm}modifieVariable1(tab);
+
+      \hspace{1cm}System.out.println(tab.length+" "+tab[0]);
+
+      \hspace{1cm}modifieVariable2(tab);
+
+      \hspace{1cm}System.out.println(tab.length+" "+tab[0]);
+
+      \}}
+    \end{semiverbatim}
+  \only<3>{
+Résultat de l'exécution :
+    \begin{semiverbatim}
+      5 1
+
+      5 42
+
+      5 42
+    \end{semiverbatim}
+  }
+
+  \end{exemple}
+\end{frame}
+
+\subsection{Règles de portée}
+
+\begin{frame}
+  \frametitle{Portée}
+  \begin{itemize}
+  \item Variables locales de la méthode : portée limitée à la méthode
+  \item Paramètres : portée limitée à la méthode
+  \end{itemize}
+
+  \begin{exemple}[Portée]
+    \begin{semiverbatim}
+      public void methodeTest(int parametre) \{
+
+      \hspace{1cm}int nombre = 10;
+
+      \}
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+
+\subsection{Notion de pile d'appel}
+
+\begin{frame}
+  \frametitle{Pile d'appel}
+  \begin{itemize}[<+->]
+  \item Zone de mémoire
+  \item Contient :
+    \begin{itemize}
+    \item<3-|alert@8-9> paramètres
+    \item<4-|alert@10> adresse de retour
+    \item<5-|alert@11> variables locales
+    \end{itemize}
+  \item<6-> Fonctionnement lors de l'appel d'une méthode
+  \end{itemize}
+
+  \uncover<7->{
+  \begin{tabular}{ll}
+    \begin{minipage}{0.8\linewidth}
+    \begin{semiverbatim}
+      public void methode({\color<8>{red}int a}, {\color<9>{red}double b}) \{
+
+      \hspace{1cm}{\color<11>{red}int i};
+
+      \}
+
+      methode({\color<8>{red}2}, {\color<9>{red}1.5});
+    \end{semiverbatim}
+  \end{minipage}&
+  \begin{minipage}{0.15\linewidth}
+  \begin{tabular}{|r|}
+    \hline
+    \uncover<11>{i}\\
+    \hline
+    \uncover<10->{0x1E3C85}\\
+    \hline
+    \uncover<9->{1.5}\\
+    \hline
+    \uncover<8->{2}\\
+    \hline
+  \end{tabular}
+  \end{minipage}
+\end{tabular}
+}
+\end{frame}
+
+\section{Retour sur les tableaux}
+
+
+\subsection{Recherche dichotomique}
+
+\begin{frame}
+  \frametitle{Recherche par dichotomie}
+  \begin{itemize}[<+->]
+  \item Exemple : recherche d'un élément dans un tableau trié
+  \item Principe : comparer l'élément avec la valeur médiane
+  \item puis recommencer dans le sous tableau contenant l'élément
+  \end{itemize}
+
+
+    \begin{center}
+      \begin{tabular}{|l|l|l|l|l|}
+        \hline
+        {\color<3-4>{blue}1} & {\color<3>{blue}\color<4>{red}2} & {\color<2>{red}\color<3-4>{blue}3} & 4 & 5\\
+        \hline
+      \end{tabular}
+    \end{center}
+
+\pause Complexité : \pause $\Theta(\log n)$
+\end{frame}
+
+\subsection{Diviser pour régner}
+
+\begin{frame}
+  \begin{itemize}[<+->]
+  \item Principe : décomposer le problème en sous problèmes (sous ensemble des
+    données)
+  \item résoudre les sous problèmes (éventuellement en redécoupant)
+  \item puis fusionner les résultats
+  \item Exemples~:
+    \begin{itemize}
+    \item tri par partition/fusion
+    \item tri rapide
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\section{Utilisation des classes de l'API Java}
+
+
+\subsection{Quelques classes de l'API}
+
+
+\begin{frame}
+  \frametitle{Random}
+
+  Classe \emph{Random} : génération de nombres aléatoires.
+
+  Deux étapes :
+  \begin{itemize}
+  \item<2-> Créer une variable de type \emph{Random}
+  \item<3-> Utiliser la variable
+  \end{itemize}
+
+  \begin{exemple}
+    \begin{semiverbatim}
+      {\color<2>{red}Random alea = new Random();}
+
+      int i = {\color<3>{red}alea.nextInt(100)};
+
+      double x = {\color<3>{red}alea.nextDouble()};
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Integer/Double/String}
+  \begin{semiverbatim}
+    int i = Integer.MIN\_VALUE;
+
+    int j = Integer.parseInt(\only<1>{"123"}\only<2->{args[0]});
+  \end{semiverbatim}
+  \pause\pause
+  \begin{semiverbatim}
+    double x = Double.POSITIVE\_INFINITY;
+
+    double y = Double.parseDouble(args[1]);
+  \end{semiverbatim}
+  \pause
+  \begin{semiverbatim}
+    String s = "abcde";
+
+    boolean b = s.equals(args[2]);
+  \end{semiverbatim}
+  \pause
+  Plus d'informations : consulter la doc de l'API Java.
+\end{frame}
+
+\begin{frame}
+  \frametitle{LinkedList}
+  \begin{itemize}
+  \item Objectif~: manipuler des collections de données
+  \item[$\simeq$] tableaux de taille variable
+  \end{itemize}
+
+  \pause
+  Opérations de base~:
+  \begin{itemize}[<+->]
+  \item Créer une collection (ex. \emph{LinkedList})
+  \item Ajouter un élément
+  \item Supprimer un élément
+  \item Rechercher un élément
+  \end{itemize}
+
+  \begin{exemple}
+    \begin{semiverbatim}
+      \only<1-2>{LinkedList l = new LinkedList();}
+      \only<3>{l.add(42);}
+      \only<4>{l.remove(0);}
+      \only<5>{if(l.contains(42)) ...}
+      \only<6>{import java.util.LinkedList;}
+      \only<7>{import java.util.*;}
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Stéréotypage des collections}
+  Depuis Java 1.5 : possibilité de stéréotyper les collections :
+  \begin{itemize}
+  \item Permet de vérifier la cohérence des types
+  \item Évite certains \emph{cast}
+  \end{itemize}
+
+  \begin{exemple}
+    \begin{semiverbatim}
+      LinkedList\textcolor{blue}{<Integer>} l = new LinkedList\textcolor{blue}{<Integer>}();
+
+      l.add(42);
+
+      \textcolor{red}{l.add(13.2);}
+
+      int i = l.get(0);
+
+      Integer j = l.get(1);
+
+      System.out.println(l);
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Math}
+
+  Classe particulière : ne pas créer d'objet de type \emph{Math}.
+
+  Contenu :\pause
+  \begin{itemize}[<+->]
+  \item Constantes
+  \item Valeur absolue
+  \item Fonctions trigonométriques
+  \item Fonctions d'arrondis
+  \end{itemize}
+
+  \begin{exemple}
+    \begin{semiverbatim}
+      \only<1-2>{double pi = Math.PI;}
+      \only<3>{double x = Math.abs(y);}
+      \only<4>{double x = Math.cos(y * Math.PI);}
+      \only<5>{int i = (int)Math.floor(Math.E);}
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+
+\subsection{Consultation de la documentation}
+
+\begin{frame}
+  \frametitle{API Java}
+  \begin{itemize}
+  \item Toutes les classes de l'API sont documentées
+  \item Apprendre à consulter la documentation
+  \item Les paquetages les plus utiles :
+    \begin{itemize}
+    \item java.lang
+    \item java.util
+    \end{itemize}
+  \end{itemize}
+
+  Accès depuis moodle : \url{https://moodle.ensieta.fr/file.php/1/docs/api/index.html}
+
+  %\url{http://172.20.110.1/documentation/jdk1.5.0/api/index.html}
+\end{frame}

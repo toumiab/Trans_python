@@ -1,0 +1,618 @@
+
+
+\section{Les exceptions}
+
+
+\subsection{Principe}
+
+\begin{frame}
+  \frametitle{Principe}
+  \begin{itemize}
+  \item Mécanisme de gestion des erreurs en Java\pause
+  \item Détournement du fonctionnement du programme
+  \item[$\Rightarrow$] Bloc de traitement de l'erreur\pause
+  \item Nombreuses méthodes de l'API Java utilisent des exceptions
+  \item[$\Rightarrow$] lire la documentation
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exemple}
+  {\small
+  \begin{semiverbatim}
+    public FileReader(String fileName)  
+    \textcolor{red}{throws FileNotFoundException}
+
+
+    Creates a new FileReader, given the name of the file to read from.
+
+
+    Parameters:
+
+        \hspace{1cm}fileName - the name of the file to read from 
+
+
+    \textcolor{red}{Throws:}
+
+        \hspace{1cm}FileNotFoundException - if the named file does not exist, is a
+        directory rather than a regular file, or for some other reason cannot
+        be opened for reading.
+  \end{semiverbatim}}
+\end{frame}
+
+
+\subsection{Traitement des exceptions}
+
+\begin{frame}
+  \frametitle{Traitement}
+  Ne pas traiter une exception entraîne :
+  \begin{semiverbatim}
+unreported exception java.io.FileNotFoundException; {\color<3>{red}must be
+    caught} or {\color<4>{red}declared to be thrown}     
+  \end{semiverbatim}
+\pause
+  Deux possibilités :
+  \begin{itemize}
+  \item<3-| alert@3> traiter l'exception localement ;
+  \item<4-| alert@4> transmettre l'exception à la méthode appelante.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Traitement local : \emph{try-catch-finally}}
+
+  Traiter une exception localement : utiliser le bloc \emph{try-catch-finally}.
+  \begin{itemize}
+  \item try : certaines instructions peuvent lever une exception
+  \item catch : traitement d'une exception
+  \item finally : instructions exécutées après le bloc \emph{try} et les
+    \emph{catch} éventuels.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Syntaxe}
+  Syntaxe :
+  \begin{lstlisting}[frame=none]
+try {
+  ...
+} catch (Exception1 e) {
+  ...
+} catch (Exception2 e) {
+  ...
+} finally {
+  ...
+}
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Exemple}
+  \begin{exemple}
+    \begin{lstlisting}[frame=none]
+FileReader lecteur;
+try {
+  lecteur = new FileReader("fichier");
+} catch (FileNotFoundException e) {
+  System.out.println("Ouverture impossible");
+  System.out.println(e);
+}
+    \end{lstlisting}
+    % \begin{semiverbatim}
+    %   FileReader lecteur;
+
+    %   \textcolor{red}{try} \{
+
+    %   \hspace{1cm}lecteur = new FileReader("fichier");
+
+    %   \}~\textcolor{red}{catch} (FileNotFoundException e) \{
+
+    %   \hspace{1cm}System.out.println("Ouverture impossible");
+
+    %   \hspace{1cm}System.out.println(e);
+
+    %   \}
+    % \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+\begin{frame}[fragile]
+  \begin{alertblock}{Ne pas détourner l'usage des exceptions}
+    \begin{lstlisting}[frame=none]
+int tab[] = new int[10];
+int i = 0;
+try {
+  while (true) {
+    System.out.println(i+" "+tab[i]);
+    i++;
+  }
+} catch (ArrayIndexOutOfBoundsException e) {
+  System.out.println("Fin de la boucle");
+}
+    \end{lstlisting}
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Propagation d'une exception}
+  \begin{itemize}
+  \item Propager une exception : clause \emph{throws}
+  \item Modifier la signature de la méthode
+  \end{itemize}
+
+  \begin{exemple}
+    \begin{lstlisting}[frame=none]
+public void maMethode throws Exception {
+  ...
+    \end{lstlisting}
+    % \begin{semiverbatim}
+    %   public void maMethode \textcolor{red}{throws} Exception \{
+
+    %   \hspace{1cm}...
+    % \end{semiverbatim}
+  \end{exemple}
+
+  Remarque :
+  \begin{itemize}
+  \item il faut finir par récupérer l'exception
+  \end{itemize}
+\end{frame}
+
+
+\subsection{Déclenchement d'une exception}
+
+\begin{frame}
+  \frametitle{Lever une exception}
+
+  Lever une exception dans une méthode : utilisation de \emph{throw}
+
+\uncover<2>{
+  \begin{exemple}
+    \begin{semiverbatim}
+      throw new Exception("message");
+    \end{semiverbatim}
+  \end{exemple}
+
+  Permet de gérer les erreurs par le mécanisme d'exception.
+}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Définition de classes d'exception}
+
+  \begin{itemize}
+  \item Définition de classes exception utilisateur
+  \item Critères~:
+    \begin{itemize}
+    \item<1-> hériter de \emph{Exception} (directement ou non)
+    \item<2-> posséder deux constructeurs appelant \emph{super}~: 
+      sans paramètre, \uncover<3->{ avec un paramètre
+      \emph{String}}
+    \item<4-> possibilité de redéfinir \emph{toString}
+    \end{itemize}
+  \item<5-> exception utilisable comme les autres
+  \end{itemize}
+
+  \begin{exemple}
+    \begin{semiverbatim}
+      \only<1>{
+        public class MonException extends Exception \{
+      }
+      \only<3>{
+      \hspace{1cm}public MonException(String texte)  \{
+
+      \hspace{2cm}super(texte);
+
+      \hspace{1cm}\}}
+    \only<2>{
+      \hspace{1cm}public MonException()  \{
+
+      \hspace{2cm}super();
+
+      \hspace{1cm}\}}
+    \only<4>{
+      \hspace{1cm}public String toString() \{
+
+      \hspace{2cm}return "Monexception levee "+getMessage();
+
+      \hspace{1cm}\}
+    }
+    \only<5>{
+      public void m1() throws MonException \{
+
+      \hspace{1cm}if (...)
+
+      \hspace{2cm}throw new MonException("dans m1");
+
+      \} }
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+
+
+\section{Utilisation de fichiers}
+
+
+\subsection{Principe}
+
+\begin{frame}
+  \frametitle{Intérêt}
+
+  \begin{itemize}[<+->]
+  \item Accéder à des données persistantes
+  \item Nécessité de transférer les données en mémoire
+  \item[$\Rightarrow$] dans des variables
+  \item Différents types de fichiers
+    \begin{itemize}
+    \item texte
+    \item binaire
+    \end{itemize}
+  \item Accès en lecture ou en écriture
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{API Java}
+
+  \begin{itemize}[<+->]
+  \item Comment accéder à un fichier ?
+  \item[$\Rightarrow$] Utilisation de l'API Java
+  \item $\simeq$ 50 classes disponibles dans \emph{java.io}
+  \end{itemize}
+
+  \pause
+
+  \begin{alertblock}{Important}
+    \href{http://tormo.ensieta.ecole/documentation/jdk1.5.0/api/index.html}{Consulter  l'API}
+  \end{alertblock}
+\end{frame}
+
+
+\subsection{Lecture de fichiers texte}
+
+\begin{frame}
+  \frametitle{Lecture bas niveau}
+  \begin{itemize}
+  \item<1-> utilisation d'un \emph{FileReader}
+  \item<3-> Méthode \emph{read} : lit un tableau de caractères
+  \end{itemize}
+
+  \only<-4>{
+  \begin{exemple}
+    \begin{semiverbatim}
+      \only<1-2>{
+        {\color<1>{red}FileReader lecteur;}
+
+          {\color<2>{red}try} \{
+
+      \hspace{1cm}{\color<1>{red}lecteur = new FileReader(nomFichier);}
+
+    \}~{\color<2>{red}catch (FileNotFoundException e)} \{
+
+      \hspace{1cm}System.out.println("Ouverture du fichier "+nomFichier+" impossible");
+
+      \hspace{1cm}System.out.println(e);
+
+    \}}
+  \only<3->{
+    char data[] = new char[1024]; 
+
+    int carlus;
+
+    {\color<4>{red}try} \{
+
+      \hspace{1cm}carlus = {\color<3>{red}lecteur.read(data)};
+
+    \}~{\color<4>{red}catch (IOException e)} \{
+
+      \hspace{1cm}System.out.println("Erreur de lecture$\backslash$n"+e);
+
+      \}
+}
+    \end{semiverbatim}
+  \end{exemple}}
+
+\only<5>{
+  \begin{itemize}
+  \item Lecture basique : par paquets de caractères
+  \item peu d'opérations possibles
+  \item peu pratique
+  \end{itemize}
+\vspace{2cm}
+}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Utilisation d'un \emph{BufferedReader}}
+  \begin{itemize}
+  \item<1-> Lecture de plus haut niveau. Ex : \emph{BufferedReader}
+  \item<3-> lecture par \emph{readLine}
+  \end{itemize}
+
+  \only<-3>{\small
+    \begin{exemple}
+      \begin{semiverbatim}
+        \only<1-2>{    try \{
+
+          \hspace{1cm}{\color<2>{red}fichier = new FileReader (nomFichier);}
+
+          \}~catch (FileNotFoundException e) \{
+
+          \hspace{1cm}System.out.println(e);
+
+          \}
+     
+          {\color<1>{red}BufferedReader lecteur = new
+            BufferedReader({\color<2>{red}fichier});}}
+        \only<3>{try \{
+
+          \hspace{1cm}while(({\color<3>{red}chaineLecture = lecteur.readLine()}) != null) \{
+
+          \hspace{2cm}System.out.println (chaineLecture);
+
+          \hspace{1cm}\}
+
+          \hspace{1cm}fichier.close();
+
+          \}~catch (IOException e) \{
+
+          \hspace{1cm}System.out.println(e);
+
+          \} }
+      \end{semiverbatim}
+    \end{exemple}}
+
+  \only<4->{
+    \begin{itemize}
+    \item Lecture de chaînes de caractères très facile
+    \item Possibilité de lire un fichier ligne à ligne
+    \end{itemize}
+    \vspace{1cm}
+    \begin{remarque}
+      Il existe une classe \emph{LineNumberReader} héritant de
+      \emph{BufferedReader} permettant de compter le nombre de lignes lues.
+    \end{remarque}
+    \vspace{1cm}
+  }
+\end{frame}
+
+
+
+\subsection{Écriture de fichiers texte}
+
+\begin{frame}
+  \frametitle{Écriture bas niveau}
+
+  \begin{itemize}
+  \item<1-> Utilisation d'un \emph{FileWriter}
+  \item<2-> Méthode \emph{write} : écrit un tableau de caractères ou une
+    \emph{String}
+  \end{itemize}
+
+  \begin{exemple}
+    \begin{semiverbatim}
+      \only<1>{{\color<1>{red}FileWriter ecrivain;}
+
+        try \{
+
+        \hspace{0.9cm}{\color<1>{red}ecrivain = new FileWriter(nomFichier);}
+
+      \}~catch (IOException e) \{
+
+      \hspace{0.9cm}System.out.println("Ouverture du fichier "+nomFichier+" impossible");
+
+      \hspace{0.9cm}System.out.println(e);
+
+      \}}
+    \only<2>{try \{
+
+      \hspace{0.9cm}String message="Une chaîne de caractères.$\backslash$n";
+
+      \hspace{0.9cm}ecrivain.write(message);
+
+      \hspace{0.9cm}ecrivain.close();
+
+    \}~catch (IOException e) \{
+
+      \hspace{0.9cm}System.out.println(e);
+
+    \}}
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Écriture sous forme de flot}
+  \begin{itemize}
+  \item<1-> Utilisation d'un \emph{PrintStream}
+  \item<2-> Permet d'écrire différents types de données
+  \item<2-> Ne génère pas d'exception
+  \end{itemize}
+
+  \begin{exemple}
+    \begin{semiverbatim}
+      \only<1>{
+        File monFic = new File(nomFichier);
+
+        try \{
+
+        \hspace{1cm}ecrivain = new PrintStream(new FileOutputStream(monFic));
+
+        \}~catch (FileNotFoundException e) \{
+
+        \hspace{1cm}System.out.println(e);
+
+        \}}
+      \only<2>{
+        String message="Un exemple de message.";
+
+        ecrivain.println(message);
+
+        ecrivain.print(42);
+
+        ecrivain.close();
+      }
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+
+\subsection{Fichiers binaires}
+
+\begin{frame}
+  \frametitle{Lecture de fichiers binaires}
+  \begin{itemize}
+  \item<1-> Utilisation d'un \emph{DataInputStream}
+  \item<2-> Lecture de \emph{double} \only<3->{, de \emph{int}} \only<4->{, de
+      \emph{boolean}} \only<5->{, ...}
+  \end{itemize}
+
+  \begin{exemple}
+    \begin{semiverbatim}
+      \only<1>{
+        DataInputStream ecrivain;
+
+        try \{
+
+        \hspace{0.5cm}ecrivain = \textcolor{red}{new DataInputStream(new FileInputStream(nomFichier))};
+
+        \}~catch (FileNotFoundException e) \{
+
+        \hspace{0.5cm}System.out.println(e);
+
+        \}   }
+      \only<2->{
+        try \{
+
+        \hspace{1cm}double x = {\color<2>{red}ecrivain.readDouble();}
+        
+        \uncover<3->{\hspace{1cm}int i = {\color<3>{red}ecrivain.readInt();}
+
+        }
+        \uncover<4->{\hspace{1cm}boolean b =
+          {\color<4>{red}ecrivain.readBoolean();} 
+
+        }
+        \}~catch (IOException e) \{
+
+        \hspace{1cm}System.out.println(e);
+
+        \} }
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Écriture de fichiers binaires}
+  \begin{itemize}
+  \item<1-> Utilisation d'un \emph{DataOutputStream}
+  \item<2-> Écriture de \emph{double}, de \emph{int}, ...
+  \end{itemize}
+
+  \begin{exemple}
+    \begin{semiverbatim}
+      \only<1>{
+        DataOutputStream ecrivain;
+
+        try \{
+
+        \hspace{0.5cm}ecrivain = \textcolor{red}{new DataOutputStream(new FileOutputStream(nomFichier))};
+
+        \}~catch (FileNotFoundException e) \{
+
+        \hspace{0.5cm}System.out.println(e);
+
+        \}   }      
+      \only<2>{
+        try \{
+
+        \hspace{1cm}ecrivain.\textcolor{red}{writeDouble(Math.PI)};
+
+        \hspace{1cm}ecrivain.\textcolor{red}{writeInt(42)};
+
+        \hspace{1cm}ecrivain.\textcolor{red}{writeUTF("message")};
+
+        \}~catch (IOException e) \{
+
+        \hspace{1cm}System.out.println(e);
+
+        \} }
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+
+\subsection{Sérialisation}
+
+
+\begin{frame}
+  \frametitle{Principe}
+  \begin{itemize}
+  \item Sauvegarder directement des objets dans un fichier
+  \item Puis les récupérer très simplement
+  \item Utilisation de l'interface \emph{Serializable}
+  \item Lecture/écriture du fichier par
+    \emph{ObjectOutputStream}/\emph{ObjectInputStream} et
+    \emph{wrtiteObject}/\emph{readObject}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exemple}
+  \begin{enumerate}
+  \item<1-> Rendre la classe "sérialisable"
+  \item<2-> Sauvegarder les objets
+  \item<3-> Restaurer les objets
+  \end{enumerate}
+  \begin{semiverbatim}
+    \only<1>{
+      public class Cercle \textcolor{red}{implements Serializable}
+      \vspace{2cm}
+    }
+    \only<2>{
+      FileOutputStream fichier = 
+
+      \hspace{2cm}new FileOutputStream("fic.tmp");
+
+      ObjectOutputStream ecrivain = 
+
+      \hspace{2cm}new ObjectOutputStream(fichier);
+
+      Cercle unObjet = new Cercle(10);
+
+      ecrivain.\textcolor{red}{writeObject(unObjet);}
+    }
+    \only<3>{
+      FileInputStream fichier = 
+
+      \hspace{2cm}new FileInputStream("fic.tmp");
+
+      ObjectInputStream lecteur = 
+
+      \hspace{2cm}new ObjectInputStream(fichier);
+
+      Cercle unObjet;
+
+      unObjet = \textcolor{red}{(Cercle)lecteur.readObject();}
+    }
+  \end{semiverbatim}
+\end{frame}
+
+
+\section{Les paquetages}
+
+\begin{frame}
+  \begin{itemize}[<+->]
+  \item Objectif : regrouper les classes
+  \item Plusieurs classes peuvent avoir le même nom dans des paquetages
+    différents
+  \item Un paquetage = un répertoire
+  \item Ajouter {\color<4>{red}\emph{package monPaquetage;}}
+  \item Intérêt : possibilité d'importer toutes les classes d'un paquetage
+  \item Ex : {\color<6>{red}\emph{import java.util.*;}}
+  \end{itemize}
+\end{frame}
+

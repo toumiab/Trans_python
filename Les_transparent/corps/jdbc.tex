@@ -1,0 +1,598 @@
+
+\section{JDBC}
+
+
+\subsection{Présentation générale}
+
+\begin{frame}
+  \frametitle{Objectif}
+  \begin{itemize}[<+->]
+  \item Un programme manipule des données volatiles
+  \item Nécessité d'utiliser des données persistantes
+    \begin{itemize}
+    \item Fichiers
+    \item Base de données
+    \end{itemize}
+  \item Scénario classique~:
+    \begin{enumerate}
+    \item charger les données en mémoire~;
+    \item travailler sur les données~;
+    \item sauvegarder le résultat.
+    \end{enumerate}
+  \end{itemize}\pause
+  Question~:
+  \begin{itemize}
+  \item Comment accéder à la base de données depuis le programme~?\pause
+  \item[$\Rightarrow$] grâce aux JDBC
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Présentation}
+  \begin{itemize}
+  \item JDBC = Java Data Base Connectivity
+  \item Permet à un programme Java de dialoguer avec une BD
+  \item API : \emph{java.sql.} \emph{javax.sql.}
+  \item Ensemble de classes et d'interfaces
+  \end{itemize}
+  Avantages~:
+  \begin{itemize}
+  \item Code applicatif indépendant de la base
+  \item Simple à mettre en oeuvre
+  \item Code Java $\Rightarrow$ indépendant de la plateforme
+  \item Utilisation d'objets
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Architecture}
+  \only<1>{
+    \begin{figure}
+      \centering
+      \includegraphics[height=6cm]{arch_jdbc_1}
+      %\caption{Fenêtre version 1}
+    \end{figure}
+  }
+  \only<2>{
+    \begin{figure}
+      \centering
+      \includegraphics[height=6cm]{arch_jdbc_2}
+      %\caption{Fenêtre version 1}
+    \end{figure}
+  }
+  \only<3>{
+    \begin{figure}
+      \centering
+      \includegraphics[height=6cm]{arch_jdbc_3}
+      %\caption{Fenêtre version 1}
+    \end{figure}
+  }
+  \only<4>{
+    \begin{figure}
+      \centering
+      \includegraphics[height=6cm]{arch_jdbc_4}
+      %\caption{Fenêtre version 1}
+    \end{figure}
+  }
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Différents types de drivers}
+  \only<1,3,5,7,9>{
+    \begin{itemize}
+    \item<1-> \alert<1>{Type I : pont JDBC-ODBC\footnote{Open DataBase Connectivity}}
+      \only<1>{\begin{itemize}
+        \item Accès à la BD par les drivers ODBC (standard Microsoft)
+        \item Appels JDBC traduits en ODBC
+        \item Utilise une bibliothèque native
+        \item Ne peut pas être utilisé dans des applets
+        \item Fourni par sun \emph{sun.jdbc.odbc.JdbcOdbcDriver}
+        \end{itemize}}
+    \item<3-> \alert<3>{Type II : driver natif}
+      \only<3>{
+        \begin{itemize}
+        \item Utilise des fonctions natives pour accéder à la BD
+        \item Driver fourni par l'éditeur de SGBD (payant)
+        \item Ne peut pas être utilisé dans des applets
+        \end{itemize}
+      }
+    \item<5-> \alert<5>{Type III : driver Java utilisant un \emph{middleware}}
+      \only<5>{
+        \begin{itemize}
+        \item Driver 100\% Java
+        \item Communique avec une application intermédiaire (\emph{middleware})
+        \item Code portable (100\% Java)
+        \item Peut être utilisé par des applets
+        \end{itemize}
+      }
+    \item<7-> \alert<7>{Type IV : driver Java utilisant le réseau}
+      \only<7>{
+        \begin{itemize}
+        \item Driver 100\% Java
+        \item Utilise le protocole réseau
+        \item Driver fourni par l'éditeur
+        \item Peut être utilisé par des applets
+        \end{itemize}
+      }
+    \end{itemize}
+    \only<9>{
+      Cas Oracle : 
+      \begin{itemize}
+      \item Drivers type 2 et 4
+      \item Driver \emph{thin} utilisé en TP : type 4
+      \end{itemize}
+\url{http://www.oracle.com/technology/software/tech/java/sqlj_jdbc/index.html}
+    }
+  }
+  \only<2>{
+    \begin{figure}
+      \centering
+      \includegraphics[height=6cm]{jdbc_type1}
+      %\caption{Fenêtre version 1}
+    \end{figure}
+  }
+  \only<4>{
+    \begin{figure}
+      \centering
+      \includegraphics[height=6cm]{jdbc_type2}
+      %\caption{Fenêtre version 1}
+    \end{figure}
+  }
+  \only<6>{
+    \begin{figure}
+      \centering
+      \includegraphics[height=6cm]{jdbc_type3}
+      %\caption{Fenêtre version 1}
+    \end{figure}
+  }
+  \only<8>{
+    \begin{figure}
+      \centering
+      \includegraphics[height=6cm]{jdbc_type4}
+      %\caption{Fenêtre version 1}
+    \end{figure}
+  }
+\end{frame}
+
+
+\subsection{Mise en oeuvre}
+
+\begin{frame}
+  \frametitle{Mise en oeuvre}
+  \begin{enumerate}[<+->]
+  \item Charger le driver \emph{JDBC}
+  \item Se connecter à la base
+  \item Créer une requête
+  \item Exécuter la requête
+  \item Traiter les données
+  \item Fermer les requêtes et les connexions
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Initialisations}  
+  \begin{itemize}[<+->]
+  \item Importer le paquetage \emph{java.sql}
+  \item Charger le driver
+  \end{itemize}
+
+  \begin{semiverbatim}
+    import java.sql.*;
+
+    ...
+
+    \uncover<2->{try \{
+
+    \only<-2>{\hspace{0.5cm}DriverManager.registerDriver(
+
+    \hspace{1cm}new oracle.jdbc.driver.OracleDriver());
+
+    \}  ~catch (SQLException e) \{\}}
+    \only<3>{\hspace{0.5cm}Class.forName("com.mysql.jdbc.Driver");}
+    \only<4>{\hspace{0.5cm}Class.forName("oracle.jdbc.driver.OracleDriver");}
+\only<3->{
+
+    \} ~catch (ClassNotFoundException e) \{\}}}
+  \end{semiverbatim}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Connexion}
+  \begin{itemize}
+  \item<1-> Utilisation d'une variable de type \emph{Connection}
+  \item<2-> Obtenir la connexion grâce au \emph{DriverManager}
+  \item<2-> Passer les paramètres de connexion lors de la création
+  \item<3-> Paramétrer la connexion
+  \item<4-|alert@4> Attention : créer connexion = opération coûteuse
+  \end{itemize}
+
+  \begin{semiverbatim}
+    Connection base;
+
+    \uncover<2->{
+      base = {\color<2>{red}DriverManager.getConnection} 
+
+      \hspace{0.5cm}("jdbc:oracle:thin:@"+database,user,password);
+    }
+    \uncover<3->{
+
+      base.setAutoCommit(false);
+    }
+  \end{semiverbatim}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exécution d'une requête}
+  \begin{itemize}
+  \item Utilisation d'un objet \emph{Statement}
+    \only<1>{
+      \begin{itemize}
+      \item Statement : requêtes simples
+      \item PreparedStatement : requêtes précompilées
+      \item CallableStatement : procédures stockées
+      \end{itemize}}
+  \item<2-> Exécution avec résultat
+  \item<3-> Requête dans résultat
+  \end{itemize}
+
+  \begin{semiverbatim}
+    {\color<1>{red}Statement} req;
+
+    try \{
+
+\only<1>{    \hspace{1cm}req = base.\textcolor{red}{createStatement}();}
+\only<2>{    \hspace{1cm}String requete="select * from emp";
+
+  \hspace{1cm}ResultSet res = req.\textcolor{red}{executeQuery}(requete);}
+\only<3>{    \hspace{1cm}String requete="delete from emp where empno=42";
+
+  \hspace{1cm}int nb = req.\textcolor{red}{executeUpdate}(requete);}
+
+    \} ~catch (SQLException e) \{ \}
+
+  \end{semiverbatim}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Traitement des données}
+  \begin{itemize}
+  \item<1-> Récupération des métadonnées
+  \item<2-> Parcours les lignes de données
+  \end{itemize}
+
+  \begin{semiverbatim}
+    ResultSet resReq;
+
+    \only<1>{    {\color<1>{red}ResultSetMetaData} metaSet = null;
+
+      try \{
+
+      \hspace{0.5cm}metaSet = resReq.{\color<1>{red}getMetaData}();
+
+      \hspace{0.5cm}for(int i = {\color<1>{red}1}; i<=nbCol ; i++ ) 
+
+      \hspace{1cm}System.out.print({\color<1>{red}metaSet.getColumnName}(i)+" ");
+
+      \}~catch (SQLException e) \{\}}
+    \only<2->{ try \{
+
+      \hspace{0.5cm}int nbcol = {\color<2>{red}resReq.getMetaData().getColumnCount}();
+
+      \hspace{0.5cm}\uncover<3->{while ({\color<3>{red}resReq.next}()) \{}
+
+      \hspace{1cm}\uncover<4->{for (int i=1 ; i<=nbcol ; i++)
+
+      \hspace{1.5cm}System.out.print(\textcolor{red}{resReq.getString}(i)+" "); 
+
+      \hspace{1cm}\}
+
+      \}~catch (SQLException e) \{\}}    }
+  \end{semiverbatim}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Manipulation des ResultSet}
+  Consulter la documentation de la classe \emph{ResultSet}.
+  \begin{itemize}[<+->]
+  \item Parcours vers l'avant ou vers l'arrière
+  \item Accès direct à une ligne
+  \item Déplacement relatif
+  \end{itemize}
+
+\uncover<4->{  Récupération de données typées (\emph{getXXX()})}
+
+  \begin{semiverbatim}
+    \only<1>{boolean b = rset.next(); 
+
+      boolean b = rset.previous();}
+    \only<2>{boolean b = rset.first(); 
+
+      boolean b = rset.absolute(42);}
+    \only<3>{boolean b = rset.relative(-2); 
+
+      ...}
+    \only<4>{int i = rset.getInt(2); 
+
+      Date jour = rset.getDate("delai");}
+  \end{semiverbatim}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Types JDBC}
+  \begin{itemize}
+  \item Types définis dans \emph{java.sql.Types}
+  \item Contenus dans les métadonnées
+  \item Correspondance JDBC/Java :
+    \begin{itemize}
+    \item \emph{CHAR, VARCHAR} $\Rightarrow$ \emph{String}
+    \item \emph{INTEGER} $\Rightarrow$ \emph{int}
+    \item \emph{DATE} $\Rightarrow$ \emph{java.sql.Date} ($\neq$ \emph{java.util.Date})
+    \end{itemize}
+  \end{itemize}
+
+  \begin{semiverbatim}
+    if(resReq.getMetaData().getColumnType(3)==Types.NUMERIC)
+	
+    \hspace{0.5cm}salaire = resReq.getDouble(3);    
+  \end{semiverbatim}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Fin des traitements}
+
+  Terminer correctement les traitements : utiliser \emph{close()}. Fermer :
+  \begin{itemize}[<+->]
+  \item les \emph{ResultSet}
+  \item les \emph{Statement}
+  \item les \emph{Connection}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Conclusion sur les JDBC}
+  \begin{itemize}
+  \item Accès uniforme quelque soit la base
+  \item Très pratique si on reste dans le monde Java (applets)
+  \item Beaucoup de drivers disponibles
+  \item Accès bas niveau : utiliser \emph{SQL}
+  \item Pas de vérification SQL/Java (types, colonnes)
+  \end{itemize}
+
+  Liens utiles :
+
+  \url{http://java.sun.com/products/jdbc/}
+
+  \url{http://www.oracle.com/technology/software/tech/java/sqlj_jdbc/index.html}
+
+  \url{http://dev.mysql.com/downloads/connector/j/5.1.html}
+\end{frame}
+
+\subsection{Passage relationnel/objet}
+
+
+\begin{frame}
+  \frametitle{Association simple}
+  \only<1>{
+    Association simple
+    \begin{figure}
+      \centering
+      \includegraphics[width=8cm]{modele_rel1}
+    \end{figure}
+  }
+  \only<2>{
+    Transformation immédiate
+    \begin{figure}
+      \centering
+      \includegraphics[width=8cm]{modele_classes1}
+    \end{figure}
+  }
+  \only<3>{
+    Utilisation de l'héritage
+    \begin{figure}
+      \centering
+      \includegraphics[height=6cm]{modele_classes5}
+    \end{figure}
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Relation 1/n}
+
+  \only<1>{
+    Association 1/n
+    \begin{figure}
+      \centering
+      \includegraphics[width=8cm]{modele_rel2}
+    \end{figure}
+  }
+  \only<2>{
+    Relation 1/n en objet
+    \begin{figure}
+      \centering
+      \includegraphics[width=8cm]{modele_classes2}
+    \end{figure}
+  }
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Relation n/n}
+
+  \only<1>{
+    Association n/n
+    \begin{figure}
+      \centering
+      \includegraphics[width=8cm]{modele_rel3}
+    \end{figure}
+  }
+  \only<2>{
+    Classe intermédiaire
+    \begin{figure}
+      \centering
+      \includegraphics[width=10cm]{modele_classes3}
+    \end{figure}
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Relation n/n avec attribut}
+
+  \only<1>{
+    Association n/n avec attribut
+    \begin{figure}
+      \centering
+      \includegraphics[width=8cm]{modele_rel4}
+    \end{figure}
+  }
+  \only<2>{
+    Classe intermédiaire avec attribut
+    \begin{figure}
+      \centering
+      \includegraphics[width=10cm]{modele_classes4}
+    \end{figure}
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Généralisation/spécialisation}
+
+  \only<1>{
+    MCD spécialisation
+    \begin{figure}
+      \centering
+      \includegraphics[height=5cm]{modele_rel_specialisation1}
+    \end{figure}
+  }
+  \only<2>{
+    MLD spécialisation
+    \begin{figure}
+      \centering
+      \includegraphics[height=5cm]{modele_rel_specialisation2}
+    \end{figure}
+  }
+  \only<3>{
+    Modèle objet
+    \begin{figure}
+      \centering
+      \includegraphics[height=5cm]{modele_classes_specialisation}
+    \end{figure}
+  }
+  \only<4>{
+    MCD spécialisation
+    \begin{figure}
+      \centering
+      \includegraphics[height=5cm]{modele_rel_generalisation1}
+    \end{figure}
+  }
+  \only<5>{
+    MLD specialisation
+    \begin{figure}
+      \centering
+      \includegraphics[height=5cm]{modele_rel_generalisation2}
+    \end{figure}
+  }
+  \only<6>{
+    Modèle objet
+    \begin{figure}
+      \centering
+      \includegraphics[height=5cm]{modele_classes_generalisation}
+    \end{figure}
+  }
+\end{frame}
+
+
+
+\subsection{Notions sur les architectures n-tiers}
+
+
+\begin{frame}
+  \frametitle{Modèle 2-tiers}
+  \begin{itemize}
+  \item Principe : l'application communique directement avec la BD
+  \item Avantages :
+    \begin{itemize}
+    \item Simple
+    \item Rapide à développer
+    \end{itemize}
+  \item Inconvénients :
+    \begin{itemize}
+    \item Fort couplage application/structure BD
+    \item Code côté client lourd
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{figure}
+    \centering
+    \includegraphics[height=5cm]{2tiers}
+  \end{figure}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Modèle 3-tiers}
+  \begin{itemize}
+  \item Principe : 
+    \begin{itemize}
+    \item Ajouter un \emph{middleware} côté serveur
+    \item Le client dialogue avec le \emph{middleware}
+    \end{itemize}
+  \item Avantages :
+    \begin{itemize}
+    \item Fort découplage
+    \item Clients légers
+    \item Possibilité d'augmenter la sécurité grâce au \emph{middleware}
+    \end{itemize}
+  \item Inconvénients :
+    \begin{itemize}
+    \item Plus lourd à mettre en oeuvre
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{figure}
+    \centering
+    \includegraphics[height=5cm]{3tiers}
+  \end{figure}
+\end{frame}
+
+
+\subsection{Contexte du TD}
+
+
+\begin{frame}
+\frametitle{TD JDBC}
+
+  \only<1,3-5>{
+    \begin{itemize}
+    \item Contexte de données
+    \item<3-> Traduction : plusieurs solutions possibles
+    \item<4-> Une classe par table : solution non retenue
+    \item<5-> Sous-classes selon le genre : solution retenue
+    \end{itemize}
+  }
+
+  \only<2>{
+    \begin{figure}
+      \centering
+      \includegraphics[height=5cm]{modele_rel_tp_jdbc}
+    \end{figure}
+  }
+
+  \only<6>{
+    \begin{figure}
+      \centering
+      \includegraphics[height=5cm]{modele_objet_tp_jdbc}
+    \end{figure}
+  }
+  \only<7>{
+    \begin{figure}
+      \centering
+      \includegraphics[height=5cm]{td_jdbc}
+    \end{figure}
+  }
+\end{frame}

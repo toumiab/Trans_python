@@ -1,0 +1,948 @@
+
+\section{Rappel}
+
+\subsection{Notion de variables}
+
+
+\begin{frame}
+\frametitle{Typage des variables}
+\only<1-4>{
+\begin{itemize}
+\item<1-4> Python: langage  typé dynamiquement 
+\item<2-4> [$\Rightarrow$] typage lors de l'affectation
+\item<3-4> Une variable n'est qu'une référence à l'objet (entier, réel, \dots)
+\item<4> Une variable peut changer de type au cours de l'exécution
+\end{itemize}
+}
+\end{frame}
+
+\begin{frame}
+\frametitle{Typage des variables}
+\begin{itemize}
+\item \textbf{Les types intégrés de Python}
+\begin{itemize}
+    \item Les numériques : Entiers signés (\emph{int}), Réels (IEEE 754) (\emph{float} et  Complexes (\emph{complex})
+		\item Booléens : le type \emph{bool}
+		\item Chaînes de caractères : type \emph{str}
+		\item Listes : type \emph{list}
+		\item Dictionnaires : type \emph{dict}
+		\item Tuples : type \emph{tuple}
+		\item Ensembles modifiables et immuables : le type \emph{set} et le type \emph{frozenset}
+		\item \dots
+    \end{itemize}
+\end{itemize}
+\pause
+
+\begin{remarque}
+    \begin{itemize}
+			\item Pour connaître le type d'une variable ou expression, on peut utiliser la fonction \emph{type()}
+			\item La fonction \emph{print()} permet d'afficher la valeur d'une variable
+		\end{itemize}
+		
+  \end{remarque}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Typage des variables}
+  \begin{exemple}
+    \begin{semiverbatim}
+ >>> i = 42 
+
+ >>> type(i)
+
+ <class 'int'>
+
+ >>> i = 'indice' 
+
+ >>> type(i)
+
+ <class 'str'>
+
+ >>> i = 42.0 
+
+ >>> type(i)
+
+ <class 'float'>
+
+ >>> print(i)
+
+42.5
+
+>>>
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+\section{Typage des variables}
+\subsection{Les nombres}
+
+\subsection{les types numériques}
+\begin{frame}
+\frametitle{Les types numériques}
+\begin{itemize}
+	\item \textbf{Les entiers }
+	 	\only<1-3>{ 
+		\begin{itemize}
+		 \item<1-3>  Leurs représentation n'est limitée que par la taille mémoire. \\
+		  \only<2-3>{$\Rightarrow$~pas de risque de débordement}
+		\end{itemize}
+		}
+	\only<3>{    
+  \begin{exemple}
+  \begin{semiverbatim}
+	>>> i = 42
+	
+	>>> i
+	
+	42
+	
+	>>> math.factorial(i)
+	
+	1405006117752879898543142606244511569936384000000000
+	\end{semiverbatim}
+  \end{exemple}
+	}
+	
+	\item<4-> \textbf{Les réels }
+	\only<4-6>{
+	\begin{itemize}
+		\item <4-6> Sont représentés en en double précision (64 bits).\\
+	$\Rightarrow$~{le plus petit nombre qu'il est possible de distinguer de 1 est $2.22E-16$}
+	 \item <5,6> Pour utiliser la simple précision, on peut faire appel à la bibliothèque {\tt
+    numpy}.
+		\end{itemize}
+		}
+	 \only<6>{    
+			\begin{exemple}
+			\begin{semiverbatim}
+				>>> freq = 10e9
+				
+				>>> freq
+				
+				10000000000.0
+			\end{semiverbatim}
+			\end{exemple}
+		 }
+	\item<7-> \textbf{Les complexes}
+	\only<7-9>{
+	\begin{itemize}
+		\item <7-9>Sont formés d'un couple de réels qui composent la partie réelle et la partie imaginaire
+		\item <8-9> Un suffixe \emph{j} pour regrouper deux valeurs composant la partie réelle et la partie imaginaire
+		\item <9> Un nombre complexe possède deux attributs en lecture seule \emph{.real} et \emph{.imag} et une méthode \emph{.conjugate()}
+	\end{itemize}
+	}	 
+		
+		
+		\only<10>{    
+			\begin{exemple}
+			\begin{semiverbatim}
+			>>> nb = 10 + 5j
+			
+			>>> nb.real
+			
+			10.0
+			
+			>>> nb.conjugate()
+			
+			(10-5j)
+			
+			>>> print(complex(10, 5))
+			
+			(10+5j
+			\end{semiverbatim}
+			\end{exemple}
+	
+	  }
+\end{itemize}
+
+
+
+\end{frame}
+
+\subsection{Les booléens}
+
+\begin{frame}
+\frametitle{Les booléens}
+
+
+
+\end{frame}
+
+
+
+
+\subsection{Portée}
+
+\begin{frame}
+  \frametitle{Portée, bloc}
+  \begin{alertblock}{Portée}
+    \begin{itemize}
+    \item Portée : zone de visibilité d'une variable
+    \item Notion fondamentale
+    \item Utilise la notion de bloc
+    \end{itemize}
+  \end{alertblock}
+  \pause
+  \begin{defi}[Bloc]
+    Ensemble des instructions entre
+    une paire balancée d'accolades (accolade ouvrante et
+    accolade fermante correspondante).
+  \end{defi}
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Exemple de blocs}
+  \begin{exemple}[Bloc]
+    \begin{semiverbatim}
+      public class MaClasse
+
+      \{   // debut \textcolor{red}{bloc 1}
+
+      \hspace{1cm}\textcolor{red}{private int variable1};
+
+      \hspace{1cm}public void essai()
+
+      \hspace{1cm}\{  // debut \textcolor{blue}{bloc 2}
+
+      \hspace{2cm}\textcolor{blue}{int i, j};
+
+      \hspace{1cm}\}  // fin \textcolor{blue}{bloc 2}
+
+      \hspace{1cm}public static void main(String args[])
+
+      \hspace{1cm}\{  // debut \textcolor{orange}{bloc 3}
+
+      \hspace{2cm}\textcolor{orange}{int i};
+
+      \hspace{1cm}\}  // fin \textcolor{orange}{bloc 3}
+
+      \} // fin \textcolor{red}{bloc 1}
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+\begin{frame}
+\frametitle{Effet de bord}
+\begin{alertblock}{Attention}
+  Limiter la portée des variables au maximum : attention aux effets de bord
+\end{alertblock}
+
+\pause
+\begin{defi}[Effet de bord]
+  Effet de bord vient de \emph{side effect} (effet secondaire).
+  Modification d'une variable globale par une fonction.
+\end{defi}
+\pause
+Le comportement d'un programme change selon l'ordre d'appel des fonctions à
+effet de bord.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Transtypage / \emph{cast}}
+  \only<1-2,4->{
+    \begin{itemize}
+    \item<1-> Objectif : convertir d'un type vers un autre.
+    \item<1-> Exemple : \texttt{double f  =  (double) retourInt ();}
+    \item<1-> Attention : risque de perte de données (ex : \emph{long} vers
+      \emph{int})
+    \item<2-> Transtypage implicite
+    \item<4-> Ex : \texttt{if  ('a' $<$ 3)} ...
+    \item<5-> 'a' est converti en entier
+    \end{itemize}
+  }
+  \only<3>{
+\begin{tabular}{|l|l|}
+  \hline
+  Type initial & Transtypage\\
+  \hline
+  byte &
+  short, char, int, long, float, double\\
+  short&
+  int, long, float, double\\
+  char&
+  int, long, float, double\\
+  int&
+  long, float, double\\
+  long&
+  float, double\\
+  float&
+  double\\
+  \hline
+\end{tabular}
+  }
+\end{frame}
+
+\subsection{Opérations}
+
+\begin{frame}
+  \frametitle{Affectation}  
+  \begin{defi}[Affectation]
+    Affectation : donner une valeur à une variable. Réalisée par l'opérateur
+    ``=''. 
+  \end{defi}
+  \pause
+  \begin{exemple}[Affectations]
+    \begin{semiverbatim}
+      int a = 2;
+
+      a = a+1; 
+
+      boolean b=(a$>$2);
+
+      char c = 'a'+3;
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Pré et post incrémentation}
+  \begin{exemple}[Forme condensée]
+    \begin{semiverbatim}
+      a += 2;
+
+      b *= 3;
+    \end{semiverbatim}
+  \end{exemple}
+  \pause
+  \begin{itemize}
+  \item Affectation très utile : i += 1 (ou i = i+1) \pause
+  \item $i++$; \pause $i--$; \pause
+  \item $++i$; \pause $--i$;
+  \end{itemize}
+  \pause
+  \begin{exemple}
+    \begin{semiverbatim}
+      int j, i=0; 
+
+      j = i++;\hspace{1cm}\pause (j vaut 0, i vaut 1) \pause
+
+      j = ++i;\hspace{1cm}\pause (j vaut 2, i vaut 2)
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Comparaisons}
+\begin{tabular}{|l|l|l|}
+\hline
+Opérateur &	Exemple &	Signification\\
+\hline
+\verb~>~ 	&\verb~a > 10~ 	&strictement supérieur\\
+\verb~<~ 	&\verb~a < 10~ 	&strictement inférieur\\
+\verb~>=~ 	&\verb~a >= 10~ 	&supérieur ou égal\\
+\verb~<=~ 	&\verb~a <= 10~ 	&inférieur ou égal\\
+\verb~==~ 	&\verb~a == 10~ 	&égal à\\
+\verb~!=~ 	&\verb~a != 10~ 	&différent de\\
+\hline
+\end{tabular}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Opérations logiques}
+\begin{tabular}{|l|l|l|}
+\hline
+Opérateur &	Exemple &	Signification\\
+\hline
+\verb~!~ 	&\verb~!a~ 	& NON logique\\
+\verb~\&\&~ 	&\verb~a \&\& b~ &	ET logique~: évaluation paresseuse\\
+\verb~||~ 	&\verb~a || b~ &	OU logique~: évaluation paresseuse\\
+\verb~\&~ 	&\verb~a \& b~ 	&ET logique\\
+\verb~\^{}~ 	&\verb~a \^{} b~ 	&OU exclusif logique\\
+\verb~|~ 	&\verb~a | b~ 	&OU logique\\
+\hline
+\end{tabular}\\
+~\\
+\pause
+Remarque : évaluation paresseuse
+\end{frame}
+
+\begin{frame}
+\frametitle{Opérations arithmétiques}
+
+\only<1-3>{
+\begin{itemize}
+\item Opérations de base : \verb~+ - * /~
+\item Modulo  : \verb~\%~
+\item Attention à la division entière : 
+  \begin{itemize}
+  \item 1/2 vaut 0
+  \item 1/2.0 vaut 0.5
+  \end{itemize}
+\end{itemize}
+\pause
+Réels particuliers :
+\begin{itemize}
+\item Double.NaN
+\item Double.POSITIVE\_INFINITY \pause
+\item Comportement défini par IEEE 754
+\end{itemize}
+}
+\only<4>{
+\begin{tabular}{|l|l|l|l|}
+\hline
+ X &Y &X/Y &X\%Y\\
+\hline
+valeur finie &0 &$+\infty$ &NaN\\
+valeur finie & $\pm\infty$ &0 &x\\
+0 &0 &NaN &NaN\\
+$\pm\infty$ &valeur finie &$\pm\infty$ &NaN\\
+$\pm\infty$ &$\pm\infty$ &NaN &NaN  \\
+\hline
+\end{tabular}
+}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Opérateurs sur les bits}
+
+  \begin{tabular}{|l|l|l|}
+    \hline
+    Opérateur &	Exemple &	Signification\\
+    \hline
+    \verb~<<~ & \verb~a << n~ & décalage à gauche de $n$ bits\\
+    \verb~>>~ & \verb~a >> n~ & décalage à droite de $n$ bits\\
+    \verb~>>>~ & \verb~a >>> n~ & décalage à droite non signé de $n$ bits\\
+    \verb!\~{}! & \verb!\~{}a! & NON binaire\\
+    \verb~\&~ 	&\verb~a \& b~ 	&ET binaire\\
+    \verb~\^{}~ &\verb~a \^{} b~&OU exclusif binaire\\
+    \verb~|~ 	&\verb~a | b~ 	&OU binaire\\
+    \hline
+  \end{tabular}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Priorité des opérateurs}
+\begin{tabular}{|l|l|}
+\hline
+les parenthèses &( )\\
+\hline
+les opérateurs d'incrémentation &++, - - \\
+\hline
+les opérateurs de multiplication, division, et modulo &*, /,\%\\
+\hline
+les opérateurs d'addition et soustraction &+,-\\
+\hline
+les opérateurs de décalage &$<<$,$>>$\\
+\hline
+les opérateurs de comparaison &$<$,$>$,$<=$,$>=$\\
+\hline
+les opérateurs d'égalité &==,!=\\
+\hline
+l'opérateur OU exclusif &\^{}\\
+\hline
+l'opérateur ET &\&\\
+\hline
+l'opérateur OU &$|$\\
+\hline
+l'opérateur ET logique &\&\&\\
+\hline
+l'opérateur OU logique &$||$\\
+\hline
+les opérateurs d'affectation &=,+=,-=  \\
+\hline
+\end{tabular}
+\end{frame}
+
+
+
+\section{Instructions du langage Java}
+
+\begin{frame}
+  \frametitle{Règles de base}
+
+\begin{itemize}[<+->]
+\item Java est sensible à la casse 
+\item les blocs de code sont encadrés par des accolades. Chaque instruction
+   se termine par un caractère ';' 
+ \item une instruction peut tenir sur plusieurs lignes 
+ \item l'indentation est ignorée du compilateur mais elle permet une meilleure
+   compréhension du code par le programmeur
+ \end{itemize}
+
+\end{frame}
+
+
+\subsection{Commentaires}
+
+\begin{frame}
+  \frametitle{Commentaires}
+  \begin{itemize}[<+->]
+  \item Commentaires : remarques en langage naturel
+  \item Ignorés par le compilateur
+  \item Trois types de commentaires :
+  \end{itemize}
+
+  \only<4>{
+    \begin{exemple}[Commentaire sur une ligne]
+      \begin{semiverbatim}
+        // zone de declaration des variables
+        
+        double x; // abscisse
+      \end{semiverbatim}
+    \end{exemple}
+  }
+  \only<5>{
+    \begin{exemple}[Commentaire sur plusieurs ligne]
+      \begin{semiverbatim}
+        /* debut de commentaire
+
+         ~* suite du commentaire
+
+         ~* et fin du commentaire */
+      \end{semiverbatim}
+    \end{exemple}
+  }
+  \only<6>{
+    \begin{exemple}[Documentation automatique]
+      \begin{semiverbatim}
+        /**
+
+        ~* commentaire de la methode
+
+        ~* @param val la valeur a traiter
+
+        ~* @since 1.0
+
+        ~* @return Rien
+
+        ~* @deprecated Utiliser la nouvelle methode XXX
+
+        ~*/
+      \end{semiverbatim}
+    \end{exemple}
+  }
+\end{frame}
+
+
+\subsection{Littéraux (constantes)}
+
+\begin{frame}
+  \frametitle{Types de littéraux}
+  \begin{itemize}
+  \item<1-> Entiers : base 10  \only<2->{,base 16  }\only<3->{,base 8}
+  \item<4-> Réels : double précision \only<5->{ simple précision}
+  \item<6-> Booléens
+  \item<7-> Caractères \only<8->{ unicode}
+  \item<9-> Chaînes de caractères
+  \end{itemize}
+
+  \begin{exemple}[Littéral]
+    \only<1>{
+      42, -7
+    }
+    \only<2>{
+      0x9AE3
+    }
+    \only<3>{
+      020 (= 16)
+    }
+    \only<4>{
+      3.14, 6.02E23 (= $6.02.10^{23}$)
+    }
+    \only<5>{
+      1.5f
+    }
+    \only<6>{
+      true, false
+    }
+    \only<7>{
+      'a', ';'
+    }
+    \only<8>{
+      '$\backslash$u0065' (='e')
+    }
+    \only<9>{
+      "Une chaîne de caractères"
+    }
+  \end{exemple}
+\end{frame}
+
+
+\subsection{Mots clés}
+
+\begin{frame}
+\only<1>{
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+abstract  &assert   &boolean  &break  &byte\\
+\hline
+case &catch &char &class &const\\
+\hline
+continue &default &do &double &else\\
+\hline
+extends &false &final &finally &float\\
+\hline
+for &goto &if &implements &import\\
+\hline
+instanceof &int &interface &long &native\\
+\hline
+new &null &package &private &protected\\
+\hline
+public &return &short &static &super\\
+\hline
+switch &synchronized &this &throw &throws\\
+\hline
+transient &true &try &void &volatile\\
+\hline
+while &&&& \\
+\hline
+\end{tabular}  
+}
+\only<2>{
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+abstract  &assert   &\textcolor{red}{boolean}  &break  &\textcolor{red}{byte}\\
+\hline
+case &catch &\textcolor{red}{char} &class &const\\
+\hline
+continue &default &do &\textcolor{red}{double} &else\\
+\hline
+extends &false &final &finally &\textcolor{red}{float}\\
+\hline
+for &goto &if &implements &import\\
+\hline
+instanceof &\textcolor{red}{int} &interface &\textcolor{red}{long} &native\\
+\hline
+new &null &package &private &protected\\
+\hline
+public &return &\textcolor{red}{short} &static &super\\
+\hline
+switch &synchronized &this &throw &throws\\
+\hline
+transient &true &try &void &volatile\\
+\hline
+while &&&& \\
+\hline
+\end{tabular}  
+}
+\end{frame}
+
+
+
+\subsection{Branchements conditionnels}
+
+
+\begin{frame}
+  \frametitle{if}
+  \begin{itemize}
+  \item Teste une condition booléenne
+  \item Si \emph{vrai}, exécute une partie du code
+  \item Sinon, exécute autre partie
+  \end{itemize}
+
+  \pause
+  \begin{exemple}[if]
+    \begin{semiverbatim}
+      if (expressionBooleenne1)  \{ 
+      
+      \hspace{1cm}action1 
+
+      \} ~else if (expressionBooleenne2) \{ 
+      
+      \hspace{1cm}action2 
+
+      \} ~else \{ 
+      
+      \hspace{1cm}action3
+
+      \}      
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exemple de test}
+  \begin{exemple}
+    \begin{semiverbatim}
+      boolean b = fonctionTest();
+
+      int i = calculComplique();
+
+      if ( (i>42) \&\& b) \{
+
+      \hspace{1cm}appelFonction();
+
+      \}      
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+\begin{frame}
+  \begin{remarque}
+    \begin{itemize}
+    \item \emph{if} peut s'écrire sans \emph{else}
+    \end{itemize}
+  \end{remarque}
+
+  \pause
+    \begin{alertblock}{Correct mais à proscrire}
+      \begin{semiverbatim}
+        if (condition) \{
+
+        \} ~else \{ 
+        
+        \hspace{1cm}action;
+
+        \}
+      \end{semiverbatim}
+    \end{alertblock}
+    \pause
+    \begin{beamerboxesrounded}{Forme préférée}
+      \begin{semiverbatim}
+        if (! condition) \{ 
+
+        \hspace{1cm}action;
+
+        \}
+      \end{semiverbatim}
+    \end{beamerboxesrounded}
+
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{switch/case}
+  \begin{exemple}[switch]
+    \begin{semiverbatim}
+      int i = genererUnEntier();
+
+      switch(i) \{
+
+      case 0:
+
+      \hspace{1cm}liste d'instructions...
+
+      \hspace{1cm}break;
+
+      case 1:
+
+      \hspace{1cm}autres instructions...
+
+      \hspace{1cm}break;
+
+      default:
+
+      \hspace{1cm}instructions differentes...
+
+      \}      
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+\begin{frame}
+  \begin{remarque}
+    \begin{itemize}
+    \item Variable du \emph{switch} de type \emph{int} ou convertie
+      implicitement en \emph{int} : \emph{byte, short, char}
+    \item Instruction \emph{break} : ne pas traiter les autres cas
+    \item Possibilité de regrouper les instructions pour plusieurs cas
+    \end{itemize}
+  \end{remarque}
+
+  \pause
+  \begin{exemple}
+    \begin{semiverbatim}
+      switch(i) \{
+
+      case 0: case 2: case 4:
+
+    \hspace{1cm}... break;
+
+    case 1: case 3:
+
+    \hspace{1cm}... break;
+
+    \}
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Opérateur ?}
+  Opérateur ternaire :
+  \begin{semiverbatim}
+    ( condition ) ? valeur-vrai : valeur-faux
+  \end{semiverbatim}
+\pause
+  \begin{exemple}
+    \begin{semiverbatim}
+      // i et j sont des entiers
+
+      int max;
+
+      max = (i>j) ? i : j;
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+
+\subsection{Boucles}
+
+\begin{frame}
+  \frametitle{Principe}
+  \begin{itemize}
+  \item Boucle = structure de contrôle
+  \item But : exécuter certaines opérations plusieurs fois
+  \item Il existe plusieurs types de boucles en Java
+  \item Toutes les boucles sont équivalentes
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{while}
+  \begin{semiverbatim}
+    while(condition) \{
+
+      \hspace{1cm}actions
+
+    \}
+  \end{semiverbatim}
+  \pause
+  \begin{exemple}[boucle while]
+    \begin{semiverbatim}
+      int i=0;
+
+      while (i<10) // \textcolor{red}{pas de ";"}
+
+      \{
+
+        \hspace{1cm}System.out.println(i); 
+
+        \hspace{1cm}i++;  // i=i+1
+
+      \}
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+\begin{frame}
+  \frametitle{do-while}
+  \begin{exemple}
+    \begin{semiverbatim}
+      char c;
+
+      do \{
+
+      \hspace{1cm}c = lireUnCaractereAuClavier();
+
+      \} ~ while (c != ' ');  // \textcolor{red}{ici ";"}
+    \end{semiverbatim}
+  \end{exemple}
+
+  Différence avec le \emph{while} : le bloc est exécuté au moins une fois.
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{for}
+  Utilisation : le nombre d'itérations est connu.
+  Syntaxe~:
+  \begin{semiverbatim}
+    for (\only<1,3->{initialisation}\only<2>{\textcolor{red}{initialisation}}
+    ; 
+    \only<1-2,4->{condition}\only<3>{\textcolor{red}{condition}} ; 
+    \only<1-3>{modification}\only<4>{\textcolor{red}{modification}})
+  \end{semiverbatim}
+  \begin{itemize}
+  \item<2-> \emph{initialisation} exécuté avant de commencer la boucle ;
+  \item<3-> \emph{condition} détermine s'il est possible de continuer la boucle ;
+  \item<4-> \emph{modification} modifie les données pour l'itération suivante.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{for}
+  \begin{exemple}[Équivalent du while]
+    \begin{semiverbatim}
+      \only<1>{int i;
+
+      }for (\only<2>{int }i=0 ; i<10 ; i++) \{
+
+      \hspace{1cm}System.out.println(i);
+
+      \}
+    \end{semiverbatim}
+  \end{exemple}
+\pause
+  \begin{remarque}
+    Possibilité de déclarer l'indice de boucle lors de l'initialisation
+
+    $\Rightarrow$ variable locale à la boucle
+  \end{remarque}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Sortie de boucle}
+  Possibilité de modifier l'exécution d'une boucle avec \emph{break} et
+  \emph{continue}. Mais ne pas en abuser.
+
+  \begin{exemple}
+    \only<1>{
+      \begin{semiverbatim}
+        while( condition1 )  \{
+
+        \hspace{1cm}if (condition2)
+
+        \hspace{2cm}break;
+
+        \hspace{1cm}...
+
+        \}        
+      \end{semiverbatim}
+    }
+    \only<2>{
+      \begin{semiverbatim}
+        while (condition1 \&\& !condition2) \{
+
+        \hspace{1cm}...
+
+        \}
+      \end{semiverbatim}
+    }
+  \end{exemple}
+\end{frame}
+
+\section{Premiers programmes}
+
+\begin{frame}[fragile]
+  \frametitle{Hello World}
+  \begin{lstlisting}
+/** 
+ * Premier programme Java : hello world
+ */
+public class Hello {
+  public static void main(String args[]) {
+    System.out.println("Hello");
+  }
+}    
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}
+\frametitle{Remarques}
+  \begin{itemize}
+  \item Nom du fichier et nom du programme doivent coïncider
+  \item Ex : le fichier doit s'appeler \emph{Hello.java}
+  \item Compilation : \emph{javac Hello.java}
+  \item Exécution : \emph{java Hello}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Passage de paramètres au \emph{main}}
+
+  \begin{itemize}
+  \item Passage de paramètres par la variable \emph{args}
+  \item Ex : \emph{java Hello 1234 xyz}
+    \begin{itemize}
+    \item args[0] $\leftarrow$ 1234
+    \item args[1] $\leftarrow$ xyz
+    \end{itemize}
+  \end{itemize}
+\end{frame}

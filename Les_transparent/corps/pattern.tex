@@ -1,0 +1,434 @@
+\section{Design Patterns}
+
+\begin{frame}
+  \frametitle{Motifs de conception}
+  Principe~:
+  \begin{itemize}
+  \item Réponse à des schémas classiques~: modèles objets
+  \item Solutions classiques~: \textit{design patterns}
+  \item À appliquer si on est dans le cas considéré
+  \item Souvent à adapter
+  \end{itemize}
+  Exemples de motifs de conception~:
+  \begin{itemize}
+  \item Design Patterns -- Tête la première
+  \item Design Patterns~: Elements of Reusable Object-Oriented Software (GOF)
+  \end{itemize}
+\end{frame}
+
+\subsection{Strategie}
+
+\begin{frame}
+  \frametitle{Objectif}
+  \begin{itemize}
+  \item Un objet possède une stratégie (comportement)
+  \item Stratégie peut changer dynamiquement
+  \end{itemize}
+  Utilité~:
+  \begin{itemize}
+  \item Plusieurs classes ne diffèrent que par leur comportement
+  \item Plusieurs variantes du comportement
+  \end{itemize}
+  Exemple~:
+  \begin{itemize}
+  \item Besoin de trier des vecteurs
+  \item Plusieurs normes pour mesurer les vecteurs
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Principe}
+  \begin{itemize}
+  \item Classe possédant une stratégie
+  \item Interface stratégie $\leadsto$ méthodes abstraites
+  \item L'utilisateur écrit les classes utilisant la stratégie
+  \item[$\Rightarrow$] obligation de redéfinir les méthodes
+  \item Changement de stratégie~: instancier une nouvelle classe
+  \end{itemize}
+\end{frame}
+
+ \pgfdeclarelayer{background}
+ \pgfdeclarelayer{foreground}
+ \pgfsetlayers{background,main,foreground}
+\begin{frame}
+  \begin{tikzpicture}[scale=0.5,font=\scriptsize,node distance=0.3cm]
+\tikzstyle{classe}=[rectangle, draw=black, rounded corners, fill=blue!50, drop shadow, text centered, anchor=north, text=white, rectangle split, rectangle split parts=3]
+\tikzstyle{interface}=[rectangle, draw=black, rounded corners, fill=green!35, drop shadow, text centered, anchor=north, text=black, rectangle split, rectangle split parts=2]
+  \tikzstyle{extends}=[->, >=open triangle 90, thick]
+  \tikzstyle{implements}=[->, >=open triangle 90, thick, loosely dashed]
+  \tikzstyle{line}=[-, thick]
+  \tikzstyle{agreg}=[thick, arrows={-open diamond}]
+  \node[interface] (ss) {
+    Sort Strategy
+    \nodepart{second}\texttt{sort(int t[])}
+  };
+  \node[classe, node distance=0.8cm,left=of ss,text width=1.8cm] (as) {
+    ArraySort
+    \nodepart{second}\texttt{int data[]}
+    \nodepart{third}\texttt{sort()\\norm()}
+  };
+  \node[interface,node distance=0.8cm,left=of as] (ns) {
+    NormStrategy
+    \nodepart{second}\texttt{norm(int t[])}
+  };
+  \node[classe,node distance=2cm,below=of ss] (shs) {
+    ShellSort
+    \nodepart{third}\texttt{sort(int t[])}
+  };
+  \node[classe,left=of shs,text width=2.5cm] (qs) {
+    QuickSort
+    \nodepart{third}\texttt{sort(int t[])\\qs(int t[], int a, int b)}
+  };
+  \node[classe,node distance=2cm,below=of ns] (n1) {
+    Norm1
+    \nodepart{third}\texttt{norm(int t[])}
+  };
+  \node[classe,left=of n1] (n2) {
+    Norm2
+    \nodepart{third}\texttt{norm(int t[])}
+  };
+  \draw[agreg] (ss) -- (as);
+  \draw[agreg] (ns) -- (as);
+  \draw[implements] (shs.north) -- (ss.south);
+  \draw[implements] (qs.north) -- ++(0,+0.8) -| (ss.south);
+  \draw[implements] (n1.north) -- (ns.south);
+  \draw[implements] (n2.north) -- ++(0,+1.6) -| (ns.south);
+  \begin{pgfonlayer}{background}
+    % Compute a few helper coordinates
+    \path (ns.west |- as.north)+(-0.5,0.4) node (a) {};
+    \path (as.south -| ss.east)+(+0.5,-0.4) node (b) {};
+    \path[fill=yellow!20,rounded corners, draw=black!50, dashed] (a) rectangle (b);
+  \end{pgfonlayer}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Stratégie en Java}
+  \begin{lstlisting}
+  public static void main(String[] args) {
+    // tableau de tris possibles
+    SortStrategy[] alg = {new ShellSort(), 
+      new QuickSort() };
+    // parcours de l'ensemble des tris
+    for (SortStrategy str : alg) {
+      // initialiser le ArraySort
+      ArraySort as = new ArraySort(30, str, 
+              new Norm2());
+      System.out.println(as);
+      // tri utilisant la strategie
+      as.sort();
+    }
+  \end{lstlisting}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Avantages/inconvénients}
+  \begin{tabular}{ll}
+    \begin{minipage}{0.53\linewidth}
+      \begin{block}{Avantages}
+        \begin{itemize}
+        \item Fait apparaître des familles d'algorithmes $\Rightarrow$ factorisation
+        \item Possibilité de changer dynamiquement de stratégie
+        \item Possibilité de posséder plusieurs stratégies
+        \item Séparation des différents comportements
+        \end{itemize}
+      \end{block}
+    \end{minipage} &
+    \begin{minipage}{0.45\linewidth}
+      \begin{block}{Inconvénients}
+        \begin{itemize}
+        \item Il faut connaître les stratégies pour les utiliser
+        \item Prototypes identiques
+        \item Nombre de classes
+        \end{itemize}
+      \end{block}
+    \end{minipage}
+  \end{tabular}
+\end{frame}
+
+\subsection{État}
+
+\begin{frame}
+  \frametitle{Objectif}
+  \begin{itemize}
+  \item Associer un comportement à un objet
+  \item Comportement = états + transitions
+  \item Dans chaque état~: une action
+  \item[$\leadsto$] Automate
+  \end{itemize}
+  Codage~:
+  \begin{itemize}
+  \item Classe abstraite État
+  \item + sous-classes
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exemple}
+\begin{center}
+\only<1>{
+\begin{tikzpicture}[font=\small,node distance=3cm]
+\tikzstyle{etat}=[rectangle, draw=black, rounded corners, fill=orange!30, drop shadow, text centered, anchor=north, rectangle split, rectangle split parts=2]  
+\node[etat] (norm) {Normal};
+\node[etat,below right=of norm] (sc) {Scared};
+\node[etat,below left=of norm] (hun) {Hungry};
+\path[thick,->,shorten >= 2pt] (norm) edge[bend right=30]  node[above=1mm,sloped] {detectPredator} (sc)
+(sc) edge[bend right=30]  node[above,sloped] {escape} (norm)
+(norm) edge[bend right=30]  node[above,sloped] {hungry} (hun)
+(hun) edge[bend right=30]  node[above,sloped] {eat} (norm)
+(hun) edge  node[below] {detectPredator} (sc);
+\end{tikzpicture}
+}
+\only<2>{
+  \begin{tikzpicture}[scale=0.5,font=\scriptsize,node distance=0.6cm,node distance=1.3cm]
+    \tikzstyle{classe}=[rectangle, draw=black, rounded corners, fill=blue!50, drop shadow, text centered, anchor=north, text=white, rectangle split, rectangle split parts=3]
+    \tikzstyle{interface}=[rectangle, draw=black, rounded corners, fill=green!35, drop shadow, text centered, anchor=north, text=black, rectangle split, rectangle split parts=2]
+    \tikzstyle{extends}=[->, >=open triangle 90, thick]
+    % \tikzstyle{implements}=[->, >=open triangle 90, thick, loosely dashed]
+    \tikzstyle{line}=[-, thick]
+    \tikzstyle{agreg}=[thick, arrows={-open diamond}]
+    \node[classe,fill=purple!50] (as) {
+      \textit{AbstractState}
+      \nodepart{third}\texttt{action()}
+    };
+    \node[classe,node distance=2cm,left=of as,text width=2.5cm] (an) {
+      Animal
+      \nodepart{third}\texttt{oneStep()\\setMyBehavior()\\detectPredator()}
+    };
+    \node[classe,below=of as] (norm) {
+      Normal
+      \nodepart{third}\texttt{action()}
+    };
+    \node[classe,left=of norm] (sc) {
+      Scared
+      \nodepart{third}\texttt{action()}
+    };
+    \node[classe,right=of norm] (hun) {
+      Hungry
+      \nodepart{third}\texttt{action()}
+    };
+    \draw[agreg] (as) -- (an);
+    \draw[extends] (norm.north) -- (as.south);
+    \draw[extends] (sc.north) -- ++(0,1.05) -| (as.south);
+    \draw[extends] (hun.north) -- ++(0,1) -| (as.south);
+\end{tikzpicture}
+}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{État en Java}
+  \begin{lstlisting}
+public class Animal {
+  /** etat courant de l'animal */
+  private AbstractState myBehavior;
+  public Animal() {
+    // initialement : etat normal
+    myBehavior = new Normal();
+  }
+  /** effectue un tour pour l'animal */
+  public void doOneStep() {
+    this.myBehavior.action(this);
+  }
+}
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{État en Java}
+    \begin{lstlisting}
+public class Normal extends AbstractState {
+  public void action(Animal a) {
+    if (a.detectPredator()) {
+      // nouveau comportement : fuite
+      a.setMyBehavior(new Scared());
+    } else if (a.isHungry()) {
+      // nouveau comportement : faim
+      a.setMyBehavior(new Hungry());      
+    }
+  }
+}    
+    \end{lstlisting}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Avantages/inconvénients}
+  \begin{tabular}{ll}
+    \begin{minipage}{0.53\linewidth}
+      \begin{block}{Avantages}
+        \begin{itemize}
+        \item Rassemble tout le code traitant un état
+        \item Ajout de nouvel état simple
+        \item Transitions explicites
+        \end{itemize}
+      \end{block}
+    \end{minipage} &
+    \begin{minipage}{0.45\linewidth}
+      \begin{block}{Inconvénients}
+        \begin{itemize}
+        \item Classes à créer
+        \item Création d'un objet à chaque transition
+        \item[$\leadsto$] possibilité d'utiliser Singleton 
+        \end{itemize}
+      \end{block}
+    \end{minipage}
+  \end{tabular}
+\end{frame}
+
+\subsection{Singleton}
+
+\begin{frame}
+  \frametitle{Singleton}
+  \begin{block}{Objectif}
+    Garantir qu'une classe ne pourra être instanciée qu'une seule fois.
+  \end{block}
+  Réalisation~?
+  \begin{itemize}
+  \item Classe \emph{Singleton}
+  \item Variable de classe de type \emph{Singleton}
+  \item Constructeur \emph{privé}
+  \item Méthode \emph{de classe} d'instanciation
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Singleton en Java}
+  \begin{lstlisting}
+public class Singleton {
+    /** singleton cree */
+    private static Singleton s = null;
+    /** constructeur prive */
+    private Singleton ()  {
+    }
+    /** methode de classe de creation */
+    public static Singleton getSingleton () {
+      // creer le singleton si necessaire
+      if (s == null) 
+        s = new Singleton();
+      return s;
+    }
+  }
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Utilisation du singleton en Java}
+  \begin{lstlisting}
+    public static void main (String[] args)  {
+      Singleton s = Singleton.getSingleton(); 
+      System.out.println(s);
+      Singleton r = s.getSingleton(); // r = s
+      System.out.println(r);
+    }    
+  \end{lstlisting}
+\end{frame}
+
+\subsection{Observer--Observable}
+
+\begin{frame}
+  \frametitle{Objectif}
+  \begin{itemize}
+  \item Simplifier la conception d'IHM
+  \item Mécanisme de mise à jour d'interfaces observant des données
+  \item Ajout de plusieurs vues très simple
+  \end{itemize}
+  Principe~:
+  \begin{itemize}
+  \item Données~:
+    \begin{itemize}
+    \item hériter de \emph{Observable}
+    \item signaler des mises à jour avec \emph{setChanged} et \emph{notifyObservers}
+    \end{itemize}
+  \item Vues~:
+    \begin{itemize}
+    \item implanter \emph{Observer}
+    \item réaliser les mises à jour dans \emph{update}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Diagramme de classes}
+  \begin{center}
+\tikzstyle{classe}=[rectangle, draw=black, rounded corners, fill=blue!50, drop
+shadow, text centered, text=white, text width=1.5cm, rectangle split, rectangle
+split parts=3]
+\tikzstyle{interface}=[rectangle, draw=black, rounded corners, fill=green!35, drop shadow, text centered, anchor=north, text=black, rectangle split, rectangle split parts=2]
+\tikzstyle{extends}=[->, >=open triangle 90, thick]
+\tikzstyle{implements}=[->, >=open triangle 90, thick, loosely dashed]
+\tikzstyle{uses}=[thick, arrows={-angle 60}]
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+\begin{tikzpicture}[node distance=1.5cm,scale=0.8, font=\scriptsize]
+  \node[classe,text width=2.5cm] (observable) {
+    Observable
+    \nodepart{third}\texttt{addObserver()\\setChanged()\\notifyObservers()}
+  };
+  \node[interface,right=of observable] (observer) {
+    Observer
+    \nodepart{second}\texttt{update()}
+  };
+  \node[classe,below=of observable] (data) {
+    Data
+  };
+  \node[classe,below=of observer] (visu1) {
+    Visu1
+    \nodepart{third}\texttt{update()}
+  };
+  \node[classe,right=of visu1] (visu2) {
+    Visu2
+    \nodepart{third}\texttt{update()}
+  };
+
+  \draw[extends] (data.north) -- (observable.south); 
+  \draw[implements] (visu1.north) -- (observer.south); 
+  \draw[implements] (visu2.north) -- ++ (0,0.5) -| (observer.south); 
+
+  \begin{pgfonlayer}{background}
+    % Compute a few helper coordinates
+    \path (observable.west |- observable.north)+(-0.5,0.3) node (a) {};
+    \path (observable.south -| observer.east)+(+0.5,-0.4) node (b) {};
+    \path[fill=yellow!20,rounded corners, draw=black!50, dashed] (a) rectangle (b);
+  \end{pgfonlayer}
+
+  \end{tikzpicture}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Code Java}
+  \begin{lstlisting}
+  public void setMyValue(double myValue) {
+    this.myValue = myValue;
+    setChanged();
+    notifyObservers();
+  }
+  \end{lstlisting}
+  \begin{lstlisting}
+  public void update(Observable o, Object arg) {
+    // o est en fait un objet de type Data
+    Data mesDonnees = (Data)o;
+    // mise a jour l'interface
+    // ...
+  }
+  \end{lstlisting}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Utilité}
+  \begin{itemize}
+  \item une modification des données entraîne une mise à jour dans un nombre de vues non défini a priori
+  \item Découplage fort données--affichage
+  \item Mise à jour des visualisations par une interface commune
+  \end{itemize}
+\end{frame}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "../java10"
+%%% End: 

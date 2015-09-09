@@ -1,0 +1,176 @@
+%% teste si compil avec pdflatex ou avec latex
+\input ifpdf.sty
+
+\ifpdf
+\documentclass[pdftex,beamer]{beamer}
+\else
+\documentclass[xcolor=pst,dvips,beamer]{beamer}
+\fi
+
+%\documentclass[handout]{beamer}
+
+
+% Try the class options [notes], [notes=only], [trans], [handout],
+% [red], [compress], [draft], [class=article] and see what happens!
+
+% Copyright 2003 by Till Tantau <tantau@users.sourceforge.net>.
+%
+% This program can be redistributed and/or modified under the terms
+% of the LaTeX Project Public License Distributed from CTAN
+% archives in directory macros/latex/base/lppl.txt.
+
+%\usepackage{pstricks} % To use the standard "xcolor" package with PSTricks
+%\usepackage{pst-node}
+%\usepackage{pst-plot}
+%\usepackage{pst-tree}
+
+\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps,pgfshade}
+\usepackage{amsmath,amssymb,euscript}
+\usepackage[latin1]{inputenc}
+\usepackage{colortbl}
+\usepackage[frenchb]{babel}
+%\usepackage{gastex}
+
+%\usepackage{times}
+%\usepackage{lmodern}
+%\usepackage[T1]{fontenc} 
+
+\usepackage{multicol}
+
+%\ifpdf
+%\usepackage[pdftex]{graphicx}
+%\DeclareGraphicsExtensions{.pdf,.png,.mps}
+%\else
+%\usepackage[dvips]{graphicx}
+%%\DeclareGraphicsExtensions{.eps}
+%\fi
+
+
+%% hyperref doit etre charge en dernier
+%\ifpdf
+%\usepackage[pdftex,colorlinks]{hyperref}
+%\else
+%\usepackage[dvips]{hyperref}
+%\fi
+%%
+
+
+\unitlength 1cm
+\def\nbR{\ensuremath{\mathrm{I\!R}}} % IR
+\def\nbN{\ensuremath{\mathrm{I\!N}}} % IN
+\def\Coup{\ensuremath{\mathcal C}} % IN
+\def\Cont{\ensuremath{\EuScript C}}
+\def\Dom{\ensuremath{\EuScript D}}
+
+\newcommand{\NoeudLst}[2] {\begin{tabular}{|l|l|} \hline #1&#2\\ \hline \end{tabular}}
+
+% \nbQ   : Nombres Rationnels Q
+\def\nbQ{{\mathchoice {\setbox0=\hbox{$\displaystyle\rm
+Q$}\hbox{\raise
+0.15\ht0\hbox to0pt{\kern0.4\wd0\vrule height0.8\ht0\hss}\box0}}
+{\setbox0=\hbox{$\textstyle\rm Q$}\hbox{\raise
+0.15\ht0\hbox to0pt{\kern0.4\wd0\vrule height0.8\ht0\hss}\box0}}
+{\setbox0=\hbox{$\scriptstyle\rm Q$}\hbox{\raise
+0.15\ht0\hbox to0pt{\kern0.4\wd0\vrule height0.7\ht0\hss}\box0}}
+{\setbox0=\hbox{$\scriptscriptstyle\rm Q$}\hbox{\raise
+0.15\ht0\hbox to0pt{\kern0.4\wd0\vrule height0.7\ht0\hss}\box0}}}}
+%
+
+\newenvironment{algorithme}[2]{
+  \begin{figure}[htbp]
+    \hrule \def\tempa{#1} \def\tempb{#2}
+    \begin{center}
+      \begin{tabbing}}
+      {\end{tabbing}
+    \end{center}
+    \hrule
+    %\caption{\tempa}
+    %\label{\tempb}
+  \end{figure}}
+ \usepackage{lmodern}
+%% Commandes à utiliser avec l'environnement algorithme :
+\providecommand{\algemph}{\textbf}
+\providecommand{\algverb}{\texttt}
+\providecommand{\proc}{\algemph{Procédure }}
+\providecommand{\func}{\algemph{Fonction }}
+\providecommand{\vars}{\algemph{variables : }}
+\providecommand{\precond}{$\triangleright$ \algemph{Préconditions : }}
+\providecommand{\debut}{\algemph{début }}
+\providecommand{\fin}{\algemph{fin}}
+\providecommand{\faire}{\algemph{faire }} 
+\providecommand{\pour}{\algemph{Pour }} 
+\providecommand{\tantque}{\algemph{Tant que }}
+\providecommand{\pourchaque}{\algemph{Pour chaque }}
+\providecommand{\repeter}{\algemph{Répéter }}
+\providecommand{\jusqua}{\algemph{jusqu'à }}
+\providecommand{\si}{\algemph{Si }} 
+\providecommand{\alors}{\algemph{alors }}
+\providecommand{\sinon}{\algemph{sinon }}
+\providecommand{\aff}{\leftarrow} % en mode math ...
+
+\newcommand{\macoulr}[1]{\color{red}#1\color{black}}
+\newcommand{\macoulb}[1]{\color{blue}#1\color{black}}
+% Use some nice templates
+\beamertemplatetransparentcovereddynamic
+
+\theoremstyle{definition}
+\newtheorem{defi}{Définition}
+\theoremstyle{example}
+\newtheorem{remarque}{Remarque}
+\newtheorem{remarques}{Remarques}
+\theoremstyle{example}
+\newtheorem{exemple}{Exemple}
+\theoremstyle{theorem}
+\newtheorem{theoreme}{Théorème}
+\theoremstyle{theorem}
+\newtheorem{propriete}{Propriétés}
+\theoremstyle{theorem}
+\newtheorem{lemme}{Lemme}
+\theoremstyle{theorem}
+\newtheorem{corollaire}{Corollaire}
+
+\title[Java]{Langage et algorithmique}
+\author[RM]{Rodéric Moitié}
+%\date[DLT 2003]{Developments in Language Theory Conference, 2003}
+\date[2007]{\today}
+
+\usetheme{Ensieta2}
+
+\mode<handout>{
+  \usecolortheme{dove}
+}
+
+
+\begin{document}
+
+\frame{\titlepage}
+
+%\begin{frame}
+%  \frametitle{Sommaire}
+%  \tableofcontents[hideallsubsections]
+%\end{frame}
+
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{Sommaire}
+    \tableofcontents[current,hideallsubsections]
+  \end{frame}
+}
+
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{Sommaire}
+    \tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/shaded/hide]
+  \end{frame}
+}
+
+
+%%%
+\input{deroulement}
+\input{intro}
+\input{representation_var}
+
+\end{document}
+

@@ -1,0 +1,60 @@
+\makeatletter\def\input@path{{styles/}{corps/}{bib/}}\makeatother
+
+\documentclass{transp_java}
+
+\title[Langage et algorithmique]{Langage et algorithmique}
+\author{Rodéric Moitié}
+%\date[DLT 2003]{Developments in Language Theory Conference, 2003}
+\date{}
+\institute{ENSTA Bretagne}
+
+
+%\usetheme{Transp}
+\usetheme{progressbar}
+%\progressbaroptions{titlepage=normal,headline=sections,frametitle=normal}
+%\progressbaroptions{titlepage=normal,frametitle=normal}
+\progressbaroptions{imagename=java_logo2.png}
+%\usetheme{Darmstadt}
+
+
+
+
+\mode<handout>{
+  \usecolortheme{dove}
+  \usepackage{pgfpages}
+  \pgfpagesuselayout{4 on 1}[a4paper, border shrink=5mm, landscape]
+}
+
+
+
+\begin{document}
+
+\frame{\titlepage}
+
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{Sommaire}
+    \tableofcontents[current,currentsection]
+  \end{frame}
+}
+
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{Sommaire}
+    \tableofcontents[current,currentsubsection]
+  \end{frame}
+}
+
+
+%%%
+\input{arbres}
+
+\end{document}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

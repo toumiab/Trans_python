@@ -1,0 +1,14 @@
+\section{Principes généraux}
+
+\subsection{Généralités}
+
+\begin{frame}
+  \frametitle{Généralités}
+  \begin{itemize}
+  \item Variable : donnée de base manipulée par le programme
+	\item Toute variable référence un objet d'un type bien connu (entier, réel, chaîne de caractères, ...)
+  \item Emplacement mémoire (adresse binaire) contenant des données (binaire)
+  \item Données de taille variable
+  \item Langage de haut niveau : cache la gestion de la mémoire
+  \end{itemize}
+\end{frame}

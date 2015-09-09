@@ -1,0 +1,60 @@
+\makeatletter\def\input@path{{styles/}{images/}{corps/}{bib/}}\makeatother
+
+\documentclass{transp_java}
+\usepackage{listings}
+\title[Langage et algorithmique : Python 3]{Langage et algorithmique}
+\author{A. Malek TOUMI}
+%\date[DLT 2003]{Developments in Language Theory Conference, 2003}
+\date{}
+\institute{ENSTA Bretagne}
+
+
+%\usetheme{Transp}
+\usetheme{progressbar}
+%\usetheme{Darmstadt}
+\progressbaroptions{imagename= python-HE.png}
+%python-HE.png, Python-logo2.png
+
+\mode<handout>{
+  \usecolortheme{dove}
+  \usepackage{pgfpages}
+  \pgfpagesuselayout{4 on 1}[a4paper, border shrink=5mm, landscape]
+}
+
+
+
+\begin{document}
+
+\frame{\titlepage}
+
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{Sommaire}
+    \tableofcontents[current,currentsection]
+  \end{frame}
+}
+
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{Sommaire}
+    \tableofcontents[current,currentsubsection]
+  \end{frame}
+}
+
+
+%%%
+\input{deroulement}
+\input{intro}
+
+\input{principes_gen}
+\input{variablesp}
+\input{representation_var}
+\end{document}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

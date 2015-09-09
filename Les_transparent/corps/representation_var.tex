@@ -1,0 +1,173 @@
+
+\subsection{Représentation des entiers : complément à 2}
+
+\begin{frame}
+  \frametitle{Contraintes}
+  \begin{itemize}
+  \item Représenter des entiers relatifs
+  \item Déterminer si le nombre est positif ou négatif
+  \item Conserver les propriétés de l'addition
+  \end{itemize}
+$\Rightarrow$ complément à deux
+\end{frame}
+
+\begin{frame}
+  \frametitle{Complément à deux}
+  \begin{itemize}
+  \item Bit de poids fort : signe (0$\leadsto$positif ou nul, 1$\leadsto$
+    négatif)
+    \pause
+  \item Sur $n$ bits : plus grand entier $2^{n-1}-1$, plus petit $-2^{n-1}$
+    \pause
+  \item Représentation d'un nombre négatif $x$ :
+    \begin{itemize}
+    \item considérer $-x$
+    \item inverser chaque bit
+    \item ajouter 1
+    \end{itemize}
+    \pause
+  \item Remarque : soit $x$ un entier et $\tilde{x}$ son
+    complémentaire. $x+\tilde{x}=0$ 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{exemple}[Représentation de -5 en complément à deux]
+    On désire coder la valeur -5 sur 8 bits. Il suffit :
+    \begin{itemize}
+    \item d'écrire 5 en binaire : 00000101 ;
+    \item de complémenter à 1 : 11111010 ;
+    \item d'ajouter 1 : 11111011 ;
+    \item la représentation binaire de -5 sur 8 bits est 11111011.
+    \end{itemize}
+  \end{exemple}
+
+    \pause
+
+  \begin{remarque}
+    \begin{itemize}
+    \item le bit de poids fort est 1 : un nombre négatif
+    \item 5 + -5 (00000101 + 11111011) donne 0 (retenue de 1)
+    \end{itemize}
+  \end{remarque}
+\end{frame}
+
+
+\subsection{Représentation des réels : norme IEEE754}
+
+\begin{frame}
+  \frametitle{Objectif}
+  \begin{itemize}
+  \item Représenter des réels en binaire
+  \item Nécessité d'approximer les nombres
+  \item Codage du nombre sur 32 bits en simple précision (64 en double précision)
+    \begin{itemize}
+    \item signe
+    \item valeur
+    \item exposant
+    \end{itemize}
+  \end{itemize}
+
+  $\Rightarrow$ norme IEEE754
+
+  Ex:  $5.25 \leadsto 1.0101*2^2$
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{norme IEEE754}
+
+  Représentation (poids fort vers poids faible) :
+  \begin{itemize}[<+->]
+  \item 1 bit de signe
+  \item 8 bits d'exposant pour la simple précision (11 pour la double précision)
+  \item 23 bits de mantisse (52 en double précision)
+  \item En simple précision : [$\Rightarrow$]seeeeeeeemmmmmmmmmmmmmmmmmmmmmmm 
+  \item[=]  $(-1)^s\times (1.M)\times 2^{E-127}$
+  \end{itemize}
+
+  ~\\ \pause
+  Conditions sur les exposants~:
+  \begin{itemize}
+  \item 00000000 interdit
+  \item 11111111 $\leadsto$ NaN (Not a Number)
+  \item[$\Rightarrow$] exposants de -126 à 127 (-1023 à 1024 pour la double précision)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exemple}
+
+  \begin{exemple}[Représentation de 525.5 en simple précision]
+    \begin{itemize}
+    \item<1-8> 525.5 $\xrightarrow{base 2}$ 1000001101.1
+    \item<2-8>  \only<2,6->{$1000001101.1 = + 1.0000011011 \times 2^9$}
+      \only<3>{$1000001101.1 = \textcolor{red}{+} 1.0000011011 \times 2^9$}
+      \only<4>{$1000001101.1 = + 1.0000011011 \times 2^{\textcolor{red}{9}}$}
+      \only<5>{$1000001101.1 = +1.\textcolor{red}{0000011011} \times 2^9$}
+      \begin{itemize}
+      \item<3-8> signe : 0
+      \item<4-8> exposant : 127+9=136 $\leadsto$ 10001000
+      \item<5-8> mantisse : 0000011011
+      \item<6-8>\only<6-8>{[$\Rightarrow$] 01000100000000110110000000000000 }
+      \end{itemize}
+    \end{itemize}
+  \end{exemple}
+
+
+  \only<7->{
+	\begin{remarque}[]
+		\begin{itemize}
+		\item<7-> Le type \emph{float} en Python utilise une double précision (64 bits).
+		\item<8> Les autres biothèques utilisées dans Python (ex. numpy) utilisent autres formats.
+	\end{itemize}
+	\end{remarque}
+}
+\end{frame}
+
+
+\subsection{Représentation des caractères}
+
+\begin{frame}
+  \frametitle{ASCII}
+
+  \only<1,3->{
+    \begin{itemize}
+    \item<1,3-> ASCII : American Standard Code for Information Interchange
+    \item<1,3-> Standard sur 7 bits, étendu à 8 bits (ex : iso8859-1)
+    \item<3-> \emph{Python} utilise la norme \emph{Unicode} : représentation sur 16 bits 
+    \end{itemize}
+  }
+  
+	\only<4->{
+	\begin{remarque}[Le type caractère en Python]
+		\begin{itemize}
+		\item<4-> Contrairement à d'autre langage, il n'existe pas en Python un type spécifique pour un caractère.
+		\item<5> Un caractère n'est rien qu'une chaîne de caractères (le type \emph{str}) de longueur 1.
+	\end{itemize}
+	\end{remarque}
+}
+
+	
+  \only<2>{
+  \begin{tabular}{l|llllllllll}
+    &30&40&50&60&70&80&90&100&110&120\\
+    \hline
+    0:&&(&2&$<$&F&P&Z&d&n&x\\
+    1:&&)&3&=&G&Q&[&e&o&y\\
+    2:&&*&4&$>$&H&R&\&&f&p&z\\
+    3:&!&+&5&?&I&S&]&g&q&\{\\
+    4:&"&,&6&@&J&T&\^{}&h&r&|\\
+    5:&\#&-&7&A&K&U&\_&i&s&\}\\
+    6:&\$&.&8&B&L&V&`&j&t&$\sim$\\
+    7:&\%&/&9&C&M&W&a&k&u&DEL\\
+    8:&\&&0&:&D&N&X&b&l&v\\
+    9:&'&1&;&E&O&Y&c&m&w
+  \end{tabular}
+}
+\end{frame}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "../java01"
+%%% End: 

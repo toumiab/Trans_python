@@ -1,0 +1,91 @@
+%
+% page de garde de support de cours/rapport
+% il est possible de renseigner les champs suivants :
+% \title, \author, \date, \promo, \doctype, \etablissement
+% le logo (logo_ensieta_vectoriel) doit etre present
+%
+
+\def\option@titlepage{\relax} 
+\gdef\@lenumero{}
+\dimen1=5cm
+\dimen2=10cm
+\advance\dimen2by-\dimen1
+
+% pour inclure le logo il faut graphicx ou au pire graphics
+\IfFileExists{graphicx.sty}{%
+  \RequirePackage{graphicx}}{%
+  \IfFileExists{graphics.sty}{%
+    \RequirePackage{graphics}}{%
+    % si aucun des paquetages n'existe, definir includegraphics
+    \newcommand{\includegraphics}[1]{##1}
+  }
+}
+
+% texte centre sur la partie droite de la page
+\newcommand{\centre}[1]{
+  \hbox{
+    \begin{minipage}[c]{10cm}
+    \begin{center} #1 
+    \end{center} 
+    \end{minipage}
+  }
+
+}
+
+% quelques macros permettant d'initialiser les variables
+\newcommand{\promo}[1]
+{
+\def\@nopromo{#1}
+}
+\newcommand{\doctype}[1]
+{
+\def\@typedocument{#1}
+}
+\newcommand{\etablissement}[1]
+{
+\def\@etablissement{#1}
+}
+
+% valeurs par defaut des variables
+\def\@nopromo{}
+\def\@typedocument{}
+\def\@etablissement{}
+
+% redefinition de la page de garde
+\def\maketitle{
+  \begin{titlepage}
+    % definition d'une boite contenant le logo
+  \setbox102=\hbox{\mbox{\hbox{\includegraphics[width=\dimen1]{logo_ensieta_vectoriel}}}\hspace{4pt}}
+  % page decoupee en 2 parties verticalament
+  \hbox{
+    % 1ere partie : logo + etablissement en bas de page
+    \vbox to\vsize{
+      \hsize=\dimen1 \vskip1em \box102\vfil\vbox{
+        \hrule
+        \vskip.4em
+        \hbox{\vbox{\footnotesize \raggedright \@etablissement}}
+      }
+    }
+    % separateur vertical
+    \vline
+    % 2eme partie : titre, auteur, ...
+    \vbox to\vsize{
+      \hsize=10cm \vskip1em
+      \centre{
+        \Large \bf \@typedocument \vskip 0pt \rule{10cm}{1mm}\\
+        \Large \bf \@nopromo
+      }
+      \vfil \vskip1em
+      \centre{\Huge\bf {\@title} \par}
+      \vskip5em
+      \centre{
+        \large
+        \lineskip .75em \bf \@author \par
+      }
+      \vfil
+      \centre{\large \@date \par}\vskip1em
+    } 
+  }
+  \end{titlepage}
+}
+
