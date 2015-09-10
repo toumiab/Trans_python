@@ -75,7 +75,6 @@
 \end{frame}
 
 \section{Typage des variables}
-\subsection{Les nombres}
 
 \subsection{les types numériques}
 \begin{frame}
@@ -155,10 +154,67 @@
 	
 	  }
 \end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{Le type None}
+\only<1-5>{
+\begin{remarque}[type \texttt{NoneType}]
+\begin{itemize}
+	\item <1-5>\emph{None} est un objet particulier signifiant \textsl{rien} ou \textsl{nul}, dépourvu de valeur.
+	\item <2-5>C'est un objet unique utilisable à n'importe quel endroit de programme
+	\item <3-5>Utilisé pour indiquer qu'un identifiant (variable) n'a pas de valeur
+	\item <4-5>Un fonction qui ne renvoie pas explicitement une valeur, renvoie \texttt{None}
+	\item <5>En mode interactif, l'affichage d'une variable (sans passer par \emph{print()}) qui vaut \textit{None} ne donne rien.
+\end{itemize}
+\end{remarque}
+}
+
+\begin{exemple}
+\only<6>{
+	\begin{semiverbatim}
+	
+		>>> a = None
+			
+		>>> a   
+		
+		>>> ~~~~~~\# Rien ne s'affiche
+		
+		
+		
+		
+			
+\end{semiverbatim}
+}
+\only<7>{
+\begin{semiverbatim}
+	
+		>>> a = None
+			
+		>>> a   
+			
+		>>> print(a)
+			
+		None
+			
+		>>> type(a)
+			
+		<class 'NoneType'>
+		
+		>>>				
+\end{semiverbatim}
+}
 
 
+
+
+\end{exemple}
 
 \end{frame}
+
+
+
+
+
 
 \subsection{Les booléens}
 
@@ -170,6 +226,14 @@
 \end{frame}
 
 
+\subsection{Les sequences}
+
+\begin{frame}
+\frametitle{Les séquences}
+
+
+
+\end{frame}
 
 
 \subsection{Portée}
