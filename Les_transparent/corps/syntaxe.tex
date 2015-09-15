@@ -10,8 +10,9 @@
 \begin{itemize}
 \item<1-4> Python: langage  typé dynamiquement 
 \item<2-4> [$\Rightarrow$] typage lors de l'affectation
-\item<3-4> Une variable n'est qu'une référence à l'objet (entier, réel, \dots)
 \item<4> Une variable peut changer de type au cours de l'exécution
+\item<3-4> Une variable n'est qu'une référence à l'objet (entier, réel, \dots)
+
 \end{itemize}
 }
 \end{frame}
@@ -35,7 +36,7 @@
 
 \begin{remarque}
     \begin{itemize}
-			\item Pour connaître le type d'une variable ou expression, on peut utiliser la fonction \emph{type()}
+			\item Pour connaître le type d'une variable ou expression, on peut utiliser la fonction \emph{type()} ou \emph{whos} (sous ipython)
 			\item La fonction \emph{print()} permet d'afficher la valeur d'une variable
 		\end{itemize}
 		
@@ -177,7 +178,7 @@
 			
 		>>> a   
 		
-		>>> ~~~~~~\# Rien ne s'affiche
+		>>> \hspace{2cm} \# Rien ne s'affiche
 		
 		
 		
@@ -221,19 +222,125 @@
 \begin{frame}
 \frametitle{Les booléens}
 
+ \begin{itemize}[<+->]
+	 \item Un objet booléen peut prendre 2 valeurs \emph{True} ou \emph{False}
+	 \item Une variable booléenne supporte toutes les opérations logiques (and, or, not)
+	 \item Tout objet peut être interprété en tant que valeur booléenne 
+	\item Tout ce qui n'est pas faux est vrai
+	\begin{itemize}
+		\item l'objet None est faux
+		\item toutes les valeurs numériques non nulles sont vraies (0, 0.0, 0.0+0.0j sont fausses)
+		\item tous les agrégats (séquences, dictionnaires, ensembles) sont vrais s'ils contiennent au moins un élément, faux sinon
+	\end{itemize}
+ \end{itemize}
 
 
 \end{frame}
 
+\begin{frame}
+\frametitle{Les types simples}
+\begin{remarque}
+\begin{itemize}
+	\item Les types \emph{int}, \emph{float}, \emph{bool}, \emph{complex}  sont les 4 types simples de base (built-in) en Python. 
+	\item Les types simples (sclaires, atomiques) permette de stocker une seule donnée par variable, contrairement aux types composites (containers) comme les séquences et les ensembles,
+	\item Les types simples sont immutables (non modifiable)
+	\end{itemize}
+\end{remarque}
+\end{frame}
 
-\subsection{Les sequences}
+\subsection{Les séquences}
+\begin{frame}
+\frametitle{Les séquences}
+\begin{defi}[Une séquence]
+    est une collection \emph{ordonnée} d'objets ou chaque objet est accessible via sont index (indice) 
+  \end{defi}
+	\pause
+\begin{itemize}
+	\item On distingue deux familles  de séquences
+   
+	 \begin{enumerate}
+		 \item Les séquences immutables (non modifiables, non-mutables) : Les chaînes de caractères (\emph{str}) et les tuples (\emph{tuple})
+		 \item Les séquences mutables (modifiables) : Les listes
+	 \end{enumerate}
+\end{itemize}
+\pause
+\begin{remarque}[]
+    Toutes les opérations sur les séquences immutables sont disponibles sur les séquences mutables. 
+  \end{remarque}
+
+\end{frame}
+
 
 \begin{frame}
 \frametitle{Les séquences}
+Indexation des séquences :
+\begin{itemize}[<+->]
+	\item Les séquences sont indexées en commençant par 0
+	\item Chaque élément (objet) d'une séquence est accessible via son index
+	\item Si l'index est négatif, on accède à la séquence à partir de la fin.\\
+    \verb!\colorbox{pink}{>>> s[-1] \# \footnotesize{renvoie le dernier élément de la séquence s}}!
+	 \item La tranche \texttt{[i:j]} désigne tous les éléments commençant de $i^e$ indice jusqu'au $(j-1)^e$ indice\\
+     \verb!\colorbox{pink}{>>> s[0:2] \# \footnotesize{renvoie une séquence contenant s[0] et s[1]}}!
+			
+		  
+			\begin{itemize}
+				\item \verb![:j]! : désigne tout ce qui précède j ($j^e$ élément exclu)
+				\item \verb![i:]! : désigne tout ce qui suit i (i est inclu)
+				\item \verb![:]!  : tous les éléments(utilisé pour réaliser une copie)
+				\item \verb![i:j:pas]! : pour réaliser une sélection avec \texttt{un pas} donné 
+			\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+
+
+\begin{frame}
+
+
+\frametitle{Les séquences immutables}
+ Chaîne de caractères:
+\begin{itemize}%[<+->]
+		\item <1->Elle est délimitée par des apostrophes simple\emph{'} ou triple \emph{'''}, des guillemets simples \emph{"} ou triple \emph{"""} 
+	  \item <8->Pour modifier une chaîne, il faut créer une nouvelle.
+		\item <12-> Les opérateurs '*' et '+' réalisent la multiplication et le concaténation des chaînes
+		\end{itemize}
+\only<5->{	\includegraphics[width=6cm]{images/ch_helloworld.png}}
+		
+\only<2->{
+		\colorbox{pink}{\parbox{9cm}{
+      \only<2-4>{\verb!>>> s = 'l$\backslash$'or'!\\}
+			\only<3-4>{\verb!>>> s = "l'or"!\\}
+			\only<4>{\verb!>>> s = """ c'est une phrase \\
+				en plusieurs	ligne"""!}
+			\only<5-7>{\verb!>>> s = "Hello World"\\!}
+			\only<6-7>{\verb!>>> print(s[0] , s[-1], s[2:5], s [:-1])\\!}
+			\only<7>{\verb!H d llo Hello Worl!}
+			\only<8-10>{\verb!>>>s[0]='h'\\!}
+			\only<9>{\verb!Traceback (most recent call last):\\
+											File "<pyshell \#14>", line 1, in <module>\\
+											TypeError : 'str ' object does not support item ...!}
+		\only<10-11>{\verb!>>> ch1 = "h" + s [1:]\\!}
+		\only<11>{\verb!>>> ch1\\!}
+		\only<11>{\verb! 'hello World'!}	
+		\only<12-13>{\verb!>>> a ='a'*2+'b'\\!}	
+		\only<13>{\verb!>>> a\\!}
+		\only<13>{\verb!'aab'!}	
+					} %   \parbox         
+		}%colorbox
+		}
+
+   % \end{itemize}
 
 
 
 \end{frame}
+
+
+
+
+
+
 
 
 \subsection{Portée}
