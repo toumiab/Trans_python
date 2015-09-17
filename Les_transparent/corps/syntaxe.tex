@@ -169,7 +169,7 @@
 \end{itemize}
 \end{remarque}
 }
-
+\only<6-7>{
 \begin{exemple}
 \only<6>{
 	\begin{semiverbatim}
@@ -204,11 +204,8 @@
 		>>>				
 \end{semiverbatim}
 }
-
-
-
-
 \end{exemple}
+}
 
 \end{frame}
 
@@ -285,7 +282,7 @@ Indexation des séquences :
 		  
 			\begin{itemize}
 				\item \verb![:j]! : désigne tout ce qui précède j ($j^e$ élément exclu)
-				\item \verb![i:]! : désigne tout ce qui suit i (i est inclu)
+				\item \verb![i:]! : désigne tout ce qui suit i ($^e$ est inclu)
 				\item \verb![:]!  : tous les éléments(utilisé pour réaliser une copie)
 				\item \verb![i:j:pas]! : pour réaliser une sélection avec \texttt{un pas} donné 
 			\end{itemize}
@@ -303,7 +300,7 @@ Indexation des séquences :
 \begin{itemize}%[<+->]
 		\item <1->délimitée par des apostrophes simple\emph{'} ou triple \emph{'''}, des guillemets simples \emph{"} ou triple \emph{"""} 
 	  \item <8->Pour la modifier, il faut créer une nouvelle.
-		\item <12-> Les opérateurs '*' et '+' réalisent la multiplication et le concaténation
+		\item <12-> Les opérateurs '*' et '+' réalisent la multiplication et la concaténation
 		\end{itemize}
 \only<5->{	\includegraphics[width=6cm]{images/ch_helloworld.png}}
 		
@@ -358,19 +355,87 @@ Indexation des séquences :
 
 \begin{frame}
   \frametitle{Les listes}
-  
-	\begin{itemize}[<+->]
-		\item 
-		\item Elles sont modifiables
-		\item Elles peuvent contenir des éléments hétérogènes (de types différents)
-		\end{itemize}
-    \pause
+  		\begin{propriete}[Opérations]
 
+		%\begin{table}
+		%	\centering
+				\begin{tabular}{l|l}
+				%\hline
+					\scriptsize{\emph{len(s)}}& \scriptsize{taille de \texttt{s}}\\
+					\scriptsize{\texttt{ls[i] = x} } 											& \scriptsize{affecte x au $i^e$ élément de \texttt{ls}}\\
+					\scriptsize{\emph{del} \texttt{ls[i]} }           		& \scriptsize{supprime le $i^e$ élément de \texttt{ls}}\\
+					\scriptsize{\emph{del} \texttt{ls[i:j]}}           		& \scriptsize{supprime la tranche de $i^e$ au $(j-1)^e$  élément}\\
+					\scriptsize{\emph{list(seq)}}           		& \scriptsize{transforme la séquence seq en une nouvelle liste}\\
+					\scriptsize{\texttt{ls1 += ls2}}           	& \scriptsize{ajoute le contenu de \texttt{ls2} à la fin de \texttt{ls1}}\\
+					\scriptsize{\texttt{ls3 = ls1 + ls2}}           	& \scriptsize{renvoie une nouvelle liste : concaténation de \texttt{ls1} et \texttt{ls2}}\\
+					\scriptsize{\texttt{ls1 = ls2 * i}}           	& \scriptsize{renvoie une nouvelle liste : duplication de \texttt{i} fois de  \texttt{ls2}}\\
+				
+			\hline	
+			      \scriptsize{ls.\emph{append(x)}}	                     & \scriptsize{ajouter l'élément x à la fin de la liste ls}\\
+						\scriptsize{ls.\emph{insert(pos, el)}	}									 & \scriptsize{insérer l'élément el à l'index pos spécifié}\\
+						\scriptsize{ls.\emph{remove(el)}	}											 & \scriptsize{supprime la première occurrence de la valeur el}\\
+						\scriptsize{ls.\emph{pop(pos)}	}											 & \scriptsize{envoie et supprime l'élément d'index pos (le dernier sinon)}\\
+						\scriptsize{\emph{***help(list)}}										              & \scriptsize{pour plus de détails sur les propriétés de l'objet list}\\
+					
+			\end{tabular}
+		%\end{table}
+		\end{propriete}
 
 \end{frame}
 
+\begin{frame}
+  \frametitle{Les listes}
+  		\begin{remarque}[Manipulation de matrice]
+        \begin{itemize}[<+->]
+						\item Utilisation des listes imbriquées $\Rightarrow$  moins flexible et pas efficace.
+					  % \colorbox{pink}{{\verb!>>> mat\_2D =[ [1,2,3], [4,5,6] ] \#!}   
+							\verb!\colorbox{pink}{>>> mat\_2D =[ [1,2,3], [4,5,6] ] \# \footnotesize{listes imbriquées}}!
+						\item  Utilisation de la bibliothèque \emph{numpy}
+					\end{itemize}				
+			\end{remarque}
+			\pause
+\begin{alertblock}{Copie d'une liste}
 
+	\begin{itemize}[<+->]
+		\item \verb!lst2 = lst1 \#!  \footnotesize{n'effectue pas de copie des données} \\
+		$\Rightarrow$les 2 variables \verb!lst1! et \verb!lst2! référencent la même liste
+	
+		\item \emph{\verb!lst2 = lst1[:] \#!} \footnotesize{duplique que les éléments de $1^{er}$ niveau} 
 
+		\item  \emph{\verb!lst2 = copy.deepcopy(lst1) \#!}  \footnotesize{depuis le module \emph{copy}}
+	\end{itemize}
+	
+\end{alertblock}
+
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{Les listes}
+ \begin{exemple}[Copie de liste]
+\footnotesize{
+\begin{verbatim}
+>>> import copy # importation du module copy
+>>> mat = [[1, 2, 3], 5] 
+>>> m1 = mat[:]
+>>> m2 = copy.deepcopy(mat)
+>>> mat[1] = 100
+>>> mat[0][1] = 20
+>>> mat
+[[1, 20, 3],  100]
+>>> m1
+[[1, 20, 3], 5]
+>>> m2
+[[1, 2, 3], 5]
+>>> 
+\end{verbatim}}
+ \end{exemple}
+\end{frame}
+\subsection{Portée}
+
+\begin{frame}[fragile]
+  \frametitle{Portée, bloc}
+ 
+
+\end{frame}
 \subsection{Portée}
 
 \begin{frame}
