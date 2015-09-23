@@ -410,7 +410,7 @@ Indexation des séquences :
 \end{frame}
 \begin{frame}[fragile]
   \frametitle{Les listes}
- \begin{exemple}[Copie de liste]
+\begin{exemple}[Copie de liste]
 \footnotesize{
 \begin{verbatim}
 >>> import copy # importation du module copy
@@ -427,183 +427,424 @@ Indexation des séquences :
 [[1, 2, 3], 5]
 >>> 
 \end{verbatim}}
- \end{exemple}
+\end{exemple}
 \end{frame}
-\subsection{Portée}
+
 
 \begin{frame}[fragile]
-  \frametitle{Portée, bloc}
+  \frametitle{Les listes}
+\begin{exemple}[Copie de liste]
+\only<1>{\includegraphics[width=8cm]{images/list_mat1.png}}
+\only<2>{\includegraphics[width=8cm]{images/list_mat2.png}}
+\only<3>{\includegraphics[width=8cm]{images/list_mat3.png}}
+\only<4>{\includegraphics[width=8cm]{images/list_mat6.png}}
+\only<5>{\includegraphics[width=8cm]{images/list_mat4.png}}
+\only<6>{\includegraphics[width=8cm]{images/list_mat7.png}}
+%\only<7>{\includegraphics[width=8cm]{images/list_mat5.png}}
+\end{exemple}
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{N-Uplets (Les tuples)}
  
-
-\end{frame}
-\subsection{Portée}
-
-\begin{frame}
-  \frametitle{Portée, bloc}
-  \begin{alertblock}{Portée}
-    \begin{itemize}
-    \item Portée : zone de visibilité d'une variable
-    \item Notion fondamentale
-    \item Utilise la notion de bloc
-    \end{itemize}
-  \end{alertblock}
-  \pause
-  \begin{defi}[Bloc]
-    Ensemble des instructions entre
-    une paire balancée d'accolades (accolade ouvrante et
-    accolade fermante correspondante).
-  \end{defi}
+ \begin{defi}[Un tuple]
+  Une séquence (collection) ordonnée \textbf{non modifiable} d'éléments hétérogènes (\textit{c'est une liste non modifiable}) 
+	\end{defi}
+	\pause
+	\begin{itemize}
+	\item Ils sont notés entre parenthèses \emph{()}, ou une suite d'éléments séparés par des virgules
+	\item l'accès aux éléments du tuple est réalisé via les indices placés entre crochets\emph{ [ ] }(comme pour les listes).
+	\end{itemize}
+	\pause
+\begin{remarques}
+\begin{itemize}
+	\item Si un seul élément dans un tuple, le faire suivre d'une virgule.    
+	\item Le tuple possède les mêmes \emph{méthodes} que la liste, à l'exception de celles permettant une modification.
+\end{itemize}
+\end{remarques}
 
 \end{frame}
 
+\begin{frame}[fragile]
+ \frametitle{N-Uplets (Les tuples)}
+ \begin{exemple}[Tuple]
+\footnotesize{
+\begin{semiverbatim}>>> nb = (1) ; ch = ('ab')      \textcolor{red}{# => entier & str !}
+>>> tpl = (1,) 	               \textcolor{red}{# ou  tpl =1, => tuple}
+>>> tpl = (1, 'janvier', 2)    \textcolor{red}{# on peut omettre ( )}
+>>> \textcolor{blue}{len}(tpl)             \textcolor{red}{# => 3 (nombre d'éléments)}
+>>> tpl[0:2]            \textcolor{red}{# => le tuple (1, 'janvier')}
+>>> tpl[2] = 3           \textcolor{red}{# => erreur (tuple non modifiable)}
+>>> tpl +=  5, 'mars'    \textcolor{red}{# crée un nouv objet tuple}
+>>> 'mars' \textcolor{blue}{in} tpl         \textcolor{red}{# => True}
+>>> tpl2 = \textcolor{blue}{tuple}([5,6,12]) \textcolor{red}{# copie liste => nouv tuple (5,6,12)}
+>>> tpl3 = \textcolor{blue}{tuple}('hello')  \textcolor{red}{# copie chaine => tuple}
+                          \textcolor{red}{#    => ('h','e','l','l','o')}
+>>> lst2= \textcolor{blue}{list}(tpl2)      \textcolor{red}{# copie tuple vers liste}
+                          \textcolor{red}{#  => [5,6,12]}
+\end{semiverbatim}}
+\end{exemple}
 
-
+\end{frame}
 \begin{frame}
-\frametitle{Exemple de blocs}
-  \begin{exemple}[Bloc]
-    \begin{semiverbatim}
-      public class MaClasse
-
-      \{   // debut \textcolor{red}{bloc 1}
-
-      \hspace{1cm}\textcolor{red}{private int variable1};
-
-      \hspace{1cm}public void essai()
-
-      \hspace{1cm}\{  // debut \textcolor{blue}{bloc 2}
-
-      \hspace{2cm}\textcolor{blue}{int i, j};
-
-      \hspace{1cm}\}  // fin \textcolor{blue}{bloc 2}
-
-      \hspace{1cm}public static void main(String args[])
-
-      \hspace{1cm}\{  // debut \textcolor{orange}{bloc 3}
-
-      \hspace{2cm}\textcolor{orange}{int i};
-
-      \hspace{1cm}\}  // fin \textcolor{orange}{bloc 3}
-
-      \} // fin \textcolor{red}{bloc 1}
-    \end{semiverbatim}
-  \end{exemple}
+ \frametitle{N-Uplets (Les tuples)}
+ \begin{exemple}[Tuple]
+\only<1>{\includegraphics[width=8cm]{images/tuple0.png}}
+\only<2>{\includegraphics[width=8cm]{images/tuple1.png}}
+\end{exemple}
 \end{frame}
 
-\begin{frame}
-\frametitle{Effet de bord}
-\begin{alertblock}{Attention}
-  Limiter la portée des variables au maximum : attention aux effets de bord
-\end{alertblock}
 
+
+
+\subsection{Dictionnaire}
+\begin{frame}
+  \frametitle{Dictionnaire}
+ \begin{defi}[Dictionnaire]
+
+ Est une collection modifiable, \textbf{non ordonnée}  d'éléments hétérogènes ou chacun de ses éléments est indicé par une \emph{clé}.
+ \end{defi}
 \pause
-\begin{defi}[Effet de bord]
-  Effet de bord vient de \emph{side effect} (effet secondaire).
-  Modification d'une variable globale par une fonction.
-\end{defi}
-\pause
-Le comportement d'un programme change selon l'ordre d'appel des fonctions à
-effet de bord.
+\begin{itemize}
+	\item Il est noté entre accolades \emph{\{\}}, ou crée à partir d'une liste de couples (clé, valeur) passée en argument à la fonction \emph{dict()}.\\ 
+	\pause
+	Exemple :\\
+	\footnotesize{
+	\colorbox{pink}{\parbox{9cm}{
+	 \verb!dic = \{1: 'a', 2: 'b'\}\\
+	 \textcolor[rgb]{1,0,0}{\# ou élément après élément :}\\
+	 dic=\{\} ; dic[1] = 'a' ; dic[2] = 'b' \\
+	 \textcolor[rgb]{1,0,0}{\# en utilisant la fonction dict()}\\
+	 dic = \textcolor[rgb]{0,0,1}{dict}([(1, 'a'), (2, 'b')]) \\
+   dic = \textcolor[rgb]{0,0,1}{dict}(\textcolor[rgb]{0,0,1}{zip}((1, 2), ('a', 'b')))\\
+	 len(dic)  \textcolor[rgb]{1,0,0}{ \# => 2 paires clé:valeur} \\
+	 1 \textcolor[rgb]{0,0,1}{in} dic   \textcolor[rgb]{1,0,0}{\# test existence clé => True }\\
+   5 \textcolor[rgb]{0,0,1}{in} dic   \textcolor[rgb]{1,0,0}{\# => False, car 5 n'est pas une clé }
+	 !}}
+	}
+\end{itemize}
+
+
+\end{frame}
+
+
+
+\begin{frame}
+ 
+ \frametitle{Dictionnaire}
+ \begin{propriete}[]
+ \begin{itemize}
+	\item Les \emph{clés} doivent être de type non modifiable (exemple : les types simples) et uniques. 
+	\item Les valeurs peuvent être de n'importe quel type
+	\item Les valeurs sont accessibles par leurs clés 
+	\item Pas de notion d'ordre
+	\end{itemize}
+ 
+ \end{propriete}
+\end{frame}
+
+\begin{frame}[fragile]
+ 
+ \frametitle{Dictionnaire}
+ 
+ \begin{itemize}
+	\item Opérations (Exemple : \verb!dic = {1: 'a', 2: 'b'}!)
+		\begin{itemize}
+		\item<1-> Récupération d'une valeur
+	   	\only<1>{
+			\footnotesize{
+	      \colorbox{pink}{\parbox{9cm}{
+	 \verb!dic[1]        \textcolor[rgb]{1,0,0}{    \# => 'a'}\\
+		dic['cx']        \textcolor[rgb]{1,0,0}{  \# retourne erreur KeyError} \\
+		dic.\textcolor[rgb]{0,0,1}{get}(2)     \textcolor[rgb]{1,0,0}{\# => 'b' } \\
+		dic.\textcolor[rgb]{0,0,1}{get}('cx','erreur blabla')  \textcolor[rgb]{1,0,0}{\# => 'erreur blabla'}
+  	 !}}}
+	}
+	\item<2-> Ajout, modification et suppression des éléments
+		\only<2>{
+		\footnotesize{
+	      \colorbox{pink}{\parbox{9cm}{
+	       \verb!dic['c'] = 3      \textcolor[rgb]{1,0,0}{   \# => \{1: 'a', 'c': 3, 2: 'b'\}}\\
+          dic[2] = 10       \textcolor[rgb]{1,0,0}{\# => \{1: 'a', 'c' : 3,  2: 10 \}}\\
+          \textcolor[rgb]{0,0,1}{del} dic[1]    \textcolor[rgb]{1,0,0}{    \# supp. de l'élément 1: 'a' }  \\
+					val = dic.\textcolor[rgb]{0,0,1}{pop}(2)  \textcolor[rgb]{1,0,0}{ \# => 'b' et supp. de l'élément 2:'b'}
+	        !}}}
+					}
+			
+			
+			\item<3-> Fusion de dictionnaires et mise à jour
+			  \only<3>{
+					\footnotesize{ 
+					\colorbox{pink}{\parbox{9cm}{
+	        \verb!dic.\textcolor[rgb]{0,0,1}{update}(\{2: 20, 'c': 30\}) \textcolor[rgb]{1,0,0}{\# dic.\textsl{update(dict)}} \\
+					\textcolor[rgb]{1,0,0}{\# => dic = \{1: 'a', 2: 20, 'c': 30\}}
+				  !}}}
+			}
+			
+			\item<4-> Parcourir un dictionnaire (via des objets itérables par une boucle \emph{for}) 
+			 \only<4>{
+					\footnotesize{ 
+					\colorbox{pink}{\parbox{9cm}{
+	        \verb!dic.\textcolor[rgb]{0,0,1}{keys()}     \textcolor[rgb]{1,0,0}{\# => dict\_keys([1, 2])} \\
+					dic.\textcolor[rgb]{0,0,1}{values()  }      \textcolor[rgb]{1,0,0}{\# => dict\_values(['a', 'b'])}\\
+					dic.\textcolor[rgb]{0,0,1}{items()}       \textcolor[rgb]{1,0,0}{\# => dict\_items([(1, 'a'), (2, 'b')])}\\
+	
+				 \textcolor[rgb]{1,0,0}{\# copie sur liste ou tuple}\\
+				 \textcolor[rgb]{0,0,1}{list}(dic.keys())    \textcolor[rgb]{1,0,0}{\# => [1, 2] }\\
+					\textcolor[rgb]{0,0,1}{tuple}(dic.values()) \textcolor[rgb]{1,0,0}{\# => ('a', 'b')}
+					!}}}
+			}
+			\item<5>Copie d'un dictionnaire		
+			
+				\only<5>{						 
+					\footnotesize{ 
+					\colorbox{pink}{\parbox{9cm}{
+	        \verb!dict1 = dic.\textcolor[rgb]{0,0,1}{copy()} \textcolor[rgb]{1,0,0}{\#  => copie superficielle}\\
+					 \textcolor[rgb]{1,0,0}{\# import copy} \\
+					 dic2 = \textcolor[rgb]{0,0,1}{copy.deepcopy}(dic)  \textcolor[rgb]{1,0,0}{\# =>  copie profonde}
+					!}}}
+			}
+			
+			
+			
+			\end{itemize}	
+			
+	\end{itemize}
+ 
 \end{frame}
 
 \begin{frame}
+ 
+ \frametitle{Dictionnaire}
+\begin{exemple}
+\only<1>{\includegraphics[height=4cm]{images/dic1.png}}
+\only<2>{\includegraphics[height=4cm]{images/dic2.png}}
+\only<3>{\includegraphics[height=4cm]{images/dic3.png}}
+\only<4>{\includegraphics[height=4cm]{images/dic4.png}}
+\only<5>{\includegraphics[height=4cm]{images/dic5.png}}
+\only<6>{\includegraphics[height=4cm]{images/dic6.png}}
+\only<7>{\includegraphics[height=4cm]{images/dic7.png}}
+
+
+\end{exemple}
+\end{frame}
+%
+%\subsection{Portée}
+%
+%\begin{frame}
+  %\frametitle{Portée, bloc}
+  %\begin{alertblock}{Portée}
+    %\begin{itemize}
+    %\item Portée : zone de visibilité d'une variable
+    %\item Notion fondamentale
+    %\item Utilise la notion de bloc
+    %\end{itemize}
+  %\end{alertblock}
+  %\pause
+  %\begin{defi}[Bloc]
+    %Ensemble des instructions entre
+    %une paire balancée d'accolades (accolade ouvrante et
+    %accolade fermante correspondante).
+  %\end{defi}
+%
+%\end{frame}
+%
+%
+%
+%\begin{frame}
+%\frametitle{Exemple de blocs}
+  %\begin{exemple}[Bloc]
+    %\begin{semiverbatim}
+      %public class MaClasse
+%
+      %\{   // debut \textcolor{red}{bloc 1}
+%
+      %\hspace{1cm}\textcolor{red}{private int variable1};
+%
+      %\hspace{1cm}public void essai()
+%
+      %\hspace{1cm}\{  // debut \textcolor{blue}{bloc 2}
+%
+      %\hspace{2cm}\textcolor{blue}{int i, j};
+%
+      %\hspace{1cm}\}  // fin \textcolor{blue}{bloc 2}
+%
+      %\hspace{1cm}public static void main(String args[])
+%
+      %\hspace{1cm}\{  // debut \textcolor{orange}{bloc 3}
+%
+      %\hspace{2cm}\textcolor{orange}{int i};
+%
+      %\hspace{1cm}\}  // fin \textcolor{orange}{bloc 3}
+%
+      %\} // fin \textcolor{red}{bloc 1}
+    %\end{semiverbatim}
+  %\end{exemple}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{Effet de bord}
+%\begin{alertblock}{Attention}
+  %Limiter la portée des variables au maximum : attention aux effets de bord
+%\end{alertblock}
+%
+%\pause
+%\begin{defi}[Effet de bord]
+  %Effet de bord vient de \emph{side effect} (effet secondaire).
+  %Modification d'une variable globale par une fonction.
+%\end{defi}
+%\pause
+%Le comportement d'un programme change selon l'ordre d'appel des fonctions à
+%effet de bord.
+%\end{frame}
+\subsection{Transtypage}
+\begin{frame}[fragile]
   \frametitle{Transtypage / \emph{cast}}
-  \only<1-2,4->{
+  \only<1-2>{
     \begin{itemize}
-    \item<1-> Objectif : convertir d'un type vers un autre.
-    \item<1-> Exemple : \texttt{double f  =  (double) retourInt ();}
-    \item<1-> Attention : risque de perte de données (ex : \emph{long} vers
-      \emph{int})
-    \item<2-> Transtypage implicite
-    \item<4-> Ex : \texttt{if  ('a' $<$ 3)} ...
-    \item<5-> 'a' est converti en entier
-    \end{itemize}
-  }
-  \only<3>{
-\begin{tabular}{|l|l|}
-  \hline
-  Type initial & Transtypage\\
-  \hline
-  byte &
-  short, char, int, long, float, double\\
-  short&
-  int, long, float, double\\
-  char&
-  int, long, float, double\\
-  int&
-  long, float, double\\
-  long&
-  float, double\\
-  float&
-  double\\
-  \hline
-\end{tabular}
-  }
+    \item<1-2> Objectif : convertir d'un type vers un autre.
+    \item<1-2> Exemple : \texttt{ b = 23; ch = str(b)}
+		\item<2> Utilisation des fonctions : int(), float(), bool(), str(), complex(), list(), tuple()
+		\end{itemize} 
+		}
+
+	\begin{exemple}[Transtypage]<3>
+	\footnotesize{
+	\begin{semiverbatim}
+		>>> int(12.5)   \textcolor[rgb]{1,0,0}{\# => 12}
+>>> int('125') \textcolor[rgb]{1,0,0}{\# => 125}
+>>> float(125) \textcolor[rgb]{1,0,0}{ \# => 125.0}
+>>> int("1000110" ,2)\textcolor[rgb]{1,0,0}{ \# =>  70}
+>>> complex("12+.5j")\textcolor[rgb]{1,0,0}{ \# => (12+0.5j)}
+>>> int(True) \textcolor[rgb]{1,0,0}{# => 1}
+>>> bool(0) \textcolor[rgb]{1,0,0}{\# => False}
+>>> bool(124) \textcolor[rgb]{1,0,0}{\# => True}
+>>> str(12+3j) \textcolor[rgb]{1,0,0}{\# => '(12+3j)'}
+	\end{semiverbatim}
+	}
+\end{exemple}
+  
+
 \end{frame}
 
 \subsection{Opérations}
 
 \begin{frame}
   \frametitle{Affectation}  
-  \begin{defi}[Affectation]
-    Affectation : donner une valeur à une variable. Réalisée par l'opérateur
-    ``=''. 
+  \begin{defi}[Affectation (assignation)]
+    Affectation : donner une ou plusieurs valeurs à une ou à plusieurs variables réalisée par l'opérateur``=''. Elle peut être simple ou multiple.
+    . 
   \end{defi}
   \pause
   \begin{exemple}[Affectations]
     \begin{semiverbatim}
-      int a = 2;
+      \textcolor[rgb]{1,0,0}{\# affectation simple }
+			
+			a = 2 
+      
+			\textcolor[rgb]{1,0,0}{\# affectation multiple }
+      
+			a = b = 5 \textcolor[rgb]{1,0,0}{\# => a=5 et b=5}
+			
+			a, b = b, a \textcolor[rgb]{1,0,0}{\# échange le contenu de a et b}
 
-      a = a+1; 
+      c, d, e = 1, 5, 6 \textcolor[rgb]{1,0,0}{\# => c=1; e=5 et e=6}
+			
+			a, *reste = [1, 2, 3] \textcolor[rgb]{1,0,0}{\# => a=1 et reste=[2, 3]}
+			
 
-      boolean b=(a$>$2);
-
-      char c = 'a'+3;
     \end{semiverbatim}
   \end{exemple}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Pré et post incrémentation}
+\begin{frame}[fragile]
+  \frametitle{Affectation}
   \begin{exemple}[Forme condensée]
     \begin{semiverbatim}
-      a += 2;
-
-      b *= 3;
-    \end{semiverbatim}
+		a = b = 2
+		a += 2
+		b *= 3
+		\end{semiverbatim}
   \end{exemple}
   \pause
   \begin{itemize}
-  \item Affectation très utile : i += 1 (ou i = i+1) \pause
-  \item $i++$; \pause $i--$; \pause
-  \item $++i$; \pause $--i$;
+  \item Affectation très utile : i \verb# +=# 1 (ou i = i+1) \pause
+	\item Autres formes condensées avec :  \verb# +=#, \verb#-=#, \verb#*=#, \verb#/=#, 
+   \verb#//=#, \verb#%=#, \verb#**=#, \verb#>>=#, \verb#<<=#,\verb# &=#,
+   \verb#^=#, \verb#|=#.
   \end{itemize}
-  \pause
-  \begin{exemple}
-    \begin{semiverbatim}
-      int j, i=0; 
+	
+	\begin{alertblock}{Attention}
+	Python n'accepte pas les expressions : \verb#i++#, \verb#i--#,
+\verb#++i# et \verb#--i#
+ \end{alertblock}
 
-      j = i++;\hspace{1cm}\pause (j vaut 0, i vaut 1) \pause
-
-      j = ++i;\hspace{1cm}\pause (j vaut 2, i vaut 2)
-    \end{semiverbatim}
-  \end{exemple}
+  
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Comparaisons}
+\only<1,2>{
 \begin{tabular}{|l|l|l|}
 \hline
 Opérateur &	Exemple &	Signification\\
 \hline
-\verb~>~ 	&\verb~a > 10~ 	&strictement supérieur\\
-\verb~<~ 	&\verb~a < 10~ 	&strictement inférieur\\
-\verb~>=~ 	&\verb~a >= 10~ 	&supérieur ou égal\\
-\verb~<=~ 	&\verb~a <= 10~ 	&inférieur ou égal\\
-\verb~==~ 	&\verb~a == 10~ 	&égal à\\
-\verb~!=~ 	&\verb~a != 10~ 	&différent de\\
+\verb$>$ 	&\verb$a > 10$ 	&strictement supérieur\\
+  \verb$<$ 	&\verb$a < 10$ 	&strictement inférieur\\
+  \verb$>=$ 	&\verb$a >= 10$ 	&supérieur ou égal\\
+  \verb$<=$ 	&\verb$a <= 10$ 	&inférieur ou égal\\
+  \verb$==$ 	&\verb$a == 10$ 	&égal à\\
+  \verb$!=$ 	&\verb$a != 10$ 	&différent de\\
+  \verb$is$ 	&\verb$a is b$ 	  & a et b représentent le même objet\\
+  \verb$is not$ 	&\verb$a is not b$ 	& a et b ne représentent pas le même objet\\
 \hline
 \end{tabular}
+}
+\only<2,3>{
+\begin{remarque}
+\begin{itemize}
+	\item Le test d'égalité == concerne le contenu, 
+	\item le test \texttt{is} concerne la référence
+
+\end{itemize}
+\end{remarque}
+}
+\only<3>{
+\begin{exemple}[comparaison]
+    \begin{semiverbatim}
+		>>> 2 is 2 
+		
+		True
+		
+		>>> 2+2 == 4 
+		
+		True
+		
+		>>> [2+2] is [4]
+		
+		False
+		
+		>>> [2+2] == [4] 
+		
+		True
+		
+		\end{semiverbatim}
+  \end{exemple}
+
+
+}
+
 \end{frame}
+
+
+
+
+
+
+
+
 
 \begin{frame}
   \frametitle{Opérations logiques}
@@ -611,9 +852,9 @@ Opérateur &	Exemple &	Signification\\
 \hline
 Opérateur &	Exemple &	Signification\\
 \hline
-\verb~!~ 	&\verb~!a~ 	& NON logique\\
-\verb~\&\&~ 	&\verb~a \&\& b~ &	ET logique~: évaluation paresseuse\\
-\verb~||~ 	&\verb~a || b~ &	OU logique~: évaluation paresseuse\\
+\verb~not~ 	&\verb~not a~ 	& NON logique\\
+\verb~and~ 	&\verb~a and b~ &	ET logique~: évaluation paresseuse\\
+\verb~or~ 	&\verb~a or b~ &	OU logique~: évaluation paresseuse\\
 \verb~\&~ 	&\verb~a \& b~ 	&ET logique\\
 \verb~\^{}~ 	&\verb~a \^{} b~ 	&OU exclusif logique\\
 \verb~|~ 	&\verb~a | b~ 	&OU logique\\
@@ -622,40 +863,57 @@ Opérateur &	Exemple &	Signification\\
 ~\\
 \pause
 Remarque : évaluation paresseuse
+\begin{itemize}
+	\item \texttt{a and b}  évalue et retourne \texttta si a est False, sinon  évalue et retourne b.
+	\item \texttt{a or b}  évalue et retourne a  si a est True, sinon  évalue et retourne b\\
+	\pause 
+	\footnotesize{
+	\colorbox{pink}{\parbox{9cm}{
+	 \verb!>>> 5 and 6 \textcolor[rgb]{1,0,0}{\# => retourne 6 }\\
+	    >>> 0 and 5 \textcolor[rgb]{1,0,0}{\# => retourne 0} \\
+			>>> 5 or 0 \textcolor[rgb]{1,0,0}{\# => retourne 5} \\
+			>>> 0 or 5 \textcolor[rgb]{1,0,0}{\# => retourne 5} \\
+	 !}}
+	}
+\end{itemize}
+
 \end{frame}
 
-\begin{frame}
+
+
+
+
+\begin{frame}[fragile]
 \frametitle{Opérations arithmétiques}
 
 \only<1-3>{
 \begin{itemize}
 \item Opérations de base : \verb~+ - * /~
 \item Modulo  : \verb~\%~
+\item Puissance : \verb~**~
 \item Attention à la division entière : 
   \begin{itemize}
-  \item 1/2 vaut 0
-  \item 1/2.0 vaut 0.5
+  \item 5//2 vaut 2
   \end{itemize}
 \end{itemize}
 \pause
-Réels particuliers :
+Valeurs particulieres :
 \begin{itemize}
-\item Double.NaN
-\item Double.POSITIVE\_INFINITY \pause
-\item Comportement défini par IEEE 754
+\item NaN
+\item inf \pause
 \end{itemize}
 }
 \only<4>{
-\begin{tabular}{|l|l|l|l|}
+\begin{tabular}{|l|l|l|l|l|}
 \hline
- X &Y &X/Y &X\%Y\\
+  \textbf{X} & \textbf{Y} & \textbf{X/Y} & \textbf{X\%Y} & \textbf{X + Y}\\
 \hline
-valeur finie &0 &$+\infty$ &NaN\\
-valeur finie & $\pm\infty$ &0 &x\\
-0 &0 &NaN &NaN\\
-$\pm\infty$ &valeur finie &$\pm\infty$ &NaN\\
-$\pm\infty$ &$\pm\infty$ &NaN &NaN  \\
-\hline
+  $x:$ valeur finie & $\pm\infty$ &0 &x & $\pm\infty$\\
+  $\pm\infty$ &valeur finie &$\pm\infty$ & NaN & $ \pm\infty$ \\
+  $+\infty$ &$+\infty$ &NaN &NaN & $+\infty$ \\
+  $+\infty$ &$-\infty$ &NaN &NaN  &NaN \\
+  Valeur finie ou infinie & NaN &NaN &NaN  &NaN \\
+	\hline
 \end{tabular}
 }
 \end{frame}

@@ -31,7 +31,7 @@
 \RequirePackage{tipa}
 
 \ifpdf
-\graphicspath{{pdfs/}{imgs/}}
+\graphicspath{{pdfs/}{images/}}
 \DeclareGraphicsExtensions{.pdf,.png,.mps,.jpeg}
 \else
 \graphicspath{{epss/}}
