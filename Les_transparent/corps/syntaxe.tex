@@ -1,9 +1,5 @@
 
-\section{Rappel}
-
-\subsection{Notion de variables}
-
-
+\section{Rappel : Notion de variables}
 \begin{frame}
 \frametitle{Typage des variables}
 \only<1-4>{
@@ -18,26 +14,28 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{Typage des variables}
+\frametitle{Types des variables}
 \begin{itemize}
 \item \textbf{Les types intégrés de Python}
 \begin{itemize}
-    \item Les numériques : Entiers signés (\emph{int}), Réels (IEEE 754) (\emph{float} et  Complexes (\emph{complex})
-		\item Booléens : le type \emph{bool}
-		\item Chaînes de caractères : type \emph{str}
-		\item Listes : type \emph{list}
-		\item Dictionnaires : type \emph{dict}
-		\item Tuples : type \emph{tuple}
-		\item Ensembles modifiables et immuables : le type \emph{set} et le type \emph{frozenset}
-		\item \dots
-    \end{itemize}
+\item Les types simples : 
+	\begin{itemize}
+		\item Entiers signés (\emph{int}), Réels (IEEE 754) (\emph{float}) et  Complexes (\emph{complex}), Booléens (\emph{bool})
+	\end{itemize}
+\item Les types composites (containers): 
+		\begin{itemize}
+		  \item \textbf{Les séquences} : Chaînes de caractères (\emph{str}) ;		Listes (\emph{list}) et  Tuples (\emph{tuple})
+			\item \textbf{Les maps }(hashs) : Dictionnaires (\emph{dict})
+			\item \textbf{Les ensembles} : le type \emph{set} et le type \emph{frozenset}
+		\end{itemize}
+ \end{itemize}
 \end{itemize}
 \pause
 
 \begin{remarque}
     \begin{itemize}
 			\item Pour connaître le type d'une variable ou expression, on peut utiliser la fonction \emph{type()} ou \emph{whos} (sous ipython)
-			\item La fonction \emph{print()} permet d'afficher la valeur d'une variable
+			%\item La fonction \emph{print()} permet d'afficher la valeur d'une variable
 		\end{itemize}
 		
   \end{remarque}
@@ -45,7 +43,7 @@
 
 
 \begin{frame}
-\frametitle{Typage des variables}
+\frametitle{Types des variables}
   \begin{exemple}
     \begin{semiverbatim}
  >>> i = 42 
@@ -75,9 +73,9 @@
   \end{exemple}
 \end{frame}
 
-\section{Typage des variables}
+\section{Les Types }
 
-\subsection{les types numériques}
+\subsection{les types simples}
 \begin{frame}
 \frametitle{Les types numériques}
 \begin{itemize}
@@ -156,6 +154,36 @@
 	  }
 \end{itemize}
 \end{frame}
+
+\begin{frame}
+\frametitle{Les booléens}
+
+ \begin{itemize}[<+->]
+	 \item Un objet booléen peut prendre 2 valeurs \emph{True} ou \emph{False}
+	 \item Une variable booléenne supporte toutes les opérations logiques (and, or, not)
+	 \item Tout objet peut être interprété en tant que valeur booléenne 
+	\item Tout ce qui n'est pas faux est vrai
+	\begin{itemize}
+		\item l'objet None est faux
+		\item toutes les valeurs numériques non nulles sont vraies (0, 0.0, 0.0+0.0j sont fausses)
+		\item tous les agrégats (séquences, dictionnaires, ensembles) sont vrais s'ils contiennent au moins un élément, faux sinon
+	\end{itemize}
+ \end{itemize}
+
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les types simples}
+\begin{remarques}
+\begin{itemize}
+	\item Les types simples (scalaires, atomiques) permettent de stocker une seule donnée par variable, contrairement aux types composites (containers) 
+	\item Les types simples sont immutables (non modifiables)
+	\end{itemize}
+\end{remarques}
+\end{frame}
+
+
 \begin{frame}
 \frametitle{Le type None}
 \only<1-5>{
@@ -209,43 +237,7 @@
 
 \end{frame}
 
-
-
-
-
-
-\subsection{Les booléens}
-
-\begin{frame}
-\frametitle{Les booléens}
-
- \begin{itemize}[<+->]
-	 \item Un objet booléen peut prendre 2 valeurs \emph{True} ou \emph{False}
-	 \item Une variable booléenne supporte toutes les opérations logiques (and, or, not)
-	 \item Tout objet peut être interprété en tant que valeur booléenne 
-	\item Tout ce qui n'est pas faux est vrai
-	\begin{itemize}
-		\item l'objet None est faux
-		\item toutes les valeurs numériques non nulles sont vraies (0, 0.0, 0.0+0.0j sont fausses)
-		\item tous les agrégats (séquences, dictionnaires, ensembles) sont vrais s'ils contiennent au moins un élément, faux sinon
-	\end{itemize}
- \end{itemize}
-
-
-\end{frame}
-
-\begin{frame}
-\frametitle{Les types simples}
-\begin{remarque}
-\begin{itemize}
-	\item Les types \emph{int}, \emph{float}, \emph{bool}, \emph{complex}  sont les 4 types simples de base (built-in) en Python. 
-	\item Les types simples (scalaires, atomiques) permettent de stocker une seule donnée par variable, contrairement aux types composites (containers) comme les séquences et les ensembles,
-	\item Les types simples sont immutables (non modifiables)
-	\end{itemize}
-\end{remarque}
-\end{frame}
-
-\subsection{Les séquences}
+\subsection{Les types composites}
 \begin{frame}
 \frametitle{Les séquences}
 \begin{defi}[Une séquence]
@@ -283,7 +275,7 @@ Indexation des séquences :
 			\begin{itemize}
 				\item \verb![:j]! : désigne tout ce qui précède j ($j^e$ élément exclu)
 				\item \verb![i:]! : désigne tout ce qui suit i ($i^e$ élément inclu)
-				\item \verb![:]!  : tous les éléments(utilisé pour réaliser une copie)
+				\item \verb![:]!  : tous les éléments (utilisé pour réaliser une copie \textit{artificielle})
 				\item \verb![i:j:pas]! : pour réaliser une sélection avec \texttt{un pas} donné 
 			\end{itemize}
 \end{itemize}
@@ -347,7 +339,7 @@ Indexation des séquences :
 		\end{itemize}
     \pause
 		\centering
-			\includegraphics[width=5cm]{images/liste.png}
+			\includegraphics[width=8cm]{images/liste.png}
  
 \end{frame}
 
@@ -440,7 +432,7 @@ Indexation des séquences :
 \only<4>{\includegraphics[width=8cm]{images/list_mat6.png}}
 \only<5>{\includegraphics[width=8cm]{images/list_mat4.png}}
 \only<6>{\includegraphics[width=8cm]{images/list_mat7.png}}
-%\only<7>{\includegraphics[width=8cm]{images/list_mat5.png}}
+\only<7>{\includegraphics[width=8cm]{images/list_mat5.png}}
 \end{exemple}
 \end{frame}
 
@@ -460,7 +452,7 @@ Indexation des séquences :
 	\pause
 \begin{remarques}
 \begin{itemize}
-	\item Si un seul élément dans un tuple, le faire suivre d'une virgule.    
+	\item Si un seul élément est dans un tuple, le faire suivre d'une virgule.    
 	\item Le tuple possède les mêmes \emph{méthodes} que la liste, à l'exception de celles permettant une modification.
 \end{itemize}
 \end{remarques}
@@ -499,7 +491,7 @@ Indexation des séquences :
 
 
 
-\subsection{Dictionnaire}
+
 \begin{frame}
   \frametitle{Dictionnaire}
  \begin{defi}[Dictionnaire]
@@ -735,7 +727,6 @@ Indexation des séquences :
   \frametitle{Affectation}  
   \begin{defi}[Affectation (assignation)]
     Affectation : donner une ou plusieurs valeurs à une ou à plusieurs variables réalisée par l'opérateur``=''. Elle peut être simple ou multiple.
-    . 
   \end{defi}
   \pause
   \begin{exemple}[Affectations]
@@ -986,12 +977,16 @@ Remarque : évaluation paresseuse
   \frametitle{Règles de base}
 
 \begin{itemize}[<+->]
-\item Chaque Python est sensible à la casse 
-\item les blocs de code sont encadrés par des accolades. Chaque instruction
-   se termine par un caractère ';' 
- \item une instruction peut tenir sur plusieurs lignes 
- \item l'indentation est ignorée du compilateur mais elle permet une meilleure
-   compréhension du code par le programmeur
+\item <1-> Python est sensible à la casse 
+\item <2-> Une instruction est forcément dans un bloc et peut tenir sur plusieurs lignes
+\item <3-> Un bloc de code commence par "\emph{:}"   et est indenté plus à droite pour le bloc contenant \\
+\only<3>{Exemple : \\ \includegraphics[height=4cm]{images/bloc.png}}
+\begin{remarques}<4>
+\begin{itemize}
+	\item Il est recommandé d'utiliser 4 $<$espace$>$ pour un niveau d'indentation
+	\item Un bloc de code doit contenir au minimum une instruction. S'il n'en a pas, on peut utiliser l'instruction \emph{pass}
+\end{itemize}
+ \end{remarques}
  \end{itemize}
 
 \end{frame}
@@ -999,51 +994,43 @@ Remarque : évaluation paresseuse
 
 \subsection{Commentaires}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Commentaires}
   \begin{itemize}[<+->]
   \item Commentaires : remarques en langage naturel
   \item Ignorés par le compilateur
-  \item Trois types de commentaires :
+  \item Deux types de commentaires :
   \end{itemize}
-
   \only<4>{
     \begin{exemple}[Commentaire sur une ligne]
       \begin{semiverbatim}
-        // zone de declaration des variables
-        
-        double x; // abscisse
+			
+        \textcolor[rgb]{1,0,0}{\# Un division réelle}
+				
+        a = 12/5
+				
+				b = a // 3 \textcolor[rgb]{1,0,0}{\# division entière}
+				
       \end{semiverbatim}
     \end{exemple}
   }
+  
   \only<5>{
-    \begin{exemple}[Commentaire sur plusieurs ligne]
-      \begin{semiverbatim}
-        /* debut de commentaire
-
-         ~* suite du commentaire
-
-         ~* et fin du commentaire */
-      \end{semiverbatim}
-    \end{exemple}
-  }
-  \only<6>{
     \begin{exemple}[Documentation automatique]
       \begin{semiverbatim}
-        /**
-
-        ~* commentaire de la methode
-
-        ~* @param val la valeur a traiter
-
-        ~* @since 1.0
-
-        ~* @return Rien
-
-        ~* @deprecated Utiliser la nouvelle methode XXX
-
-        ~*/
-      \end{semiverbatim}
+			\textcolor[rgb]{0,0,1}{def} somProd(var1, var2):
+					
+			\hspace{1cm}\textcolor[rgb]{1,0,0}{"""Fonction calculant somme et produit }
+			
+			\hspace{1cm}\textcolor[rgb]{1,0,0}{de var1 et var2		}
+			
+			\hspace{1cm}\textcolor[rgb]{1,0,0}{Retour : 	}	
+			
+			\hspace{1cm}\textcolor[rgb]{1,0,0}{un tuple (var1+var2, var1*var2)"""}
+					
+			\hspace{1cm}\textcolor[rgb]{0,0,1}{return} (var1+var2, var1*var2)
+      
+			\end{semiverbatim}
     \end{exemple}
   }
 \end{frame}
@@ -1054,11 +1041,11 @@ Remarque : évaluation paresseuse
 \begin{frame}
   \frametitle{Types de littéraux}
   \begin{itemize}
-  \item<1-> Entiers : base 10  \only<2->{,base 16  }\only<3->{,base 8}
-  \item<4-> Réels : double précision \only<5->{ simple précision}
+  \item<1-> Entiers : base 10  \only<2->{, base 16  }\only<3->{, base 8}\only<4->{, base 2}
+  \item<5-> Réels : double précision 
   \item<6-> Booléens
-  \item<7-> Caractères \only<8->{ unicode}
-  \item<9-> Chaînes de caractères
+	\item <7-> Complexes
+  \item<8-> Chaînes de caractères 
   \end{itemize}
 
   \begin{exemple}[Littéral]
@@ -1069,26 +1056,26 @@ Remarque : évaluation paresseuse
       0x9AE3
     }
     \only<3>{
-      020 (= 16)
+      0o20 (= 16)
     }
     \only<4>{
-      3.14, 6.02E23 (= $6.02.10^{23}$)
+      0b101010 (= 42)
     }
     \only<5>{
-      1.5f
+      3.14, 6.02E23 (= $6.02.10^{23}$)
     }
     \only<6>{
-      true, false
+      True, False
     }
     \only<7>{
-      'a', ';'
+      1j, (-1)**0.5, 3**0.5/2+0.5j
     }
     \only<8>{
-      '$\backslash$u0065' (='e')
+      "Une chaîne de caractères", 'l$\backslash$'expression "dauphine" aussi' 
     }
-    \only<9>{
-      "Une chaîne de caractères"
-    }
+		\only<8>{
+      'Ex$\backslash$u0065!llent travail' (='Excellent travail')
+			}
   \end{exemple}
 \end{frame}
 
@@ -1096,60 +1083,24 @@ Remarque : évaluation paresseuse
 \subsection{Mots clés}
 
 \begin{frame}
-\only<1>{
-\begin{tabular}{|l|l|l|l|l|}
+\frametitle{Les 33 mots clés}
+\begin{tabular}{|l|l|l|l|l|l|}
 \hline
-abstract  &assert   &boolean  &break  &byte\\
-\hline
-case &catch &char &class &const\\
-\hline
-continue &default &do &double &else\\
-\hline
-extends &false &final &finally &float\\
-\hline
-for &goto &if &implements &import\\
-\hline
-instanceof &int &interface &long &native\\
-\hline
-new &null &package &private &protected\\
-\hline
-public &return &short &static &super\\
-\hline
-switch &synchronized &this &throw &throws\\
-\hline
-transient &true &try &void &volatile\\
-\hline
-while &&&& \\
-\hline
+      and & as & assert & break & class & continue \\
+      \hline
+      def & del & elif & else & except & False \\
+      \hline
+      finally & for & from & global & if & import \\
+      \hline
+      in & is & lambda & None & nonlocal & not\\
+      \hline
+      or & pass & raise & return & True & try\\
+      \hline
+      while & with & yield & & & \\
+      \hline
 \end{tabular}  
-}
-\only<2>{
-\begin{tabular}{|l|l|l|l|l|}
-\hline
-abstract  &assert   &\textcolor{red}{boolean}  &break  &\textcolor{red}{byte}\\
-\hline
-case &catch &\textcolor{red}{char} &class &const\\
-\hline
-continue &default &do &\textcolor{red}{double} &else\\
-\hline
-extends &false &final &finally &\textcolor{red}{float}\\
-\hline
-for &goto &if &implements &import\\
-\hline
-instanceof &\textcolor{red}{int} &interface &\textcolor{red}{long} &native\\
-\hline
-new &null &package &private &protected\\
-\hline
-public &return &\textcolor{red}{short} &static &super\\
-\hline
-switch &synchronized &this &throw &throws\\
-\hline
-transient &true &try &void &volatile\\
-\hline
-while &&&& \\
-\hline
-\end{tabular}  
-}
+
+
 \end{frame}
 
 
@@ -1158,49 +1109,74 @@ while &&&& \\
 
 
 \begin{frame}
-  \frametitle{if}
+  \frametitle{if, elif, else}
   \begin{itemize}
   \item Teste une condition booléenne
-  \item Si \emph{vrai}, exécute une partie du code
-  \item Sinon, exécute autre partie
+  \item Si (\texttt{if}) \emph{vrai}, exécute une partie du code
+  \item Sinon (\texttt{else}), exécute autre partie
   \end{itemize}
 
-  \pause
-  \begin{exemple}[if]
+  \only<2>{
+  \begin{exemple}[if, else]
+	
     \begin{semiverbatim}
-      if (expressionBooleenne1)  \{ 
+      \textcolor[rgb]{0,0,1}{if} expressionBooleenne1: 
       
       \hspace{1cm}action1 
 
-      \} ~else if (expressionBooleenne2) \{ 
+      \textcolor[rgb]{0,0,1}{else}:
+			
+			\hspace{1cm}\textcolor[rgb]{0,0,1}{if} expressionBooleenne2:
       
-      \hspace{1cm}action2 
+			\hspace{2cm}action2 
 
-      \} ~else \{ 
+      \hspace{1cm}\textcolor[rgb]{0,0,1}{else}:
+      
+      \hspace{2cm}action3
+
+          
+    \end{semiverbatim}
+  \end{exemple}
+	}
+	\only<3>{
+	  \begin{exemple}[if, elif, else]
+		
+    \begin{semiverbatim}
+      \textcolor[rgb]{0,0,1}{if} expressionBooleenne1: 
+      
+      \hspace{1cm}action1 
+
+      \textcolor[rgb]{0,0,1}{elif} expressionBooleenne2:
+      
+			\hspace{1cm}action2 
+
+      \textcolor[rgb]{0,0,1}{else}:
       
       \hspace{1cm}action3
 
-      \}      
+          
     \end{semiverbatim}
-  \end{exemple}
+	
+  \end{exemple}	
+	}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Exemple de test}
-  \begin{exemple}
-    \begin{semiverbatim}
-      boolean b = fonctionTest();
-
-      int i = calculComplique();
-
-      if ( (i>42) \&\& b) \{
-
-      \hspace{1cm}appelFonction();
-
-      \}      
-    \end{semiverbatim}
-  \end{exemple}
-\end{frame}
+%\begin{frame}
+  %\frametitle{Exemple de test}
+  %\begin{exemple}
+    %\begin{semiverbatim}
+      %boolean b = fonctionTest();
+%
+      %int i = calculComplique();
+%
+      %if ( (i>42) \&\& b) \{
+%
+      %\hspace{1cm}appelFonction();
+%
+      %\}      
+    %\end{semiverbatim}
+  %\end{exemple}
+%\end{frame}
 
 \begin{frame}
   \begin{remarque}
@@ -1212,23 +1188,23 @@ while &&&& \\
   \pause
     \begin{alertblock}{Correct mais à proscrire}
       \begin{semiverbatim}
-        if (condition) \{
-
-        \} ~else \{ 
+        \textcolor[rgb]{0,0,1}{if} condition:
+				
+				\hspace{1cm}pass	
+				
+        \textcolor[rgb]{0,0,1}{else}:
         
-        \hspace{1cm}action;
+        \hspace{1cm}action
 
-        \}
       \end{semiverbatim}
     \end{alertblock}
     \pause
     \begin{beamerboxesrounded}{Forme préférée}
       \begin{semiverbatim}
-        if (! condition) \{ 
+        \textcolor[rgb]{0,0,1}{if not} condition : 
 
-        \hspace{1cm}action;
+        \hspace{1cm}action
 
-        \}
       \end{semiverbatim}
     \end{beamerboxesrounded}
 
@@ -1237,79 +1213,36 @@ while &&&& \\
 
 
 \begin{frame}
-  \frametitle{switch/case}
-  \begin{exemple}[switch]
+  \frametitle{Condictions multiples, et fonctions logiques}
+  \begin{exemple}[condition multiples]
     \begin{semiverbatim}
-      int i = genererUnEntier();
+		
+     \textcolor[rgb]{0,0,1}{if} 0 <= a < 10:
+		
+     \textcolor[rgb]{1,0,0}{ \# équivalence}
+		
+		 \textcolor[rgb]{0,0,1}{if} (0 <= a) and (a < 10):
 
-      switch(i) \{
 
-      case 0:
-
-      \hspace{1cm}liste d'instructions...
-
-      \hspace{1cm}break;
-
-      case 1:
-
-      \hspace{1cm}autres instructions...
-
-      \hspace{1cm}break;
-
-      default:
-
-      \hspace{1cm}instructions differentes...
-
-      \}      
     \end{semiverbatim}
   \end{exemple}
+
+	\begin{remarques}[fonctions logiques : any, all]
+	\begin{itemize}
+		\item Tester des séquences et des objets iterables 
+		 		 \begin{itemize}
+			\item \texttt{any(objet)} : retourne \texttt{True} si  au moins un des éléments est True \\
+			 \colorbox{pink}{\parbox{7cm}{
+	     \verb! any(range(100)) \# => True !}}
+			\item \texttt{all(objet)}: retourne True si tous les éléments sont True \\
+						 \colorbox{pink}{\parbox{7cm}{
+	     \verb! all(range(100)) \# => False !}}
+		 \end{itemize}
+	\end{itemize}
+  \end{remarques} 
+
 \end{frame}
 
-\begin{frame}
-  \begin{remarque}
-    \begin{itemize}
-    \item Variable du \emph{switch} de type \emph{int} ou convertie
-      implicitement en \emph{int} : \emph{byte, short, char}
-    \item Instruction \emph{break} : ne pas traiter les autres cas
-    \item Possibilité de regrouper les instructions pour plusieurs cas
-    \end{itemize}
-  \end{remarque}
-
-  \pause
-  \begin{exemple}
-    \begin{semiverbatim}
-      switch(i) \{
-
-      case 0: case 2: case 4:
-
-    \hspace{1cm}... break;
-
-    case 1: case 3:
-
-    \hspace{1cm}... break;
-
-    \}
-    \end{semiverbatim}
-  \end{exemple}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Opérateur ?}
-  Opérateur ternaire :
-  \begin{semiverbatim}
-    ( condition ) ? valeur-vrai : valeur-faux
-  \end{semiverbatim}
-\pause
-  \begin{exemple}
-    \begin{semiverbatim}
-      // i et j sont des entiers
-
-      int max;
-
-      max = (i>j) ? i : j;
-    \end{semiverbatim}
-  \end{exemple}
-\end{frame}
 
 
 \subsection{Boucles}
@@ -1319,161 +1252,201 @@ while &&&& \\
   \begin{itemize}
   \item Boucle = structure de contrôle
   \item But : exécuter certaines opérations plusieurs fois
-  \item Il existe plusieurs types de boucles en Java
-  \item Toutes les boucles sont équivalentes
+  \item Il existe deux types de boucles en Python 3 : for, while
+	\item Les deux boucles sont équivalentes
   \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{while}
   \begin{semiverbatim}
-    while(condition) \{
+    \textcolor[rgb]{0,0,1}{while} condition :
 
       \hspace{1cm}actions
 
-    \}
+    
   \end{semiverbatim}
   \pause
   \begin{exemple}[boucle while]
     \begin{semiverbatim}
-      int i=0;
+		
+		i=0
+		
+		\textcolor[rgb]{0,0,1}{while} i<10:  \textcolor[rgb]{1,0,0}{\# boucle tant que i<10}
+		
+    \hspace{1cm}print(i)             \textcolor[rgb]{1,0,0}{\# affiche la valeur de i}
+		
+    \hspace{1cm}i = i+1              \textcolor[rgb]{1,0,0}{\# incrémente i}
+		
+    \textcolor[rgb]{1,0,0}{\# maintenant i vaut 10}
 
-      while (i<10) // \textcolor{red}{pas de ";"}
-
-      \{
-
-        \hspace{1cm}System.out.println(i); 
-
-        \hspace{1cm}i++;  // i=i+1
-
-      \}
     \end{semiverbatim}
   \end{exemple}
 \end{frame}
 
 \begin{frame}
-  \frametitle{do-while}
-  \begin{exemple}
+  \frametitle{while : Sortie de boucle}
+  
+	\begin{itemize}
+	  \item Un bloc \emph{else :} peut être ajouté à la fin de la boucle
+		\item Le mot clé \emph{break} permet de sortir de la boucle
+		\item Le mot clé \emph{continue} permet de passer immédiatement à l'itération suivante
+	
+	\end{itemize}
+	%\begin{Remarque} [equi. do ... until]
+  \begin{exemple}[do ... until]
     \begin{semiverbatim}
-      char c;
-
-      do \{
-
-      \hspace{1cm}c = lireUnCaractereAuClavier();
-
-      \} ~ while (c != ' ');  // \textcolor{red}{ici ";"}
+		
+		\textcolor[rgb]{0,0,1}{while} True :
+		
+		\hspace{1cm}\# corps de la boucle 
+		
+    \hspace{1cm}if exit$_{}$condition :
+		
+		\hspace{2cm}break
+		
     \end{semiverbatim}
   \end{exemple}
-
-  Différence avec le \emph{while} : le bloc est exécuté au moins une fois.
 \end{frame}
 
 
 \begin{frame}
   \frametitle{for}
-  Utilisation : le nombre d'itérations est connu.
+  Objectif : itérer les valeurs d'une collection (liste, tuple, chaîne, dictionnaire) ou de tout objet itérable\\
   Syntaxe~:
   \begin{semiverbatim}
-    for (\only<1,3->{initialisation}\only<2>{\textcolor{red}{initialisation}}
-    ; 
-    \only<1-2,4->{condition}\only<3>{\textcolor{red}{condition}} ; 
-    \only<1-3>{modification}\only<4>{\textcolor{red}{modification}})
-  \end{semiverbatim}
-  \begin{itemize}
-  \item<2-> \emph{initialisation} exécuté avant de commencer la boucle ;
-  \item<3-> \emph{condition} détermine s'il est possible de continuer la boucle ;
-  \item<4-> \emph{modification} modifie les données pour l'itération suivante.
-  \end{itemize}
+    \textcolor[rgb]{0,0,1}{for} variable in collection:
+		
+		 \hspace{1cm}actions \textcolor[rgb]{1,0,0}{\# corps de la boucle}
+   \end{semiverbatim}  
+	\only<1-5>{
+   \begin{exemple} 
+	  \begin{semiverbatim}
+		
+		\only<1>{s = ['septembre', 'octobre']}
+		\only<2>{s = "Python"}
+		\only<3>{s = 1,2,3,4}
+		\only<4-5>{s = \{'a':10, 'b':'deux'\}  }
+		
+		\only<5>{for \textcolor[rgb]{0,0,1}{n, val} in s.items():}\only<1-4>{\textcolor[rgb]{0,0,1}{for} n \textcolor[rgb]{0,0,1}{in} s:} \only<4>{\textcolor[rgb]{1,0,0}{\# s.values(), s.keys(), s.items()}}
+    		
+		\hspace{1cm} print(n, end=' ')   \only<1>{\textcolor[rgb]{1,0,0}{\# => septembre octobre}}\only<2>{\textcolor[rgb]{1,0,0}{\# => P y t h o n}} \only<3>{\textcolor[rgb]{1,0,0}{\# => 1 2 3 4 }}\only<4-5>{\textcolor[rgb]{1,0,0}{\# => a b }}
+   
+	\end{semiverbatim}  
+	  
+	 
+	\end{exemple}
+	}
+		\only<6>{
+	\begin{remarque}[for : sortie de boucle]
+ Possibilité de modifier l'exécution d'une boucle \emph{for} avec \emph{break} et
+  \emph{continue} comme dans le cas de la boucle while.
+ \end{remarque}
+	}
+			
+		
 \end{frame}
 
 \begin{frame}
-  \frametitle{for}
-  \begin{exemple}[Équivalent du while]
-    \begin{semiverbatim}
-      \only<1>{int i;
-
-      }for (\only<2>{int }i=0 ; i<10 ; i++) \{
-
-      \hspace{1cm}System.out.println(i);
-
-      \}
+  \frametitle{Itérateur}
+  
+	
+	\begin{remarque}
+	
+	\begin{itemize}
+		\item L'itérateur \emph{range(deb,fin, inc) }permet d'itérer sur une suite de nombres entiers, 
+		\item La fonction \emph{enumerate(sequence)} retourne un objet permettant d'itérer sur l'indice et la valeur d'une séquence
+	\end{itemize}  
+	\end{remarque}
+	
+  	\begin{exemple}
+		\begin{semiverbatim}
+      s = ['septembre', 'octobre'] 
+		 
+		 \only<1>{for i in \textcolor[rgb]{0,0,1}{range(2)}:}\only<2>{for ind, val in \textcolor[rgb]{0,0,1}{enumerate(s)}:}
+		
+		 	\only<1>{\hspace{1cm} print(s[i], end=' ')   \textcolor[rgb]{1,0,0}{\# => septembre octobre}}
+		 \only<2>{\hspace{1cm}print(ind, val,  end = ' ')}
+		 
+		 \only<2>{\hspace{1cm}\textcolor[rgb]{1,0,0}{\# => 0 septembre 1 octobre }}
+			
     \end{semiverbatim}
-  \end{exemple}
-\pause
-  \begin{remarque}
-    Possibilité de déclarer l'indice de boucle lors de l'initialisation
 
-    $\Rightarrow$ variable locale à la boucle
-  \end{remarque}
+	\end{exemple}
+
 \end{frame}
 
 
 \begin{frame}
-  \frametitle{Sortie de boucle}
-  Possibilité de modifier l'exécution d'une boucle avec \emph{break} et
-  \emph{continue}. Mais ne pas en abuser.
+  \frametitle{for : forme condensée}
+\textbf{ Objectif : }Pour construire un container de type liste, dictionnaire ou set  à l'aide d'une boucle for.\\
+\pause
+Syntaxe :
 
-  \begin{exemple}
-    \only<1>{
-      \begin{semiverbatim}
-        while( condition1 )  \{
+\texttt{liste = [expression \emph{for} expr \emph{in} iterable \emph{if} cond]}\\
+\texttt{dict = \{expr1:expr2 \emph{for} expr \emph{in} iterable \emph{if} cond\}}
 
-        \hspace{1cm}if (condition2)
+\pause 
+Exemple 1 :\\
+\colorbox{pink}{\parbox{10.5cm}{
+	     \verb!puiss2 = [nb*nb \emph{for} nb \emph{in} \emph{range}(1,11) \emph{if} nb\%2==0]\\
+			 \textcolor[rgb]{1,0,0}{\# => [4, 16, 36, 64, 100]}!}}\\
+			\pause
 
-        \hspace{2cm}break;
+Exemple 2 :\\
+\colorbox{pink}{\parbox{10.5cm}{
+	     \verb!dic = \{'a': 12, 'b': 1.5, 'c': 3\}\\
+        dic1 = \{cle:val \emph{for} cle,val \emph{in} dic.items() \emph{if} val**2>10\}
+				\textcolor[rgb]{1,0,0}{\# => dic1 = \pause \{'a': 12\}}!}}
 
-        \hspace{1cm}...
 
-        \}        
-      \end{semiverbatim}
-    }
-    \only<2>{
-      \begin{semiverbatim}
-        while (condition1 \&\& !condition2) \{
 
-        \hspace{1cm}...
 
-        \}
-      \end{semiverbatim}
-    }
-  \end{exemple}
+
 \end{frame}
 
-\section{Premiers programmes}
+\section{Premier programme}
 
 \begin{frame}[fragile]
   \frametitle{Hello World}
-  \begin{lstlisting}
-/** 
- * Premier programme Java : hello world
- */
-public class Hello {
-  public static void main(String args[]) {
-    System.out.println("Hello");
-  }
-}    
+	hello.py
+  \begin{lstlisting}{le script hello.py}
+	# affiche 'hello World" 
+""" Ceci est mon premier programme
+avec un commentaire fait sur plusieurs lignes """
+print("Hello World!")
   \end{lstlisting}
-\end{frame}
-
-\begin{frame}
-\frametitle{Remarques}
-  \begin{itemize}
-  \item Nom du fichier et nom du programme doivent coïncider
-  \item Ex : le fichier doit s'appeler \emph{Hello.java}
-  \item Compilation : \emph{javac Hello.java}
-  \item Exécution : \emph{java Hello}
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Passage de paramètres au \emph{main}}
-
-  \begin{itemize}
-  \item Passage de paramètres par la variable \emph{args}
-  \item Ex : \emph{java Hello 1234 xyz}
+	
+\begin{itemize}
+  \item  Exécution : \emph{Python3 hello.py ou Python3 hello}
+  \item Passage de paramètres par l'attribut  \emph{sys.argv}
+  \item Ex : \emph{Python3 hello 1234 xyz}
     \begin{itemize}
-    \item args[0] $\leftarrow$ 1234
-    \item args[1] $\leftarrow$ xyz
+		\item sys.argv[0] $\leftarrow$ hello
+    \item sys.argv[1] $\leftarrow$ 1234
+    \item sys.argv[2] $\leftarrow$ xyz
     \end{itemize}
+		\item Passage de paramètres par la fonction \emph{input()}
+		\item Ex : \texttt{nb = input(donner votre valeur :)}
   \end{itemize}
+
+
+
+
+
+%>>> help(test_for)
+%Help on module hello:
+%
+%NAME
+    %hello
+%
+%DESCRIPTION
+    %Ceci est mon premier programme
+    %avec un commentaire fait sur plusieurs lignes
+%
+%FILE
+    %c:\hello.py
+
 \end{frame}
+
+
