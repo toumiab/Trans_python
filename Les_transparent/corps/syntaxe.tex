@@ -147,7 +147,7 @@
 			
 			>>> print(complex(10, 5))
 			
-			(10+5j
+			(10+5j)
 			\end{semiverbatim}
 			\end{exemple}
 	
@@ -190,7 +190,7 @@
 \begin{remarque}[type \texttt{NoneType}]
 \begin{itemize}
 	\item <1-5>\emph{None} est un objet particulier signifiant \textsl{rien} ou \textsl{nul}, dépourvu de valeur.
-	\item <2-5>C'est un objet unique utilisable à n'importe quel endroit de programme
+	\item <2-5>C'est un objet unique utilisable à n'importe quel endroit du programme
 	\item <3-5>Utilisé pour indiquer qu'un identifiant (variable) n'a pas de valeur
 	\item <4-5>Un fonction qui ne renvoie pas explicitement une valeur, renvoie \texttt{None}
 	\item <5>En mode interactif, l'affichage d'une variable (sans passer par \emph{print()}) qui vaut \textit{None} ne donne rien.
@@ -241,7 +241,7 @@
 \begin{frame}
 \frametitle{Les séquences}
 \begin{defi}[Une séquence]
-    est une collection \emph{ordonnée} d'objets ou chaque objet est accessible via sont index (indice) 
+    est une collection \emph{ordonnée} d'objets ou chaque objet est accessible via son index (indice) 
   \end{defi}
 	\pause
 \begin{itemize}
@@ -275,7 +275,7 @@ Indexation des séquences :
 			\begin{itemize}
 				\item \verb![:j]! : désigne tout ce qui précède j ($j^e$ élément exclu)
 				\item \verb![i:]! : désigne tout ce qui suit i ($i^e$ élément inclu)
-				\item \verb![:]!  : tous les éléments (utilisé pour réaliser une copie \textit{artificielle})
+				\item \verb![:]!  : tous les éléments (utilisé pour réaliser une copie \textit{superficielle})
 				\item \verb![i:j:pas]! : pour réaliser une sélection avec \texttt{un pas} donné 
 			\end{itemize}
 \end{itemize}
@@ -500,7 +500,7 @@ Indexation des séquences :
  \end{defi}
 \pause
 \begin{itemize}
-	\item Il est noté entre accolades \emph{\{\}}, ou crée à partir d'une liste de couples (clé, valeur) passée en argument à la fonction \emph{dict()}.\\ 
+	\item Il est noté entre accolades \emph{\{\}}, ou créé à partir d'une liste de couples (clé, valeur) passée en argument à la fonction \emph{dict()}.\\ 
 	\pause
 	Exemple :\\
 	\footnotesize{
@@ -1074,7 +1074,7 @@ Remarque : évaluation paresseuse
       "Une chaîne de caractères", 'l$\backslash$'expression "dauphine" aussi' 
     }
 		\only<8>{
-      'Ex$\backslash$u0065!llent travail' (='Excellent travail')
+      'Ex$\backslash$u0065llent travail' (='Excellent travail')
 			}
   \end{exemple}
 \end{frame}
@@ -1213,8 +1213,8 @@ Remarque : évaluation paresseuse
 
 
 \begin{frame}
-  \frametitle{Condictions multiples, et fonctions logiques}
-  \begin{exemple}[condition multiples]
+  \frametitle{Conditions multiples, et fonctions logiques}
+  \begin{exemple}[conditions multiples]
     \begin{semiverbatim}
 		
      \textcolor[rgb]{0,0,1}{if} 0 <= a < 10:
@@ -1229,7 +1229,7 @@ Remarque : évaluation paresseuse
 
 	\begin{remarques}[fonctions logiques : any, all]
 	\begin{itemize}
-		\item Tester des séquences et des objets iterables 
+		\item Tester des séquences et des objets itérables 
 		 		 \begin{itemize}
 			\item \texttt{any(objet)} : retourne \texttt{True} si  au moins un des éléments est True \\
 			 \colorbox{pink}{\parbox{7cm}{
@@ -1427,7 +1427,7 @@ print("Hello World!")
     \item sys.argv[2] $\leftarrow$ xyz
     \end{itemize}
 		\item Passage de paramètres par la fonction \emph{input()}
-		\item Ex : \texttt{nb = input(donner votre valeur :)}
+		\item Ex : \texttt{nb = input("Donner votre paramètre :")}
   \end{itemize}
 
 
