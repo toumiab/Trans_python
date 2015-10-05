@@ -1,0 +1,57 @@
+\makeatletter\def\input@path{{images/}{styles/}{corps/}{bib/}}\makeatother
+
+\documentclass{transp_java}
+
+\title[Langage et algorithmique]{Langage et algorithmique}
+\author{A. Malek TOUMI\\ toumiab@ensta-bretagne.fr}
+%\date[05/04/2015]{Toumi A. Malek.  Python 3.4}
+\date{05/04/2015}
+\institute{ENSTA Bretagne}
+
+
+%\usetheme{Transp}
+\usetheme{progressbar}
+%\usetheme{Darmstadt}
+\progressbaroptions{imagename= python-HE.png}
+
+
+
+\mode<handout>{
+  \usecolortheme{dove}
+  \usepackage{pgfpages}
+  \pgfpagesuselayout{4 on 1}[a4paper, border shrink=5mm, landscape]
+}
+
+
+
+\begin{document}
+
+\frame{\titlepage}
+
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{Sommaire}
+    \tableofcontents[current,currentsection]
+  \end{frame}
+}
+
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{Sommaire}
+    \tableofcontents[current,currentsubsection]
+  \end{frame}
+}
+
+
+%%%
+\input{tris_malek}
+
+\end{document}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
