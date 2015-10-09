@@ -1,270 +1,270 @@
 
-\section{Les tableaux}
+
+\section{Rappel :}
 
 
-\subsection{Déclaration}
+\subsection{Les types intégrés}
 
 
+\begin{frame}
+  \frametitle{Les types intégrés}
 
+
+\begin{itemize}
+\item Les types simples : 
+	\begin{itemize}
+		\item Entiers signés (\emph{int}), Réels (IEEE 754) (\emph{float}) et  Complexes (\emph{complex}), Booléens (\emph{bool})
+		\item \textcolor[rgb]{1,0,0}{\verb!=>! tous les types simples sont non modifiables}
+	\end{itemize}
+	\pause
+\item Les types composites (containers): 
+		\begin{itemize}
+		  \item \textbf{Les séquences} : Chaînes de caractères (\emph{str}) ;		Listes (\emph{list}) et  Tuples (\emph{tuple})
+			\item \textbf{Les maps }(hashs) : Dictionnaires (\emph{dict})
+			\textcolor[rgb]{0.4,0.4,0.4}{\item \textbf{Les ensembles} : le type \emph{set} et le type \emph{frozenset}}
+		   \pause
+			\item \textcolor[rgb]{1,0,0}{\verb!=>! Les types \texttt{str}, et \texttt{tuple} ne sont pas modifiables}
+			\item  \textcolor[rgb]{1,0,0}{\verb!=>! Les types \texttt{list}, et \texttt{dict} sont modifiables}
+		
+		\end{itemize}
+ \end{itemize}
+\pause
+\begin{alertblock}{Le type tableau}
+  \begin{itemize}
+	 \item Pas de type tableau (array) en Python
+ \end{itemize}
+\end{alertblock}
+\end {frame}
+
+
+\section{Les Tableaux}
+\subsection{Création d'un tableau}
 \begin{frame}
   \frametitle{Les tableaux}
-  
+
   \begin{defi}[Tableau]
-    Structure de données contenant plusieurs éléments du même type
-    (primitif ou composite).
-  \end{defi}
+    Structure de données contenant plusieurs éléments du \emph{même type}
+    \begin{itemize}
+			\item Les listes (list) 
+			\item Utilisation des tableaux (\texttt{array}) de Numpy, Scipy MatplotLib 
+			\item \verb!=>! Convertir une liste en tableau avec la fonction \emph{array()} de Numpy
+		\end{itemize}
+   \end{defi}
 
-  \begin{exemple}[Déclaration de tableaux]
-    \begin{semiverbatim}
-      {\color[rgb]{0,0.7,0}{{\scriptsize // \textit{idEtudiants} est un tableau à une dimension de \emph{int}}}}
-      
-      int idEtudiants[]; 
+	\pause
+\begin{exemple} [Création d'un tableau Numpy]
+\footnotesize{
+\begin{semiverbatim}
+\vspace{-0.5cm}
+import numpy as np    \hspace{ 1.1cm}   \textcolor[rgb]{0,0.58,0}{\# import avec alias }
+
+L = np.array([.2, 4 ,5])  \hspace{ 0.1cm}   \textcolor[rgb]{0,0.58,0}{ \# crée un vecteur de 3 réels}
+
+L = np.array(range(10), dtype = np.float) \textcolor[rgb]{0,0.58,0}{\# crée un vecteur }
+
+\hspace{ 6.8cm}   \textcolor[rgb]{0,0.58,0}{\# de 10 réels}
+
+M = np.array([[0,2],[np.pi,5]]) \textcolor[rgb]{0,0.58,0}{\# création d'une matrice } 
+
+\hspace{ 4cm} \textcolor[rgb]{0,0.58,0}{\# de 2 lignes et 2 colonnes de réels}
+
+\end{semiverbatim}
+}
+\end{exemple}	
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Les tableaux}
+\begin{exemple} [Création d'un tableau Numpy]
+
+\begin{semiverbatim}
+\vspace{-.5cm}
+import numpy as np    
+
+np.zeros((3,2))  \textcolor[rgb]{0,0.58,0}{ \# crée un tableau de 0.0}
+
+\hspace{ 3cm} \textcolor[rgb]{0,0.58,0}{ \# de 3 lignes et 2 colonnes}
+
+np.ones((3,2)) \hspace{ 0.01cm} \textcolor[rgb]{0,0.58,0}{\# crée un tableau de 1.0}
+               
+M = np.linspace(0,1,11) \textcolor[rgb]{0,0.58,0}{\# renvoie [0,0.1,..., 1.0]}
+N = np.arange(2,5) \hspace{ 0.8cm} \textcolor[rgb]{0,0.58,0}{\# renvoie [2,3,4]}               
+\end{semiverbatim}
+\end{exemple}
+\end{frame}
+
+
+
+
+
+
+
+\begin{frame}
+\frametitle{Opérations}
+\begin{itemize}
+		\item Opération élément pas élément : addition (A+B), produit (A*B), puissance (A**B)\\
+	 exemple : \texttt{tab+2; tab*2; tab**3; tab + tab*2; tab**tab}
+	\item Produit matriciel : \texttt{dot(A,B)}
+	exemple : \texttt{np.dot(tab,tab.T)}
+  \item Concaténation : np.concatenate ((A,B)). exemple : \texttt{np.concatenate((tab,tab), axis=0) }
+\end{itemize}
+
+\begin{propriete}
+Les dimensions des vecteurs-matrices doivent êtres conformes à l'opération souhaitée.
+\end{propriete}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Copie d'un tableau}
+
+\begin{alertblock}{Copie de tableau}
+\begin{semiverbatim}
+      import numpy as np
 		
-			{\color[rgb]{0,0.7,0}{{\scriptsize//\textit{Notes} est untableau à une dimension de \emph{char}}}}
+			tab = np.array(range(10))
+    
+      tab2 = tab \textcolor[rgb]{1,0,0}{\# tab et tab2 référencent la même}
 			
-      char[] notes;
-
-      {\color[rgb]{0,0.7,0}{{\scriptsize //\textit{coordonnees} est un tableau à deux dimensions \emph{double}}}}
-      
-        double coordonnees[][];
+			\hspace{2cm} \textcolor[rgb]{1,0,0}{\# zone mémoire}
+			
+     \textcolor[rgb]{1,0,0}{ \# Solutions à retenir}
+			
+			\textcolor[rgb]{0,0,1}{tab2 = np.copy(tab)}
+			
+			\textcolor[rgb]{0,0,1}{tab2 = tab.copy()}
+	
     \end{semiverbatim}
-  \end{exemple}
+\end{alertblock}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Création d'un tableau}
-  \begin{itemize}
-  \item Nécessité de définir la taille du tableau
-  \item[$\Rightarrow$] utilisation de \emph{new}
-  \end{itemize}
 
-
-
-  \begin{exemple}[Création de tableaux]
-    \begin{semiverbatim}
-      int idEtudiant[] = \textcolor{red}{new} int [20];
-
-      char[] notes = \textcolor{red}{new} char [20];
-
-      double coordonnees[][] = \textcolor{red}{new} double [10][5];
-    \end{semiverbatim}
-  \end{exemple}
-
- \pause
-  \begin{exemple}[Création et initialisation de tableau]
-    \begin{semiverbatim}
-      char[] notes = \{'A','B','C','D','F'\};
-      
-      double coordonnees[][] = \{\{0.0,0.1\},\{0.2,0.3\}\}; 
-      
-       {\color[rgb]{0.7,0,0}{ // coordonnees[][] = \{\{0.0,0.1\},\{0.2,0.3\}\};}}
-       
-       {\color[rgb]{0.7,0,0}{ // l'intialisation n'est utilisable qu'à la déclaration}} 
-    \end{semiverbatim}
-  \end{exemple}  
-\end{frame}
 
 \begin{frame}
-  \frametitle{Création d'un tableau}
-   \begin{exemple}[Création de tableaux]
-    \begin{semiverbatim}
+  \frametitle{Accès aux éléments d'un tableau}
   
-      \temporal<1> {\color{black}}{\color{black}}{\color{gray!25}} int ti[] = \textbf{new} int [10];
-        
-      \temporal<2> {\color{gray!25}}{\color{black}}{\color{gray!25}} char[] tc = \textbf{new} char [15];
-         
-      \temporal<3> {\color{gray!25}}{\color{black}}{\color{gray!25}} int t2[][] = \textbf{new} int[5][10];
-          
-      \temporal<4> {\color{gray!25}}{\color{black}}{\color{gray!25}}  int t21[][] = \{\{1, 2, 3\}, \{4, 5, 6\}\};
-      
-    \end{semiverbatim}
-  \end{exemple}
-
- % \pdflatex{tableau1.png}
-% \hspace{.4cm}
- %\vspace{-.1cm}
-
-\only<1>{\includegraphics[width=4cm]{tableau1.jpg}}
-\only<2>{\includegraphics[width=6cm]{tableau2.jpg}}
-\only<3>{\includegraphics[width=6cm]{tableau3.jpg}}
-\only<4>{\includegraphics[width=5cm]{tableau4.jpg}}
-
-
-
-\end{frame}
-
-
-
-
-\begin{frame}
+	\begin{remarque}
+   Utiliser la vectorisation quand c'est possible 
+	\end{remarque}
+  \begin{exemple}[\texttt{sin(t) pour t$\in$[0,999999]}]
+    \pause
+		\begin{semiverbatim}
+      import numpy as np	
+			
+			res[]
+			
+			for t in range(1000000):   
+					
+			\hspace{1cm}res += [np.sin(t)]
+			
+		 \end{semiverbatim}
+		\pause
+		\begin{semiverbatim}
+			
+			t = np.arange(1000000)
+			
+      res = np.sin(t)
+			
+		\end{semiverbatim}	
+		
+		\end{exemple}
+	
+		
+	\end{frame}
+	
+	\begin{frame}
   \frametitle{Accès aux éléments des tableaux}
   \begin{itemize}
   \item Accéder à un élément = accéder à une case du tableau
   \item Opérateur \texttt{[]}
   \item Première case : 0
-  \item Tableaux multidimensionnels : plusieurs indices
-  \item Taille du tableau : \emph{tab.length}, \emph{tab[0].length}, \ldots{}
+  \item Tableaux multidimensionnels : plusieurs indices ex. M[i,j] ou M[i][j]
+  \item Taille du tableau : \emph{len(tab}), \emph{len(tab[0])}, \ldots{}
   \end{itemize}
 
-  \begin{exemple}[Accès à un tableau]
+  \begin{exemple}[Accès aux éléments des tableaux]
+	\footnotesize{
     \begin{semiverbatim}
-      char note1;
-      note1 = notes[0];
+		\vspace{-.5cm}
+      L = np.array([2, 4 ,5])  
 
-      notes[4] = 'Z';
+      L[1] \hspace{ 1.6cm}\textcolor[rgb]{0,0.58,0}{ \# renvoie 4}
+			
+			len(L) \hspace{1.2cm} \textcolor[rgb]{0,0.58,0}{ \# renvoie 3}
 
-      double ligne2Col1 = coordonnees[1][0];
-    \end{semiverbatim}
+      M = np.array([[0,1,5],[2,7,10]]) 
+
+      M[1,1] ;  M[1][1]              \textcolor[rgb]{0,0.58,0}{\#  renvoient 7 }
+
+			M[0,:]  ;   M[0][:]            \textcolor[rgb]{0,0.58,0}{\# renvoient la première ligne}
+
+		  len(M)  \hspace{ 1.4cm} \textcolor[rgb]{0,0.58,0}{\#  renvoie 2 }
+			
+			len(M[0])  \hspace{ 0.9cm}  \textcolor[rgb]{0,0.58,0}{\#  renvoie 3 }
+		
+		\end{semiverbatim}
+		}
   \end{exemple}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Tableaux et boucles}
-  Utiliser les boucles facilite le parcours des tableaux.
-  \begin{exemple}
-    \begin{semiverbatim}
-      tab[0]=1 ; tab[1]=2 ; ... tab[9]=10;
+
+	
+	
+	
+		
+	\begin{frame}
+  \frametitle{Accès aux éléments des tableaux}
+ 
+ \begin{itemize}
+	 \item Parcourir un tableau à l'aide d'une boucle
+ \end{itemize}
+		\begin{exemple}
+	    \begin{semiverbatim}
+		  import numpy as np
+			
+			tab = np.array(\emph{range}(10))
+			
+    
+			\emph{for} i in \emph{range}(\emph{len}(tab)):
+			
+      \hspace{1cm}tab[i] = ....
+		
+		\emph{print}(tab)
     \end{semiverbatim}
-    Remplacé par :
+\pause
     \begin{semiverbatim}
-      for (int i=0 ; i<tab.length ; i++)
-
-      \hspace{1cm}tab[i] = i+1;
+      
+					
+      \emph{for} \textcolor[rgb]{1,0,0}{i, val} \emph{ in enumerate}(tab):
+			
+      \hspace{1cm}tab[i] = val + ...
+		
+		print(tab)
     \end{semiverbatim}
-  \end{exemple}
+
+\end{exemple}
 \end{frame}
+\subsection{Mélange d'un tableau}
 
-
-
-
-
-\begin{frame}
-  \frametitle{Récapitulatif}
-  \begin{itemize}[<+->]
-  \item Déclaration d'un tableau
-  \item Création d'un tableau
-  \item Remplissage du tableau
-  \item Utilisation du tableau
-  \end{itemize}
-
-  \begin{exemple}
-    \begin{semiverbatim}
-      int tableau[]\only<2->{=new int[10]};
-      \only<1-2>{
-
-~
-
-~
-
-      }
-      \only<3->{
-
-        for (int i=0 ; i<tableau.length ; i++)
-
-        \hspace{1cm}tableau[i] = i;
-      }
-      \only<3>{
-
-      }
-
-      \only<4>{
-        System.out.println(tableau[0]);
-      }
-    \end{semiverbatim}
-  \end{exemple}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Affichage du contenu d'un tableau}
-
-  \begin{itemize}
-  \item<1-> Méthode d'affichage « naïve »~: afficher la variable
-  \item<3-> Méthode correcte : afficher les cases une à une
-  \end{itemize}
-
-  \only<1,2>{
-    \uncover<2>{
-      \begin{alertblock}{Incorrect}
-        \begin{semiverbatim}
-          int tab[] = new int[10];
-
-          System.out.println(tab);
-
-          ~
-
-          ~
-        \end{semiverbatim}
-      \end{alertblock}
-    }
-  }
-  \only<3>{
-    \begin{exampleblock}{Correct}
-      \begin{semiverbatim}
-        int tab[] = new int[10];
-        
-        for (int i=0 ; i<tab.length ; i++) \{
-
-          ~~~System.out.print(tab[i]);
-
-          \}
-      \end{semiverbatim}
-    \end{exampleblock}
-  }
-  \only<4>{
-    \begin{exampleblock}{Correct (depuis Java 5.0)}
-      \begin{semiverbatim}
-        int tab[] = new int[10];
-        
-        for (int val: tab) \{
-
-          ~~~System.out.print(val);
-
-          \}
-      \end{semiverbatim}
-    \end{exampleblock}
-  }
-  \only<5>{
-    \begin{exampleblock}{Autre écriture (depuis Java 5.0)}
-      \begin{semiverbatim}
-        int tab[] = new int[10];
-        
-        System.out.print(Arrays.toString(val));
-      \end{semiverbatim}
-    \end{exampleblock}
-  }
-  \uncover<2->{
-  \begin{block}{Affichage}
-    \begin{semiverbatim}
-      \only<1>{
-
-      }\only<2>{
-      [I@187c6c7
-    }\only<3->{
-      0 0 0 0 0 0 0 0 0 0
-    }
-    \end{semiverbatim}
-  \end{block}}
-\end{frame}
-
-
-\subsection{Remplissage, mélange d'un tableau}
-
-\begin{frame}[fragile]
-  \frametitle{Remplissage aléatoire d'un tableau}
-
-  \begin{itemize}
-  \item Utilisation de la classe \emph{Random}
-  \end{itemize}
-
-  \begin{exemple}
-  \begin{lstlisting}[frame=none]
-      Random alea = new Random();
-      int tab[] = new int[10];
-      for (int i=0 ; i<tab.length ; i++)
-        tab[i] = alea.nextInt(10);
-  \end{lstlisting}
-  \end{exemple}
-\end{frame}
+%\begin{frame}[fragile]
+  %\frametitle{Remplissage aléatoire d'un tableau}
+%
+  %\begin{itemize}
+  %\item Utilisation de la classe \emph{Random}
+  %\end{itemize}
+%
+  %\begin{exemple}
+  %\begin{lstlisting}[frame=none]
+      %Random alea = new Random();
+      %int tab[] = new int[10];
+      %for (int i=0 ; i<tab.length ; i++)
+        %tab[i] = alea.nextInt(10);
+  %\end{lstlisting}
+  %\end{exemple}
+%\end{frame}
 
 
 \begin{frame}[fragile]
@@ -273,11 +273,13 @@
     \caption{Mélange()}
     \KwIn{tab : entier[]}
     \KwData{i, n : entier}
-    $n \gets taille(tab)-1$ \;
+    $n \gets taille(tab)-1$ 
     \While{$n>0$} {
-      $i \gets $ nombre aléatoire entre 0 et $n$ inclus \;
-      permuter $tab[n]$ et $tab[i]$ \;
-      décrémenter $n$ \;
+      $i \gets $ nombre aléatoire entre 0 et $n$ inclus
+			
+      permuter $tab[n]$ et $tab[i]$ 
+			
+			décrémenter $n$ 
     }
   \end{algorithm2e}
 \end{frame}
@@ -285,15 +287,13 @@
 \begin{frame}[fragile]
   \frametitle{Mélange d'un tableau}
   \begin{lstlisting}
-  // no max des elements
-  int n = tableau.length-1; 
-  int tmp;
+  n = len(tab) - 1 
   while (n>0) {
-    int i = alea.nextInt(n+1);
-    tmp = tableau[i];
-    tableau[i] = tableau[n];
-    tableau[n] = tmp;
-    n--;
+    # générer un nombre aléatoire entre 0 et 
+    # n inclus
+    i = np.random.randint(0, n)
+    tab[i], tab[n] = tab[n], tab[i]
+    n -= 1
   }
   \end{lstlisting}
 \end{frame}
@@ -304,7 +304,7 @@
 \subsection{Tri par sélection}
 
 \begin{frame}
-  \frametitle{Principe général}
+  \frametitle{Principe du tri par sélection}
   \only<1-9>{
   \begin{itemize}
   \item Rechercher le plus petit élément du tableau
@@ -385,7 +385,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Algorithme tri par sélection}
+  \frametitle{Algorithme du tri par sélection}
 {\small
 \begin{algorithm2e}[H]
   \caption{triSel}
@@ -399,7 +399,8 @@
         $indMin \gets j$ \;\pause
       }
     }
-    inverser($tab[indMin],tab[i]$)\;
+    permuter $tab[indMin]$ et $tab[i]$ \;
+		
   }
 \end{algorithm2e}
 }
@@ -425,41 +426,78 @@
 
 \begin{frame}[fragile]
   \frametitle{Algorithme tri par sélection}
-  \begin{lstlisting}
-public void triSel(int tab[]) {
-  int indMin; // indice du plus petit element
-  int elemTmp; // element temporaire
-  for (int i=0 ; i<tab.length-1 ; i++) {
-    indMin = i;
-    for (int j=i+1 ; j<tab.length ; j++)
-      if (tab[j] < tab[indMin])
-        indMin = j;
-    elemTmp = tab[indMin];
-    tab[indMin] = tab[i];
-    tab[i] = elemTmp;
-  }
-}
+  	{\small
+	
+
+	\begin{lstlisting}
+def trisel(tab):
+    """ tri par sélection: paramètres
+    tab : numpy.array
+        tableau à trier.
+    """
+    for i in range(len(tab)-1):
+        # Recherche de la position du 
+        # plus petit élément
+        i_min = i
+        for j in range(i+1, len(tab)):
+            if tab[j] < tab[i_min]:
+                i_min = j
+        # Permuter les cases i et i_min
+        tab[i], tab[i_min] = tab[i_min], tab[i]
+				
   \end{lstlisting}
+	}
 \end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{Algorithme tri par sélection}
+  	{\small
+	
+	\begin{lstlisting}[caption={Tri par sélection optimisé pour numpy}]
+def trisel(tab):
+   """ tri par sélection: paramètres
+    tab : numpy.array
+        tableau à trier.
+    """
+    for i in range(len(tab)-1):
+        # Recherche de la position du 
+        # plus petit élément
+        i_min = np.argmin(tab[i:]) + i
+        # Permuter les cases i et i_min
+        tab[i], tab[i_min] = tab[i_min], tab[i]
+				
+  \end{lstlisting}
+	}
+\end{frame}
+
+%\begin{frame}
+  %\frametitle{Étude de la complexité du tri}
+  %\begin{def}[Complexité C(n)]
+	%Ordre de grandeur du nombre d'opérations d'un algorithme. Notation $\Theta(g(n))$ :
+   %\end{def} 
+  %Tri par sélection :
+  %\begin{itemize}
+  %\item Boucle externe : $i=n-2$ fois
+  %\item Boucle interne : $n-i$ fois
+  %\item Somme :
+    %$$\sum_{i=0}^{n-2}(n-i)=\sum_{j=1}^{n-1}j=\frac{n(n-1)}{2}=\frac12n^2-\frac12n$$
+  %\end{itemize}
+  %$$
+  %C(n) \only<1>{=\frac12n^2-\frac12n}
+  %\only<2>{\simeq \frac12n^2}
+  %\only<3>{\simeq n^2}
+  %%%\only<4>{\in \Theta(n^2)}
+  %\only<4>{= \Theta(n^2)}
+  %$$
+%\end{frame}
 
 \begin{frame}
   \frametitle{Étude de la complexité du tri}
-  Complexité $C(n)$ : ordre de grandeur du nombre d'opérations d'un algorithme.
-  \pause
-  Notation $\Theta$~:
-  $$
-  \Theta(g(n)) =
-  \left\{\begin{array}{l}
-      f(n) : \exists c_1,c_2\in \nbR^+, n_0\in\nbN / \\
-      \forall n\geq n_0 , 0 \leq c_1g(n) \leq f(n) \leq c_2g(n)
-    \end{array}
-  \right\}
-  $$
-  \pause
-  $\Theta(g(n))$ représente l'ensemble des fonctions de même ordre que $g(n)$.
-\end{frame}
-
-\begin{frame}
+  \begin{defi}{Complexité}
+	  Ordre de grandeur du nombre d'opérations d'un algorithme. Notation $\Theta(g(n))$.
+   \end{defi}
+	
   Tri par sélection :
   \begin{itemize}
   \item Boucle externe : $i=n-2$ fois
@@ -471,10 +509,11 @@ public void triSel(int tab[]) {
   C(n) \only<1>{=\frac12n^2-\frac12n}
   \only<2>{\simeq \frac12n^2}
   \only<3>{\simeq n^2}
-  %%\only<4>{\in \Theta(n^2)}
-  \only<4>{= \Theta(n^2)}
+  \only<4>{\in \Theta(n^2)}
+  \only<5>{= \Theta(n^2)}
   $$
 \end{frame}
+
 
 
 \subsection{Tri bulles}
@@ -483,7 +522,7 @@ public void triSel(int tab[]) {
   \frametitle{Principe du tri bulles}
   \only<1-10>{
   \begin{itemize}
-  \item Très simple à mettre en oeuvre
+  \item Très simple à mettre en \oe uvre
   \item Comparaisons locales : un élément et son successeur
   \item Faire remonter l'élément le plus grand, puis le deuxième plus
     grand, ... 
@@ -560,7 +599,7 @@ public void triSel(int tab[]) {
         \hline
       \end{tabular}
     }
-    \only<11> {\includegraphics[width=4cm, height=8.5cm]{tris_bul.jpg}}
+   % \only<11> {\includegraphics[width=4cm, height=6cm]{tris_bul.jpg}}
   \end{exemple}
 \end{frame}
 
@@ -576,7 +615,7 @@ public void triSel(int tab[]) {
   \For{$i \in [n-1,1]$} {\pause
     \For{$j \in [0, i-1]$} {\pause
       \If{$tab[j]>tab[j+1]$} {\pause
-        inverser($tab[j],tab[j+1]$)\;
+        permuter $tab[j]$ et $tab[j+1]$\;
       }
     }
   }
@@ -876,5 +915,5 @@ public void triSel(int tab[]) {
   \item tri par tas
   \end{itemize}
 
-  Exemples : \url{https://moodle.ensieta.fr/course/view.php?id=548}
+  Exemples : \url{https://moodle.ensta-bretagne.fr/course/view.php?id=1100}
 \end{frame}
