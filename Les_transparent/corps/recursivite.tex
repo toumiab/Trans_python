@@ -1,31 +1,70 @@
 
-\section{Rappel paramètres formels/paramètres effectifs}
+\section{Rappel}
+\subsection{Paramètres formels/paramètres effectifs}
 
 \begin{frame}
-  \frametitle{Méthode fact}
+  \frametitle{Fonction fact}
   \begin{itemize}[<+-|alert@+>]
   \item Paramètres formels
   \item Paramètres effectifs
   \end{itemize}
 
   \begin{semiverbatim}
-    public int \textcolor{blue}{fact}({\color<1>{red}int i}) \{
+    def \textcolor{blue}{fact}({\color<1>{red} nb}):
 
-    \hspace{1cm}if(i == 0) \{
-
-    \hspace{1cm}...
-
-    \}
-
-    public void cnp(int n, int p) \{
-
-    \hspace{1cm}int num = \textcolor{blue}{fact}({\color<2>{red}n});
+    \hspace{1cm}if(nb == 0):
 
     \hspace{1cm}...
 
-    \}
+
+    def cnp(n, p):
+
+    \hspace{1cm}num = \textcolor{blue}{fact}({\color<2>{red}n})
+
+    \hspace{1cm}...
+
+  
   \end{semiverbatim}
 \end{frame}
+\subsection{Portée de variable}
+\begin{frame}[fragile]
+  \frametitle{Variables globales/locales}
+  
+	\begin{remarques}
+	\begin{itemize}[<+->]
+		\item Les variables globales sont visibles dans les fonctions appelées mais on ne peut les réaffectées
+		\item Le contenu d'une variable globale est modifiable si elle est mutable (modifiable).
+		\item Les variables locales d'une fonction ne sont pas visibles dans les niveaux supérieurs
+		\item Les fonctions peuvent modifier des variables globales avec l'instruction \emph{global} 
+		\item La fonction \emph{globals()} retourne le dictionnaire des objets globaux. \\
+		\item La fonction \emph{locals()} retourne la liste des objets l'espace local en cours
+   \end{itemize}
+  \end{remarques}
+	
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{Variables globales/locales}
+\small{
+ \begin{exemple}[Modification d'une variable globale en local]
+    \begin{semiverbatim}
+		\textcolor[rgb]{0,0,1}{def} incremCompt():  \textcolor[rgb]{0,0.58,0}{ # fonction sans param. d'entrée}
+    \textcolor[rgb]{0,0,1}{global} compteur  \textcolor[rgb]{0,0.58,0}{# définition var. globale}
+    compteur += 1
+    print('Appelé', compteur, 'fois')
+
+compteur = 0 \textcolor[rgb]{0,0.58,0}{# initialisation du compteur}
+incremCompt() \textcolor[rgb]{0,0.58,0}{# => affiche: Appelé 1 fois}
+incremCompt() \textcolor[rgb]{0,0.58,0}{# => affiche: Appelé 2 fois}
+incremCompt() \textcolor[rgb]{0,0.58,0}{# => affiche: Appelé 3 fois}
+
+
+				
+ \end{semiverbatim}
+  \end{exemple}
+	}
+%}
+\end{frame}
+
 
 
 \section{Récursivité}
@@ -44,16 +83,16 @@
 
 \pause
 \begin{alertblock}{Attention}
-  Éviter les boucles infinies (appel systématique à la méthode).
+  Éviter les boucles infinies (appel systématique à la fonction).
 \end{alertblock}
 \pause
-\begin{exemple}[Méthode infinie]
+\begin{exemple}[Fonction infinie]
   \begin{semiverbatim}
-    public int sansFin(int n)  \{
+    def sansFin(n):
 
-    \hspace{1cm}return n+sansFin(n-1);
+    \hspace{1cm}return n+sansFin(n-1)
 
-    \}
+   
   \end{semiverbatim}
 \end{exemple}
 \end{frame}
@@ -76,17 +115,16 @@
     \pause
 
     \begin{semiverbatim}
-      public int \textcolor{blue}{fact}(int n) \{\pause
+      def \textcolor{blue}{fact}(n):\pause
 
-      \hspace{1cm}if (n==0)
+      \hspace{1cm}if n==0 : \only<5>{\textcolor[rgb]{0,0.58,0}{\# Condition d'arrêt}}
 
-      \hspace{2cm}return 1;\pause
+      \hspace{2cm}return 1\pause
 
-      \hspace{1cm}else
+      \hspace{1cm}else:
 
-      \hspace{2cm}return n*\textcolor{blue}{fact}(n-1);
+      \hspace{2cm}return n * \textcolor{blue}{fact}(n-1)
 
-      \}
     \end{semiverbatim}
   \end{exemple}
 \end{frame}
@@ -99,12 +137,12 @@
   \end{defi}
   \pause
   \begin{alertblock}{Important}
-    Toute méthode récursive doit comporter au moins une condition
+    Toute fonction récursive doit comporter au moins une condition
     d'arrêt. Sinon : boucle infinie.
   \end{alertblock}
   \pause
   \begin{remarque}
-    Une méthode peut comporter plusieurs conditions d'arrêt.
+    Une fonction peut comporter plusieurs conditions d'arrêt.
   \end{remarque}
 \end{frame}
 
@@ -113,21 +151,20 @@
   \frametitle{Condition d'arrêt}
   \begin{exemple}[Plusieurs conditions d'arrêt]
     \begin{semiverbatim}
-      public int fact(int n) \{
+      def fact(n):
 
-      \hspace{1cm}{\color<2>{red}if (n==0)}
+      \hspace{1cm}{\color<2>{red}if (n==0):}
       
-      \hspace{2cm}return 1;
+      \hspace{2cm}return 1
 
-      \hspace{1cm}{\color<2>{red}else if (n==1)}
+      \hspace{1cm}{\color<2>{red}elif (n==1):}
 
-      \hspace{2cm}return 1;
+      \hspace{2cm}return 1
 
-      \hspace{1cm}else
+      \hspace{1cm}else :
 
-      \hspace{2cm}return n*fact(n-1);
+      \hspace{2cm}return n * fact(n-1)
 
-    \}
     \end{semiverbatim}
   \end{exemple}
 \end{frame}
@@ -135,49 +172,49 @@
 
 \subsection{Pile d'appel}
 
-\begin{frame}
-  \frametitle{Pile d'appel}
-  \begin{itemize}[<+->]
-  \item Zone de mémoire
-  \item Contient :
-    \begin{itemize}
-    \item<3-|alert@8-9> paramètres
-    \item<4-|alert@10> adresse de retour
-    \item<5-|alert@11> variables locales
-    \end{itemize}
-  \item<6-> Fonctionnement lors de l'appel d'une méthode
-  \end{itemize}
-
-  \uncover<7->{
-  \begin{tabular}{ll}
-    \begin{minipage}{0.8\linewidth}
-    \begin{semiverbatim}
-      public void methode({\color<8>{red}int a}, {\color<9>{red}double b}) \{
-
-      \hspace{1cm}{\color<11>{red}int i};
-
-      \}
-
-      methode({\color<8>{red}2}, {\color<9>{red}1.5});
-    \end{semiverbatim}
-  \end{minipage}&
-  \begin{minipage}{0.15\linewidth}
-  \begin{tabular}{|r|}
-    \hline
-    \uncover<11>{i}\\
-    \hline
-    \uncover<10->{0x1E3C85}\\
-    \hline
-    \uncover<9->{1.5}\\
-    \hline
-    \uncover<8->{2}\\
-    \hline
-  \end{tabular}
-  \end{minipage}
-\end{tabular}
-}
-\end{frame}
-
+%\begin{frame}
+  %\frametitle{Pile d'appel}
+  %\begin{itemize}[<+->]
+  %\item Zone de mémoire
+  %\item Contient :
+    %\begin{itemize}
+    %\item<3-|alert@8-9> paramètres
+    %\item<4-|alert@10> adresse de retour
+    %\item<5-|alert@11> variables locales
+		%\item<6-|alert@12> variables globales
+    %\end{itemize}
+  %\item<7-> Fonctionnement lors de l'appel d'une fonction
+  %\end{itemize}
+%
+  %\uncover<8->{
+  %\begin{tabular}{ll}
+    %\begin{minipage}{0.8\linewidth}
+    %\begin{semiverbatim}
+      %def methode({\color<8>{red} a}, {\color<9>{red} b}):
+%
+      %\hspace{1cm}{\color<11>{red} i = 0}
+			%\hspace{1cm} ...
+			%
+      %methode({\color<8>{red}2}, {\color<9>{red}1.5})
+    %\end{semiverbatim}
+  %\end{minipage}&
+  %\begin{minipage}{0.15\linewidth}
+  %\begin{tabular}{|r|}
+    %\hline
+    %\uncover<11>{i}\\
+    %\hline
+    %\uncover<10->{0x1E3C85}\\
+    %\hline
+    %\uncover<9->{1.5}\\
+    %\hline
+    %\uncover<8->{2}\\
+    %\hline
+  %\end{tabular}
+  %\end{minipage}
+%\end{tabular}
+%}
+%\end{frame}
+%
 
 \begin{frame}
   \frametitle{Pile et récursivité}
@@ -185,21 +222,22 @@
   \begin{itemize}
   \item Pile d'appel : notion fondamentale pour la récursivité.
   \item Principe : tous les appels sont empilés, traités, puis dépilés.
-  \end{itemize}
-  ~\\
+  \end{itemize}	
+		
+		~\\
 
   \begin{tabular}{ll}
     \begin{minipage}{0.6\linewidth}
     \begin{semiverbatim}
-      public int fact(int n) \{
+      def fact(n) \{
 
-      \hspace{1cm}if (n==0)
+      \hspace{1cm}if n==0:
 
-      \hspace{2cm}return 1;
+      \hspace{2cm}return 1
 
-      \hspace{1cm}else
+      \hspace{1cm}else:
 
-      \hspace{2cm}return n*fact(n-1);
+      \hspace{2cm}return n*fact(n-1)
 
       \}
     \end{semiverbatim}
@@ -281,8 +319,18 @@
   \item<13-> Traduction immédiate de la formule de récurrence
   \item[$\Rightarrow$]<14-> peu efficace dans ce cas
   \item<15-> Nombre d'appel à F en $\Theta(2^n)$
-  \item<16-> Risque de \emph{java.lang.StackOverflowError}
   \end{itemize}
+	\uncover<16->{
+	\begin{alertblock}{Important}
+   
+	 \begin{itemize}
+		 \item <16-> Le nombre d'appels est limité par défaut, à 1000 appels. \\ $\Rightarrow$ \small{\emph{RuntimeError: maximum recursion depth exceeded ...}} 
+		 \item <17> Exemple : Augmenter la taille à  1500: \texttt{sys.setrecursionlimit(1500)} 
+	 \end{itemize}
+		\end{alertblock}
+	
+}	
+  
 \end{frame}
 
 
@@ -327,30 +375,28 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Recherche par dichotomie : code Java}
+  \frametitle{Recherche par dichotomie : code Python}
   \begin{semiverbatim}
-    public boolean rech(int tab[], int val, int deb, int fin)
-\{
+    def rech(tab, val, deb, fin):
 
-  \hspace{1cm}int n = (deb + fin)/2;\pause
+  \hspace{1cm}n = (deb + fin)//2 \pause
 
-  \hspace{1cm}if (tab[n] == val)
+  \hspace{1cm}if tab[n] == val:
 
-    \hspace{2cm}return true;\pause
+    \hspace{2cm}return True \pause
 
-  \hspace{1cm}else if(deb >= fin)
+  \hspace{1cm}elif deb >= fin :
 
-    \hspace{2cm}return false;\pause
+    \hspace{2cm}return False \pause
 
-  \hspace{1cm}else if (tab[n] > val)
+  \hspace{1cm}elif tab[n] > val:
 
-    \hspace{2cm}return rech(tab, val, deb, n-1);
+    \hspace{2cm}return rech(tab, val, deb, n-1)
 
-  \hspace{1cm}else 
+  \hspace{1cm}else:
 
-    \hspace{2cm}return rech(tab, val, n+1, fin);
+    \hspace{2cm}return rech(tab, val, n+1, fin)
 
-\}
   \end{semiverbatim}
 \end{frame}
 
@@ -401,7 +447,7 @@
 \begin{frame}
   \frametitle{Tours de Hanoï : résolution}
   \begin{itemize}
-  \item Résolution par une méthode récursive
+  \item Résolution par une fonction récursive
   \item Étapes de l'algorithme : hauteur de la tour
   \item Hauteur 0 : évident
   \item Récurrence :
@@ -483,82 +529,82 @@
 \end{frame}
 
 
-\begin{frame}
-  \frametitle{Monnaie}
-  Problème : 
-  \begin{itemize}[<+->]
-  \item Combien de manières de rendre la monnaie sur une somme $s$
-    avec 1, 2 ou 5 \euro{} ?
-  \item Résolution : méthodes récursives.
-  \end{itemize}
-
-  \pause Algorithme :
-  \begin{itemize}[<+->]
-  \item Rendre la monnaie sur $s$ avec des pièces de 1 \euro{} : 1 seule possibilité
-  \item Rendre la monnaie sur $s$ avec 1 ou 2 \euro{} :
-    \begin{itemize}
-    \item Donner une pièce de 2\euro{} et rendre la monnaie sur $s-2$ avec 1 ou
-      2 \euro{}
-    \item Ou rendre la monnaie uniquement avec 1\euro{}
-    \end{itemize}
-  \item Rendre la monnaie sur $s$ avec 1, 2 ou 5 \euro{} : même principe
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Algorithme}
-%  \begin{algorithme}{Rendre la monnaie}{alg:monnaie}
-%    \proc \algverb{monnaie1} (somme s)\\
-%    \debut \=\\
-%    \> retourner 1\\
-%    \fin\\ \pause
-%    \proc \algverb{monnaie1-2} (somme s)\\
-%    \debut \=\\
-%    \> retourner monnaie1-2(s-2) + monnaie1(s)\\
-%    \fin\\ \pause
-%    \proc \algverb{monnaie1-2-5} (somme s)\\
-%    \debut \=\\
-%    \> retourner monnaie1-2-5(s-5) + monnaie1-2(s) + monnaie1(s)\\
-%    \fin
-%  \end{algorithme}
-  {\small 
-\begin{procedure}[H]
-  \caption{monnaie1(somme s)}
-  retourner 1\;
-\end{procedure}
-\begin{procedure}[H]
-  \caption{monnaie1-2(somme s)}
- retourner \emph{monnaie1-2}(s-2) + \emph{monnaie1}(s)\;
-\end{procedure}
-\begin{procedure}[H]
-  \caption{monnaie1-2-5(somme s)}
- retourner \emph{monnaie1-2-5}(s-5) + \emph{monnaie1-2}(s) + \emph{monnaie1}(s)\;
-\end{procedure}
-
-% \begin{algorithmic}[1]
-%     \Procedure{monnaie1}{somme s}
-%       \State retourner 1
-%     \EndProcedure
-%     \Procedure{monnaie1-2}{somme s}
-%       \State retourner monnaie1-2(s-2) + monnaie1(s)
-%     \EndProcedure
-%     \Procedure{monnaie1-2-5}{somme s}
-%       \State retourner monnaie1-2-5(s-5) + monnaie1-2(s) + monnaie1(s)
-%     \EndProcedure
-%   \end{algorithmic}
-}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Algorithme : condition d'arrêt}
-  \begin{itemize}
-  \item Conditions d'arrêt de l'algorithme ?
-  \item \emph{monnaie1} non récursive : pas de condition d'arrêt
-  \item Pour \emph{monnaie1-2} : s'arrêter si $s<2$
-  \item Pour \emph{monnaie1-2-5} : s'arrêter si $s<5$
-  \end{itemize}
-\end{frame}
-
+%\begin{frame}
+  %\frametitle{Monnaie}
+  %Problème : 
+  %\begin{itemize}[<+->]
+  %\item Combien de manières de rendre la monnaie sur une somme $s$
+    %avec 1, 2 ou 5 \euro{} ?
+  %\item Résolution : méthodes récursives.
+  %\end{itemize}
+%
+  %\pause Algorithme :
+  %\begin{itemize}[<+->]
+  %\item Rendre la monnaie sur $s$ avec des pièces de 1 \euro{} : 1 seule possibilité
+  %\item Rendre la monnaie sur $s$ avec 1 ou 2 \euro{} :
+    %\begin{itemize}
+    %\item Donner une pièce de 2\euro{} et rendre la monnaie sur $s-2$ avec 1 ou
+      %2 \euro{}
+    %\item Ou rendre la monnaie uniquement avec 1\euro{}
+    %\end{itemize}
+  %\item Rendre la monnaie sur $s$ avec 1, 2 ou 5 \euro{} : même principe
+  %\end{itemize}
+%\end{frame}
+%
+%\begin{frame}
+  %\frametitle{Algorithme}
+%%  \begin{algorithme}{Rendre la monnaie}{alg:monnaie}
+%%    \proc \algverb{monnaie1} (somme s)\\
+%%    \debut \=\\
+%%    \> retourner 1\\
+%%    \fin\\ \pause
+%%    \proc \algverb{monnaie1-2} (somme s)\\
+%%    \debut \=\\
+%%    \> retourner monnaie1-2(s-2) + monnaie1(s)\\
+%%    \fin\\ \pause
+%%    \proc \algverb{monnaie1-2-5} (somme s)\\
+%%    \debut \=\\
+%%    \> retourner monnaie1-2-5(s-5) + monnaie1-2(s) + monnaie1(s)\\
+%%    \fin
+%%  \end{algorithme}
+  %{\small 
+%\begin{procedure}[H]
+  %\caption{monnaie1(somme s)}
+  %retourner 1\;
+%\end{procedure}
+%\begin{procedure}[H]
+  %\caption{monnaie1-2(somme s)}
+ %retourner \emph{monnaie1-2}(s-2) + \emph{monnaie1}(s)\;
+%\end{procedure}
+%\begin{procedure}[H]
+  %\caption{monnaie1-2-5(somme s)}
+ %retourner \emph{monnaie1-2-5}(s-5) + \emph{monnaie1-2}(s) + \emph{monnaie1}(s)\;
+%\end{procedure}
+%
+%% \begin{algorithmic}[1]
+%%     \Procedure{monnaie1}{somme s}
+%%       \State retourner 1
+%%     \EndProcedure
+%%     \Procedure{monnaie1-2}{somme s}
+%%       \State retourner monnaie1-2(s-2) + monnaie1(s)
+%%     \EndProcedure
+%%     \Procedure{monnaie1-2-5}{somme s}
+%%       \State retourner monnaie1-2-5(s-5) + monnaie1-2(s) + monnaie1(s)
+%%     \EndProcedure
+%%   \end{algorithmic}
+%}
+%\end{frame}
+%
+%\begin{frame}
+  %\frametitle{Algorithme : condition d'arrêt}
+  %\begin{itemize}
+  %\item Conditions d'arrêt de l'algorithme ?
+  %\item \emph{monnaie1} non récursive : pas de condition d'arrêt
+  %\item Pour \emph{monnaie1-2} : s'arrêter si $s<2$
+  %\item Pour \emph{monnaie1-2-5} : s'arrêter si $s<5$
+  %\end{itemize}
+%\end{frame}
+%
 \begin{frame}
   \frametitle{Quicksort}
 \only<1-4>{
@@ -591,7 +637,7 @@
   \If{$debut<fin$} {
     \eIf{$fin - debut \leqslant 1$ \tcp{cas particulier : 2 éléments à trier}} {
       \If{$tab[debut] > tab[fin]$} {
-        inverser(tab, debut, fin) \;
+        permuter tab[debut], tab[fin] \;
       }
     }
     {
@@ -635,11 +681,11 @@
 
   \pause
   \begin{defi}[Récursivité terminale, tail recursion]
-    Une méthode est dite récursive terminale s'il n'y a aucune opération sur
+    Une fonction est dite récursive terminale s'il n'y a aucune opération sur
     ses appels récursifs.
   \end{defi}
   \pause
-  \begin{exemple}[Méthode récursive non terminale]
+  \begin{exemple}[Fonction récursive non terminale]
     Factorielle :
     \begin{semiverbatim}
       return n*fact(n-1);
@@ -648,36 +694,35 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Écriture de méthode récursive terminale}
+  \frametitle{Écriture de fonction récursive terminale}
   \begin{itemize}
   \item Idée générale : utiliser un accumulateur
   \item Paramètre qui contient le résultat intermédiaire
   \end{itemize}
   \begin{exemple}[Factorielle récursive terminale]
     \begin{semiverbatim}
-      public int fact(int n, int acc) \{
+      def fact(int n, int acc):
 
-      \hspace{1cm}if (n==0)
+      \hspace{1cm}if n==0 :
 
-      \hspace{2cm}return acc;
+      \hspace{2cm}return acc
 
-      \hspace{1cm}else
+      \hspace{1cm}else:
 
-      \hspace{2cm}return fact(n-1, n*acc);
+      \hspace{2cm}return fact(n-1, n*acc)
 
-      \}
     \end{semiverbatim}
   \end{exemple}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Fonctionnement :}
   Appel :
   \begin{semiverbatim}
-    fact(5, 1);
+    fact(4, 1)
   \end{semiverbatim}
   Si le langage sait optimiser la récursivité terminale, pas d'empilement
-  d'appels. Modification des valeurs dans la pile.
+  d'appels $\Rightarrow$ Modification des valeurs dans la pile.
   \vspace{2mm}
 
   \begin{tabular}{ll}
@@ -687,38 +732,38 @@
     \end{semiverbatim}
   \end{minipage}&
   \begin{minipage}{0.5\linewidth}
-    \begin{tabular}{|r|}
+    \begin{tabular}{l|r|}
       \hline
-      \only<1>{1}\only<2>{4}\only<3>{12}\only<4>{24}\only<5->{24}\\
+      acc & \only<1>{1}\only<2>{4}\only<3>{12}\only<4>{24}\only<5->{24}\\
+       \hline
+      n & \only<1>{4}\only<2>{3}\only<3>{2}\only<4>{1}\only<5->{0}\\
       \hline
-      \only<1>{4}\only<2>{3}\only<3>{2}\only<4>{1}\only<5->{0}\\
-      \hline
-      0x1E3C85\\
-      \hline
+      %0x1E3C85\\
+
     \end{tabular}
   \end{minipage}
 \end{tabular}
 
 \uncover<6>{
   \begin{alertblock}{Remarque}
-    Java n'optimise pas la récursivité terminale
+    Python n'optimise pas la récursivité terminale
   \end{alertblock}
 }
 \end{frame}
 
-\section{Eclipse}
-
-\begin{frame}
-\frametitle{Eclipse}
-  \begin{itemize}[<+->]
-  \item Disponible sur \url{http://www.eclipse.org}
-  \item Principe d'un IDE
-  \item Avantages / inconvénients
-    \begin{itemize}
-    \item Debugger
-    \item Analyse syntaxique à la volée
-    \item Lourdeur
-    \end{itemize}
-  \item Installation / utilisation : voir didacticiels sur \emph{moodle}
-  \end{itemize}
-\end{frame}
+%\section{Eclipse}
+%
+%\begin{frame}
+%\frametitle{Eclipse}
+  %\begin{itemize}[<+->]
+  %\item Disponible sur \url{http://www.eclipse.org}
+  %\item Principe d'un IDE
+  %\item Avantages / inconvénients
+    %\begin{itemize}
+    %\item Debugger
+    %\item Analyse syntaxique à la volée
+    %\item Lourdeur
+    %\end{itemize}
+  %\item Installation / utilisation : voir didacticiels sur \emph{moodle}
+  %\end{itemize}
+%\end{frame}
