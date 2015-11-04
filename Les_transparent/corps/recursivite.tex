@@ -257,8 +257,45 @@ incremCompt() \textcolor[rgb]{0,0.58,0}{# => affiche: Appelé 3 fois}
 
 \end{frame}
 
+\subsection{Mécanisme des traitements}
 
 
+
+\begin{frame}[fragile]
+  \frametitle{Post et pré-traitement}
+ 
+ \begin{exemple}[Puissance d'entier : x**n]
+
+  \begin{semiverbatim}\scriptsize{
+	\vspace{-0.8cm}
+	def puissance(x,n):
+	    if n == 0:
+	        \only<2->{print("cas de base n :", n)}
+	        return 1 \uncover<2->{\textcolor[rgb]{0,0.58,0}{\# cas de base}}
+	    else:
+	        \only<3,5>{print("prétraitement pour n :", n)} 
+	        \only<1-3>{return}\only<4->{y =} x* puissance (x, n-1)
+	        \only<4->{print("post-traitement n :", n)} 
+	        \only<4->{return y}
+	puissance(2,5)}
+\textcolor[rgb]{0,0.58,0}{\# sortie}
+\only<3,5>{\tiny{pretraitement de n :  5
+pretraitement de n :  4
+pretraitement de n :  3
+pretraitement de n :  2
+pretraitement de n :  1}}
+\only<3-5>{\tiny{cas de base n : 0}}
+\only<4-5>{\tiny{post-traitement de n: 1
+post-traitement de n : 2
+post-traitement de n : 3
+post-traitement de n : 4
+post-traitement de n : 5}}
+  \end{semiverbatim}
+	
+\end{exemple}
+
+
+\end{frame}
 \subsection{Explosion combinatoire}
 
 \begin{frame}
@@ -280,21 +317,20 @@ incremCompt() \textcolor[rgb]{0,0.58,0}{# => affiche: Appelé 3 fois}
   
   \only<4->{
     \begin{semiverbatim}
-      public int \textcolor{blue}{fibo}(int n) \{
+      def \textcolor{blue}{fibo}(n):
       
-      \hspace{1cm}if (n==0)
+      \hspace{1cm}if n==0:
       
-      \hspace{2cm}return 0;
+      \hspace{2cm}return 0
 
-      \hspace{1cm}else if (n==1)
+      \hspace{1cm}elif n==1:
 
-      \hspace{2cm}return 1;
+      \hspace{2cm}return 1
 
       \hspace{1cm}else
 
-      \hspace{2cm}return \textcolor{blue}{fibo}(n-1) + \textcolor{blue}{fibo}(n-2);
-
-      \}    
+      \hspace{2cm}return \textcolor{blue}{fibo}(n-1) + \textcolor{blue}{fibo}(n-2)
+    
     \end{semiverbatim}
   }
 \end{frame}
@@ -375,7 +411,7 @@ incremCompt() \textcolor[rgb]{0,0.58,0}{# => affiche: Appelé 3 fois}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Recherche par dichotomie : code Python}
+  \frametitle{Recherche par dichotomie}
   \begin{semiverbatim}
     def rech(tab, val, deb, fin):
 
@@ -680,7 +716,7 @@ incremCompt() \textcolor[rgb]{0,0.58,0}{# => affiche: Appelé 3 fois}
   \end{itemize}
 
   \pause
-  \begin{defi}[Récursivité terminale, tail recursion]
+  \begin{defi}[Récursivité terminale]
     Une fonction est dite récursive terminale s'il n'y a aucune opération sur
     ses appels récursifs.
   \end{defi}
