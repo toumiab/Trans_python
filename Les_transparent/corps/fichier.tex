@@ -11,62 +11,75 @@
   \item Mécanisme de gestion des erreurs en Python\pause
   \item Détournement du fonctionnement du programme
   \item[$\Rightarrow$] Bloc de traitement de l'erreur\pause
-  \item Nombreuses méthodes de l'API Java utilisent des exceptions
+  \item Nombreuses fonctions intégrées (built-in) de Python et de modules utilisent des exceptions
   \item[$\Rightarrow$] lire la documentation
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Exemple}
   {\small
   \begin{semiverbatim}
-    public FileReader(String fileName)  
-    \textcolor{red}{throws FileNotFoundException}
+	>>> a = 10/0 \pause
+Traceback (most recent call last):
+  File "<pyshell#2>", line 1, in <module>
+    a = 10/0
+\colorbox[rgb]{1,0,0}{ZeroDivisionError}: division by zero
+>>>  
 
-
-    Creates a new FileReader, given the name of the file to read from.
-
-
-    Parameters:
-
-        \hspace{1cm}fileName - the name of the file to read from 
-
-
-    \textcolor{red}{Throws:}
-
-        \hspace{1cm}FileNotFoundException - if the named file does not exist, is a
-        directory rather than a regular file, or for some other reason cannot
-        be opened for reading.
   \end{semiverbatim}}
 \end{frame}
+\begin{frame}[fragile]
+\frametitle{Exemple}
+  {\small
+  \begin{semiverbatim}
+	>>> nb = int(input("Entrez un nombre: ")) \pause
+Entrez un nombre: \pause dix\pause
+Traceback (most recent call last):
+  File "<pyshell#1>", line 1, in <module>
+    nb = int(input("Entrez un nombre: "))
+\colorbox[rgb]{1,0,0}{ValueError}: invalid literal for int() with base 10: 'dix'
+>>> 
+  \end{semiverbatim}}
+	\pause
+		\begin{itemize}
+		\item Autres exemples 
+				\begin{itemize}
+			\item  Accéder à une clé non-existante d'un dictionnaire $\rightarrow$ \texttt{KeyError}
+			\item  Chercher une valeur non-existante dans une liste $\rightarrow$ \texttt{ValueError}
+			\item  Appeler une méthode non-existante $\rightarrow$ \texttt{AttributeError}
+			\item  Référencer une variable non-existante $\rightarrow$ \texttt{NameError}
+			\item  Mélanger les types de données sans conversion $\rightarrow$\texttt{ TypeError}
+			\item ...
 
+
+		\end{itemize}
+	\end{itemize}
+\end{frame}
 
 \subsection{Traitement des exceptions}
 
 \begin{frame}
   \frametitle{Traitement}
-  Ne pas traiter une exception entraîne :
-  \begin{semiverbatim}
-unreported exception java.io.FileNotFoundException; {\color<3>{red}must be
-    caught} or {\color<4>{red}declared to be thrown}     
-  \end{semiverbatim}
-\pause
+ 
   Deux possibilités :
   \begin{itemize}
-  \item<3-| alert@3> traiter l'exception localement ;
-  \item<4-| alert@4> transmettre l'exception à la méthode appelante.
+  \item<1-| alert@3> traiter l'exception localement ;
+  \item<2-| alert@4> transmettre l'exception à la fonction appelante.
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Traitement local : \emph{try-catch-finally}}
+  \frametitle{Traitement local : \emph{try-except}}
 
-  Traiter une exception localement : utiliser le bloc \emph{try-catch-finally}.
+  Traiter une exception localement : utiliser le bloc \emph{try-except-finally}.
   \begin{itemize}
   \item try : certaines instructions peuvent lever une exception
-  \item catch : traitement d'une exception
-  \item finally : instructions exécutées après le bloc \emph{try} et les
-    \emph{catch} éventuels.
+  \item except : traitement d'une exception
+	\item else (optionnelle). Instructions exécutées si aucune exception n'est levée
+  \item finally (optionnelle): instruction exécutées après le bloc \emph{try} et les
+    \emph{except} éventuels.
+	
   \end{itemize}
 
 \end{frame}
@@ -74,158 +87,206 @@ unreported exception java.io.FileNotFoundException; {\color<3>{red}must be
 \begin{frame}[fragile]
   \frametitle{Syntaxe}
   Syntaxe :
-  \begin{lstlisting}[frame=none]
-try {
-  ...
-} catch (Exception1 e) {
-  ...
-} catch (Exception2 e) {
-  ...
-} finally {
-  ...
-}
-  \end{lstlisting}
+  \begin{semiverbatim}
+	
+\textcolor[rgb]{0,0,1}{try} :\textcolor[rgb]{0,0.58,0}{
+    \# Cette fonction peut lever une exception}
+    fonction_levant_une_exception()
+\textcolor[rgb]{0,0.58,0}{\# Ici on récupère toutes les exceptions}
+\textcolor[rgb]{0,0.58,0}{\# héritant de Exception}
+\textcolor[rgb]{0,0,0.55}{except} Exception as err:
+    \textcolor[rgb]{0,0.58,0}{\# Traitement de lexception}
+    print (err)
+\textcolor[rgb]{0,0.58,0}{\# Suite du programme}
+  \end{semiverbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Syntaxe}
+  Traitement de plusieurs exceptions :
+  \begin{semiverbatim}
+	try :
+    # ...
+except Exception1 :
+    # ...
+except Exception2 :
+    # ...
+except (Exception3, Exception4) :
+    # ...
+finally :
+    # ...
+  \end{semiverbatim}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Exemple}
   \begin{exemple}
-    \begin{lstlisting}[frame=none]
-FileReader lecteur;
-try {
-  lecteur = new FileReader("fichier");
-} catch (FileNotFoundException e) {
-  System.out.println("Ouverture impossible");
-  System.out.println(e);
-}
-    \end{lstlisting}
-    % \begin{semiverbatim}
-    %   FileReader lecteur;
+     \begin{semiverbatim}
+\vspace{-1cm}
+\textcolor[rgb]{0,0,1}{try}:
+    resultat = num / den
+\textcolor[rgb]{0,0,1}{except} NameError:
+    print("une des variables n'a pas été défini.")
+\textcolor[rgb]{0,0,1}{except} TypeError:
+    print("Type incompatible du num ou den.")
+\textcolor[rgb]{0,0,1}{except} ZeroDivisionError:
+    print("denominateur est égale à 0.")
+\textcolor[rgb]{0,0,1}{else}:
+    print("Le résultat obtenu est", resultat)
+\end{semiverbatim}
+\end{exemple}
+\end{frame}
 
-    %   \textcolor{red}{try} \{
+\begin{frame}[fragile]
+  \frametitle{Exemple}
+  \begin{exemple}
+     \begin{semiverbatim}
+\vspace{-1cm}
+\textcolor[rgb]{0,0,1}{try}:
+    nb = int(input("Entrez un nombre: "))
+\textcolor[rgb]{0,0,1}{except} ValueError: 
+    print ("Vous n'avez pas entré un nombre !")
+\textcolor[rgb]{0,0,1}{finally}:
+    print("Relancer le programme")
+\pause	
+Entrez un nombre: dix
+Vous n'avez pas entré un nombre !
+Relancer le programme
+\pause
+Entrez un nombre: 10
+Relancer le programme
+ \end{semiverbatim}
 
-    %   \hspace{1cm}lecteur = new FileReader("fichier");
-
-    %   \}~\textcolor{red}{catch} (FileNotFoundException e) \{
-
-    %   \hspace{1cm}System.out.println("Ouverture impossible");
-
-    %   \hspace{1cm}System.out.println(e);
-
-    %   \}
-    % \end{semiverbatim}
   \end{exemple}
 \end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Exemple}
+  \begin{exemple}
+     \begin{semiverbatim}
+\vspace{-1cm}
+\textcolor[rgb]{0,0,1}{while} True :
+    \textcolor[rgb]{0,0,1}{try}:
+        nb = int(input("Entrez un nombre: "))
+        break
+    \textcolor[rgb]{0,0,1}{except} ValueError as err:
+        print (err)
+        print ("Réessayer")
+
+\pause	
+Entrez un nombre: dix
+invalid literal for int() with base 10: 'dix'
+Réessayer \pause
+Entrez un nombre: 10
+ \end{semiverbatim}
+
+  \end{exemple}
+\end{frame}
+
+
 
 \begin{frame}[fragile]
   \begin{alertblock}{Ne pas détourner l'usage des exceptions}
-    \begin{lstlisting}[frame=none]
-int tab[] = new int[10];
-int i = 0;
-try {
-  while (true) {
-    System.out.println(i+" "+tab[i]);
-    i++;
-  }
-} catch (ArrayIndexOutOfBoundsException e) {
-  System.out.println("Fin de la boucle");
-}
-    \end{lstlisting}
+    \begin{semiverbatim}
+\textcolor[rgb]{0,0,1}{try} :
+    \textcolor[rgb]{0,0.58,0}{# Calcul de l'indice désiré}
+    indice = calcul_indice_tableau()
+    \textcolor[rgb]{0,0.58,0}{# Accès systématique à la liste : 
+    #  - l'exception gère les dépassements}
+    x = tableau [indice]
+\textcolor[rgb]{0,0,1}{except} IndexError as err:
+    pass
+    \end{semiverbatim}
   \end{alertblock}
 \end{frame}
 
+
 \begin{frame}[fragile]
-  \frametitle{Propagation d'une exception}
-  \begin{itemize}
-  \item Propager une exception : clause \emph{throws}
-  \item Modifier la signature de la méthode
-  \end{itemize}
-
-  \begin{exemple}
-    \begin{lstlisting}[frame=none]
-public void maMethode throws Exception {
-  ...
-    \end{lstlisting}
-    % \begin{semiverbatim}
-    %   public void maMethode \textcolor{red}{throws} Exception \{
-
-    %   \hspace{1cm}...
-    % \end{semiverbatim}
-  \end{exemple}
-
-  Remarque :
-  \begin{itemize}
-  \item il faut finir par récupérer l'exception
-  \end{itemize}
+  \begin{remarque}[Remplacement de l'exception par un test]
+    \begin{semiverbatim}
+\textcolor[rgb]{0,0.58,0}{# Calcul de l'indice désiré}
+indice = calcul_indice_tableau ()
+\textcolor[rgb]{0,0.58,0}{# Test de validit é de l'indice}
+\textcolor[rgb]{0,0,1}{if} indice >=0 and indice <len( tableau ):
+    \textcolor[rgb]{0,0.58,0}{# Accès au tableau si l'indice est valide}
+    x = tableau [ indice ]    
+		\end{semiverbatim}
+  \end{remarque}
 \end{frame}
 
 
 \subsection{Déclenchement d'une exception}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Lever une exception}
 
-  Lever une exception dans une méthode : utilisation de \emph{throw}
+  Lever une exception dans une méthode : utilisation de \emph{raise}
 
 \uncover<2>{
-  \begin{exemple}
+ Syntaxe
     \begin{semiverbatim}
-      throw new Exception("message");
+      raise TypeDeLException("votre message à afficher")
     \end{semiverbatim}
-  \end{exemple}
-
   Permet de gérer les erreurs par le mécanisme d'exception.
 }
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
+  \begin{exemple}[Entier positif]
+    \begin{semiverbatim}
+		\vspace{-1cm}
+\textcolor[rgb]{0,0.58,0}{# L'utilisateur saisit l'année}
+entier = input("donner un entier positif:") 
+\textcolor[rgb]{0,0,1}{try}:
+    \textcolor[rgb]{0,0.58,0}{# la fonction int() peut lever une exception}
+    entier = int(entier) 
+    \textcolor[rgb]{0,0,1}{if} entier<=0:
+		    \textcolor[rgb]{0,0.58,0}{# On lève une exception }
+        \textcolor[rgb]{0,0,1}{raise} ValueError("nombre invalide")
+\textcolor[rgb]{0,0,1}{except} ValueError as e:
+    print(e)
+    \end{semiverbatim}
+  \end{exemple}
+\textcolor[rgb]{0,0.58,0}{\# sortie}\\
+\texttt{donner un entier positif:dix \\\pause
+invalid literal for int() with base 10: 'dix'\\
+\pause
+donner un entier positif:-10 \pause \\
+nombre invalide}
+	
+\end{frame}
+
+
+
+
+\begin{frame}[fragile]
   \frametitle{Définition de classes d'exception}
 
   \begin{itemize}
   \item Définition de classes exception utilisateur
   \item Critères~:
     \begin{itemize}
-    \item<1-> hériter de \emph{Exception} (directement ou non)
-    \item<2-> posséder deux constructeurs appelant \emph{super}~: 
-      sans paramètre, \uncover<3->{ avec un paramètre
-      \emph{String}}
-    \item<4-> possibilité de redéfinir \emph{toString}
+    \item<1-> hériter de la classe \emph{Exception}
+    \item<3-> possibilité de redéfinir \emph{\twound{str}\twound{}}
     \end{itemize}
-  \item<5-> exception utilisable comme les autres
+  \item<4-> exception utilisable comme les autres
   \end{itemize}
 
   \begin{exemple}
     \begin{semiverbatim}
-      \only<1>{
-        public class MonException extends Exception \{
-      }
-      \only<3>{
-      \hspace{1cm}public MonException(String texte)  \{
-
-      \hspace{2cm}super(texte);
-
-      \hspace{1cm}\}}
-    \only<2>{
-      \hspace{1cm}public MonException()  \{
-
-      \hspace{2cm}super();
-
-      \hspace{1cm}\}}
-    \only<4>{
-      \hspace{1cm}public String toString() \{
-
-      \hspace{2cm}return "Monexception levee "+getMessage();
-
-      \hspace{1cm}\}
-    }
-    \only<5>{
-      public void m1() throws MonException \{
-
-      \hspace{1cm}if (...)
-
-      \hspace{2cm}throw new MonException("dans m1");
-
-      \} }
+		\vspace{-1cm}
+		\scriptsize{\uncover<1->{
+   class MonException (Exception ): }\uncover<2->{
+       def __init__ (self, valeur ):  
+           self.valeur = valeur}\uncover<3->{
+       def __str__ ( self ):
+	         return repr( self.valeur )}
+	\uncover<4->{
+    try :
+	        raise ( MonException ("message à afficher") )
+    except MonException as err :
+        print ('Exception : ', err.value)
+		}}
     \end{semiverbatim}
   \end{exemple}
 \end{frame}
@@ -241,141 +302,146 @@ public void maMethode throws Exception {
   \frametitle{Intérêt}
 
   \begin{itemize}[<+->]
+	\item sauver des données, des résultats de calcul et traitements, des simulations, \dots
   \item Accéder à des données persistantes
-  \item Nécessité de transférer les données en mémoire
+  
+	\item Nécessité de transférer les données en mémoire
   \item[$\Rightarrow$] dans des variables
   \item Différents types de fichiers
     \begin{itemize}
     \item texte
     \item binaire
     \end{itemize}
-  \item Accès en lecture ou en écriture
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{API Java}
-
-  \begin{itemize}[<+->]
-  \item Comment accéder à un fichier ?
-  \item[$\Rightarrow$] Utilisation de l'API Java
-  \item $\simeq$ 50 classes disponibles dans \emph{java.io}
-  \end{itemize}
-
-  \pause
-
-  \begin{alertblock}{Important}
-    \href{http://tormo.ensieta.ecole/documentation/jdk1.5.0/api/index.html}{Consulter  l'API}
-  \end{alertblock}
+  \frametitle{Intérêt}
+  \begin{block}{Exemple de fichiers textes}
+\begin{itemize}
+	\item Pages Web (html, css, \dots)
+\item Fichier journal (log), Script shell (bat)
+\item Images vectorielles (svg)
+\item Programmes Python (py)
+\item Les fichiers de données texte (txt, data, \dots)
+\item Les fichiers texte formatés (xml)
+\end{itemize}
+\end{block}
 \end{frame}
-
-
 \subsection{Lecture de fichiers texte}
 
 \begin{frame}
-  \frametitle{Lecture bas niveau}
-  \begin{itemize}
-  \item<1-> utilisation d'un \emph{FileReader}
-  \item<3-> Méthode \emph{read} : lit un tableau de caractères
+  \frametitle{Lecture de fichier}
+  \begin{block}{Principe}
+	
+	\begin{itemize}
+  \item ouverture de fichier avec la fonction  \texttt{open()}
+  \item lecture de son contenu :
+	\begin{itemize}
+		\item .readline() lit le fichier ligne par ligne 
+		\item .read() lit l'ensemble du fichier
+    \item .readlines() renvoie une liste contenant chaque ligne
+	\end{itemize}
+	\item fermeture de fichier avec la fonction \texttt{close()}
   \end{itemize}
+   \end{block}
+	\pause
+	\begin{alertblock}{Attention}
+	Prendre la bonne habitude de toujours fermer le fichier !
+	\end{alertblock}
+  %\only<-4>{
+  %\begin{exemple}
+    %\begin{semiverbatim}
+%
+    %\end{semiverbatim}
+  %\end{exemple}}
 
-  \only<-4>{
-  \begin{exemple}
-    \begin{semiverbatim}
-      \only<1-2>{
-        {\color<1>{red}FileReader lecteur;}
+\end{frame}
+\begin{frame}
+  \frametitle{Ouverture d'un fichier }
+  \begin{block}{La commande \texttt{open}}
+		\texttt{f=open("mon\_fichier.txt", mode = "rt")}
+   \end{block}
+	\pause
+	\begin{block}{Les trois modes d'accès}
+	
+	\begin{itemize}
+		\item \emph{r} : ouverture en lecture (read)
+		\item \emph{w} : ouverture en écriture (write), le fichier est écrasé, si il n'existe pas, alors il est crée.
+		\item \emph{a} : ouverture en écriture en mode ajout (append), les données sont ajoutées à la suite du fichier.
+	\end{itemize}
+	\end{block}
+	avec les deux type de données :
+	
+	\begin{itemize}
+		\item "t" pour du texte, 
+		\item "b" pour la lecture en mode binaire
+	\end{itemize}
+  %\only<-4>{
+  %\begin{exemple}
+    %\begin{semiverbatim}
+%
+    %\end{semiverbatim}
+  %\end{exemple}}
 
-          {\color<2>{red}try} \{
-
-      \hspace{1cm}{\color<1>{red}lecteur = new FileReader(nomFichier);}
-
-    \}~{\color<2>{red}catch (FileNotFoundException e)} \{
-
-      \hspace{1cm}System.out.println("Ouverture du fichier "+nomFichier+" impossible");
-
-      \hspace{1cm}System.out.println(e);
-
-    \}}
-  \only<3->{
-    char data[] = new char[1024]; 
-
-    int carlus;
-
-    {\color<4>{red}try} \{
-
-      \hspace{1cm}carlus = {\color<3>{red}lecteur.read(data)};
-
-    \}~{\color<4>{red}catch (IOException e)} \{
-
-      \hspace{1cm}System.out.println("Erreur de lecture$\backslash$n"+e);
-
-      \}
-}
-    \end{semiverbatim}
-  \end{exemple}}
-
-\only<5>{
-  \begin{itemize}
-  \item Lecture basique : par paquets de caractères
-  \item peu d'opérations possibles
-  \item peu pratique
-  \end{itemize}
-\vspace{2cm}
-}
 \end{frame}
 
+
+
+
+\begin{frame}[fragile]
+  \frametitle{Lecture de fichier}
+    \begin{exemple}[Lecture des caractères d'un fichier]
+    \begin{semiverbatim}\scriptsize{
+\textcolor[rgb]{0,0,1}{try} :
+    \textcolor[rgb]{0,0.58,0}{# Ouverture du fichier texte en lecture seule}
+    f = \textcolor[rgb]{1,0.41,0.13}{open} ("mon\_fichier.txt") \textcolor[rgb]{0,0.58,0}{# f = open ("mon\_fichier.txt","rt")}
+\textcolor[rgb]{0,0,1}{except} IOError as e:
+    \textcolor[rgb]{0,0.58,0}{# En cas d'exception, afficher un message d'erreur}
+    print ("Ouverture du fichier impossible \\n", e)
+\textcolor[rgb]{0,0,1}{else :}
+    \textcolor[rgb]{0,0.58,0}{# Lecture du fichier, et mise du contenu dans une variable}
+    caracteres = \textcolor[rgb]{1,0.41,0.13}{f.read ()}
+    print ("Nombre de caractères du fichier :", len(caracteres))
+    \textcolor[rgb]{0,0.58,0}{# fermeture de fichier}
+   \textcolor[rgb]{0,0.58,0}{ # f.close()}}
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Lecture de fichier}
+    \begin{exemple}[Lectures par lignes]
+    \begin{semiverbatim}
+		\vspace{-1cm}
+		\scriptsize{
+\textcolor[rgb]{0,0,1}{try} :
+    f = \textcolor[rgb]{1,0.41,0.13}{open} ("mon\_fichier.txt") 
+except IOError as e:
+    print ('Ouverture du fichier impossible \\n', e)
+    sys.exit(1)
+\textcolor[rgb]{0,0.58,0}{# Lire le fichier sous forme de liste de lignes}\pause
+les_lignes = f.\textcolor[rgb]{1,0.41,0.13}{readlines} ()
+print ('Nombre de lignes :', len( les_lignes ))\pause
+\textcolor[rgb]{0,0.58,0}{# Mettre le curseur au début du fichier}
+f. seek (0)\pause
+\textcolor[rgb]{0,0.58,0}{# Lecture du fichier ligne à ligne avec une boucle for}\pause
+for ligne in f:
+\textcolor[rgb]{0,0.58,0}{# Affiche chaque ligne du fichier à l'envers}
+   print ( ligne [:: -1] , end='')
+\textcolor[rgb]{0,0.58,0}{# Fermeture du fichier après lecture}\pause\color[rgb]{1,0.41,0.13}
+ f. close ()
+}
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+
+
+
+
 \begin{frame}
-  \frametitle{Utilisation d'un \emph{BufferedReader}}
-  \begin{itemize}
-  \item<1-> Lecture de plus haut niveau. Ex : \emph{BufferedReader}
-  \item<3-> lecture par \emph{readLine}
-  \end{itemize}
 
-  \only<-3>{\small
-    \begin{exemple}
-      \begin{semiverbatim}
-        \only<1-2>{    try \{
-
-          \hspace{1cm}{\color<2>{red}fichier = new FileReader (nomFichier);}
-
-          \}~catch (FileNotFoundException e) \{
-
-          \hspace{1cm}System.out.println(e);
-
-          \}
-     
-          {\color<1>{red}BufferedReader lecteur = new
-            BufferedReader({\color<2>{red}fichier});}}
-        \only<3>{try \{
-
-          \hspace{1cm}while(({\color<3>{red}chaineLecture = lecteur.readLine()}) != null) \{
-
-          \hspace{2cm}System.out.println (chaineLecture);
-
-          \hspace{1cm}\}
-
-          \hspace{1cm}fichier.close();
-
-          \}~catch (IOException e) \{
-
-          \hspace{1cm}System.out.println(e);
-
-          \} }
-      \end{semiverbatim}
-    \end{exemple}}
-
-  \only<4->{
-    \begin{itemize}
-    \item Lecture de chaînes de caractères très facile
-    \item Possibilité de lire un fichier ligne à ligne
-    \end{itemize}
-    \vspace{1cm}
-    \begin{remarque}
-      Il existe une classe \emph{LineNumberReader} héritant de
-      \emph{BufferedReader} permettant de compter le nombre de lignes lues.
-    \end{remarque}
-    \vspace{1cm}
-  }
 \end{frame}
 
 
