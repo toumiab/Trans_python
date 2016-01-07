@@ -113,6 +113,8 @@ except Exception2 :
     # ...
 except (Exception3, Exception4) :
     # ...
+else :
+    # ...
 finally :
     # ...
   \end{semiverbatim}
@@ -235,7 +237,7 @@ indice = calcul_indice_tableau ()
   \begin{exemple}[Entier positif]
     \begin{semiverbatim}
 		\vspace{-1cm}
-\textcolor[rgb]{0,0.58,0}{# L'utilisateur saisit l'année}
+\textcolor[rgb]{0,0.58,0}{# L'utilisateur saisit un entier}
 entier = input("donner un entier positif:") 
 \textcolor[rgb]{0,0,1}{try}:
     \textcolor[rgb]{0,0.58,0}{# la fonction int() peut lever une exception}
@@ -301,18 +303,21 @@ nombre invalide}
 \begin{frame}
   \frametitle{Intérêt}
 
-  \begin{itemize}[<+->]
-	\item sauver des données, des résultats de calcul et traitements, des simulations, \dots
-  \item Accéder à des données persistantes
-  
-	\item Nécessité de transférer les données en mémoire
-  \item[$\Rightarrow$] dans des variables
-  \item Différents types de fichiers
+  \begin{itemize}
+	\item Sauver des données, des résultats de calcul et traitements, des simulations, \dots
+  \item Accéder à des données persistantes\\
+  \end{itemize}
+	\pause
+	Contrainte :
+	\begin{itemize}
+	\item Nécessite l'utilisation de variables pour le transfert de données mémoire/disque
+  \end{itemize}
+   Différents types de fichiers
     \begin{itemize}
     \item texte
     \item binaire
     \end{itemize}
-  \end{itemize}
+
 \end{frame}
 
 \begin{frame}
@@ -324,11 +329,11 @@ nombre invalide}
 \item Images vectorielles (svg)
 \item Programmes Python (py)
 \item Les fichiers de données texte (txt, data, \dots)
-\item Les fichiers texte formatés (xml)
+\item Les fichiers textes formatés (xml)
 \end{itemize}
 \end{block}
 \end{frame}
-\subsection{Lecture de fichiers texte}
+\subsection{Lecture de fichier texte}
 
 \begin{frame}
   \frametitle{Lecture de fichier}
@@ -438,174 +443,208 @@ for ligne in f:
 
 
 
-
-
-\begin{frame}
-
-\end{frame}
-
-
-
 \subsection{Écriture de fichiers texte}
 
-\begin{frame}
-  \frametitle{Écriture bas niveau}
+\begin{frame}[fragile]
+  \frametitle{Écriture d'un fichier}
 
   \begin{itemize}
-  \item<1-> Utilisation d'un \emph{FileWriter}
-  \item<2-> Méthode \emph{write} : écrit un tableau de caractères ou une
-    \emph{String}
+  \item<1-> Méthode \emph{write} : écrit une chaîne de caractères \emph{str}
   \end{itemize}
-
-  \begin{exemple}
-    \begin{semiverbatim}
-      \only<1>{{\color<1>{red}FileWriter ecrivain;}
-
-        try \{
-
-        \hspace{0.9cm}{\color<1>{red}ecrivain = new FileWriter(nomFichier);}
-
-      \}~catch (IOException e) \{
-
-      \hspace{0.9cm}System.out.println("Ouverture du fichier "+nomFichier+" impossible");
-
-      \hspace{0.9cm}System.out.println(e);
-
-      \}}
-    \only<2>{try \{
-
-      \hspace{0.9cm}String message="Une chaîne de caractères.$\backslash$n";
-
-      \hspace{0.9cm}ecrivain.write(message);
-
-      \hspace{0.9cm}ecrivain.close();
-
-    \}~catch (IOException e) \{
-
-      \hspace{0.9cm}System.out.println(e);
-
-    \}}
+	
+  \begin{exemple}<2->
+	%\uncover<2->{	
+    \begin{semiverbatim}\scriptsize{
+		\vspace{-0.5cm}
+		f=open("mon_fichier.txt","w")
+		f.write("Du texte")
+		f.write("1")
+		f.write("5.6")
+		f.write(str(46.6))
+		f.close() \uncover<3->{
+		\textcolor[rgb]{0,0.58,0}{# contenu du fichier}
+		Du texte15.646.6}}
     \end{semiverbatim}
   \end{exemple}
+\uncover<4>{	
+\begin{alertblock}{Attention}
+Comme il s'agit de fichier texte, la méthode \emph{.write()} prend en argument une chaine de caractères.
+\end{alertblock}}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Écriture d'un fichier}
+
+\begin{remarques}[Formatage du texte]
+\begin{itemize}
+	\item Utiliser le retour à la ligne \verb!"\n"!
+	\item Utiliser la tabulation \verb!"\t"!
+	\item Formater le texte avec la méthode \emph{.format()}
+\end{itemize}
+\end{remarques}
+
+\setbeamercovered{transparent}
+\onslide<2>
+\begin{exemple}
+\begin{semiverbatim}\scriptsize{ 
+\vspace{-0.6cm} 
+f = open("mon_fichier.txt","wt")
+f.write("ligne1 Du texte \\n")
+f.write("ligne2 1\\n")
+f.write("ligne3 \\t 5.6\\n")
+f.write("ligne4 \\t"+str(46.6)+"\\n")
+f.write("Ligne \{:d\} \\t \{:f\} \\t \{:f\}\\n".format(5,12.566,14.5))
+f.write("Ligne \{:d\} \\t {:f} \\t {:f}\\n".format(6,12.666,16.5))
+f.close()}
+\end{semiverbatim}
+ \end{exemple}
 \end{frame}
 
 
-\begin{frame}
-  \frametitle{Écriture sous forme de flot}
-  \begin{itemize}
-  \item<1-> Utilisation d'un \emph{PrintStream}
-  \item<2-> Permet d'écrire différents types de données
-  \item<2-> Ne génère pas d'exception
-  \end{itemize}
-
-  \begin{exemple}
-    \begin{semiverbatim}
-      \only<1>{
-        File monFic = new File(nomFichier);
-
-        try \{
-
-        \hspace{1cm}ecrivain = new PrintStream(new FileOutputStream(monFic));
-
-        \}~catch (FileNotFoundException e) \{
-
-        \hspace{1cm}System.out.println(e);
-
-        \}}
-      \only<2>{
-        String message="Un exemple de message.";
-
-        ecrivain.println(message);
-
-        ecrivain.print(42);
-
-        ecrivain.close();
-      }
+\begin{frame}[fragile]
+  \frametitle{Écriture d'un fichier en mode append}
+  \begin{exemple}[mode ajout 'append']<1->
+	%\uncover<2->{	
+    \begin{semiverbatim}\scriptsize{
+		\vspace{-0.6cm}
+		f = open('mon_fichier.txt','a')		
+		f.write('\\nUne deuxième ligne.\\n') \textcolor[rgb]{0,0.58,0}{# '\\n' saut de ligne}
+		f.write('abc\\tABC\\t123 \\n')	\textcolor[rgb]{0,0.58,0}{# '\\t' tabulation}
+		f.write(str(126.85)+'\\n') # str() 
+		f.write('\\x31\\x41\\x61\\n')	# écriture de '1Aa' 
+		f.write(chr(0x62))+'\\n') # écriture de 'b' 
+		f.write(chr(99))	# écriture de 'c'
+		f.close()}
     \end{semiverbatim}
   \end{exemple}
+\end{frame}	
+	
+	\begin{frame}[fragile]
+  \frametitle{Écriture d'un fichier}
+utilisation de la commande 
+\begin{exemple}
+\begin{semiverbatim}\scriptsize{ 
+\vspace{-0.6cm} 
+# Ouverture du fichier texte en écriture
+\textcolor[rgb]{0,0,1}{with} open ( filename , mode ='w') as f: \textcolor[rgb]{0,0.58,0}{# w -> write}
+    \textcolor[rgb]{0,0,1}{for} mot \textcolor[rgb]{0,0,1}{in} [1, 'abc', (1, 2)]:
+        f.write (str(mot))
+        f.write ('\\n')
+\textcolor[rgb]{0,0.58,0}{# Fermeture du fichier implicite
+}
+\textcolor[rgb]{0,0.58,0}{# Ouverture du fichier texte en é criture}
+\textcolor[rgb]{0,0,1}{with} open (filename , mode ='a') as f: # a -> append
+    f.write ('Suite du fichier \\n')
+		}
+\end{semiverbatim}
+ \end{exemple}
 \end{frame}
 
+\subsection{Fichiers formatés }
+\begin{frame}
+  \frametitle{Lecture/écriture fichiers formatés}
+  \begin{defi}
+	Un fichier texte formaté représente un tableau de données où toutes les lignes
+présentent une structure identique.
+	\end{defi}
+	\pause
+	 \begin{tabular}{ll}
+	 \begin{minipage}{0.6\linewidth}
+	  \begin{exemple}
+    \begin{semiverbatim}\scriptsize{
+      import numpy as np
+			
+			val = np.loadtxt("fichier\_formate.txt")
+			
+			col = val[:][2]
+			
+			np.savetxt("colonne.txt", col)
+			
+			col2 = np.loadtxt("colonne.txt")}
+    \end{semiverbatim}
+		\end{exemple}
+  \end{minipage}&
+  \begin{minipage}{0.4\linewidth}
+  	\begin{figure}
+		\centering
+			\includegraphics[height=1.8cm]{images/fichier.PNG}
+	\end{figure}
+  \end{minipage}
+\end{tabular}
+\end{frame}	
 
 \subsection{Fichiers binaires}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Lecture de fichiers binaires}
   \begin{itemize}
-  \item<1-> Utilisation d'un \emph{DataInputStream}
-  \item<2-> Lecture de \emph{double} \only<3->{, de \emph{int}} \only<4->{, de
-      \emph{boolean}} \only<5->{, ...}
+  \item Un fichier est lu octet par octet 
+	\item Nécessite la connaissance de sa structure interne
+	\item La méthode \emph{.read(nbOcetets)} pour lire des octets.
   \end{itemize}
-
-  \begin{exemple}
-    \begin{semiverbatim}
-      \only<1>{
-        DataInputStream ecrivain;
-
-        try \{
-
-        \hspace{0.5cm}ecrivain = \textcolor{red}{new DataInputStream(new FileInputStream(nomFichier))};
-
-        \}~catch (FileNotFoundException e) \{
-
-        \hspace{0.5cm}System.out.println(e);
-
-        \}   }
-      \only<2->{
-        try \{
-
-        \hspace{1cm}double x = {\color<2>{red}ecrivain.readDouble();}
-        
-        \uncover<3->{\hspace{1cm}int i = {\color<3>{red}ecrivain.readInt();}
-
-        }
-        \uncover<4->{\hspace{1cm}boolean b =
-          {\color<4>{red}ecrivain.readBoolean();} 
-
-        }
-        \}~catch (IOException e) \{
-
-        \hspace{1cm}System.out.println(e);
-
-        \} }
-    \end{semiverbatim}
+	\only<2>{
+\begin{remarque}
+\begin{itemize}
+	\item Utilisation de la méthode \emph{.from\_bytes()} qui convertit des octets en variable entière.
+	\item Formatage des octets lus : struct.unpack() \\
+	 Exemple : \\
+	\texttt{a, b, c = struct.unpack("<BBBx",file.read(0x4))))}
+\end{itemize}
+\end{remarque}
+}
+	
+\begin{exemple}<3>
+\begin{semiverbatim}\scriptsize{
+\vspace{-.5cm}
+# Ouverture du fichier binaire en lecture
+\emph{with} open(filename, mode ='\textcolor[rgb]{1,0.41,0.13}{rb}') as f: 
+    \textcolor[rgb]{0.24,0.7,0.44}{# Lecture du nombre de données}
+    octets = f.\textcolor[rgb]{1,0.41,0.13}{read(4)}
+    \textcolor[rgb]{0.24,0.7,0.44}{# Conversion du nombre de données en entier}
+    nb = int.\textcolor[rgb]{1,0.41,0.13}{from_bytes}(octets, 'big')
+    \textcolor[rgb]{0.24,0.7,0.44}{# nb = struct.unpack("<I",f.read(0x4))))}
+    \textcolor[rgb]{0,0,1}{for} \_ in range (nb):
+        octets = f.\textcolor[rgb]{1,0.41,0.13}{read}(4)
+        val = int.\textcolor[rgb]{1,0.41,0.13}{from\_bytes}(octets, 'big')
+        print(val)}
+		\end{semiverbatim}
   \end{exemple}
+	
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Écriture de fichiers binaires}
   \begin{itemize}
-  \item<1-> Utilisation d'un \emph{DataOutputStream}
-  \item<2-> Écriture de \emph{double}, de \emph{int}, ...
-  \end{itemize}
-
-  \begin{exemple}
-    \begin{semiverbatim}
-      \only<1>{
-        DataOutputStream ecrivain;
-
-        try \{
-
-        \hspace{0.5cm}ecrivain = \textcolor{red}{new DataOutputStream(new FileOutputStream(nomFichier))};
-
-        \}~catch (FileNotFoundException e) \{
-
-        \hspace{0.5cm}System.out.println(e);
-
-        \}   }      
-      \only<2>{
-        try \{
-
-        \hspace{1cm}ecrivain.\textcolor{red}{writeDouble(Math.PI)};
-
-        \hspace{1cm}ecrivain.\textcolor{red}{writeInt(42)};
-
-        \hspace{1cm}ecrivain.\textcolor{red}{writeUTF("message")};
-
-        \}~catch (IOException e) \{
-
-        \hspace{1cm}System.out.println(e);
-
-        \} }
+	\item Écriture octet par octet (ou une séquence d'octets)
+  \item La méthode .write() permet d'écrire des octets dans un fichier,
+	\end{itemize}
+	
+\only<2>{
+\begin{remarque}
+\begin{itemize}
+	\item Utilisation de la méthode \emph{.to\_bytes()} qui convertit des entiers vers des octets.
+	\item Formatage des octets lus : struct.pack() \\
+	 Exemple : \texttt{val1 = val2 = 12}\\
+	\texttt{f.write(struct.pack("<BB",val1,val2))}
+\end{itemize}
+\end{remarque}
+}
+ \begin{exemple}<3>
+  \begin{semiverbatim}\scriptsize{
+\textcolor[rgb]{0.24,0.7,0.44}{# Ouverture du fichier binaire en écriture}
+\textcolor[rgb]{0,0,1}{with} open(filename, mode ='\textcolor[rgb]{1,0.41,0.13}{wb}') as f: 
+    size = 10 \textcolor[rgb]{0.24,0.7,0.44}{# Nombre de données}
+    Conversion de l'entier en liste d'octets en format "big endian"
+    octets = size.\textcolor[rgb]{1,0.41,0.13}{to\_bytes} (4, 'big')
+    \textcolor[rgb]{0.24,0.7,0.44}{# Écriture du nombre de données dans le fichier}
+    f.\textcolor[rgb]{1,0.41,0.13}{write}(octets)
+    debut = 10
+    \textcolor[rgb]{0,0,1}{for} nb in range(debut, debut + size):
+        \textcolor[rgb]{0.24,0.7,0.44}{# Conversion du nombre en liste d'octets}
+        \textcolor[rgb]{0.24,0.7,0.44}{# Conversion sur 4 octets}
+        octets = nb.\textcolor[rgb]{1,0.41,0.13}{to\_bytes}(4, 'big')
+        f.\textcolor[rgb]{1,0.41,0.13}{write}(octets) } 
+				\textcolor[rgb]{0,0.58,0}{# f.write(struct.pack("<I",nb))}
     \end{semiverbatim}
   \end{exemple}
 \end{frame}
@@ -619,66 +658,68 @@ for ligne in f:
   \begin{itemize}
   \item Sauvegarder directement des objets dans un fichier
   \item Puis les récupérer très simplement
-  \item Utilisation de l'interface \emph{Serializable}
+  \item Utilisation du module \emph{pickel}
   \item Lecture/écriture du fichier par
-    \emph{ObjectOutputStream}/\emph{ObjectInputStream} et
-    \emph{wrtiteObject}/\emph{readObject}.
+        \emph{.load()}/\emph{.dump()}.
   \end{itemize}
+	\pause
+\begin{alertblock}{Attention}
+	Ce qui a été sauvé avec pickle doit être chargé avec pickle. 
+\end{alertblock}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Exemple}
+\begin{frame}[fragile]
+  \frametitle{Utilisation du module \texttt{pickle}}
   \begin{enumerate}
-  \item<1-> Rendre la classe "sérialisable"
   \item<2-> Sauvegarder les objets
-  \item<3-> Restaurer les objets
+  \item<4-> Restaurer les objets
   \end{enumerate}
+
+	\begin{exemple}
   \begin{semiverbatim}
-    \only<1>{
-      public class Cercle \textcolor{red}{implements Serializable}
-      \vspace{2cm}
-    }
-    \only<2>{
-      FileOutputStream fichier = 
-
-      \hspace{2cm}new FileOutputStream("fic.tmp");
-
-      ObjectOutputStream ecrivain = 
-
-      \hspace{2cm}new ObjectOutputStream(fichier);
-
-      Cercle unObjet = new Cercle(10);
-
-      ecrivain.\textcolor{red}{writeObject(unObjet);}
-    }
-    \only<3>{
-      FileInputStream fichier = 
-
-      \hspace{2cm}new FileInputStream("fic.tmp");
-
-      ObjectInputStream lecteur = 
-
-      \hspace{2cm}new ObjectInputStream(fichier);
-
-      Cercle unObjet;
-
-      unObjet = \textcolor{red}{(Cercle)lecteur.readObject();}
-    }
+	\vspace{-1cm}
+\textcolor[rgb]{1,0.41,0.13}{import pickle}
+\textcolor[rgb]{0,0.58,0}{# exemple d'un objet
+}departement = \{36:'Indre',30:'Gard',75:'Paris'\}
+\textcolor[rgb]{0,0.58,0}{# ouverture de fichier en écriture binaire}
+with open('data.txt','wb') as f:
+    \only<2->{\textcolor[rgb]{1,0.41,0.13}{pickle.dump}(departement,f) }
+\only<3->{\textcolor[rgb]{0,0.58,0}{# ouverture de fichier en lecture binaire}
+\textcolor[rgb]{0,0,1}{with} open('data.txt','\textcolor[rgb]{1,0.41,0.13}{rb}') as f:}
+    \only<4->{dep = \textcolor[rgb]{1,0.41,0.13}{pickle.load}(f) }
   \end{semiverbatim}
+	\end{exemple}
+
 \end{frame}
 
 
-\section{Les paquetages}
 
 \begin{frame}
-  \begin{itemize}[<+->]
-  \item Objectif : regrouper les classes
-  \item Plusieurs classes peuvent avoir le même nom dans des paquetages
-    différents
-  \item Un paquetage = un répertoire
-  \item Ajouter {\color<4>{red}\emph{package monPaquetage;}}
-  \item Intérêt : possibilité d'importer toutes les classes d'un paquetage
-  \item Ex : {\color<6>{red}\emph{import java.util.*;}}
-  \end{itemize}
+  \frametitle{Utilisation du module \texttt{pickle}}
+  
+\begin{alertblock}{Remarques}
+\begin{itemize}
+	\item La méthode .\emph{dump}(variable,fichier) permet de stocker la variable.
+	\item Pour stocker plusieurs variables, il suffit d'appeler plusieurs   fois la méthode \emph{.dump}
+	\item Pour lire plusieurs variables stockées, il suffit d'appeler plusieurs fois la méthode \emph{.load}
+	
+\end{itemize}
+\end{alertblock}
+	
 \end{frame}
+
+
+%\section{Les paquetages}
+%
+%\begin{frame}
+  %\begin{itemize}[<+->]
+  %\item Objectif : regrouper les classes
+  %\item Plusieurs classes peuvent avoir le même nom dans des paquetages
+    %différents
+  %\item Un paquetage = un répertoire
+  %\item Ajouter {\color<4>{red}\emph{package monPaquetage;}}
+  %\item Intérêt : possibilité d'importer toutes les classes d'un paquetage
+  %\item Ex : {\color<6>{red}\emph{import java.util.*;}}
+  %\end{itemize}
+%\end{frame}
 
