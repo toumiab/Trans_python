@@ -44,20 +44,20 @@ Utilité :
     \node (figure) [classe]
     {
       \textbf{Figure}
-      \nodepart{second}\texttt{\# int abscisse\\\# int ordonnee}
+      \nodepart{second}\texttt{\_abscisse\\\_ordonnee}
       %\nodepart{third}\texttt{}
     };
     \node (AuxNode01) [text width=0.5cm, below=of figure] {};
     \node (cercle) [classe, left=of AuxNode01]
     {
       \textbf{Cercle}
-      \nodepart{second}\texttt{- int rayon}
+      \nodepart{second}\texttt{\_\_rayon}
       %\nodepart{third}\texttt{}
     };
     \node (rectangle) [classe, right=of AuxNode01]
     {
       \textbf{Rectangle}
-      \nodepart{second}\texttt{- int longueur\\- int largeur}
+      \nodepart{second}\texttt{\_\_longueur\\\_\_largeur}
       %\nodepart{third}\texttt{}
     };
     \draw[extends] (cercle.north) --  (figure.south west);
@@ -67,55 +67,67 @@ Utilité :
   }
 \end{frame}
 
-%\begin{frame}
-%  \frametitle{Héritage multiple}
-%  \only<1,3>{
-%    \begin{remarque}[Héritage multiple]
-%      Certains langages permettent d'hériter de plusieurs classes. Entraîne des
-%      problèmes théoriques lorsqu'on hérite plusieurs fois du même parent.
-%    \end{remarque}
-%    Exemple :
-%  }
-%  \only<3>{
-%    D hérite de B et C, B et C héritent de A.
-%
-%    \begin{remarque}[Le cas Java]
-%      Java ne supporte pas l'héritage multiple
-%    \end{remarque}
-%  }
-%  \only<2>{
-%    \begin{center}
-%      \includegraphics[width=5cm]{heritage_multiple}
-%    \end{center}
-%  }
-%\end{frame}
+\begin{frame}
+  \frametitle{Héritage multiple}
+  \only<1,3>{
+    \begin{remarque}[Héritage multiple]
+      Python, à l'encontre de certains langages, permet d'hériter de plusieurs classes. 
+    \end{remarque}
+    Exemple :
+  }
+  \only<3>{
+    D hérite de B et C, B et C héritent de A.
+
+    \begin{alertblock}{Attention}
+      L'héritage multiple entraîne des problèmes théoriques lorsqu'on hérite plusieurs fois du même parent.
+			\\ $\Longrightarrow$ linéarisation de l'ordre de l'héritage
+    \end{alertblock}
+  }
+  \only<2>{
+    \begin{center}
+      \includegraphics[width=5cm]{images/heritage_multiple.png}
+    \end{center}
+  }
+\end{frame}
 %
 
-\subsection{Héritage en Java}
+\subsection{Héritage en Python}
 
 \begin{frame}
-  \frametitle{Héritage en Java}
+  \frametitle{Héritage en Python}
   \only<1,3>{
     \begin{itemize}
-    \item En Java : utilisation du mot clé \emph{extends}
-    \item Modificateur d'accès \emph{protected} : donnée utilisable dans la
-      classe et les sous-classes
-    \item Si aucun héritage n'est précisé : hérite de \emph{Object}
+    \item En Python : l'héritage est défini  entre les parenthèses
+		\item Le constructeur est la méthode nommée \emph{$\_\_init\_\_$}
+    \item Visibilité des variables d'instance : $\Longrightarrow$ ($\_\_$) non recommandée
+    \item Si aucun héritage n'est précisé : hérite de \emph{object}
     \end{itemize}
 
     \begin{exemple}[Figures]
+		\small
       \begin{semiverbatim}
-        public class Figure \{
+			\vspace{-0.5cm}
+        class Figure (object):
+        
+				\hspace{0.5cm}def \_\_init\_\_(self,x, y):
+				
+        \hspace{1cm}\textcolor{red}{self.\_abscisse} = x
 
-        \hspace{1cm}\textcolor{red}{protected} double abscisse;
-
-        \hspace{1cm}...
-
-        \uncover<3>{public class Cercle \textcolor{red}{extends Figure} \{
-      
-        \hspace{1cm}private double rayon;
-
-        \hspace{1cm}...}
+        \hspace{1cm}\textcolor{red}{self.\_ordonnee} = y
+        
+				\only<1>{
+				
+				f1 = Figure(10,2) \textcolor{green}{\# création de l'objet f1}
+				
+				f2 = Figure(0, 4) \textcolor{green}{\# création de l'objet f2}}
+				\uncover<3>{class Cercle \textcolor{red}{(Figure)}:
+        
+				\hspace{0.5cm}def \_\_init\_\_(self,x=0, y=0, r=0):
+				
+        \hspace{1cm}super().\_\_init\_\_(x,y) \textcolor[rgb]{0,0.58,0}{\# définit et initialise }
+				
+				\hspace{1cm}self.\_rayon = r    \hspace{0.7cm}   \textcolor[rgb]{0,0.58,0}{\# \_abscisse et \_ordonnee}
+}
       \end{semiverbatim}
     \end{exemple}}
   \only<2,4>{
@@ -126,14 +138,15 @@ Utilité :
     \node (figure) [classe]
     {
       \textbf{Figure}
-      \nodepart{second}\texttt{\# int abscisse\\\# int ordonnee}
+      \nodepart{second}\texttt{\_abscisse\\\_ordonnee}
       \nodepart{third}\texttt{+ Figure()}
     };
+		
     \only<4>{
     \node (cercle) [classe, right=of figure]
     {
       \textbf{Cercle}
-      \nodepart{second}\texttt{- int rayon}
+      \nodepart{second}\texttt{\_rayon}
       \nodepart{third}\texttt{+ Cercle()}
     };
     \draw[extends] (cercle.text west) --  (figure.text east);
@@ -141,39 +154,43 @@ Utilité :
   \end{tikzpicture}
 \end{center}
     %\includegraphics[height=4cm]{herite2}
-  }
+  \texttt{f= Figure(10,11) \textcolor[rgb]{0,0.58,0}{\# Création de l'objet figure f}\\
+  c= Cercle (1,5,3) \textcolor[rgb]{0,0.58,0}{\#  Création de l'objet Cercle c}}
+	}
 \end{frame}
-
 
 \begin{frame}
   \frametitle{Appel du constructeur de la super-classe}
-  \only<1,3>{
+  \only<1-8>{
   \begin{exemple}[Figures]
-    \begin{semiverbatim}
-      public class Figure \{
+   \small
+      \begin{semiverbatim}
+			\vspace{-0.5cm}
+        class \textcolor<5>{red}{Figure}(object):
+        
+				\hspace{0.5cm}def \textcolor<6>{red}{\_\_init\_\_(self,a, b)}:
+				
+        \hspace{1cm}\textcolor<7>{red}{self.\_abscisse = a }
 
-      \hspace{1cm}public {\color<3>{red}Figure(int abs, int ord)} \{
+        \hspace{1cm}\textcolor<7>{red}{self.\_ordonnee = b }
+        
+				class Cercle (\textcolor<5>{red}{Figure}):
+        
+				\hspace{0.5cm}def \textcolor<3>{red}{\_\_init\_\_(self,x=0, y=0, r=0)}:
+				
+        \hspace{1cm}\textcolor<4>{red}{super()}.\textcolor<6-7>{red}{\_\_init\_\_(x,y)} \textcolor[rgb]{0,0.58,0}{\# définit et initialise }
+				
+				\hspace{1cm}\textcolor<8>{red}{self.\_rayon = r }   \hspace{0.7cm}   \textcolor[rgb]{0,0.58,0}{\# \_abscisse et \_ordonnee}
+				
+				\only<1->{
+				
+				c = \textcolor<2>{red}{Cercle(10, 3, 2)} \textcolor{green}{\# création de l'objet f1}
+				}
 
-      \hspace{2cm}\textcolor{blue}{this.}abscisse = abs ; ordonnee = ord;
-
-      \hspace{1cm}\}
-
-      \}
-
-      public class Cercle extends Figure \{
-      
-      \hspace{1cm}private Cercle(int x, int y, int r) \{
-
-      \hspace{2cm}\only<1>{\textcolor{red}{super.}abscisse = x; \textcolor{red}{super.}ordonnee = y;}\only<3->{\textcolor{red}{super(x, y)};}
-
-      \hspace{2cm}\textcolor{blue}{this.}rayon = r;
-
-      \hspace{1cm}\}
-
-      \}
-    \end{semiverbatim}
+      \end{semiverbatim}
+ 
   \end{exemple}}
-  \only<2,4>{
+  \only<9-10>{
 \begin{center}
 \tikzstyle{classe}=[rectangle, draw=black, rounded corners, fill=blue!50, drop shadow, text centered, anchor=north, text=white, text width=2cm, rectangle split, rectangle split parts=3]
 \tikzstyle{extends}=[->, >=open triangle 90, thick]
@@ -182,32 +199,100 @@ Utilité :
     \node (figure) [classe]
     {
       \textbf{Figure}
-      \nodepart{second}\texttt{\# int abscisse\\\# int ordonnee}
+      \nodepart{second}\texttt{\# \_abscisse\\\# \_ordonnee}
       \nodepart{third}\texttt{+ Figure()}
     };
     \node (cercle) [classe, right=of figure]
     {
       \textbf{Cercle}
-      \nodepart{second}\texttt{- int rayon}
+      \nodepart{second}\texttt{\_rayon}
       \nodepart{third}\texttt{+ Cercle()}
     };
     \draw[extends] (cercle.text west) --  (figure.text east);
     \draw[uses,color=blue] (cercle.third east)+(-0.5,0) .. controls +(2,0.4)
     and +(2,0.4).. ([xshift=-0.5cm] cercle.second east);
-    \only<2>{
-      \draw[uses,color=red] (cercle.third) -- ([xshift=-0.3cm] figure.second east);
-    }
-    \only<4>{
+   \only<10>{
     \draw[uses,color=red] (cercle.third) -- ([xshift=-0.6cm] figure.third east);
     \draw[uses,color=blue] (figure.third west)+(0.5,0) .. controls +(-2,0.4) and +(-2,0.4).. ([xshift=0.3cm] figure.second west);
     }
 ond east);
   \end{tikzpicture}
+
 \end{center}
 %    \includegraphics[height=4cm]{herite3}
-  }
+
+	}
 \end{frame}
 
+
+
+
+
+%\begin{frame}
+  %\frametitle{Appel du constructeur de la super-classe}
+  %\only<1,3>{
+  %\begin{exemple}[Figures]
+    %\begin{semiverbatim}
+      %public class Figure \{
+%
+      %\hspace{1cm}public {\color<3>{red}Figure(int abs, int ord)} \{
+%
+      %\hspace{2cm}\textcolor{blue}{this.}abscisse = abs ; ordonnee = ord;
+%
+      %\hspace{1cm}\}
+%
+      %\}
+%
+      %public class Cercle extends Figure \{
+      %
+      %\hspace{1cm}private Cercle(int x, int y, int r) \{
+%
+      %\hspace{2cm}\only<1>{\textcolor{red}{super.}abscisse = x; \textcolor{red}{super.}ordonnee = y;}\only<3->{\textcolor{red}{super(x, y)};}
+%
+      %\hspace{2cm}\textcolor{blue}{this.}rayon = r;
+%
+      %\hspace{1cm}\}
+%
+      %\}
+    %\end{semiverbatim}
+  %\end{exemple}}
+  %\only<2,4>{
+%\begin{center}
+%\tikzstyle{classe}=[rectangle, draw=black, rounded corners, fill=blue!50, drop shadow, text centered, anchor=north, text=white, text width=2cm, rectangle split, rectangle split parts=3]
+%\tikzstyle{extends}=[->, >=open triangle 90, thick]
+%\tikzstyle{uses}=[thick, arrows={-angle 60}]
+  %\begin{tikzpicture}[node distance=1.5cm,scale=0.5, font=\scriptsize]
+    %\node (figure) [classe]
+    %{
+      %\textbf{Figure}
+      %\nodepart{second}\texttt{\# int abscisse\\\# int ordonnee}
+      %\nodepart{third}\texttt{+ Figure()}
+    %};
+    %\node (cercle) [classe, right=of figure]
+    %{
+      %\textbf{Cercle}
+      %\nodepart{second}\texttt{- int rayon}
+      %\nodepart{third}\texttt{+ Cercle()}
+    %};
+    %\draw[extends] (cercle.text west) --  (figure.text east);
+    %\draw[uses,color=blue] (cercle.third east)+(-0.5,0) .. controls +(2,0.4)
+    %and +(2,0.4).. ([xshift=-0.5cm] cercle.second east);
+    %\only<2>{
+      %\draw[uses,color=red] (cercle.third) -- ([xshift=-0.3cm] figure.second east);
+    %}
+    %\only<4>{
+    %\draw[uses,color=red] (cercle.third) -- ([xshift=-0.6cm] figure.third east);
+    %\draw[uses,color=blue] (figure.third west)+(0.5,0) .. controls +(-2,0.4) and +(-2,0.4).. ([xshift=0.3cm] figure.second west);
+    %}
+%ond east);
+  %\end{tikzpicture}
+%
+%\end{center}
+%%    \includegraphics[height=4cm]{herite3}
+%
+	%}
+%\end{frame}
+%
 
 \section{Polymorphisme}
 
@@ -229,176 +314,194 @@ ond east);
 \end{frame}
 
 
-\begin{frame}
-  \frametitle{Différents polymorphismes}
-  \begin{itemize}[<+->]
-  \item Le polymorphisme ad hoc (également \emph{surcharge} ou
-    \emph{overloading})
-  \item N'est pas un vrai polymorphisme : uniquement une facilité de notation
-  \end{itemize}
-
-  \begin{itemize}[<+->]
-  \item Le polymorphisme d'héritage (également \emph{redéfinition},
-    \emph{spécialisation} ou \emph{overriding})
-  \item Le vrai polymorphisme : association dynamique
-  \end{itemize}
-\end{frame}
-
-
-\subsection{Surcharge (early binding)}
-
-\begin{frame}
-  \frametitle{Principe}
-
-  Principe de la surcharge~:
-  \begin{itemize}[<+->]
-  \item Méthodes avec le même nom
-    \begin{itemize}
-    \item dans des classes différentes
-    \item avec des paramètres différents
-    \end{itemize}
-  \end{itemize}
-
-  \uncover<4->{
-    Exemples~:
-    \begin{itemize}
-    \item \emph{println} avec un paramètre de type entier, booléen, String, ...
-    \item Une méthode \emph{afficher} dans les classes \emph{Pile},
-      \emph{Rationnel}, ...
-    \end{itemize}}
-  
-  \uncover<5>{
-    Signification du terme :
-    \emph{early binding} $\Rightarrow$ choix de la méthode lors de la
-    compilation 
-  }
-\end{frame}
-
-\begin{frame}
-  \frametitle{Surcharge en Java}
-
-  \only<1,3,5,7,8,10>{
-  \begin{exemple}[Constructeur]
-    \begin{semiverbatim}
-      public class {\color<1-3>{red}Figure2D} \{
-\only<1-5>{
-
-      \hspace{1cm}private int abscisse;
-
-      \hspace{1cm}private int ordonnee;}
-\uncover<3->{
-
-      \hspace{1cm}public {\color<8>{red}{\color<2-5>{red}Figure2D}(int abs, int ord)} \{
-
-      \hspace{2cm}abscisse = abs ;
-
-      \hspace{2cm}ordonnee = ord;
-
-      \hspace{1cm}\}}
-\uncover<5->{
-
-      \hspace{1cm}public {\color<10>{red}{\color<5>{red}Figure2D}()} \{
-
-      \hspace{2cm}this(0,0);
-
-      \hspace{1cm}\}}
-\only<7->{
-
-      \hspace{1cm}public static void main(String args[]) \{
-
-\uncover<8->{      \hspace{2cm}Figure2D f1 = new {\color<8>{red}Figure2D(1,2)};
-
-}
-\uncover<10->{      \hspace{2cm}Figure2D f1 = new {\color<10>{red}Figure2D()};
-
-}
-      \hspace{1cm}\}}
-    \end{semiverbatim}
-  \end{exemple}}
-\only<2,4,6,9,11>{
-\begin{center}
-\tikzstyle{classe}=[rectangle, draw=black, rounded corners, fill=blue!50, drop
-shadow, text centered, text=white, text width=2.8cm, rectangle
-split, rectangle split parts=3]
-\tikzstyle{extends}=[->, >=open triangle 90, thick]
-\tikzstyle{uses}=[thick, arrows={-angle 60}]
-\pgfdeclarelayer{background}
-\pgfdeclarelayer{foreground}
-\pgfsetlayers{background,main,foreground}
-  \begin{tikzpicture}[node distance=1cm,scale=0.5, font=\scriptsize]
-    \node (figure) [classe]
-    {
-      \textbf{Figure2D}
-      \nodepart{second}\texttt{\# int abscisse\\\# int ordonnee}
-      \nodepart{third}\texttt{\only<4->{+ Figure2D(int,int)\\\uncover<6->{+ Figure2D()}}}
-    };
-    \node (main) [below right=of figure] {main};
-    % 
-    \only<4,6>{
-      \draw[uses,color=blue] (figure.third east)+(-0.25,0.25) .. controls +(2,0.4) and +(2,0.4) .. ([xshift=-0.5cm,yshift=0.3cm] figure.second east);
-      \draw[uses,color=blue] (figure.third east)+(-0.25,0.25) .. controls +(1.5,0.4) and +(1.5,0.4) .. ([xshift=-0.5cm,yshift=-0.3cm] figure.second east);
-  }
-    % 
-  \only<6>{
-    \draw[uses,color=red] (figure.third east)+(-0.5,-0.25) .. controls
-    +(1.5,0.1) and +(1.5,0.1) .. ([xshift=-0.4cm,yshift=0.3cm] figure.third
-    east);
-  }
-    % 
-  \only<9>{
-    \draw[uses,color=red] (main) to[bend right=60]
-    ([xshift=-0.4cm,yshift=0.3cm] figure.third east);
-  }
-    % 
-  \only<11>{
-    \draw[uses,color=red] (main) to[bend right=60]
-    ([xshift=-0.4cm,yshift=-0.3cm] figure.third east);
-  }
-    \begin{pgfonlayer}{background}
-      % Compute a few helper coordinates
-      \path (figure.west |- figure.north)+(-0.5,0.3) node (a) {};
-      \path (main.south -| main.east)+(+0.3,-0.2) node (b) {};
-      \path[fill=yellow!20,rounded corners, draw=black!50, dashed] (a) rectangle (b);
-    \end{pgfonlayer}
-
-  \end{tikzpicture}
-\end{center}
-%\includegraphics[height=6cm]{constr1}
-}
-% \only<4>{
-% \includegraphics[height=6cm]{constr2}
-% }
-% \only<6>{
-% \includegraphics[height=6cm]{constr3}
-% }
-% \only<9>{
-% \includegraphics[height=6cm]{constr4}
-% }
-% \only<11>{
-% \includegraphics[height=6cm]{constr5}
-% }
-\end{frame}
-
-
-
-\subsection{Polymorphisme d'héritage (late binding)}
+%\begin{frame}
+  %\frametitle{Différents polymorphismes}
+  %\begin{itemize}[<+->]
+  %\item Le polymorphisme ad hoc (également \emph{surcharge} ou
+    %\emph{overloading})
+  %\item N'est pas un vrai polymorphisme : uniquement une facilité de notation
+  %\end{itemize}
+%
+  %\begin{itemize}[<+->]
+  %\item Le polymorphisme d'héritage (également \emph{redéfinition},
+    %\emph{spécialisation} ou \emph{overriding})
+  %\item Le vrai polymorphisme : association dynamique
+  %\end{itemize}
+%\end{frame}
+%
+%
+%\subsection{Surcharge (early binding)}
+%
+%\begin{frame}
+  %\frametitle{Principe}
+%
+  %Principe de la surcharge~:
+  %\begin{itemize}[<+->]
+  %\item Méthodes avec le même nom
+    %\begin{itemize}
+    %\item dans des classes différentes
+    %\item avec des paramètres différents
+    %\end{itemize}
+  %\end{itemize}
+%
+  %\uncover<4->{
+    %Exemples~:
+    %\begin{itemize}
+    %\item \emph{println} avec un paramètre de type entier, booléen, String, ...
+    %\item Une méthode \emph{afficher} dans les classes \emph{Pile},
+      %\emph{Rationnel}, ...
+    %\end{itemize}}
+  %
+  %\uncover<5>{
+    %Signification du terme :
+    %\emph{early binding} $\Rightarrow$ choix de la méthode lors de la
+    %compilation 
+  %}
+%\end{frame}
+%
+%\begin{frame}
+  %\frametitle{Surcharge en Java}
+%
+  %\only<1,3,5,7,8,10>{
+  %\begin{exemple}[Constructeur]
+    %\begin{semiverbatim}
+      %public class {\color<1-3>{red}Figure2D} \{
+%\only<1-5>{
+%
+      %\hspace{1cm}private int abscisse;
+%
+      %\hspace{1cm}private int ordonnee;}
+%\uncover<3->{
+%
+      %\hspace{1cm}public {\color<8>{red}{\color<2-5>{red}Figure2D}(int abs, int ord)} \{
+%
+      %\hspace{2cm}abscisse = abs ;
+%
+      %\hspace{2cm}ordonnee = ord;
+%
+      %\hspace{1cm}\}}
+%\uncover<5->{
+%
+      %\hspace{1cm}public {\color<10>{red}{\color<5>{red}Figure2D}()} \{
+%
+      %\hspace{2cm}this(0,0);
+%
+      %\hspace{1cm}\}}
+%\only<7->{
+%
+      %\hspace{1cm}public static void main(String args[]) \{
+%
+%\uncover<8->{      \hspace{2cm}Figure2D f1 = new {\color<8>{red}Figure2D(1,2)};
+%
+%}
+%\uncover<10->{      \hspace{2cm}Figure2D f1 = new {\color<10>{red}Figure2D()};
+%
+%}
+      %\hspace{1cm}\}}
+    %\end{semiverbatim}
+  %\end{exemple}}
+%\only<2,4,6,9,11>{
+%\begin{center}
+%\tikzstyle{classe}=[rectangle, draw=black, rounded corners, fill=blue!50, drop
+%shadow, text centered, text=white, text width=2.8cm, rectangle
+%split, rectangle split parts=3]
+%\tikzstyle{extends}=[->, >=open triangle 90, thick]
+%\tikzstyle{uses}=[thick, arrows={-angle 60}]
+%\pgfdeclarelayer{background}
+%\pgfdeclarelayer{foreground}
+%\pgfsetlayers{background,main,foreground}
+  %\begin{tikzpicture}[node distance=1cm,scale=0.5, font=\scriptsize]
+    %\node (figure) [classe]
+    %{
+      %\textbf{Figure2D}
+      %\nodepart{second}\texttt{\# int abscisse\\\# int ordonnee}
+      %\nodepart{third}\texttt{\only<4->{+ Figure2D(int,int)\\\uncover<6->{+ Figure2D()}}}
+    %};
+    %\node (main) [below right=of figure] {main};
+    %% 
+    %\only<4,6>{
+      %\draw[uses,color=blue] (figure.third east)+(-0.25,0.25) .. controls +(2,0.4) and +(2,0.4) .. ([xshift=-0.5cm,yshift=0.3cm] figure.second east);
+      %\draw[uses,color=blue] (figure.third east)+(-0.25,0.25) .. controls +(1.5,0.4) and +(1.5,0.4) .. ([xshift=-0.5cm,yshift=-0.3cm] figure.second east);
+  %}
+    %% 
+  %\only<6>{
+    %\draw[uses,color=red] (figure.third east)+(-0.5,-0.25) .. controls
+    %+(1.5,0.1) and +(1.5,0.1) .. ([xshift=-0.4cm,yshift=0.3cm] figure.third
+    %east);
+  %}
+    %% 
+  %\only<9>{
+    %\draw[uses,color=red] (main) to[bend right=60]
+    %([xshift=-0.4cm,yshift=0.3cm] figure.third east);
+  %}
+    %% 
+  %\only<11>{
+    %\draw[uses,color=red] (main) to[bend right=60]
+    %([xshift=-0.4cm,yshift=-0.3cm] figure.third east);
+  %}
+    %\begin{pgfonlayer}{background}
+      %% Compute a few helper coordinates
+      %\path (figure.west |- figure.north)+(-0.5,0.3) node (a) {};
+      %\path (main.south -| main.east)+(+0.3,-0.2) node (b) {};
+      %\path[fill=yellow!20,rounded corners, draw=black!50, dashed] (a) rectangle (b);
+    %\end{pgfonlayer}
+%
+  %\end{tikzpicture}
+%\end{center}
+%%\includegraphics[height=6cm]{constr1}
+%}
+%% \only<4>{
+%% \includegraphics[height=6cm]{constr2}
+%% }
+%% \only<6>{
+%% \includegraphics[height=6cm]{constr3}
+%% }
+%% \only<9>{
+%% \includegraphics[height=6cm]{constr4}
+%% }
+%% \only<11>{
+%% \includegraphics[height=6cm]{constr5}
+%% }
+%\end{frame}
+%
+%
+%
+\subsection{Polymorphisme d'héritage (redéfinition, spécialisation)}
 
 \begin{frame}
   \frametitle{Principe}
   \begin{itemize}
-  \item Plusieurs méthodes avec le même nom et les mêmes paramètres dans un
+  \item Plusieurs méthodes avec le même nom dans un
     hiérarchie de classes
   \item Méthode appelée : correspond à l'objet instancié
   \item Avantage : manipuler toutes les classes d'une hiérarchie de manière
     uniforme
   \end{itemize}
-  \uncover<2->{
-  \begin{exemple}
-    Figures 2D, cercles, rectangles
-
-    Méthode \emph{aire} : retourne 0 pour Figure2D et l'aire pour Cercle et
-    Rectangle. 
-  \end{exemple}}
+  \uncover<2-4>{
+	  \begin{exemple}[\only<2>{Jeux d'échecs}\only<4>{Figures 2D, cercles, rectangles}]
+   \only<2>{ Méthode \emph{deplacer()} pour les pièces :  Roi, Reine, Fou, Cavalier
+Tour et Pion (héritant chacun du type Piece).}
+   
+	\only<4>{Méthode \emph{aire()} : fournit la valeur l'aire pour Cercle et
+    Rectangle.} 
+ \only<3>{
+\begin{semiverbatim}
+\small
+			\vspace{-0.5cm}		
+		\textcolor[rgb]{0,0.58,0}{\# Déclaration d'une liste de pièces}
+		
+		liste\_pieces = [Pion(), Cavalier()]
+		
+		\textcolor[rgb]{0,0.58,0}{\# Appliquer la méthode déplacer à chaque pièce}
+		
+		\emph{for} piece \emph{in} liste\_pieces :
+		
+		 \hspace{1cm}\textcolor{red}{piece.deplacer()}
+		
+\end{semiverbatim}	
+}	
+  \end{exemple}
+	}
 \end{frame}
 
 
@@ -406,25 +509,31 @@ split, rectangle split parts=3]
   \frametitle{Exemple}
   \begin{exemple}
     \begin{semiverbatim}
-      public class Figure2D \{
-
-      \hspace{1cm}public double aire() \{
-
-      \hspace{2cm}return 0;
-
-      \hspace{1cm}\}
-
-      \}
-
-      public class Cercle extends Figure2D \{
-
-      \hspace{1cm}public double aire() \{
-
-      \hspace{2cm}return Math.PI * rayon * rayon;
-
-      \hspace{1cm}\}
-
-      \}
+		\small
+		\vspace{-.5cm}
+		 import numpy as np
+		
+     class Figure (object):
+		 			
+			\hspace{1cm}...
+			
+      class Cercle (Figure): 
+			
+			\hspace{1cm}...
+			
+			\hspace{1cm}\textcolor[rgb]{1,0,0}{def aire()}:
+			
+      \hspace{2cm}return np.pi * self.\_rayon**2
+			
+			 class Rectangle (Figure): 
+			
+			\hspace{1cm}... \textcolor[rgb]{0,0.58,0}{\# avec 2 var d'instance self.\_h, et self.\_l}
+			
+			\hspace{1cm}\textcolor[rgb]{1,0,0}{def aire():}
+			
+      \hspace{2cm}return self.\_h * self.\_l
+			
+			
     \end{semiverbatim}
   \end{exemple}
 \end{frame}
@@ -433,52 +542,191 @@ split, rectangle split parts=3]
   \frametitle{Utilisation des figures}
   \begin{exemple}
     \begin{semiverbatim}
-      public class AppliFigures \{
       
-      \hspace{1cm}public static void main(String[] args) \{
+      liste\_figures = []
+			
+			liste\_figures.append(\textcolor[rgb]{1,0,0}{Cercle(10, 11, 2)}) \pause
+			
+			liste\_figures.append(\textcolor[rgb]{1,0,0}{Rectangle(10,5, 3, 4))} 
+      
+			.... \pause
+			
 
-      \hspace{2cm}Figure2D tableau[] = new Figure2D[3];\pause
+      \emph{for} i \emph{in} range(len(liste\_figures)):
+			
+      \hspace{1cm}print(liste\_figures[i].\textcolor[rgb]{1,0,0}{aire()})
 
-      \hspace{2cm}tableau[0] = new Figure2D();\pause
-
-      \hspace{2cm}tableau[1] = new Cercle();
-
-      \hspace{2cm}tableau[2] = new Rectangle();\pause
-
-      \hspace{2cm}for (int i=0 ; i<tableau.length ; i++)
-
-      \hspace{2.5cm}System.out.println(tableau[i].aire());
-
-      \hspace{1cm}\}
-
-      \}
     \end{semiverbatim}
   \end{exemple}
 \end{frame}
 
 \begin{frame}
-  \frametitle{toString}
-  Autre exemple : méthode \emph{toString}
-  \begin{itemize}
+  \frametitle{Exemple de surcharge : méthode \_\_str\_\_}
+ \begin{itemize}
   \item Méthode appelée pour convertir un objet en chaîne de caractères\pause
   \item[$\Rightarrow$] afficher directement les objets\pause
-  \end{itemize}
+  \item Prédéfinie dans la classe \texttt{object} 
+		\end{itemize}
 
+	Exemple vu (le type Pile) : l'affichage d'un objet \texttt{Pile}\pause \\
+		
   Exemple affichage d'une figure \emph{f}:
   \begin{semiverbatim}
-    System.out.println(f);\pause
+	\small
+    f = Figure(3,5)
+		
+		print(f)\pause
 
-    \only<-5>{Figure2D@14f8dab}\only<6->{Figure placee en 0,0}
+    \only<-5>{\small \verb~<\_\_main\_\_.Pile object at 0x000000000575DBA8>~}\only<6->{Fig. Pos = (3,5)}
   \end{semiverbatim}\pause
 
   \begin{semiverbatim}
-    public String toString() \{
+    def \textcolor[rgb]{1,0,0}{\_\_str\_\_}(self):
 
-      \hspace{0.5cm}return "Figure placee en "+abscisse+","+ordonnee;
-
-      \}
+      \hspace{0.5cm}\emph{return} "Fig. Pos = (\{0\},\{1\})".format(self.\_abscisse,\hspace{0.5cm}self.\_ordonnee)
   \end{semiverbatim}
 \end{frame}
+
+\begin{frame}
+  \frametitle{Quelques méthodes à surcharger}
+			\begin{center}
+		
+			\begin{tabular}{|l|l|}
+			\hline
+		  \rowcolor{blue!50}Méthode de la classe à surcharger & Utilisation \\
+			\hline
+		  object.\textcolor[rgb]{1,0,0}{\_\_str\_\_}(self) & \texttt{print(self) }\\
+			\hline
+		  object.\textcolor[rgb]{1,0,0}{\_\_repr\_\_}(self) & \texttt{self} \\
+			\hline
+			object.\textcolor[rgb]{1,0,0}{\_\_add\_\_}(self, other) & \texttt{self + other} \\
+			\hline			
+			object.\textcolor[rgb]{1,0,0}{\_\_sub\_\_}(self, other) & \texttt{self - other} \\
+			
+			object.\textcolor[rgb]{1,0,0}{\_\_mul\_\_}(self, other) & \texttt{self * other} \\
+			\hline
+			object.\textcolor[rgb]{1,0,0}{\_\_and\_\_}(self, other) & \texttt{self \emph{and} other} \\
+			\hline
+			object.\textcolor[rgb]{1,0,0}{\_\_or\_\_}(self, other) & \texttt{self \emph{or} other} \\
+			\hline
+			object.\textcolor[rgb]{1,0,0}{\_\_len\_\_}(self) & \texttt{len(self)} \\
+			\hline
+			object.\textcolor[rgb]{1,0,0}{\_\_getitem\_\_}(self,i) & \texttt{x = self[i]} \\
+			\hline
+			object.\textcolor[rgb]{1,0,0}{\_\_setitem\_\_}(self, i) & \texttt{self[i]= y }\\
+			\hline
+			\end{tabular}
+\end{center}
+\end{frame}
+
+\section{Variables et méthodes de classe}
+
+
+\begin{frame}
+  \frametitle{Principe}
+  \begin{itemize}
+  \item Variables et méthodes propriétés de la classe, pas de l'instance
+  \item $\Rightarrow$ un seul exemplaire par classe
+  \item Accessible depuis les classes et les instances
+  \item Utilisation le décorateur \emph{\verb~@classmethod~} avec comme premier argument \emph{cls} et non pas \texttt{self}
+	\end{itemize}
+  \pause
+  \begin{remarque}
+    On peut utiliser la fonction built-in \texttt{\emph{classmethod}(methdeClasse)} pour définir la méthode methodeClass() comme méthode de classe.
+  \end{remarque}
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{Exemple}
+  \begin{exemple}
+    \textcolor<2>{red}{Comment compter les figures créées dans la classe \emph{Figure} (et ses classes filles)} ou attribuer un numéro unique à chaque objet~$?$
+	\only<2-5>{	
+	\small
+    \begin{semiverbatim}
+      class Figure (object):
+
+      \hspace{.5cm}\textcolor<2>{red}{nb\_figure = 0}  \textcolor[rgb]{0,0.58,0}{\# variable de classe : compteur}
+
+      \hspace{.5cm}def \_\_init\_\_(self, x, y):
+      
+			\hspace{1cm} self.\_abscisse = x
+			
+			\hspace{1cm} self.\_ordonnee = y
+			
+			\only<3->{\hspace{1cm} \textcolor<3>{red}{Figure.nb\_figure += 1}}
+      
+			\only<3->{\hspace{.5cm}\textcolor[rgb]{0.8,0.6,1}{@classmethod}
+			
+			\hspace{.5cm}def nombre\_figures(\textcolor[rgb]{1,0,0}{cls}):
+		
+      \hspace{1.5cm}print("nb de figures crées:"'+str(Figure.nb\_figure)))}
+
+			\# Exécution 
+			 
+			
+		%	\only<4>{\hspace{2cm} self.\_no\_figure = Figure.nb\_figure}
+		 \end{semiverbatim}
+		}
+  \end{exemple}
+
+  %\begin{remarque}
+    %Si des méthodes \emph{get} et \emph{set} sont nécessaires, elles sont
+    %\emph{static}
+  %\end{remarque}
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemple}
+\begin{center}
+\tikzstyle{classe}=[rectangle, draw=black, rounded corners, fill=blue!50, drop
+shadow, text centered, text=white, text width=2cm, rectangle split, rectangle split parts=3]
+\tikzstyle{static}=[rectangle, text justified, text=black, text width=2.5cm, rectangle split, rectangle split parts=2]
+\tikzstyle{extends}=[->, >=open triangle 90, thick]
+\tikzstyle{uses}=[thick, arrows={-angle 60}]
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+  \begin{tikzpicture}[node distance=1cm,scale=0.5,
+    font=\scriptsize,decoration={markings,mark=at position 0.5 with {
+      \draw[-] (-4pt,-4pt) -- (4pt,4pt);
+      \draw[-] (4pt,-4pt) -- (-4pt,4pt);}}]
+    \node (figure1) [classe]
+    {
+      \textbf{x~: Figure2D}
+      \nodepart{second}\texttt{abscisse=2\\ordonnee=3}
+      \nodepart{third}\texttt{+ Figure2D()}
+    };
+    \node (figure2) [classe, right=of figure1]
+    {
+      \textbf{y~: Figure2D}
+      \nodepart{second}\texttt{abscisse=0\\ordonnee=5}
+      \nodepart{third}\texttt{+ Figure2D()}
+    };
+    \node (main) [static,below right=of figure2]
+    {
+      \texttt{nombreFigures}
+      \nodepart{second}\texttt{getNombreFigures()\\main()}
+    };
+    \draw[uses,color=green!50!black] (figure1.third) |- ([yshift=-0.1cm] main.text west);
+    \draw[uses,color=green!50!black] (figure2.third) |- ([yshift=0.1cm] main.text west);
+%    \node (tmpx) [below right=of figure1,xshift=-0.3cm,yshift=-0.5cm] {X};
+    \draw[uses,color=red,postaction={decorate}] (main.second west) -- +(-0.8,0) |- ([xshift=-0.6cm]
+    figure2.second east) ;
+
+    \begin{pgfonlayer}{background}
+      % Compute a few helper coordinates
+      \path (figure1.west |- figure1.north)+(-0.5,0.3) node (a) {};
+      \path (main.south -| main.east)+(+0.3,-0.2) node (b) {};
+      \path[fill=yellow!20,rounded corners, draw=black!50, dashed] (a) rectangle (b);
+    \end{pgfonlayer}
+
+  \end{tikzpicture}
+\end{center}  
+\end{frame}
+
+
 
 \section{Méthode abstraites}
 
@@ -571,214 +819,116 @@ split, rectangle split parts=3]
   \end{semiverbatim}
 \end{frame}
 
+%
+%\subsection{Interfaces}
+%
+%\begin{frame}
+ %\frametitle{Définition}
+%
+ %\begin{defi}
+   %Une interface $\simeq$ liste de méthodes (signature, \emph{i.e.}  mode
+   %d'emploi). Un classe implémente une  
+   %interface : capable d'exécuter toutes les méthodes prévues par
+   %cette interface. 
+ %\end{defi}
+%\pause
+ %\begin{remarque}
+   %Une classe peut implanter plusieurs interfaces
+ %\end{remarque}
+%\pause
+%
+ %Implanter une interface : mot-clé \emph{implements}
+%\pause
+%
+ %\begin{exemple}
+   %\begin{semiverbatim}
+     %public class MaFenetre implements KeyListener \{ 
+%
+     %...
+   %\end{semiverbatim}
+ %\end{exemple}
+%\end{frame}
+%
+%
+%\begin{frame}
+ %\frametitle{Exemple}
+ %\begin{exemple}
+   %\begin{semiverbatim}
+     %public Interface KeyListener \{
+%
+     %\hspace{1cm}public abstract void keyPressed(KeyEvent e);
+%
+     %\hspace{1cm}public abstract void keyReleased(KeyEvent e);
+%
+     %\hspace{1cm}public abstract void keyTyped(KeyEvent e);
+%
+     %\}\pause
+%
+     %public class MaFenetre implements KeyListener \{ 
+%
+     %\hspace{1cm}public void keyPressed(KeyEvent e) \{ ... \}
+%
+     %\hspace{1cm}public void keyReleased(KeyEvent e) \{ ... \}
+%
+     %\hspace{1cm}public void keyTyped(KeyEvent e) \{ ... \}
+%
+     %\}
+   %\end{semiverbatim}
+ %\end{exemple}
+%\end{frame}
+%
+%\tikzstyle{classe}=[rectangle, draw=black, rounded corners, fill=blue!50, drop shadow, text centered, anchor=north, text=white, text width=2.5cm, rectangle split, rectangle split parts=3]
+%\tikzstyle{interface}=[rectangle, draw=black, rounded corners, fill=green!35, drop shadow, text centered, anchor=north, text=black, text width=2.5cm, rectangle split, rectangle split parts=2]
+%\tikzstyle{extends}=[->, >=open triangle 90, thick]
+%\tikzstyle{implements}=[->, >=open triangle 90, thick, loosely dashed]
+%\tikzstyle{line}=[-, thick]
+%\tikzstyle{uses}=[thick, arrows={-angle 60}]
+        %
+%
+%\begin{frame}
+  %\frametitle{Utilité des interfaces}
+  %\begin{itemize}
+  %\item Sert à concevoir du code réutilisable
+  %\item Est généralement associée à une classe
+  %\end{itemize}
+%\begin{center}
+  %\begin{tikzpicture}[scale=0.5, font=\scriptsize]
+    %\node (InterTri) [interface]
+    %{
+      %\textbf{InterfaceTri}
+      %\nodepart{second}\texttt{etapeTri(int t[])}
+    %};
+    %\node (Graph) [classe, left=of InterTri]
+    %{
+      %\textbf{Graphique}
+      %\nodepart{second}\texttt{int data[]}
+      %\nodepart{third}\texttt{afficheTableau()}
+    %};
+    %\node (TriShell) [classe, below=of InterTri]
+    %{
+      %\textbf{TriShell}
+      %\nodepart{third}\texttt{etapeTri(int t[])}
+    %};
+    %%\node (AuxNode01) [text width=4cm, below=of InterTri] {xxxxxx};
+    %\node (TriBulle) [classe, left=of TriShell]
+    %{
+      %\textbf{TriBulle}
+      %\nodepart{third}\texttt{etapeTri(int t[])}
+    %};
+    %\node (TriIns) [classe, right=of TriShell]
+    %{
+      %\textbf{TriInsersion}
+      %\nodepart{third}\texttt{etapeTri(int t[])}
+    %};
+    %\draw[uses] (Graph.east) -- (InterTri.west);
+    %\draw[implements] (TriBulle.north) -- ++(0,0.8) -| (InterTri.south);
+    %\draw[implements] (TriShell) --  (InterTri.south);
+    %\draw[implements] (TriIns.north) -- ++(0,0.8) -| (InterTri.south);
+  %\end{tikzpicture}
+%\end{center}
+%
+%\end{frame}
 
-\subsection{Interfaces}
-
-\begin{frame}
- \frametitle{Définition}
-
- \begin{defi}
-   Une interface $\simeq$ liste de méthodes (signature, \emph{i.e.}  mode
-   d'emploi). Un classe implémente une  
-   interface : capable d'exécuter toutes les méthodes prévues par
-   cette interface. 
- \end{defi}
-\pause
- \begin{remarque}
-   Une classe peut implanter plusieurs interfaces
- \end{remarque}
-\pause
-
- Implanter une interface : mot-clé \emph{implements}
-\pause
-
- \begin{exemple}
-   \begin{semiverbatim}
-     public class MaFenetre implements KeyListener \{ 
-
-     ...
-   \end{semiverbatim}
- \end{exemple}
-\end{frame}
-
-
-\begin{frame}
- \frametitle{Exemple}
- \begin{exemple}
-   \begin{semiverbatim}
-     public Interface KeyListener \{
-
-     \hspace{1cm}public abstract void keyPressed(KeyEvent e);
-
-     \hspace{1cm}public abstract void keyReleased(KeyEvent e);
-
-     \hspace{1cm}public abstract void keyTyped(KeyEvent e);
-
-     \}\pause
-
-     public class MaFenetre implements KeyListener \{ 
-
-     \hspace{1cm}public void keyPressed(KeyEvent e) \{ ... \}
-
-     \hspace{1cm}public void keyReleased(KeyEvent e) \{ ... \}
-
-     \hspace{1cm}public void keyTyped(KeyEvent e) \{ ... \}
-
-     \}
-   \end{semiverbatim}
- \end{exemple}
-\end{frame}
-
-\tikzstyle{classe}=[rectangle, draw=black, rounded corners, fill=blue!50, drop shadow, text centered, anchor=north, text=white, text width=2.5cm, rectangle split, rectangle split parts=3]
-\tikzstyle{interface}=[rectangle, draw=black, rounded corners, fill=green!35, drop shadow, text centered, anchor=north, text=black, text width=2.5cm, rectangle split, rectangle split parts=2]
-\tikzstyle{extends}=[->, >=open triangle 90, thick]
-\tikzstyle{implements}=[->, >=open triangle 90, thick, loosely dashed]
-\tikzstyle{line}=[-, thick]
-\tikzstyle{uses}=[thick, arrows={-angle 60}]
-        
-
-\begin{frame}
-  \frametitle{Utilité des interfaces}
-  \begin{itemize}
-  \item Sert à concevoir du code réutilisable
-  \item Est généralement associée à une classe
-  \end{itemize}
-\begin{center}
-  \begin{tikzpicture}[scale=0.5, font=\scriptsize]
-    \node (InterTri) [interface]
-    {
-      \textbf{InterfaceTri}
-      \nodepart{second}\texttt{etapeTri(int t[])}
-    };
-    \node (Graph) [classe, left=of InterTri]
-    {
-      \textbf{Graphique}
-      \nodepart{second}\texttt{int data[]}
-      \nodepart{third}\texttt{afficheTableau()}
-    };
-    \node (TriShell) [classe, below=of InterTri]
-    {
-      \textbf{TriShell}
-      \nodepart{third}\texttt{etapeTri(int t[])}
-    };
-    %\node (AuxNode01) [text width=4cm, below=of InterTri] {xxxxxx};
-    \node (TriBulle) [classe, left=of TriShell]
-    {
-      \textbf{TriBulle}
-      \nodepart{third}\texttt{etapeTri(int t[])}
-    };
-    \node (TriIns) [classe, right=of TriShell]
-    {
-      \textbf{TriInsersion}
-      \nodepart{third}\texttt{etapeTri(int t[])}
-    };
-    \draw[uses] (Graph.east) -- (InterTri.west);
-    \draw[implements] (TriBulle.north) -- ++(0,0.8) -| (InterTri.south);
-    \draw[implements] (TriShell) --  (InterTri.south);
-    \draw[implements] (TriIns.north) -- ++(0,0.8) -| (InterTri.south);
-  \end{tikzpicture}
-\end{center}
-
-\end{frame}
-
-\section{Variables et méthodes de classe}
-
-
-\begin{frame}
-  \frametitle{Principe}
-
-  \begin{itemize}
-  \item Variables de méthodes propriété de la classe, pas de l'instance
-  \item[$\Rightarrow$] un seul exemplaire par classe
-  \item Accessible depuis les classes et les instances
-  \item Utilisation du mot-clé \emph{static}
-  \end{itemize}
-  \pause
-  \begin{alertblock}{Attention}
-    Limiter au maximum les variables/méthodes de classe. \emph{static}
-    nécessaire : cas très rare.
-  \end{alertblock}
-\end{frame}
-
-
-
-\begin{frame}
-  \frametitle{Exemple}
-  \begin{exemple}
-    Compteur de figures créées dans la classe \emph{Figure2D}.
-    \begin{semiverbatim}
-      public class Figure \{
-
-      \hspace{1cm}private \textcolor{red}{static} int nombreFigures\textcolor{red}{ ~= 0};
-
-      \hspace{1cm}public Figure() \{
-
-    \hspace{2cm}\textcolor{red}{nombreFigures}++;
-
-    \hspace{1cm}\}
-
-    \hspace{1cm}public \textcolor{red}{static} int getNombreFigures() \{ 
-
-    \hspace{2cm}return nombreFigures;
-
-    \hspace{1cm}\}
-    \end{semiverbatim}
-  \end{exemple}
-
-  \begin{remarque}
-    Si des méthodes \emph{get} et \emph{set} sont nécessaires, elles sont
-    \emph{static}. 
-  \end{remarque}
-\end{frame}
-
-\begin{frame}
-\frametitle{Exemple}
-\begin{center}
-\tikzstyle{classe}=[rectangle, draw=black, rounded corners, fill=blue!50, drop
-shadow, text centered, text=white, text width=2cm, rectangle split, rectangle split parts=3]
-\tikzstyle{static}=[rectangle, text justified, text=black, text width=2.5cm, rectangle split, rectangle split parts=2]
-\tikzstyle{extends}=[->, >=open triangle 90, thick]
-\tikzstyle{uses}=[thick, arrows={-angle 60}]
-\pgfdeclarelayer{background}
-\pgfdeclarelayer{foreground}
-\pgfsetlayers{background,main,foreground}
-  \begin{tikzpicture}[node distance=1cm,scale=0.5,
-    font=\scriptsize,decoration={markings,mark=at position 0.5 with {
-      \draw[-] (-4pt,-4pt) -- (4pt,4pt);
-      \draw[-] (4pt,-4pt) -- (-4pt,4pt);}}]
-    \node (figure1) [classe]
-    {
-      \textbf{x~: Figure2D}
-      \nodepart{second}\texttt{abscisse=2\\ordonnee=3}
-      \nodepart{third}\texttt{+ Figure2D()}
-    };
-    \node (figure2) [classe, right=of figure1]
-    {
-      \textbf{y~: Figure2D}
-      \nodepart{second}\texttt{abscisse=0\\ordonnee=5}
-      \nodepart{third}\texttt{+ Figure2D()}
-    };
-    \node (main) [static,below right=of figure2]
-    {
-      \texttt{nombreFigures}
-      \nodepart{second}\texttt{getNombreFigures()\\main()}
-    };
-    \draw[uses,color=green!50!black] (figure1.third) |- ([yshift=-0.1cm] main.text west);
-    \draw[uses,color=green!50!black] (figure2.third) |- ([yshift=0.1cm] main.text west);
-%    \node (tmpx) [below right=of figure1,xshift=-0.3cm,yshift=-0.5cm] {X};
-    \draw[uses,color=red,postaction={decorate}] (main.second west) -- +(-0.8,0) |- ([xshift=-0.6cm]
-    figure2.second east) ;
-
-    \begin{pgfonlayer}{background}
-      % Compute a few helper coordinates
-      \path (figure1.west |- figure1.north)+(-0.5,0.3) node (a) {};
-      \path (main.south -| main.east)+(+0.3,-0.2) node (b) {};
-      \path[fill=yellow!20,rounded corners, draw=black!50, dashed] (a) rectangle (b);
-    \end{pgfonlayer}
-
-  \end{tikzpicture}
-\end{center}  
-\end{frame}
 % \section{Fichiers}
 
 % \subsection{Exceptions}
