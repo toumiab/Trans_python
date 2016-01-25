@@ -50,7 +50,7 @@
   \item Liste composée d'éléments (noeuds)
   \item Noeuds chaînés entre eux :
   \item Chaque noeud connaît son successeur
-  \item Fin de liste : \emph{null}
+  \item Fin de liste : \emph{None}
   \item Chaque noeud peut connaître son prédécesseur (liste doublement
     chaînée)
   \item Liste = premier élément (noeud) + opérations
@@ -65,37 +65,68 @@
 \begin{frame}
   \frametitle{Classe noeud}
   \begin{itemize}
-  \item Noeud : données\uncover<2->{ + variable pour le chaînage}
-  \item<3-> Constructeur (next initialisé à \emph{null})
-  \item<4-> Accesseurs ...
+  \item Constructeur (Noeud) : 
+	\item $\Longrightarrow$Noeud : données\uncover<2->{ + variable pour le chaînage}
+	\item <3>Les opérations sur les noeuds : affichage, comparaison (==, $>$, $>$,$<=$, ...) 
   \end{itemize}
 
   \begin{exemple}
     \begin{semiverbatim}
       \vspace{-0.5cm}
-      public class Node \{
-
-      \hspace{1cm}private int value;
-
-      \uncover<2->{
-        \hspace{1cm}private {\color<2>{red}Node} next;
-
-      }
+      class Node (object):
+			
+      \hspace{.5cm}def \_\_init\_\_(self, donnee = 0):
+			
+			 \hspace{1cm}\textcolor[rgb]{0,0.58,0}{""" Creation d'un noeud}
+			
+		   \hspace{1cm}\textcolor[rgb]{0,0.58,0}{le noeud suivant est fixé à None}
+			
+			 \hspace{1cm}\textcolor[rgb]{0,0.58,0}{"""}
+			
+      \hspace{1cm}self.\textcolor<1>{red}{val} = donnee \textcolor[rgb]{0,0.58,0}{\# La valeur de noeud}
+			
+			\uncover<2->{
+      \hspace{1cm}{self.\color<2>{red}next} = None  \textcolor[rgb]{0,0.58,0}{\# Le noeud suivant}}
       \uncover<3->{
-        \hspace{1cm}public Node(int val) \{
-
-        \hspace{2cm}value = val ; {\color<3>{red}next = null;}
-
-        \hspace{1cm}\}
-
-      }
-      \uncover<4->{
-        \hspace{1cm}...
-
-      \} }
+			
+			\hspace{.5cm} \textcolor[rgb]{1,0,0}{...}}
+			
     \end{semiverbatim}
   \end{exemple}
 \end{frame}
+
+\begin{frame}
+  \frametitle{Classe List}
+  \begin{itemize}
+  \item Constructeur (List) : 
+	\item $\Longrightarrow$ contenu : tête de liste
+	\item Les opérations sur les listes  :affichage, Parcours, insertion, Suppression, ...
+\end{itemize}
+\pause
+\begin{exemple}
+    \begin{semiverbatim}
+      \vspace{-0.5cm}
+      class List(object):
+			
+      \hspace{.5cm}def \_\_init\_\_(self):
+			
+			 \hspace{1cm}\textcolor[rgb]{0,0.58,0}{""" Creation d'une liste vide}
+			
+		   \hspace{1cm}\textcolor[rgb]{0,0.58,0}{la tete de liste est fixée à None}
+			
+			 \hspace{1cm}\textcolor[rgb]{0,0.58,0}{"""}
+			
+      \hspace{1cm}self.\textcolor<1>{red}{\_\_first} = None
+			
+      \uncover<2->{
+			
+			\hspace{.5cm} \textcolor[rgb]{1,0,0}{...}}
+			
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+
 
 \section{Manipulation de listes}
 
@@ -108,7 +139,7 @@
   Principe : 
   \begin{itemize}
   \item partir du début de la liste
-  \item avancer tant que l'élément est différent de \emph{null}
+  \item avancer tant que l'élément est différent de \emph{None}
   \end{itemize}
   ~\\
 
@@ -121,7 +152,7 @@
       \node[noeud] (a) {};
       \node[noeud,right=of a] (b) {};
       \node[noeud,right=of b] (c) {};
-      \node[right=of c] (n) {null};
+      \node[right=of c] (n) {None};
       \draw[fleche] (a) to (b);
       \draw[fleche] (b) to (c);
       \draw[fleche] (c) to (n);
@@ -153,7 +184,7 @@
   \KwIn{premier : noeud \tcp{ tête de liste}} 
   \KwData{n : noeud \tcp{ noeud courant}}
   $n \gets premier$ \;
-  \While{$n \neq null$} {
+  \While{$n \neq None$} {
     $n \gets n.suivant $\;
   }
 \end{algorithm2e}
@@ -164,38 +195,56 @@
   %       \State n : noeud \Comment noeud courant
   %     \EndVar
   %     \State $n \gets premier$
-  %     \While{$n \neq null$}
+  %     \While{$n \neq None$}
   %       \State $n \gets n.suivant $
   %     \EndWhile
   %   \EndProcedure
   % \end{algorithmic}
 }
+  
   \only<2>{
-    Parcours d'une liste avec une boucle \emph{for}~:
-    \begin{semiverbatim}
-      for (Node n = first ; n != null ; n = n.getNext())
-
-      \{
-
-      \hspace{1cm}// action
-
-      \}
-    \end{semiverbatim}
-  }
-  \only<3>{
     Parcours d'une liste avec une boucle \emph{while}~:
     \begin{semiverbatim}
-      Node n = first ; 
+     class List(object):
+			
+      \hspace{.5cm}def \_\_init\_\_(self):
+			
+			\hspace{1cm}self.\_\_first = None
+			
+			\hspace{1cm}\textcolor[rgb]{0,0.58,0}{\# -----------------------------------}
+		
+      \hspace{.5cm}\emph{def} \textcolor[rgb]{1,0,0}{parcours}(self):
+			
+			\hspace{1cm}n = self.\_\_first
+       
+			\hspace{1cm}\emph{while} n \emph{is not} \emph{None}:
 
-      while (n != null)
+      \hspace{1.5cm}\textcolor[rgb]{0,0.58,0}{\# action à faire : exemple : print()}
+			
+      \hspace{1.5cm}print(str(n.val))
+       
+			\hspace{1.5cm}\textcolor[rgb]{0,0.58,0}{\# passer au noeud suivant}
+      
+			\hspace{1.5cm}n = n.next
 
-      \{
+    \end{semiverbatim}
+  }
+	
+	\only<3>{
+    Parcours \emph{récursif} d'une liste~:
+    \begin{semiverbatim}
+     \hspace{.5cm}\emph{def} \textcolor[rgb]{1,0,0}{parcours}(self, n):
+			
+			\hspace{1cm}if n \emph{is not} \emph{None}
+			
+			\hspace{1.5cm}\textcolor[rgb]{0,0.58,0}{\# action à faire : exemple : print()}
+			
+      \hspace{1.5cm}print(str(n.val))
+       
+			\hspace{1.5cm}\textcolor[rgb]{0,0.58,0}{\# passer au noeud suivant}
+      
+			\hspace{1.5cm}self.parcours(n.next)
 
-      \hspace{1cm}// action
-
-      \hspace{1cm}n = n.getNext();
-
-      \}
     \end{semiverbatim}
   }
 \end{frame}
@@ -221,7 +270,7 @@
     \KwData{debut : noeud \tcp{ tête de liste}}
     \KwData{n : noeud \tcp{ noeud courant}}
     $n \gets debut$ \;
-    \While{$n \neq null$ et $n.valeur \neq val$} {
+    \While{$n \neq None$ et $n.valeur \neq val$} {
       $n \gets n.suivant$ \;
     }
     retourner \emph{n} \;
@@ -233,7 +282,7 @@
   %       \State n : noeud \Comment noeud courant
   %     \EndVar
   %     \State $n \gets debut$
-  %     \While{$n \neq null$ et $n.valeur \neq val$}
+  %     \While{$n \neq None$ et $n.valeur \neq val$}
   %       \State $n \gets n.suivant$
   %     \EndWhile
   %     \State retourner \emph{n}
@@ -269,7 +318,7 @@
     \node[noeud] (a) {};
     \node[noeud,right=of a] (b) {};
     \node[noeud,right=of b] (c) {};
-    \node[right=of c] (z) {null};
+    \node[right=of c] (z) {None};
     \draw[fleche] (a) to (b);
     \draw[fleche] (b) to (c);
     \draw[fleche] (c) to (z);
@@ -281,7 +330,7 @@
     \node[node distance=0.5cm,below=of n] (nn) {nouv};
     \draw[fleche] (nn) to (n);
     \only<1>{
-      \node[right=of n] (zn) {null};
+      \node[right=of n] (zn) {None};
       \draw[fleche] (n) to (zn);
     }
     \only<2->{
@@ -320,15 +369,14 @@
   }
   \only<2>{
     \begin{semiverbatim}
-      public void insertFirst(Node nouv)
+      def insertFirst(self, val) :
 
-      \{
+      \hspace{1cm}nouv = Node(val)
+			
+			\hspace{1cm}nouv.next = self.\_\_first 
 
-      \hspace{1cm}nouv.setNext(first); 
+      \hspace{1cm}self.\_\_first = nouv; 
 
-      \hspace{1cm}first = nouv; 
-
-      \}
     \end{semiverbatim}
 
     Complexité : $\Theta(1)$
@@ -355,7 +403,7 @@
     \draw[fleche] (a) to (b);
     \draw[fleche] (b) to (c);
     \only<-3>{
-    \node[right=of c] (z) {null};
+    \node[right=of c] (z) {None};
     \draw[fleche] (c) to (z);}
     \node[node distance=0.5cm,above=of a] (f) {first};
     \draw[fleche] (f) to (a);
@@ -375,7 +423,7 @@
     \node[noeud,node distance=1cm,below=of z] (n) {};
     \node[node distance=0.5cm,below=of n] (nn) {nouv};
     \draw[fleche] (nn) to (n);
-    \node[right=of n] (zn) {null};
+    \node[right=of n] (zn) {None};
     \draw[fleche] (n) to (zn);
     \only<4>{
       \draw[fleche] (c) to (n);
@@ -409,7 +457,7 @@
     }\pause
     {
       $n \gets debut$\;
-      \While{$n.suivant \neq null$} {
+      \While{$n.suivant \neq None$} {
         $n \gets n.suivant$ \;
       }\pause
        $n.suivant \gets nouv$\;
@@ -422,7 +470,7 @@
   %       \State $debut \gets nouv$
   %     \Else \Comment CG : se placer sur le dernier élément
   %       \State $n \gets debut$
-  %       \While{$n.suivant \neq null$}
+  %       \While{$n.suivant \neq None$}
   %         \State $n \gets n.suivant$
   %       \EndWhile \Comment n~: dernier élément
   %       \State $n.suivant \gets nouv$
@@ -448,7 +496,7 @@
     \node[noeud,right=of a] (b) {5};
     \node[noeud,right=of b] (c) {9};
     \draw[fleche] (a) to (b);
-    \node[right=of c] (z) {null};
+    \node[right=of c] (z) {None};
     \draw[fleche] (c) to (z);
     \node[node distance=0.5cm,above=of a] (f) {first};
     \draw[fleche] (f) to (a);
@@ -464,7 +512,7 @@
     \node[node distance=0.5cm,below=of n] (nn) {nouv};
     \draw[fleche] (nn) to (n);
     \only<-2>{
-      \node[right=of n] (zn) {null};
+      \node[right=of n] (zn) {None};
       \draw[fleche] (n) to (zn);
     }
     \only<-3>{
@@ -517,7 +565,7 @@
   créer noeud \emph{tmp}\;
   $tmp.next \gets debut$ \;
   $n \gets tmp$\;\pause
-  \While{$n.suivant \neq null$ et $n.suivant < nouv$} {
+  \While{$n.suivant \neq None$ et $n.suivant < nouv$} {
     $n \gets n.suivant$ \;
   }\pause
   $nouv.suivant \gets n.suivant$\;
@@ -529,7 +577,7 @@
   %     \State créer noeud \emph{tmp}
   %     \State $tmp.next \gets debut$
   %     \State $n \gets tmp$
-  %     \While{$n.suivant \neq null$ et $n.suivant < nouv$}
+  %     \While{$n.suivant \neq None$ et $n.suivant < nouv$}
   %       \State $n \gets n.suivant$
   %     \EndWhile \Comment n~: bon endroit dans la liste
   %     \State $nouv.suivant \gets n.suivant$
@@ -563,7 +611,7 @@
     \only<4>{\node[basen,right=of b,opacity=0] (c) {};}
     \node[noeud,right=of c] (d) {4};
     \draw[fleche] (a) to (b);
-    \node[right=of d] (z) {null};
+    \node[right=of d] (z) {None};
     \draw[fleche] (d) to (z);
     \only<-3>{\draw[fleche] (c) to (d);}
     \node[node distance=0.5cm,above=of a] (f) {first};
@@ -606,7 +654,7 @@
   créer noeud \emph{tmp}\;
   $tmp.next \gets debut$\;
   $n \gets tmp$\;\pause
-  \While{$n.suivant \neq null$ et $n.suivant.val \neq val$} {
+  \While{$n.suivant \neq None$ et $n.suivant.val \neq val$} {
     $n \gets n.suivant$\;
   }\pause
   $n.suivant \gets n.suivant.suivant$\;
@@ -617,7 +665,7 @@
   %     \State créer noeud \emph{tmp}
   %     \State $tmp.next \gets debut$
   %     \State $n \gets tmp$
-  %     \While{$n.suivant \neq null$ et $n.suivant.val \neq val$}
+  %     \While{$n.suivant \neq None$ et $n.suivant.val \neq val$}
   %       \State $n \gets n.suivant$
   %     \EndWhile \Comment n~: bon endroit dans la liste
   %     \State $n.suivant \gets n.suivant.suivant$
@@ -658,8 +706,8 @@
     \node[noeud,right=of b] (c) {};
     \node[node distance=0.7cm,above=of a] (f) {first};
     \node[node distance=0.7cm,above=of c] (l) {last};
-    \node[left=of a] (na) {null};
-    \node[right=of c] (nc) {null};
+    \node[left=of a] (na) {None};
+    \node[right=of c] (nc) {None};
     \draw[flecheb] (a) to (b);
     \draw[flecheb] (b) to (c);
     \draw[flecheb] (b) to (a);
@@ -673,22 +721,33 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Classe Node}
+  \frametitle{Classes Node et Liste}
   \begin{semiverbatim}
-public class Node
-
-\{
-
-  \hspace{1cm}private int value;
-
-  \hspace{1cm}private Node next;
-
-  \hspace{1cm}private Node prev;
-
-  \hspace{1cm}...
-
-\}
-    
+      \vspace{-0.5cm}
+      class Node (object):
+			
+      \hspace{.5cm}def \_\_init\_\_(self, donnee = 0):
+						
+      \hspace{1cm}self.\textcolor<1>{red}{val} = donnee \textcolor[rgb]{0,0.58,0}{\# La valeur de noeud}
+			
+			\hspace{1cm}{self.\color<2>{red}next} = None  \textcolor[rgb]{0,0.58,0}{\# Le noeud suivant}
+			
+			\uncover<3->{\hspace{1cm}{self.\color<3>{red}prev} = None  \textcolor[rgb]{0,0.58,0}{\# Le noeud précédent}
+      }
+			
+      \hspace{.5cm}...
+			
+      \uncover<4,5>{
+			 class List(object):
+			
+      \hspace{.5cm}def \_\_init\_\_(self):
+				
+      \hspace{1cm}self.\textcolor<4>{red}{\_\_first} = None
+			
+      \uncover<5->{
+			\hspace{1cm}self.\textcolor<5>{red}{\_\_last} = None}
+			}
+			
   \end{semiverbatim}
 \end{frame}
 
@@ -726,7 +785,7 @@ public class Node
   \item Problème : comment détecter que la liste contient un cycle ?
   \item Solution : 
     \begin{itemize}
-    \item utiliser deux variables de type noeud :
+    \item utiliser deux variables :
     \item une qui avance d'un noeud par tour
     \item une qui avance de deux noeuds par tour
     \item si un aboutit à la fin de la liste : liste non circulaire
