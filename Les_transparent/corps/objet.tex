@@ -154,8 +154,14 @@ Utilité :
   \end{tikzpicture}
 \end{center}
     %\includegraphics[height=4cm]{herite2}
-  \texttt{f= Figure(10,11) \textcolor[rgb]{0,0.58,0}{\# Création de l'objet figure f}\\
+  \only<2>{
+	\texttt{f = Figure(10,11) \textcolor[rgb]{0,0.58,0}{\# Création de l'objet figure f}\\
+  f1 = Figure (1,5) \textcolor[rgb]{0,0.58,0}{\#  Création de l'objet Figure f1}}
+	}
+	  \only<4>{
+	\texttt{f= Figure(10,11) \textcolor[rgb]{0,0.58,0}{\# Création de l'objet figure f}\\
   c= Cercle (1,5,3) \textcolor[rgb]{0,0.58,0}{\#  Création de l'objet Cercle c}}
+	}
 	}
 \end{frame}
 
@@ -184,7 +190,7 @@ Utilité :
 				
 				\only<1->{
 				
-				c = \textcolor<2>{red}{Cercle(10, 3, 2)} \textcolor{green}{\# création de l'objet f1}
+				c = \textcolor<2>{red}{Cercle(10, 3, 2)} \textcolor{green}{\# création de l'objet c}
 				}
 
       \end{semiverbatim}
@@ -655,17 +661,14 @@ Tour et Pion (héritant chacun du type Piece).}
 			
 			\hspace{1cm} self.\_ordonnee = y
 			
-			\only<3->{\hspace{1cm} \textcolor<3>{red}{Figure.nb\_figure += 1}}
+			\only<3->{\hspace{1cm} \textcolor<3>{red}{Figure.nb\_figures += 1}}
       
 			\only<3->{\hspace{.5cm}\textcolor[rgb]{0.8,0.6,1}{@classmethod}
 			
-			\hspace{.5cm}def nombre\_figures(\textcolor[rgb]{1,0,0}{cls}):
+			\hspace{.5cm}def get\_nbfigures(\textcolor[rgb]{1,0,0}{cls}):
 		
-      \hspace{1.5cm}print("nb de figures crées:"'+str(Figure.nb\_figure)))}
-
-			\# Exécution 
-			 
-			
+      \hspace{1.5cm}return Figure.nb\_figures}
+		
 		%	\only<4>{\hspace{2cm} self.\_no\_figure = Figure.nb\_figure}
 		 \end{semiverbatim}
 		}
@@ -679,6 +682,18 @@ Tour et Pion (héritant chacun du type Piece).}
 
 \begin{frame}
 \frametitle{Exemple}
+\small
+    \begin{semiverbatim}
+     
+		x = Figure (2, 3) 
+		
+		print (Figure.get\_nbfigures()) \pause \textcolor[rgb]{0,0.58,0}{ \# => 1}
+		
+		y = Figure (0, 5)
+		
+		print (print (Figure.get\_nbfigures()) \pause  \textcolor[rgb]{0,0.58,0}{\# => 2})
+			
+\end{semiverbatim}
 \begin{center}
 \tikzstyle{classe}=[rectangle, draw=black, rounded corners, fill=blue!50, drop
 shadow, text centered, text=white, text width=2cm, rectangle split, rectangle split parts=3]
@@ -694,26 +709,26 @@ shadow, text centered, text=white, text width=2cm, rectangle split, rectangle sp
       \draw[-] (4pt,-4pt) -- (-4pt,4pt);}}]
     \node (figure1) [classe]
     {
-      \textbf{x~: Figure2D}
-      \nodepart{second}\texttt{abscisse=2\\ordonnee=3}
-      \nodepart{third}\texttt{+ Figure2D()}
+      \textbf{x~: Figure}
+      \nodepart{second}\texttt{\_abscisse=2\\\_ordonnee=3}
+      \nodepart{third}\texttt{+ Figure()}
     };
     \node (figure2) [classe, right=of figure1]
     {
-      \textbf{y~: Figure2D}
-      \nodepart{second}\texttt{abscisse=0\\ordonnee=5}
-      \nodepart{third}\texttt{+ Figure2D()}
+      \textbf{y~: Figure}
+      \nodepart{second}\texttt{\_abscisse=0\\ \_ordonnee=5}
+      \nodepart{third}\texttt{+ Figure()}
     };
     \node (main) [static,below right=of figure2]
     {
-      \texttt{nombreFigures}
-      \nodepart{second}\texttt{getNombreFigures()\\main()}
+      \texttt{nb\_figures}
+      \nodepart{second}\texttt{get\_nbfigures() \\}
     };
     \draw[uses,color=green!50!black] (figure1.third) |- ([yshift=-0.1cm] main.text west);
     \draw[uses,color=green!50!black] (figure2.third) |- ([yshift=0.1cm] main.text west);
-%    \node (tmpx) [below right=of figure1,xshift=-0.3cm,yshift=-0.5cm] {X};
-    \draw[uses,color=red,postaction={decorate}] (main.second west) -- +(-0.8,0) |- ([xshift=-0.6cm]
-    figure2.second east) ;
+%%    \node (tmpx) [below right=of figure1,xshift=-0.3cm,yshift=-0.5cm] {X};
+    %\draw[uses,color=red] (main.second west) -- +(-0.8,0) |- ([yshift= 0.5cm ] 
+    %main.txt west) ;
 
     \begin{pgfonlayer}{background}
       % Compute a few helper coordinates
@@ -721,14 +736,12 @@ shadow, text centered, text=white, text width=2cm, rectangle split, rectangle sp
       \path (main.south -| main.east)+(+0.3,-0.2) node (b) {};
       \path[fill=yellow!20,rounded corners, draw=black!50, dashed] (a) rectangle (b);
     \end{pgfonlayer}
-
   \end{tikzpicture}
 \end{center}  
 \end{frame}
 
 
-
-\section{Méthode abstraites}
+\section{Abstraction}
 
 
 \subsection{Méthodes et classes abstraites}
@@ -736,51 +749,50 @@ shadow, text centered, text=white, text width=2cm, rectangle split, rectangle sp
 \begin{frame}
   \frametitle{Méthodes abstraites}
   \begin{defi}[Méthode abstraite]
-    Une méthode est abstraite si sa déclaration est précédée du mot-clé
-    \emph{abstract}. Elle ne contient alors aucun code et il n'est pas
-    possible de l'appeler \uncover<2->{ $\Rightarrow$ redéfinir dans les
-    sous-classes. }
+    Une méthode est abstraite si sa déclaration est précédée par le décorateur \emph{@abstractmethod}. Elle ne contient alors aucun code
+		\uncover<3->{	
+		Il n'est pas possible de l'appeler ssi :
+		\begin{itemize}
+			\item Sa classe est définie comme \emph{classe abstraite} $\Rightarrow$ définir dans les
+    sous-classes. 
+			\end{itemize}
+	 }
   \end{defi}
 
-  \uncover<3->{
-  \begin{exemple}
-    Dans la classe \emph{Figure2D}
+  \uncover<2-3>{
+  \begin{exemple} [Dans la classe \emph{Figure}]
+   \small 
     \begin{semiverbatim}
-      \hspace{1cm}public \textcolor{red}{abstract} double
-      aire()\textcolor{red}{;} \textcolor{blue}{// pas de \{\}}
+		\vspace{-.5cm}
+		from \textcolor<2>{red}{abc} import  \textcolor<2>{red}{abstractmethod}	\uncover<3>{\textcolor<3>{red}{ABCMeta}}	
+		
+		class Figure(\only<2>{object}\only<3>{\textcolor<3>{red}{metaclass=ABCMeta}}):
+		
+		\hspace{.5cm}...
+		
+		\hspace{.5cm}\textcolor[rgb]{1,0,0}{@abstractmethod}
+		
+    \hspace{.5cm}\emph{def} aire(self):
+		
+    \hspace{1cm}"""La méthode aire est déclarée abstraite.
+		
+		\hspace{1cm}"""
+				
+    \hspace{1cm}\emph{pass}
+
     \end{semiverbatim}
   \end{exemple}}
 \end{frame}
 
 
-\begin{frame}
-  \frametitle{Classe abstraite}
-  \begin{defi}[Classe abstraite]
-    Une classe abstraite est une classe dont une des méthodes est
-    abstraite. La déclaration de la classe est alors précédée du mot-clé
-    \emph{abstract}. 
-  \end{defi}
-  \pause
-  \begin{exemple}
-    \begin{semiverbatim}
-      public \textcolor{red}{abstract} class Figure2D \{
-
-      ...
-    \end{semiverbatim}
-  \end{exemple}
-  \pause
-  \begin{remarque}
-    Il n'est pas possible d'instancier une classe abstraite
-  \end{remarque}
-\end{frame}
 
 \begin{frame}
   \frametitle{Héritage d'une classe abstraite}
   Héritage
   \begin{itemize}
   \item Une sous-classe d'une classe abstraite peut être concrète si elle
-    redéfinit toutes les méthodes abstraites.
-  \item Exemple : \emph{aire} est redéfinie dans \emph{Cercle}
+    redéfinit toutes les méthodes abstraites. Sinon, elle est considérée abstraite
+  \item Exemple : \emph{aire} est redéfinie dans \emph{Cercle} et \emph{Rectangle}
   \end{itemize}
   \pause
   Intérêt :
@@ -789,34 +801,68 @@ shadow, text centered, text=white, text width=2cm, rectangle split, rectangle sp
   \item Définir les prototypes des méthodes dans la super-classe
   \end{itemize}
   \pause
-  Exemple : tableau de \emph{Figure2D}
+  Exemple : Liste de \emph{Figure}
 \end{frame}
 
 \begin{frame}
   \frametitle{Exemple de classe abstraite}
   \begin{semiverbatim}
-    public abstract class Figure2D \{
+	\vspace{-.5cm}
+	\small
+    \emph{from} \textcolor[rgb]{1,0,0}{abc} \emph{import}  abstractmethod, ABCMeta
+		
+\only<1-2>{		
+		\emph{class} Figure(metaclass = ABCMeta):
+		
+		\hspace{1cm}\textcolor[rgb]{1,0,0}{@abstractmethod}
+		
+		\hspace{1cm}\emph{def} aire(self):
+		
+		\hspace{2cm}\emph{pass}
 
-    \hspace{1cm}public abstract double aire();
-
-    ...\pause
-
-    public class Cercle extends Figure2D \{
-
-    \hspace{1cm}public double aire() \{
-
-    \hspace{2cm}return Math.PI*rayon*rayon;
-
-    \hspace{1cm}\}
-
-    ...\pause
-
-    public static void main(String args[]) \{
-
-    \hspace{1cm}Figure2D fig = new Cercle();
-
-    \hspace{1cm}System.out.println(fig.aire());
+    \emph{class} Cercle (Figure) :
+		
+		\hspace{1cm}...
+		
+    \hspace{1cm}\emph{def} aire(self):
+				
+    \hspace{2cm}\emph{return} np.pi * self.\_rayon**2
+		
+    \hspace{1cm}...\pause
+	
+		\emph{class} Rectangle (Figure) :
+		
+		\hspace{1cm}...
+		
+    \hspace{1cm}\emph{def} aire(self):
+				
+    \hspace{2cm}\emph{return} self.\_h *self.\_l
+		
+    \hspace{1cm}...
+  }
+	\only<3->{
+	 l\_figures = [] 
+   
+	 \textcolor[rgb]{0,0.58,0}{\# création d'un objet Cercle et ajout à la liste}\pause
+  
+	 l\_figures.append(Cercle(10, 11, 1)) 
+	
+	 \textcolor[rgb]{0,0.58,0}{\# création d'un objet Rectangle et ajout à la liste}\pause
+   
+	 l\_figures.append(Rectangle(10,5, 3, 4)) 
+	
+	 \textcolor[rgb]{0,0.58,0}{\# tentation d'instancier la classe abstraire Figure}\pause
+	 
+	l\_figures.append(\textcolor{red}{Figure}(2,0)) \pause \textcolor{red}{\# => Error} \pause
+	
+	\textcolor[rgb]{0,0.58,0}{\# affichage de l'aire des objets }\pause
+	
+	\emph{for} f \emph{in} l\_figures :
+	
+	 \hspace{1cm}print(f.aire())
+	}
   \end{semiverbatim}
+ 
 \end{frame}
 
 %
