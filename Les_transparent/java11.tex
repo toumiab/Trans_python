@@ -1,21 +1,19 @@
-\makeatletter\def\input@path{{styles/}{corps/}{bib/}}\makeatother
+\makeatletter\def\input@path{{images/}{styles/}{corps/}{bib/}}\makeatother
 
 \documentclass{transp_java}
-
-\title[Langage et algorithmique]{Langage et algorithmique}
-\author{Rodéric Moitié}
-%\date[DLT 2003]{Developments in Language Theory Conference, 2003}
-\date{}
+\usepackage{colortbl}
+%\usepackage{ulem}
+\title[Langage et algorithmique]{Langage et algorithmique \\ \textcolor[rgb]{0.5,0,0.5}{- Arbre -}}
+\author{A. Malek TOUMI\\ toumiab@ensta-bretagne.fr}
+%\date[05/04/2015]{Toumi A. Malek.  Python 3.4}
+\date{2015/2016}
 \institute{ENSTA Bretagne}
 
 
 %\usetheme{Transp}
 \usetheme{progressbar}
-%\progressbaroptions{titlepage=normal,headline=sections,frametitle=normal}
-%\progressbaroptions{titlepage=normal,frametitle=normal}
-\progressbaroptions{imagename=java_logo2.png}
 %\usetheme{Darmstadt}
-
+\progressbaroptions{imagename= python-HE.png}
 
 
 
@@ -47,8 +45,13 @@
   \end{frame}
 }
 
+\newlength\dunder
+\settowidth{\dunder}{\_}
+\newcommand{\twound}{\rule{2\dunder}{0.4pt}}
+
 
 %%%
+
 \input{arbres}
 
 \end{document}

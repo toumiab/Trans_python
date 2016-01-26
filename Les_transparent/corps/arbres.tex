@@ -173,27 +173,28 @@
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{en Java}
-  \lstset{language=Java}
-  \begin{block}{Code}
+  \frametitle{en Python}
+  \lstset{language=Python}
+  \begin{block}{Code pour définir un noeud}
     \begin{lstlisting}[frame=single,escapechar=\#]
-      public class Node {
-        #\visible<2->{#private String value;#}#
-        #\visible<3->{#private Node left;  #}#
-        #\visible<3->{#private Node right; #}#
-        #\visible<4->{#public Node(String val) \{ #}#
-        #\visible<4->{#  value = val;  #}#
-        #\visible<5->{#  left = null; #}#
-        #\visible<5->{#  right = null; #}#
-        }
-        ...
-      }
+     class Node(object):
+         #\visible<2->{#def \_\_init\_\_(self, valeur = 0):#}#
+           #\visible<3->{#     self.val = valeur  #}#
+           #\visible<4->{#     self.right = None #}#
+           #\visible<4->{#     self.left = None#}#
+            #\visible<4->{#\textcolor[rgb]{0,0.58,0}{\#     self.height = 0}#}#
+         ...
+ 
+     #\visible<5->{#class Arbre(object):#}#
+         #\visible<5->{#def \_\_init\_\_(self):#}#
+           #\visible<6->{#     self.\_\_root = None  #}#
+         ...
     \end{lstlisting}
   \end{block}
 \end{frame}
 
 \begin{frame}
-  \frametitle{en Java}
+  \frametitle{en Python}
   \begin{center}
 \begin{tikzpicture}[node distance=1cm]
   \tikzstyle{noeud}=[rectangle, draw=black, rounded corners, ball
@@ -235,9 +236,9 @@
 %
 %    \hspace{2cm}value = val;\pause
 %
-%    \hspace{2cm}left = null;
+%    \hspace{2cm}left = None;
 %
-%    \hspace{2cm}right = null;
+%    \hspace{2cm}right = None;
 %
 %  \hspace{1cm}\}
 %
@@ -259,7 +260,7 @@
   Arbres \emph{n-aires} : 
   \begin{itemize}[<+->]
   \item chaque noeud possède au plus $n$ fils.
-  \item En \emph{Java} : chaque noeud possède un tableau de $n$ fils
+  \item En \emph{Python} : chaque noeud possède une liste de $n$ fils
   \item Moins utile que les arbres binaires
   \item Exemple d'utilisation : \emph{quadtree}
   \end{itemize}
@@ -269,7 +270,7 @@
 
 \begin{frame}
   \frametitle{Définition}
-  \only<1>{
+ 
     \begin{defi}[Arbre général]
       Arbre pour lequel chaque noeud possède un nombre
       quelconque de fils (non borné \emph{a priori}).
@@ -281,9 +282,27 @@
       \item Représentation des possibilités pour un jeu
       \end{itemize}
     \end{exemple}
-  }
+\end{frame}
 
-  \only<2>{
+
+\begin{frame}[fragile]
+  \frametitle{Définition}
+
+    \begin{block}{Code pour définir un noeud}
+    \begin{lstlisting}[frame=single,escapechar=\#]
+     class Node(object):  
+		
+         #\visible<1->{#def \_\_init\_\_(self, valeur = 0):#}#
+           #\visible<2->{#     self.val = valeur  #}#
+           #\visible<3->{#     self.child = None #}#
+           #\visible<4>{#     self.brothers = []#}#
+           
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+ \begin{frame}
+  \frametitle{Définition}
     \begin{center}
 \begin{tikzpicture}[node distance=1cm]
   \tikzstyle{noeud}=[rectangle, draw=black, rounded corners, ball
@@ -308,7 +327,7 @@
 \end{tikzpicture}
 %      \includegraphics[height=6cm]{arbreGeneral}
     \end{center}
-  }
+
 \end{frame}
 
 
@@ -418,7 +437,7 @@
 %  \KwData{ racine : noeud \tcp{ racine de l'arbre}}
 %  \KwData{ n : noeud \tcp{ noeud courant}}
   $n \gets racine$\;
-  \While{$n \neq null$ et $n.val \neq val$} {
+  \While{$n \neq None$ et $n.val \neq val$} {
     \eIf{$val < n.val$} {
       $n \gets n.filsGauche$\;
     }
@@ -426,19 +445,19 @@
       $n \gets n.filsDroit$\;
     }
   }
-  retourner $n$ \tcp{ n a la valeur recherchée ou n vaut \emph{null}}
+  retourner $n$ \tcp{ n a la valeur recherchée ou n vaut \emph{None}}
 \end{algorithm2e}
   % \begin{algorithmic}[1]
   %   \Procedure{rechIter}{entier val}
   %     \State $n \gets racine$
-  %     \While{$n \neq null$ et $n.val \neq val$}
+  %     \While{$n \neq None$ et $n.val \neq val$}
   %       \If{$val < n.val$}
   %         \State $n \gets n.filsGauche$
   %       \Else
   %         \State $n \gets n.filsDroit$
   %       \EndIf
   %     \EndWhile
-  %     \State retourner $n$ \Comment n a la valeur recherchée ou n vaut \emph{null}
+  %     \State retourner $n$ \Comment n a la valeur recherchée ou n vaut \emph{None}
   %   \EndProcedure
   % \end{algorithmic}
 \end{frame}
@@ -450,7 +469,7 @@
  \begin{function}[H]
   \caption{rechRec(entier val, Noeud cour)}
   \label{alg:rechABRr2}
-  \uIf{$cour = null$ ou $cour.val = val$} {
+  \uIf{$cour = None$ ou $cour.val = val$} {
     retourner cour\;
   }
   \uElseIf{$val < cour.val$} {
@@ -462,7 +481,7 @@
 \end{function}
  % \begin{algorithmic}[1]
  %    \Procedure{rechRec}{entier val, Noeud cour}
- %      \If{$cour = null$ ou $cour.val = val$}
+ %      \If{$cour = None$ ou $cour.val = val$}
  %        \State retourner cour
  %      \ElsIf{$val < cour.val$}
  %        \State retourner $rechRec(val, n.filsGauche)$
@@ -540,11 +559,11 @@
 
 \begin{frame}[fragile]
   \frametitle{Algorithmes}
-  \only<1>{
+  \only<2>{
 \begin{procedure}[H]
   \caption{prefixe(Noeud cour)}
   \label{alg:prefixe}
-  \If{$cour \neq null$} {
+  \If{$cour \neq None$} {
     traiter \emph{cour}\;
     prefixe(cour.filsGauche)\;
     prefixe(cour.filsDroit)\;
@@ -552,7 +571,7 @@
 \end{procedure}
   % \begin{algorithmic}[1]
   %   \Procedure{prefixe}{Noeud cour}
-  %     \If{$cour \neq null$}
+  %     \If{$cour \neq None$}
   %       \State traiter \emph{cour}
   %       \State prefixe(cour.filsGauche)
   %       \State prefixe(cour.filsDroit)
@@ -560,11 +579,11 @@
   %   \EndProcedure
   % \end{algorithmic}
   }
-  \only<2>{
+  \only<1>{
 \begin{procedure}[H]
   \caption{infixe(Noeud cour)}
   \label{alg:infixe}
-  \If{$cour \neq null$} {
+  \If{$cour \neq None$} {
     infixe(cour.filsGauche)\;
     traiter \emph{cour}\;
     infixe(cour.filsDroit)\;
@@ -572,7 +591,7 @@
 \end{procedure}
   % \begin{algorithmic}[1]
   %   \Procedure{infixe}{Noeud cour}
-  %     \If{$cour \neq null$}
+  %     \If{$cour \neq None$}
   %       \State infixe(cour.filsGauche)
   %       \State traiter \emph{cour}
   %       \State infixe(cour.filsDroit)
@@ -584,7 +603,7 @@
  \begin{procedure}[H]
   \caption{postfixe(Noeud cour)}
   \label{alg:postfixe}
-  \If{$cour \neq null$} {
+  \If{$cour \neq None$} {
     postfixe(cour.filsGauche)\;
     postfixe(cour.filsDroit)\;
     traiter \emph{cour}\;
@@ -592,7 +611,7 @@
 \end{procedure}
  % \begin{algorithmic}[1]
  %    \Procedure{postfixe}{Noeud cour}
- %      \If{$cour \neq null$}
+ %      \If{$cour \neq None$}
  %        \State postfixe(cour.filsGauche)
  %        \State postfixe(cour.filsDroit)
  %        \State traiter \emph{cour}
@@ -659,8 +678,9 @@
 \end{frame}
 
 \begin{frame}
+
   \frametitle{Demo}
-  \href{https://moodle.ensta-bretagne.fr/mod/resource/view.php?id=14500}{\includegraphics[height=5cm]{arbre_ins}}
+  \href{https://moodle.ensta-bretagne.fr/mod/resource/view.php?id=14500}{\includegraphics[height=5cm]{images/arbre_ins.png}}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -690,7 +710,7 @@
 \begin{procedure}[H]
   \caption{insert(noeud val,noeud pere)}
   $n \gets pere$\;
-  \While{$n \neq null$} {
+  \While{$n \neq None$} {
     $pere \gets n$\;
     \eIf{$val < n$} {
       $n \gets n.filsGauche$\;
@@ -698,26 +718,26 @@
       $n \gets n.filsDroit$\;
     }
   }
-  \tcp{ maintenant le fils de \emph{pere} est null}
+  \tcp{ maintenant le fils de \emph{pere} est None}
 \end{procedure}
   % \begin{algorithmic}[1]
   %   \Procedure{insert}{noeud val,noeud pere}
   %     \State $n \gets pere$
-  %     \While{$n \neq null$}
+  %     \While{$n \neq None$}
   %       \State $pere \gets n$
   %       \If{$val < n$}
   %         \State $n \gets n.filsGauche$
   %       \Else
   %         \State $n \gets n.filsDroit$
   %       \EndIf
-  %     \EndWhile \Comment maintenant le fils de \emph{pere} est null
+  %     \EndWhile \Comment maintenant le fils de \emph{pere} est None
   %   \EndProcedure
   % \end{algorithmic}
   }
   \only<3>{
 \begin{procedure}[H]
   \caption{insert(noeud val,noeud pere)}
-  \tcp{ \ldots{} maintenant le fils de \emph{pere} est null}
+  \tcp{ \ldots{} maintenant le fils de \emph{pere} est None}
   \eIf{$val < pere$} {
     $pere.filsGauche \gets val$\;
   } {
@@ -726,7 +746,7 @@
 \end{procedure}
   % \begin{algorithmic}[1]
   %   \Procedure{insert}{noeud val,noeud pere}
-  %     \State \ldots{}  \Comment maintenant le fils de \emph{pere} est null
+  %     \State \ldots{}  \Comment maintenant le fils de \emph{pere} est None
   %     \If{$val < pere$}
   %       \State $pere.filsGauche \gets val$
   %     \Else
@@ -809,11 +829,11 @@
     \item Sert à analyser la phrase/le programme
     \end{itemize}
 
-    Exemple~: $2*3+4$
+    Exemple~: $2+3*4-5$
   }
   \only<2>{
     \begin{center}
-      \includegraphics[height=5cm]{arbre_synt}
+      \includegraphics[height=5cm]{images/arbre_synt}
     \end{center}
   }
 \end{frame}
@@ -834,7 +854,7 @@
 
   \only<2>{
     \begin{center}
-      \includegraphics[height=5cm]{arborescence_fic}
+      \includegraphics[height=5cm]{images/arborescence-dossiers}
     \end{center}
   }
 \end{frame}
@@ -857,10 +877,10 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Exemple}
+  \frametitle{Exemple : arbre déséquilibré}
 
     \begin{center}
-      \includegraphics[height=5cm]{arbre_desequilibre}
+      \includegraphics[height=5cm]{images/arbre_desequilibre}
     \end{center}
 \end{frame}
 
@@ -869,22 +889,22 @@
 
   \only<1>{
     \begin{center}
-      \includegraphics[height=5cm]{equilibrage1}
+      \includegraphics[height=5cm]{images/equilibrage1}
     \end{center}
   }
   \only<2>{
     \begin{center}
-      \includegraphics[height=5cm]{equilibrage2}
+      \includegraphics[height=5cm]{images/equilibrage2}
     \end{center}
   }
   \only<3>{
     \begin{center}
-      \includegraphics[height=5cm]{equilibrage3}
+      \includegraphics[height=5cm]{images/equilibrage3}
     \end{center}
   }
   \only<4>{
     \begin{center}
-      \includegraphics[height=5cm]{equilibrage4}
+      \includegraphics[height=5cm]{images/equilibrage4}
     \end{center}
   }
 
