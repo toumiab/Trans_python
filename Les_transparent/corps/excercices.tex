@@ -1,0 +1,46 @@
+% excercice Q/R pour le cours : cours 1
+%
+\subsection{Excercices}
+	\begin{frame}[fragile]
+  \frametitle{Excercices}
+	Considérant le script suivant :
+	\begin{exemple}[cartons :  \textcolor{green}{vert} = Vrai / \textcolor{red}{rouge} = Faux]
+	
+\footnotesize{
+\begin{semiverbatim}
+\only<1,2>{
+>>> a = 12.5
+>>> b = a
+>>> a = a + 0.5 
+>>> a
+\textcolor{blue}{13 ?}\pause
+>>> b
+\textcolor{blue}{12.5 ?}
+>>>
+}\only<3>{
+>>> a = "bonjour"
+>>> b = a
+>>> a + = " tout le monde"
+>>> print(b) 
+\textcolor{blue}{"bonjour tout le monde" ?}
+>>>}\only<4>{
+>>> a = "bonjour"
+>>> a[0:-1] \textcolor{blue}{\# ==>"b" ?} \pause
+>>>}\only<5>{
+>>> a = "bonjour"
+>>> a[0] = "B"
+>>> a \textcolor{blue}{\# ==>"Bonjour" ?} 
+>>>}\only<6>{
+>>> a, b = [1, 2], ['a']
+>>> c = a + b
+>>> b.append('b')
+>>> c \textcolor{blue}{\# ==> [1, 2, 'a', 'b'] ?}
+}\only<7>{
+>>> a, b = [[1], 2], ['a']
+>>> c = a + b
+>>> a[0].append('b')
+>>> c \textcolor{blue}{\# ==> [[1,'b'], 2, 'a'] ?}
+}
+\end{semiverbatim}}	
+\end{exemple}
+\end{frame}

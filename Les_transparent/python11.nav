@@ -1,0 +1,118 @@
+\beamer@endinputifotherversion {3.12pt}
+\headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
+\headcommand {\beamer@framepages {1}{1}}
+\headcommand {\sectionentry {1}{Diff\'erents arbres}{2}{Diff\'erents arbres}{0}}
+\headcommand {\beamer@sectionpages {1}{1}}
+\headcommand {\beamer@subsectionpages {1}{1}}
+\headcommand {\slideentry {1}{0}{2}{2/2}{}{0}}
+\headcommand {\beamer@framepages {2}{2}}
+\headcommand {\beamer@subsectionentry {0}{1}{1}{3}{D\'efinitions}}\headcommand {\beamer@subsectionpages {2}{2}}
+\headcommand {\slideentry {1}{1}{1}{3/3}{D\'efinitions}{0}}
+\headcommand {\beamer@framepages {3}{3}}
+\headcommand {\slideentry {1}{1}{2}{4/10}{D\'efinitions}{0}}
+\headcommand {\beamer@framepages {4}{10}}
+\headcommand {\slideentry {1}{1}{3}{11/21}{D\'efinitions}{0}}
+\headcommand {\beamer@framepages {11}{21}}
+\headcommand {\slideentry {1}{1}{4}{22/25}{D\'efinitions}{0}}
+\headcommand {\beamer@framepages {22}{25}}
+\headcommand {\beamer@subsectionentry {0}{1}{2}{26}{Arbres binaires}}\headcommand {\beamer@subsectionpages {3}{25}}
+\headcommand {\slideentry {1}{2}{1}{26/26}{Arbres binaires}{0}}
+\headcommand {\beamer@framepages {26}{26}}
+\headcommand {\slideentry {1}{2}{2}{27/28}{Arbres binaires}{0}}
+\headcommand {\beamer@framepages {27}{28}}
+\headcommand {\slideentry {1}{2}{3}{29/33}{Arbres binaires}{0}}
+\headcommand {\beamer@framepages {29}{33}}
+\headcommand {\slideentry {1}{2}{4}{34/39}{Arbres binaires}{0}}
+\headcommand {\beamer@framepages {34}{39}}
+\headcommand {\slideentry {1}{2}{5}{40/40}{Arbres binaires}{0}}
+\headcommand {\beamer@framepages {40}{40}}
+\headcommand {\slideentry {1}{2}{6}{41/44}{Arbres binaires}{0}}
+\headcommand {\beamer@framepages {41}{44}}
+\headcommand {\beamer@subsectionentry {0}{1}{3}{45}{Arbres g\'en\'eraux}}\headcommand {\beamer@subsectionpages {26}{44}}
+\headcommand {\slideentry {1}{3}{1}{45/45}{Arbres g\'en\'eraux}{0}}
+\headcommand {\beamer@framepages {45}{45}}
+\headcommand {\slideentry {1}{3}{2}{46/46}{Arbres g\'en\'eraux}{0}}
+\headcommand {\beamer@framepages {46}{46}}
+\headcommand {\slideentry {1}{3}{3}{47/50}{Arbres g\'en\'eraux}{0}}
+\headcommand {\beamer@framepages {47}{50}}
+\headcommand {\slideentry {1}{3}{4}{51/51}{Arbres g\'en\'eraux}{0}}
+\headcommand {\beamer@framepages {51}{51}}
+\headcommand {\sectionentry {2}{Arbres binaires de recherche}{52}{Arbres binaires de recherche}{0}}
+\headcommand {\beamer@sectionpages {2}{51}}
+\headcommand {\beamer@subsectionpages {45}{51}}
+\headcommand {\slideentry {2}{0}{5}{52/52}{}{0}}
+\headcommand {\beamer@framepages {52}{52}}
+\headcommand {\beamer@subsectionentry {0}{2}{1}{53}{D\'efinition}}\headcommand {\beamer@subsectionpages {52}{52}}
+\headcommand {\slideentry {2}{1}{1}{53/53}{D\'efinition}{0}}
+\headcommand {\beamer@framepages {53}{53}}
+\headcommand {\slideentry {2}{1}{2}{54/54}{D\'efinition}{0}}
+\headcommand {\beamer@framepages {54}{54}}
+\headcommand {\beamer@subsectionentry {0}{2}{2}{55}{Recherche}}\headcommand {\beamer@subsectionpages {53}{54}}
+\headcommand {\slideentry {2}{2}{1}{55/55}{Recherche}{0}}
+\headcommand {\beamer@framepages {55}{55}}
+\headcommand {\slideentry {2}{2}{2}{56/60}{Recherche}{0}}
+\headcommand {\beamer@framepages {56}{60}}
+\headcommand {\slideentry {2}{2}{3}{61/64}{Recherche}{0}}
+\headcommand {\beamer@framepages {61}{64}}
+\headcommand {\slideentry {2}{2}{4}{65/70}{Recherche}{0}}
+\headcommand {\beamer@framepages {65}{70}}
+\headcommand {\slideentry {2}{2}{5}{71/71}{Recherche}{0}}
+\headcommand {\beamer@framepages {71}{71}}
+\headcommand {\slideentry {2}{2}{6}{72/72}{Recherche}{0}}
+\headcommand {\beamer@framepages {72}{72}}
+\headcommand {\beamer@subsectionentry {0}{2}{3}{73}{Parcours exhaustif}}\headcommand {\beamer@subsectionpages {55}{72}}
+\headcommand {\slideentry {2}{3}{1}{73/73}{Parcours exhaustif}{0}}
+\headcommand {\beamer@framepages {73}{73}}
+\headcommand {\slideentry {2}{3}{2}{74/80}{Parcours exhaustif}{0}}
+\headcommand {\beamer@framepages {74}{80}}
+\headcommand {\slideentry {2}{3}{3}{81/88}{Parcours exhaustif}{0}}
+\headcommand {\beamer@framepages {81}{88}}
+\headcommand {\slideentry {2}{3}{4}{89/91}{Parcours exhaustif}{0}}
+\headcommand {\beamer@framepages {89}{91}}
+\headcommand {\slideentry {2}{3}{5}{92/99}{Parcours exhaustif}{0}}
+\headcommand {\beamer@framepages {92}{99}}
+\headcommand {\beamer@subsectionentry {0}{2}{4}{100}{Insertion}}\headcommand {\beamer@subsectionpages {73}{99}}
+\headcommand {\slideentry {2}{4}{1}{100/100}{Insertion}{0}}
+\headcommand {\beamer@framepages {100}{100}}
+\headcommand {\slideentry {2}{4}{2}{101/101}{Insertion}{0}}
+\headcommand {\beamer@framepages {101}{101}}
+\headcommand {\slideentry {2}{4}{3}{102/102}{Insertion}{0}}
+\headcommand {\beamer@framepages {102}{102}}
+\headcommand {\slideentry {2}{4}{4}{103/105}{Insertion}{0}}
+\headcommand {\beamer@framepages {103}{105}}
+\headcommand {\beamer@subsectionentry {0}{2}{5}{106}{Suppression}}\headcommand {\beamer@subsectionpages {100}{105}}
+\headcommand {\slideentry {2}{5}{1}{106/106}{Suppression}{0}}
+\headcommand {\beamer@framepages {106}{106}}
+\headcommand {\slideentry {2}{5}{2}{107/107}{Suppression}{0}}
+\headcommand {\beamer@framepages {107}{107}}
+\headcommand {\slideentry {2}{5}{3}{108/113}{Suppression}{0}}
+\headcommand {\beamer@framepages {108}{113}}
+\headcommand {\sectionentry {3}{Autres arbres}{114}{Autres arbres}{0}}
+\headcommand {\beamer@sectionpages {52}{113}}
+\headcommand {\beamer@subsectionpages {106}{113}}
+\headcommand {\slideentry {3}{0}{4}{114/114}{}{0}}
+\headcommand {\beamer@framepages {114}{114}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{115}{Arbres syntaxiques}}\headcommand {\beamer@subsectionpages {114}{114}}
+\headcommand {\slideentry {3}{1}{1}{115/115}{Arbres syntaxiques}{0}}
+\headcommand {\beamer@framepages {115}{115}}
+\headcommand {\slideentry {3}{1}{2}{116/117}{Arbres syntaxiques}{0}}
+\headcommand {\beamer@framepages {116}{117}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{118}{Syst\`eme de fichiers}}\headcommand {\beamer@subsectionpages {115}{117}}
+\headcommand {\slideentry {3}{2}{1}{118/118}{Syst\`eme de fichiers}{0}}
+\headcommand {\beamer@framepages {118}{118}}
+\headcommand {\slideentry {3}{2}{2}{119/120}{Syst\`eme de fichiers}{0}}
+\headcommand {\beamer@framepages {119}{120}}
+\headcommand {\beamer@subsectionentry {0}{3}{3}{121}{Arbres \'equilibr\'es}}\headcommand {\beamer@subsectionpages {118}{120}}
+\headcommand {\slideentry {3}{3}{1}{121/121}{Arbres \'equilibr\'es}{0}}
+\headcommand {\beamer@framepages {121}{121}}
+\headcommand {\slideentry {3}{3}{2}{122/123}{Arbres \'equilibr\'es}{0}}
+\headcommand {\beamer@framepages {122}{123}}
+\headcommand {\slideentry {3}{3}{3}{124/124}{Arbres \'equilibr\'es}{0}}
+\headcommand {\beamer@framepages {124}{124}}
+\headcommand {\slideentry {3}{3}{4}{125/128}{Arbres \'equilibr\'es}{0}}
+\headcommand {\beamer@framepages {125}{128}}
+\headcommand {\beamer@partpages {1}{128}}
+\headcommand {\beamer@subsectionpages {121}{128}}
+\headcommand {\beamer@sectionpages {114}{128}}
+\headcommand {\beamer@documentpages {128}}
+\headcommand {\def \inserttotalframenumber {46}}

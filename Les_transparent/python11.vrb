@@ -1,0 +1,71 @@
+\frametitle{Algorithme}
+  \only<1>{
+\begin{algorithm2e}[H]
+  \caption{Insertion dans un arbre binaire de recherche}
+  \label{alg:insertABR}
+  \KwIn{noeud val}
+  \eIf{$arbre = \emptyset$} {
+    $racine \gets val$\;
+  } {
+    insert(val, racine) \tcp{insère val sous la racine}
+  }
+\end{algorithm2e}
+  % \begin{algorithmic}[1]
+  %   \Procedure{insert}{noeud val}
+  %     \If{$arbre = \emptyset$}
+  %       \State $racine \gets val$
+  %     \Else
+  %       \State insert(val, racine) \Comment insère val sous la racine
+  %     \EndIf
+  %   \EndProcedure
+  % \end{algorithmic}
+  }
+  \only<2>{
+\begin{procedure}[H]
+  \caption{insert(noeud val,noeud pere)}
+  $n \gets pere$\;
+  \While{$n \neq None$} {
+    $pere \gets n$\;
+    \eIf{$val < n$} {
+      $n \gets n.filsGauche$\;
+    } {
+      $n \gets n.filsDroit$\;
+    }
+  }
+  \tcp{ maintenant le fils de \emph{pere} est None}
+\end{procedure}
+  % \begin{algorithmic}[1]
+  %   \Procedure{insert}{noeud val,noeud pere}
+  %     \State $n \gets pere$
+  %     \While{$n \neq None$}
+  %       \State $pere \gets n$
+  %       \If{$val < n$}
+  %         \State $n \gets n.filsGauche$
+  %       \Else
+  %         \State $n \gets n.filsDroit$
+  %       \EndIf
+  %     \EndWhile \Comment maintenant le fils de \emph{pere} est None
+  %   \EndProcedure
+  % \end{algorithmic}
+  }
+  \only<3>{
+\begin{procedure}[H]
+  \caption{insert(noeud val,noeud pere)}
+  \tcp{ \ldots{} maintenant le fils de \emph{pere} est None}
+  \eIf{$val < pere$} {
+    $pere.filsGauche \gets val$\;
+  } {
+    $pere.filsDroit \gets val$\;
+  }
+\end{procedure}
+  % \begin{algorithmic}[1]
+  %   \Procedure{insert}{noeud val,noeud pere}
+  %     \State \ldots{}  \Comment maintenant le fils de \emph{pere} est None
+  %     \If{$val < pere$}
+  %       \State $pere.filsGauche \gets val$
+  %     \Else
+  %       \State $pere.filsDroit \gets val$
+  %     \EndIf
+  %   \EndProcedure
+  % \end{algorithmic}
+  }

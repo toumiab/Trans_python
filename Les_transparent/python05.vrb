@@ -1,0 +1,33 @@
+\frametitle{Fonctionnement :}
+  Appel :
+  \begin{semiverbatim}
+    fact(4, 1)
+  \end{semiverbatim}
+  Si le langage sait optimiser la récursivité terminale, pas d'empilement
+  d'appels $\Rightarrow$ Modification des valeurs dans la pile.
+  \vspace{2mm}
+
+  \begin{tabular}{ll}
+    \begin{minipage}{0.5\linewidth}
+    \begin{semiverbatim}
+      fact(\only<1>{4}\only<2>{3}\only<3>{2}\only<4>{1}\only<5->{0}, \only<1>{1}\only<2>{4}\only<3>{12}\only<4>{24}\only<5->{24});
+    \end{semiverbatim}
+  \end{minipage}&
+  \begin{minipage}{0.5\linewidth}
+    \begin{tabular}{l|r|}
+      \hline
+      acc & \only<1>{1}\only<2>{4}\only<3>{12}\only<4>{24}\only<5->{24}\\
+       \hline
+      n & \only<1>{4}\only<2>{3}\only<3>{2}\only<4>{1}\only<5->{0}\\
+      \hline
+      %0x1E3C85\\
+
+    \end{tabular}
+  \end{minipage}
+\end{tabular}
+
+\uncover<6>{
+  \begin{alertblock}{Remarque}
+    Python n'optimise pas la récursivité terminale
+  \end{alertblock}
+}

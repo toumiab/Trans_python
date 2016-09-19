@@ -1,18 +1,38 @@
-\frametitle{Variables en Python}
-
-  \begin{itemize}
-  \item Il n'est pas nécessaire de déclarer une variable avant de l'utiliser.
-\item La déclaration d'une variable et son initialisation se fait en même temps.
-\item Une variable peut changer de type au cours de l'exécution d'un programme.
-  \item Noms de variables sensibles à la casse
+\frametitle{Commentaires\chrono}
+  \begin{itemize}[<+->]
+  \item Commentaires : remarques en langage naturel
+  \item Ignorés par l'interpréteur
+  \item Deux types de commentaires :
   \end{itemize}
-  \begin{exemple}
-  \begin{lstlisting}[frame=none]
->>> a = 42
->>> b = 33.5
->>> B = "une chaîne de caractères"
->>> a= a + 1.5
->>> a
-43.5
-  \end{lstlisting}
-  \end{exemple}
+  \only<4>{
+    \begin{exemple}[Commentaire sur une ligne]
+      \begin{semiverbatim}
+
+        \textcolor[rgb]{1,0,0}{\# Une division réelle}
+
+        a = 12/5
+
+b = a // 3 \textcolor[rgb]{1,0,0}{\# division entière}
+
+      \end{semiverbatim}
+    \end{exemple}
+  }
+
+  \only<5>{
+    \begin{exemple}[Documentation automatique]
+      \begin{semiverbatim}
+\textcolor[rgb]{0,0,1}{def} somProd(var1, var2):
+
+\hspace{1cm}\textcolor[rgb]{1,0,0}{"""Fonction calculant somme et produit }
+
+\hspace{1cm}\textcolor[rgb]{1,0,0}{de var1 et var2 }
+
+\hspace{1cm}\textcolor[rgb]{1,0,0}{Retour :  }
+
+\hspace{1cm}\textcolor[rgb]{1,0,0}{un tuple (var1+var2, var1*var2)"""}
+
+\hspace{1cm}\textcolor[rgb]{0,0,1}{return} (var1+var2, var1*var2)
+
+\end{semiverbatim}
+    \end{exemple}
+  }

@@ -1,16 +1,17 @@
 \beamer@endinputifotherversion {3.12pt}
 \select@language {french}
-\beamer@sectionintoc {1}{D\'eroulement du cours}{2}{0}{1}
-\beamer@sectionintoc {2}{Introduction}{6}{0}{2}
-\beamer@subsectionintoc {2}{1}{Les langages}{7}{0}{2}
-\beamer@subsectionintoc {2}{2}{Langage Python}{24}{0}{2}
-\beamer@subsectionintoc {2}{3}{Impl\'ementations de Python}{45}{0}{2}
-\beamer@subsectionintoc {2}{4}{Installation et environnement de d\'eveloppement}{47}{0}{2}
-\beamer@sectionintoc {3}{Principes g\'en\'eraux}{58}{0}{3}
-\beamer@subsectionintoc {3}{1}{G\'en\'eralit\'es : variables et donn\'ees}{59}{0}{3}
-\beamer@subsectionintoc {3}{2}{Fonctions utiles }{68}{0}{3}
-\beamer@sectionintoc {4}{Typages des variables }{70}{0}{4}
-\beamer@subsectionintoc {4}{1}{Les types de base}{71}{0}{4}
-\beamer@subsectionintoc {4}{2}{Repr\'esentation des entiers : compl\'ement \`a 2}{82}{0}{4}
-\beamer@subsectionintoc {4}{3}{Repr\'esentation des r\'eels : norme IEEE754}{90}{0}{4}
-\beamer@subsectionintoc {4}{4}{Repr\'esentation des caract\`eres}{107}{0}{4}
+\beamer@sectionintoc {1}{Introduction}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{D\'eroulement de cours}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{Langage Python}{7}{0}{1}
+\beamer@sectionintoc {2}{Principes g\'en\'eraux}{38}{0}{2}
+\beamer@subsectionintoc {2}{1}{G\'en\'eralit\'es : variables et donn\'ees}{39}{0}{2}
+\beamer@subsectionintoc {2}{2}{Les types de base}{49}{0}{2}
+\beamer@subsectionintoc {2}{3}{Excercices}{52}{0}{2}
+\beamer@sectionintoc {3}{Les Types de Python}{60}{0}{3}
+\beamer@subsectionintoc {3}{1}{Rappel : types simples/composites}{61}{0}{3}
+\beamer@subsectionintoc {3}{2}{Transtypage et op\'erations}{145}{0}{3}
+\beamer@sectionintoc {4}{Instructions du langage Python - Rappel}{160}{0}{4}
+\beamer@subsectionintoc {4}{1}{Commentaires}{165}{0}{4}
+\beamer@subsectionintoc {4}{2}{Litt\'eraux (constantes)}{171}{0}{4}
+\beamer@subsectionintoc {4}{3}{Branchements conditionnels et boucles}{180}{0}{4}
+\beamer@sectionintoc {5}{Horloge }{205}{0}{5}

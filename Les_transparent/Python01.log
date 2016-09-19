@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2015.6.22)  9 SEP 2015 23:53
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.8)  18 SEP 2016 20:23
 entering extended mode
 **Python01.tex
 (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.tex
@@ -562,41 +562,41 @@ Package: beamerbasenavigation 2010/05/01  (rcs-revision efa082c6111d)
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\beamer\base\beamerbasetheorems.sty"
 Package: beamerbasetheorems 2010/06/06  (rcs-revision 7e7cc5e53e9d)
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amsmath.sty"
-Package: amsmath 2000/07/18 v2.13 AMS math features
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
+Package: amsmath 2013/01/14 v2.14 AMS math features
 \@mathmargin=\skip51
 
 For additional information on amsmath, use the `?' option.
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amstext.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
 Package: amstext 2000/06/29 v2.01
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amsgen.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks29
 \ex@=\dimen171
 ))
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amsbsy.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
 Package: amsbsy 1999/11/29 v1.2d
 \pmbraise@=\dimen172
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amsopn.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count140
-LaTeX Info: Redefining \frac on input line 211.
+LaTeX Info: Redefining \frac on input line 210.
 \uproot@=\count141
 \leftroot@=\count142
-LaTeX Info: Redefining \overline on input line 307.
+LaTeX Info: Redefining \overline on input line 306.
 \classnum@=\count143
 \DOTSCASE@=\count144
-LaTeX Info: Redefining \ldots on input line 379.
-LaTeX Info: Redefining \dots on input line 382.
-LaTeX Info: Redefining \cdots on input line 467.
+LaTeX Info: Redefining \ldots on input line 378.
+LaTeX Info: Redefining \dots on input line 381.
+LaTeX Info: Redefining \cdots on input line 466.
 \Mathstrutbox@=\box51
 \strutbox@=\box52
 \big@size=\dimen173
-LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 \macc@depth=\count145
 \c@MaxMatrixCols=\count146
 \dotsspace@=\muskip11
@@ -617,11 +617,11 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 \multlinegap=\skip52
 \multlinetaggap=\skip53
 \mathdisplay@stack=\toks33
-LaTeX Info: Redefining \[ on input line 2666.
-LaTeX Info: Redefining \] on input line 2667.
+LaTeX Info: Redefining \[ on input line 2665.
+LaTeX Info: Redefining \] on input line 2666.
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\classes\amsthm.sty"
-Package: amsthm 2004/08/06 v2.20
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amscls\amsthm.sty"
+Package: amsthm 2015/03/04 v2.20.2
 \thm@style=\toks34
 \thm@bodyfont=\toks35
 \thm@headfont=\toks36
@@ -856,37 +856,51 @@ Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
 \minrowclearance=\skip59
 )
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\babel.sty"
-Package: babel 2008/07/08 v3.8m The Babel package
+Package: babel 2015/08/03 3.9m The Babel package
 
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\switch.def"
+File: switch.def 2015/08/03 3.9m Babel switching mechanism
+)
 *************************************
 * Local config file bblopts.cfg used
 *
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\bblopts.cfg"
 File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\frenchb.ldf"
-Language: frenchb 2009/03/16 v2.3d French support from the babel system
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\babel-french\frenchb.ldf"
+Language: frenchb 2015/08/19 v3.1h French support from the babel system
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\babel.def"
-File: babel.def 2008/07/08 v3.8m Babel common definitions
-LaTeX Info: Redefining \textlatin on input line 82.
+File: babel.def 2015/08/03 3.9m Babel common definitions
+
+(C:\ProgramData\MiKTeX\2.9\tex\generic\config\language.def)
 \babel@savecnt=\count163
 \U@D=\dimen203
+LaTeX Info: Redefining \textlatin on input line 1431.
 )
-Package babel Info: Making : an active character on input line 120.
-Package babel Info: Making ; an active character on input line 121.
-Package babel Info: Making ! an active character on input line 122.
-Package babel Info: Making ? an active character on input line 123.
+\l@acadian = a dialect from \language\l@french 
+\l@canadien = a dialect from \language\l@french 
+\FBcolonskip=\skip60
+\FBthinskip=\skip61
+\FB@interchartokenstateORI=\count164
+Package babel Info: Making : an active character on input line 353.
+Package babel Info: Making ; an active character on input line 354.
+Package babel Info: Making ! an active character on input line 355.
+Package babel Info: Making ? an active character on input line 356.
+\FBguillskip=\skip62
+\FBguill@level=\count165
 \FB@Mht=\dimen204
-\std@mcc=\count164
-\dec@mcc=\count165
+\std@mcc=\count166
+\dec@mcc=\count167
+\listindentFB=\skip63
+\labelwidthFB=\skip64
+\leftmarginFB=\skip65
 \parindentFFN=\dimen205
-
-*************************************
-* Local config file frenchb.cfg used
-*
-("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\frenchb.cfg")))
+))
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\carlisle\scalefnt.sty")
+Package frenchb.ldf Info: No list customisation for the beamer class,
+(frenchb.ldf)             reported on input line 31.
+
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tipa\tipa.sty"
 Package: tipa 2002/08/08 TIPA version 1.1
 
@@ -900,29 +914,44 @@ File: t3enc.def 2001/12/31 T3 encoding
 File: ot1enc.def 2005/09/27 v1.99g Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding OT1 on input line 43.
 )))
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tdclock\tdclock.sty"
+Package: tdclock 2014/02/21 v2.5 clock accessory
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\xkeyval\xkeyval.sty"
+Package: xkeyval 2008/08/13 v2.6a package option processing (HA)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\xkeyval\xkeyval.tex"
+\XKV@toks=\toks46
+\XKV@tempa@toks=\toks47
+\XKV@depth=\count168
+File: xkeyval.tex 2008/08/13 v2.6a key=value parser (HA)
+))
+\clock@fontsize=\dimen206
+\clock@height=\dimen207
+\sizebox=\box78
+)
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\multicol.sty"
 Package: multicol 2011/06/27 v1.7a multicolumn formatting (FMi)
-\c@tracingmulticols=\count166
-\mult@box=\box78
-\multicol@leftmargin=\dimen206
-\c@unbalance=\count167
-\c@collectmore=\count168
-\doublecol@number=\count169
-\multicoltolerance=\count170
-\multicolpretolerance=\count171
-\full@width=\dimen207
-\page@free=\dimen208
-\premulticols=\dimen209
-\postmulticols=\dimen210
-\multicolsep=\skip60
-\multicolbaselineskip=\skip61
-\partial@page=\box79
-\last@line=\box80
-\mult@rightbox=\box81
-\mult@grightbox=\box82
-\mult@gfirstbox=\box83
-\mult@firstbox=\box84
-\@tempa=\box85
+\c@tracingmulticols=\count169
+\mult@box=\box79
+\multicol@leftmargin=\dimen208
+\c@unbalance=\count170
+\c@collectmore=\count171
+\doublecol@number=\count172
+\multicoltolerance=\count173
+\multicolpretolerance=\count174
+\full@width=\dimen209
+\page@free=\dimen210
+\premulticols=\dimen211
+\postmulticols=\dimen212
+\multicolsep=\skip66
+\multicolbaselineskip=\skip67
+\partial@page=\box80
+\last@line=\box81
+\mult@rightbox=\box82
+\mult@grightbox=\box83
+\mult@gfirstbox=\box84
+\mult@firstbox=\box85
 \@tempa=\box86
 \@tempa=\box87
 \@tempa=\box88
@@ -939,37 +968,38 @@ Package: multicol 2011/06/27 v1.7a multicolumn formatting (FMi)
 \@tempa=\box99
 \@tempa=\box100
 \@tempa=\box101
-\c@columnbadness=\count172
-\c@finalcolumnbadness=\count173
-\last@try=\dimen211
-\multicolovershoot=\dimen212
-\multicolundershoot=\dimen213
-\mult@nat@firstbox=\box102
-\colbreak@box=\box103
-\multicol@sort@counter=\count174
+\@tempa=\box102
+\c@columnbadness=\count175
+\c@finalcolumnbadness=\count176
+\last@try=\dimen213
+\multicolovershoot=\dimen214
+\multicolundershoot=\dimen215
+\mult@nat@firstbox=\box103
+\colbreak@box=\box104
+\multicol@sort@counter=\count177
 )
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\dstroke\dsfont.sty"
 Package: dsfont 1995/08/01 v0.1 Double stroke roman fonts
 )
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\listings.sty"
-\lst@mode=\count175
-\lst@gtempboxa=\box104
-\lst@token=\toks46
-\lst@length=\count176
-\lst@currlwidth=\dimen214
-\lst@column=\count177
-\lst@pos=\count178
-\lst@lostspace=\dimen215
-\lst@width=\dimen216
-\lst@newlines=\count179
-\lst@lineno=\count180
-\lst@maxwidth=\dimen217
+\lst@mode=\count178
+\lst@gtempboxa=\box105
+\lst@token=\toks48
+\lst@length=\count179
+\lst@currlwidth=\dimen216
+\lst@column=\count180
+\lst@pos=\count181
+\lst@lostspace=\dimen217
+\lst@width=\dimen218
+\lst@newlines=\count182
+\lst@lineno=\count183
+\lst@maxwidth=\dimen219
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
 File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
-\c@lstnumber=\count181
-\lst@skipnumbers=\count182
-\lst@framebox=\box105
+\c@lstnumber=\count184
+\lst@skipnumbers=\count185
+\lst@framebox=\box106
 )
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\listings.cfg"
 File: listings.cfg 2007/02/22 1.4 listings configuration
@@ -981,7 +1011,7 @@ File: lstlang1.sty 2004/09/05 1.3 listings language file
 )
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\algorithm2e\algorithm2e.sty"
 Package: algorithm2e 2008/00/00 v3.10 algorithms environments
-\c@AlgoLine=\count183
+\c@AlgoLine=\count186
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ifthen.sty"
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
@@ -999,54 +1029,57 @@ Package `algorithm2e' Release 4.01 -- december 14 2009 --
 subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
 - Author: Christophe Fiorio (fiorio@lirmm.fr)
 ********************************************************
-\skiptotal=\skip62
-\skiplinenumber=\skip63
-\skiprule=\skip64
-\skiphlne=\skip65
-\skiptext=\skip66
-\skiplength=\skip67
-\algomargin=\skip68
-\skipalgocfslide=\skip69
-\algowidth=\dimen218
-\inoutsize=\dimen219
-\inoutline=\dimen220
-\interspacetitleruled=\dimen221
-\interspacealgoruled=\dimen222
-\interspacetitleboxruled=\dimen223
-\algocf@inoutbox=\box106
-\algocf@inputbox=\box107
-\AlCapSkip=\skip70
-\AlCapHSkip=\skip71
-\algocf@nlbox=\box108
-\algocf@hangingbox=\box109
-\algocf@capbox=\box110
-\algoheightruledefault=\skip72
-\algoheightrule=\skip73
-\algotitleheightruledefault=\skip74
-\algotitleheightrule=\skip75
-\c@algocfline=\count184
-\c@algocfproc=\count185
-\c@algocf=\count186
-\algocf@algoframe=\box111
-\algocf@algobox=\box112
+\skiptotal=\skip68
+\skiplinenumber=\skip69
+\skiprule=\skip70
+\skiphlne=\skip71
+\skiptext=\skip72
+\skiplength=\skip73
+\algomargin=\skip74
+\skipalgocfslide=\skip75
+\algowidth=\dimen220
+\inoutsize=\dimen221
+\inoutline=\dimen222
+\interspacetitleruled=\dimen223
+\interspacealgoruled=\dimen224
+\interspacetitleboxruled=\dimen225
+\algocf@inoutbox=\box107
+\algocf@inputbox=\box108
+\AlCapSkip=\skip76
+\AlCapHSkip=\skip77
+\algocf@nlbox=\box109
+\algocf@hangingbox=\box110
+\algocf@capbox=\box111
+\algoheightruledefault=\skip78
+\algoheightrule=\skip79
+\algotitleheightruledefault=\skip80
+\algotitleheightrule=\skip81
+\c@algocfline=\count187
+\c@algocfproc=\count188
+\c@algocf=\count189
+\algocf@algoframe=\box112
+\algocf@algobox=\box113
 )
-\c@defi=\count187
-\c@remarque=\count188
-\c@remarques=\count189
-\c@exemple=\count190
-\c@exemples=\count191
+\c@defi=\count190
+\c@remarque=\count191
+\c@remarques=\count192
+\c@exemple=\count193
+\c@exemples=\count194
 
 
-Package amsthm Warning: Unknown theoremstyle `theorem' on input line 113.
+Package amsthm Warning: Unknown theoremstyle `theorem' on input line 122.
 
-\c@theoreme=\count192
-\c@propriete=\count193
-\c@lemme=\count194
-\c@corollaire=\count195
+\c@theoreme=\count195
+\c@propriete=\count196
+\c@lemme=\count197
+\c@corollaire=\count198
+) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\misc\etex.sty"
+Package: etex 2015/09/02 v2.4 eTeX basic definition package (PEB,DPC)
+\et@xins=\count199
 )
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 6.
+(hyperref)                removing `\\' on input line 11.
 
 (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\styles/beamerthemeprogressbar.sty
 Package: beamerthemeprogressbar 2007/06/21
@@ -1054,7 +1087,7 @@ Package: beamerthemeprogressbar 2007/06/21
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\bibunits\bibunits.sty"
 Package: bibunits 2004/05/12 v2.4 Multiple bibliographies in one document.
 \@bibunitaux=\write5
-\@bibunitauxcnt=\count196
+\@bibunitauxcnt=\count200
 )
 (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\styles/beamercolorthemeprogressbar.sty
 Package: beamercolorthemeprogressbar 2007/06/21
@@ -1064,51 +1097,51 @@ Package: beamercolorthemerose 2010/06/17  (rcs-revision d02a7cf4d8ae)
 ))
 (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\styles/beamerinnerthemeprogressbar.sty
 Package: beamerinnerthemeprogressbar 2007/06/21
-\progressbar@blockbox=\box113
+\progressbar@blockbox=\box114
 )
 (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\styles/beamerfontthemeprogressbar.sty
 Package: beamerfontthemeprogressbar 2007/06/21
 )
 (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\styles/beamerouterthemeprogressbar.sty
 Package: beamerouterthemeprogressbar 2007/06/21
-\progressbar@currentbarlength=\dimen224
-\progressbar@framenumberrectangle=\dimen225
-\progressbar@titlerectangle=\dimen226
-\progressbar@leftbar=\dimen227
-\progressbar@tmpresult=\dimen228
-\progressbar@barlength=\dimen229
-\progressbar@stepbar=\dimen230
-\progressbar@numer=\count197
-\progressbar@denom=\count198
-\progressbar@framenumberbox=\box114
-\progressbar@firstpb=\count199
-\progressbar@sectionboxwidth=\skip76
-\progressbar@sectionboxheight=\skip77
-\progressbar@sectionbox=\box115
-\progressbar@sectionboxbox=\box116
+\progressbar@currentbarlength=\dimen226
+\progressbar@framenumberrectangle=\dimen227
+\progressbar@titlerectangle=\dimen228
+\progressbar@leftbar=\dimen229
+\progressbar@tmpresult=\dimen230
+\progressbar@barlength=\dimen231
+\progressbar@stepbar=\dimen232
+\progressbar@numer=\count201
+\progressbar@denom=\count202
+\progressbar@framenumberbox=\box115
+\progressbar@firstpb=\count203
+\progressbar@sectionboxwidth=\skip82
+\progressbar@sectionboxheight=\skip83
+\progressbar@sectionbox=\box116
+\progressbar@sectionboxbox=\box117
 ))
 (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 26.
-LaTeX Font Info:    Try loading font information for T3+cmr on input line 26.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 32.
+LaTeX Font Info:    Try loading font information for T3+cmr on input line 32.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tipa\t3cmr.fd"
 File: t3cmr.fd 2001/12/31 TIPA font definitions
 )
-LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    ... okay on input line 32.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1146,77 +1179,78 @@ LaTeX Font Info:    ... okay on input line 26.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count200
-\scratchdimen=\dimen231
-\scratchbox=\box117
-\nofMPsegments=\count201
-\nofMParguments=\count202
-\everyMPshowfont=\toks47
-\MPscratchCnt=\count203
-\MPscratchDim=\dimen232
-\MPnumerator=\count204
-\makeMPintoPDFobject=\count205
-\everyMPtoPDFconversion=\toks48
+\scratchcounter=\count204
+\scratchdimen=\dimen233
+\scratchbox=\box118
+\nofMPsegments=\count205
+\nofMParguments=\count206
+\everyMPshowfont=\toks49
+\MPscratchCnt=\count207
+Normal \dimen register pool exhausted, switching to extended pool.
+\MPscratchDim=\dimen256
+\MPnumerator=\count208
+\makeMPintoPDFobject=\count209
+\everyMPtoPDFconversion=\toks50
 ) ABD: EveryShipout initializing macros
-\AtBeginShipoutBox=\box118
-Package hyperref Info: Link coloring OFF on input line 26.
+\AtBeginShipoutBox=\box119
+Package hyperref Info: Link coloring OFF on input line 32.
  ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count206
+\c@section@level=\count210
 )
-LaTeX Info: Redefining \ref on input line 26.
-LaTeX Info: Redefining \pageref on input line 26.
-LaTeX Info: Redefining \nameref on input line 26.
+LaTeX Info: Redefining \ref on input line 32.
+LaTeX Info: Redefining \pageref on input line 32.
+LaTeX Info: Redefining \nameref on input line 32.
 
 (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.out)
 (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.out)
 \@outlinefile=\write6
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 26.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 32.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 26.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 32.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 26.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 26.
+(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 32.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 32.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 26.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 32.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 26.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 26.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 32.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 32.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 26.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 32.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 26.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 26.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 32.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 32.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 26.
+(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 32.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 26.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 26.
+(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 32.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 32.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 26.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 32.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 26.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 32.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 26.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 32.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 26.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 32.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmr/bx/n on input line 26.
+(Font)                  OT1/cmss/bx/n --> OT1/cmr/bx/n on input line 32.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/bx/n on input line 26.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/bx/n on input line 32.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 26.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 32.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 26.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 32.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/bx/n on input line 26.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/bx/n on input line 32.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\beamer\base\translator\dicts\translator-basic-dictionary\translator-basic-
 dictionary-English.dict"
@@ -1242,49 +1276,64 @@ Dictionary: translator-numbers-dictionary, Language: English
 rem-dictionary-English.dict"
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \degres on input line 26.
-LaTeX Info: Redefining \dots on input line 26.
-LaTeX Info: Redefining \up on input line 26.
-\c@lstlisting=\count207
+LaTeX Info: Redefining \degres on input line 32.
+LaTeX Info: Redefining \dots on input line 32.
+LaTeX Info: Redefining \up on input line 32.
+\c@lstlisting=\count211
 
 ..................................................................
 You are using the progressbar beamer theme (Sylvain B.)
 Version: 0.42 September 2010.
 ..................................................................
 (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.nav)
-\progressbar@framenumberboxwidth=\dimen233
-LaTeX Font Info:    Try loading font information for U+msa on input line 26.
+\progressbar@framenumberboxwidth=\dimen257
+LaTeX Font Info:    Try loading font information for U+msa on input line 32.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 26.
+LaTeX Font Info:    Try loading font information for U+msb on input line 32.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
-(Font)              size <5> substituted on input line 28.
+(Font)              size <5> substituted on input line 34.
 
 [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/pyt
-hon-HE.png>] (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\corps/deroulement.tex
-(C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.toc) [2
+hon-HE.png>] (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\corps/intro.tex
+(C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.toc)
+Overfull \vbox (9.13676pt too high) detected at line 1
+ []
 
- <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/python-HE.png>] [3
+[2
 
-] [4
+ <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/python-HE.png>]
+(C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.toc)
+Overfull \vbox (9.13676pt too high) detected at line 2
+ []
+
+[3
+
+]
+LaTeX Font Info:    Try loading font information for U+pzd on input line 22.
+ ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\upzd.fd"
+File: upzd.fd 2001/06/04 font definitions for U/pzd.
+) [4
 
 ] [5
 
-])
-(C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\corps/intro.tex
-(C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.toc) [6
+] [6
 
 ]
-(C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.toc) [7
+(C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.toc)
+Overfull \vbox (9.13676pt too high) detected at line 387
+ []
+
+[7
 
 ] [8
 
@@ -1300,8 +1349,7 @@ hon-HE.png>] (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\cor
 
 ] [14
 
-]
-[15
+] [15
 
 ] [16
 
@@ -1309,22 +1357,106 @@ hon-HE.png>] (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\cor
 
 ] [18
 
-] [19
+]
+<images/comparaisonLangages.png, id=748, 711.4078pt x 457.71pt>
+File: images/comparaisonLangages.png Graphic file (type png)
+ <use images/comparaisonLangages.png>
+Package pdftex.def Info: images/comparaisonLangages.png used on input line 432.
+(pdftex.def)             Requested size: 284.52756pt x 183.06679pt.
+ [19
 
-] [20
+ <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/comparaisonLangages.png>]
+Overfull \hbox (15.36543pt too wide) detected at line 474
+[]
+ []
 
-] [21
 
-] [22
+Underfull \hbox (badness 5985) in paragraph at lines 474--474
+[][]\OT1/cmss/bx/n/14.4 Execution d'un pro-gramme Py-thon
+ []
 
-] [23
+[20
+
+] <images/console.png, id=812, 517.935pt x 128.8815pt>
+File: images/console.png Graphic file (type png)
+ <use images/console.png>
+Package pdftex.def Info: images/console.png used on input line 474.
+(pdftex.def)             Requested size: 227.62204pt x 56.64116pt.
+
+Underfull \hbox (badness 5985) in paragraph at lines 474--474
+[][]\OT1/cmss/bx/n/14.4 Execution d'un pro-gramme Py-thon
+ []
+
+
+Overfull \vbox (6.7476pt too high) detected at line 474
+ []
+
+[21
+
+ <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/console.png>]
+<images/ipython.png, id=846, 442.65375pt x 187.902pt>
+File: images/ipython.png Graphic file (type png)
+ <use images/ipython.png>
+Package pdftex.def Info: images/ipython.png used on input line 474.
+(pdftex.def)             Requested size: 170.71652pt x 72.46721pt.
+
+Underfull \hbox (badness 5985) in paragraph at lines 474--474
+[][]\OT1/cmss/bx/n/14.4 Execution d'un pro-gramme Py-thon
+ []
+
+
+Overfull \vbox (24.32365pt too high) detected at line 474
+ []
+
+[22
+
+ <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/ipython.png>]
+<images/ipython1.png, id=878, 503.481pt x 224.63925pt>
+File: images/ipython1.png Graphic file (type png)
+ <use images/ipython1.png>
+Package pdftex.def Info: images/ipython1.png used on input line 474.
+(pdftex.def)             Requested size: 170.71652pt x 76.16724pt.
+
+Underfull \hbox (badness 5985) in paragraph at lines 474--474
+[][]\OT1/cmss/bx/n/14.4 Execution d'un pro-gramme Py-thon
+ []
+
+
+Overfull \vbox (28.02368pt too high) detected at line 474
+ []
+
+[23
+
+ <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/ipython1.png>]
+<images/bpython.png, id=910, 435.12563pt x 146.04562pt>
+File: images/bpython.png Graphic file (type png)
+ <use images/bpython.png>
+Package pdftex.def Info: images/bpython.png used on input line 474.
+(pdftex.def)             Requested size: 199.16928pt x 66.84975pt.
+
+Underfull \hbox (badness 5985) in paragraph at lines 474--474
+[][]\OT1/cmss/bx/n/14.4 Execution d'un pro-gramme Py-thon
+ []
+
+
+Overfull \vbox (16.95619pt too high) detected at line 474
+ []
+
+[24
+
+ <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/bpython.png>]
+Underfull \hbox (badness 5985) in paragraph at lines 506--506
+[][]\OT1/cmss/bx/n/14.4 Execution d'un pro-gramme Py-thon
+ []
+
+[25
 
 ]
-(C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.toc) [24
+Underfull \hbox (badness 5985) in paragraph at lines 506--506
+[][]\OT1/cmss/bx/n/14.4 Execution d'un pro-gramme Py-thon
+ []
 
-] [25
-
-] [26
+[26
 
 ] [27
 
@@ -1334,229 +1466,131 @@ hon-HE.png>] (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\cor
 
 ] [30
 
-]
-[31
-
-] [32
-
-] [33
-
-] <images/comparaisonLangages.png, id=423, 711.4078pt x 457.71pt>
-File: images/comparaisonLangages.png Graphic file (type png)
- <use images/comparaisonLangages.png>
-Package pdftex.def Info: images/comparaisonLangages.png used on input line 411.
-(pdftex.def)             Requested size: 284.52756pt x 183.06679pt.
-
-[34
-
- <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/comparaisonLangages.png>]
-<images/interpreter.png, id=431, 1068.24094pt x 374.14781pt>
-File: images/interpreter.png Graphic file (type png)
- <use images/interpreter.png>
-Package pdftex.def Info: images/interpreter.png used on input line 411.
-(pdftex.def)             Requested size: 284.52756pt x 99.65108pt.
- [35
-
- <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/interpreter.png>]
-Overfull \hbox (15.36543pt too wide) detected at line 452
-[]
- []
-
-[36
-
-] <images/console.png, id=448, 512.66531pt x 120.45pt>
-File: images/console.png Graphic file (type png)
- <use images/console.png>
-Package pdftex.def Info: images/console.png used on input line 452.
-(pdftex.def)             Requested size: 170.71652pt x 40.10884pt.
- [37
-
- <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/console.png>] <images/ipython.png, id=459, 517.9
-35pt x 218.31563pt>
-File: images/ipython.png Graphic file (type png)
-
-<use images/ipython.png>
-Package pdftex.def Info: images/ipython.png used on input line 452.
-(pdftex.def)             Requested size: 170.71652pt x 71.95776pt.
-
-Overfull \vbox (13.56007pt too high) detected at line 452
- []
-
-[38
-
- <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/ipython.png>]
-<images/ipython1.png, id=468, 931.22906pt x 229.60782pt>
-File: images/ipython1.png Graphic file (type png)
- <use images/ipython1.png>
-Package pdftex.def Info: images/ipython1.png used on input line 452.
-(pdftex.def)             Requested size: 170.71652pt x 42.09138pt.
- [39
-
- <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/ipython1.png>] <images/bpython.png, id=477, 435.
-12563pt x 146.04562pt>
-File: images/bpython.png Graphic file (type png)
-
-<use images/bpython.png>
-Package pdftex.def Info: images/bpython.png used on input line 452.
-(pdftex.def)             Requested size: 199.16928pt x 66.84975pt.
-
-Overfull \vbox (6.70206pt too high) detected at line 452
- []
-
-[40
-
- <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/bpython.png>] [41
+] [31
 
 ]
-<images/compil2.png, id=494, 664.73344pt x 91.84312pt>
-File: images/compil2.png Graphic file (type png)
- <use images/compil2.png>
-Package pdftex.def Info: images/compil2.png used on input line 479.
-(pdftex.def)             Requested size: 312.9803pt x 43.24333pt.
-
-Overfull \hbox (5.69043pt too wide) in paragraph at lines 479--479
-[][] 
+Underfull \hbox (badness 10000) in paragraph at lines 572--572
+[][]\OT1/cmss/bx/n/14.4 Environnement de developpement
  []
 
-[42
-
- <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/compil2.png>] [43
+[32
 
 ]
-<images/compil3.png, id=511, 664.73344pt x 91.84312pt>
-File: images/compil3.png Graphic file (type png)
- <use images/compil3.png>
-Package pdftex.def Info: images/compil3.png used on input line 479.
-(pdftex.def)             Requested size: 312.9803pt x 43.24333pt.
-
-Overfull \hbox (5.69043pt too wide) in paragraph at lines 479--479
-[][]  
+Underfull \hbox (badness 10000) in paragraph at lines 588--588
+[][]\OT1/cmss/bx/n/14.4 Python et le cal-cul scien-ti-fique
  []
 
-[44
+[33
 
- <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/compil3.png>]
-(C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.toc) [45
-
-] [46
-
-]
-(C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.toc) [47
-
-] [48
-
-] [49
-
-] [50
-
-] [51
-
-] [52
-
-] [53
-
-]
-[54
-
-] <./images/numpylogo.png, id=623, 50.1875pt x 50.1875pt>
+] <./images/numpylogo.png, id=1225, 50.1875pt x 50.1875pt>
 File: ./images/numpylogo.png Graphic file (type png)
  <use ./images/numpylogo.png>
-Package pdftex.def Info: ./images/numpylogo.png used on input line 605.
+Package pdftex.def Info: ./images/numpylogo.png used on input line 638.
 (pdftex.def)             Requested size: 42.67912pt x 42.68176pt.
 
-<./images/scipylogo.png, id=624, 64.24pt x 64.24pt>
+<./images/scipylogo.png, id=1226, 64.24pt x 64.24pt>
 File: ./images/scipylogo.png Graphic file (type png)
  <use ./images/scipylogo.png>
-Package pdftex.def Info: ./images/scipylogo.png used on input line 605.
+Package pdftex.def Info: ./images/scipylogo.png used on input line 638.
 (pdftex.def)             Requested size: 42.67912pt x 42.67984pt.
- [55
+ [34
 
  <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/numpylogo.png> <C:/Users/toumiab/Documents/GitHu
-b/Trans_python/Les_transparent/images/scipylogo.png>] <./images/errorbar_limits_01.png, id=635, 397.485pt x 325.215pt>
+b/Trans_python/Les_transparent/images/scipylogo.png>] <./images/errorbar_limits_01.png, id=1259, 397.485pt x 325.215pt>
 File: ./images/errorbar_limits_01.png Graphic file (type png)
 
 <use ./images/errorbar_limits_01.png>
-Package pdftex.def Info: ./images/errorbar_limits_01.png used on input line 636.
+Package pdftex.def Info: ./images/errorbar_limits_01.png used on input line 669.
 (pdftex.def)             Requested size: 85.35826pt x 69.8355pt.
- <./images/streamplot_demo_features_00.png, id=636, 397.485pt x 325.215pt>
+ <./images/streamplot_demo_features_00.png, id=1260, 397.485pt x 325.215pt>
 File: ./images/streamplot_demo_features_00.png Graphic file (type png)
 
 <use ./images/streamplot_demo_features_00.png>
-Package pdftex.def Info: ./images/streamplot_demo_features_00.png used on input line 636.
+Package pdftex.def Info: ./images/streamplot_demo_features_00.png used on input line 669.
 (pdftex.def)             Requested size: 99.58464pt x 81.47722pt.
- <./images/griddata_demo.png, id=637, 397.485pt x 325.215pt>
+ <./images/griddata_demo.png, id=1261, 397.485pt x 325.215pt>
 File: ./images/griddata_demo.png Graphic file (type png)
 
 <use ./images/griddata_demo.png>
-Package pdftex.def Info: ./images/griddata_demo.png used on input line 636.
+Package pdftex.def Info: ./images/griddata_demo.png used on input line 669.
 (pdftex.def)             Requested size: 85.35826pt x 69.8355pt.
- <./images/trisurf3d_demo.png, id=638, 397.485pt x 325.215pt>
+ <./images/trisurf3d_demo.png, id=1262, 397.485pt x 325.215pt>
 File: ./images/trisurf3d_demo.png Graphic file (type png)
 
 <use ./images/trisurf3d_demo.png>
-Package pdftex.def Info: ./images/trisurf3d_demo.png used on input line 636.
+Package pdftex.def Info: ./images/trisurf3d_demo.png used on input line 669.
 (pdftex.def)             Requested size: 85.35826pt x 69.8355pt.
 
-Overfull \vbox (2.53867pt too high) detected at line 636
+Overfull \vbox (2.53867pt too high) detected at line 669
  []
 
-[56
+[35
 
  <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/errorbar_limits_01.png> <C:/Users/toumiab/Docume
 nts/GitHub/Trans_python/Les_transparent/images/streamplot_demo_features_00.png> <C:/Users/toumiab/Documents/GitHub/Trans
 _python/Les_transparent/images/griddata_demo.png> <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images
 /trisurf3d_demo.png>]
-Overfull \hbox (31.33014pt too wide) in paragraph at lines 654--654
-\OT1/cmss/m/n/10 ([]\OT1/cmtt/m/n/10 http://www.riverbankcomputing.co.uk/software/pyqt/download\OT1/cmss/m/n/10 );  
+Overfull \vbox (3.92455pt too high) detected at line 690
  []
 
+[36
 
-Overfull \vbox (2.60231pt too high) detected at line 654
+]
+Overfull \vbox (3.92455pt too high) detected at line 690
  []
 
-[57
+[37
 
 ]) (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\corps/principes_gen.tex
-(C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.toc) [58
+(C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.toc)
+Overfull \vbox (9.13676pt too high) detected at line 1
+ []
 
-]
-(C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.toc) [59
+[38
 
-] [60
+] (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.toc)
+Overfull \vbox (9.13676pt too high) detected at line 3
+ []
 
-]
-<images/espacenom1.png, id=704, 428.35031pt x 194.97844pt>
+[39
+
+] [40
+
+] [41
+
+] [42
+
+] <images/espacenom1.png, id=1492, 428.35031pt x 194.97844pt>
 File: images/espacenom1.png Graphic file (type png)
  <use images/espacenom1.png>
-Package pdftex.def Info: images/espacenom1.png used on input line 34.
+Package pdftex.def Info: images/espacenom1.png used on input line 49.
 (pdftex.def)             Requested size: 284.5291pt x 113.81052pt.
- [61
+ [43
 
- <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/espacenom1.png>] <images/espacenom2.png, id=714,
- 427.5975pt x 191.9672pt>
+ <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/espacenom1.png>]
+<images/espacenom2.png, id=1525, 427.5975pt x 191.9672pt>
 File: images/espacenom2.png Graphic file (type png)
-
-<use images/espacenom2.png>
-Package pdftex.def Info: images/espacenom2.png used on input line 34.
+ <use images/espacenom2.png>
+Package pdftex.def Info: images/espacenom2.png used on input line 49.
 (pdftex.def)             Requested size: 284.52493pt x 113.81326pt.
- [62
+ [44
 
- <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/espacenom2.png>]
-<images/espacenom3.png, id=723, 428.35031pt x 193.47281pt>
+ <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/espacenom2.png>] <images/espacenom3.png, id=1557
+, 428.35031pt x 193.47281pt>
 File: images/espacenom3.png Graphic file (type png)
- <use images/espacenom3.png>
-Package pdftex.def Info: images/espacenom3.png used on input line 34.
+
+<use images/espacenom3.png>
+Package pdftex.def Info: images/espacenom3.png used on input line 49.
 (pdftex.def)             Requested size: 284.5291pt x 113.81142pt.
- [63
+ [45
 
- <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/espacenom3.png>] <images/espacenom4.png, id=732,
- 428.35031pt x 209.28188pt>
+ <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/espacenom3.png>]
+<images/espacenom4.png, id=1589, 428.35031pt x 209.28188pt>
 File: images/espacenom4.png Graphic file (type png)
-
-<use images/espacenom4.png>
-Package pdftex.def Info: images/espacenom4.png used on input line 34.
+ <use images/espacenom4.png>
+Package pdftex.def Info: images/espacenom4.png used on input line 49.
 (pdftex.def)             Requested size: 284.5291pt x 119.49947pt.
- [64
+ [46
 
  <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/espacenom4.png>]
 (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.vrb
@@ -1565,65 +1599,253 @@ Overfull \hbox (15.36543pt too wide) detected at line 18
  []
 
 )
-Overfull \vbox (13.06981pt too high) detected at line 58
+Overfull \vbox (13.06981pt too high) detected at line 73
  []
 
-[65
+[47
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 91
+[]
+ []
+
+[48
+
+]) (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\corps/variablesp.tex
+(C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.toc)
+Overfull \vbox (9.13676pt too high) detected at line 4
+ []
+
+[49
+
+] [50
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 92
+[]
+ []
+
+
+Overfull \vbox (4.66985pt too high) detected at line 92
+ []
+
+[51
+
+]) (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\corps/excercices.tex
+(C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.toc)
+Overfull \vbox (9.13676pt too high) detected at line 3
+ []
+
+[52
+
+] (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.vrb
+Overfull \hbox (15.36543pt too wide) detected at line 41
+[]
+ []
+
+) [53
+
+] (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.vrb
+Overfull \hbox (15.36543pt too wide) detected at line 41
+[]
+ []
+
+) [54
+
+] (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.vrb
+Overfull \hbox (15.36543pt too wide) detected at line 41
+[]
+ []
+
+) [55
+
+] (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.vrb
+Overfull \hbox (15.36543pt too wide) detected at line 41
+[]
+ []
+
+) [56
+
+] (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.vrb
+Overfull \hbox (15.36543pt too wide) detected at line 41
+[]
+ []
+
+) [57
+
+] (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.vrb
+Overfull \hbox (15.36543pt too wide) detected at line 41
+[]
+ []
+
+) [58
+
+] (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.vrb
+Overfull \hbox (15.36543pt too wide) detected at line 41
+[]
+ []
+
+) [59
+
+]) (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\corps/syntaxe1.tex
+(C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.toc)
+Overfull \vbox (9.13676pt too high) detected at line 76
+ []
+
+[60
+
+] (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.toc)
+Overfull \vbox (9.13676pt too high) detected at line 78
+ []
+
+[61
+
+] [62
+
+] [63
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 156
+[]
+ []
+
+
+Overfull \hbox (13.60057pt too wide) in paragraph at lines 156--156
+[][][][][][][][] 
+ []
+
+[64
+
+] [65
 
 ] [66
 
-] [67
-
-] (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.toc) [68
-
 ]
-Overfull \hbox (15.36543pt too wide) detected at line 96
+Overfull \hbox (15.36543pt too wide) detected at line 156
 []
  []
 
-[69
 
-]) (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\corps/variablesp.tex
-(C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.toc) [70
+Overfull \hbox (13.60057pt too wide) in paragraph at lines 156--156
+[][][][][][][][]  
+ []
+
+[67
+
+] [68
+
+] [69
+
+] [70
 
 ]
-(C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.toc) [71
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 41
+Overfull \hbox (15.36543pt too wide) detected at line 156
 []
  []
 
-[72
+
+Overfull \hbox (13.60057pt too wide) in paragraph at lines 156--156
+[][][][][][][][] 
+ []
+
+[71
+
+] [72
 
 ]
-Overfull \hbox (15.36543pt too wide) detected at line 41
+Overfull \hbox (15.36543pt too wide) detected at line 184
 []
  []
 
 [73
 
-] [74
+]
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10.95> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 238.
 
-] [75
+Overfull \hbox (15.36543pt too wide) detected at line 238
+[]
+ []
 
-] [76
+[74
 
-] [77
+]
+Overfull \hbox (15.36543pt too wide) detected at line 238
+[]
+ []
 
-] [78
+[75
 
-] [79
+]
+Overfull \hbox (15.36543pt too wide) detected at line 238
+[]
+ []
 
-] [80
+[76
 
-] [81
+]
+Overfull \hbox (15.36543pt too wide) detected at line 238
+[]
+ []
 
-])
-(C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\corps/representation_var.tex
-(C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.toc) [82
+[77
 
-] [83
+]
+Overfull \hbox (15.36543pt too wide) detected at line 238
+[]
+ []
+
+[78
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 238
+[]
+ []
+
+[79
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 238
+[]
+ []
+
+[80
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 260
+[]
+ []
+
+
+Overfull \hbox (15.36543pt too wide) detected at line 260
+[]
+ []
+
+[81
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 260
+[]
+ []
+
+
+Overfull \hbox (15.36543pt too wide) detected at line 260
+[]
+ []
+
+[82
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 260
+[]
+ []
+
+
+Overfull \hbox (15.36543pt too wide) detected at line 260
+[]
+ []
+
+[83
 
 ] [84
 
@@ -1633,214 +1855,1153 @@ Overfull \hbox (15.36543pt too wide) detected at line 41
 
 ] [87
 
-]
-Overfull \hbox (15.36543pt too wide) detected at line 53
-[]
- []
+] [88
 
+] [89
 
-Overfull \hbox (15.36543pt too wide) detected at line 53
-[]
- []
-
-[88
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 53
-[]
- []
-
-
-Overfull \hbox (15.36543pt too wide) detected at line 53
-[]
- []
-
-[89
-
-] (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.toc) [90
+] [90
 
 ] [91
 
-]
-Overfull \vbox (8.20232pt too high) detected at line 96
- []
-
-[92
+] [92
 
 ]
-Overfull \vbox (8.20232pt too high) detected at line 96
+Underfull \hbox (badness 10000) in paragraph at lines 326--326
+
  []
 
 [93
 
 ]
-Overfull \vbox (8.20232pt too high) detected at line 96
+Underfull \hbox (badness 10000) in paragraph at lines 326--326
+
  []
 
 [94
 
-]
-Overfull \vbox (8.20232pt too high) detected at line 96
- []
+] [95
 
-[95
+] <images/ch_helloworld.png, id=2905, 453.19313pt x 100.12407pt>
+File: images/ch_helloworld.png Graphic file (type png)
+ <use images/ch_helloworld.png>
+Package pdftex.def Info: images/ch_helloworld.png used on input line 326.
+(pdftex.def)             Requested size: 170.71652pt x 37.716pt.
 
-]
-Overfull \vbox (8.20232pt too high) detected at line 96
+Underfull \hbox (badness 10000) in paragraph at lines 326--326
+
  []
 
 [96
 
-]
-Overfull \vbox (8.20232pt too high) detected at line 96
+ <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/ch_helloworld.png>]
+File: images/ch_helloworld.png Graphic file (type png)
+
+<use images/ch_helloworld.png>
+Package pdftex.def Info: images/ch_helloworld.png used on input line 326.
+(pdftex.def)             Requested size: 170.71652pt x 37.716pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 326--326
+
  []
 
 [97
 
 ]
-Overfull \vbox (8.20232pt too high) detected at line 96
- []
-
-[98
+File: images/ch_helloworld.png Graphic file (type png)
+ <use images/ch_helloworld.png>
+Package pdftex.def Info: images/ch_helloworld.png used on input line 326.
+(pdftex.def)             Requested size: 170.71652pt x 37.716pt.
+ [98
 
 ]
-Overfull \hbox (15.36543pt too wide) detected at line 133
-[]
- []
+File: images/ch_helloworld.png Graphic file (type png)
+ <use images/ch_helloworld.png>
+Package pdftex.def Info: images/ch_helloworld.png used on input line 326.
+(pdftex.def)             Requested size: 170.71652pt x 37.716pt.
 
+Underfull \hbox (badness 10000) in paragraph at lines 326--326
 
-Overfull \hbox (15.36543pt too wide) detected at line 133
-[]
  []
 
 [99
 
 ]
-Overfull \hbox (15.36543pt too wide) detected at line 133
-[]
- []
+File: images/ch_helloworld.png Graphic file (type png)
+ <use images/ch_helloworld.png>
+Package pdftex.def Info: images/ch_helloworld.png used on input line 326.
+(pdftex.def)             Requested size: 170.71652pt x 37.716pt.
 
-
-Overfull \hbox (15.36543pt too wide) detected at line 133
-[]
+Underfull \hbox (badness 10000) in paragraph at lines 326--326
+\OT1/cmtt/m/n/10.95 TypeError : 'str ' object does not support
  []
 
 [100
 
 ]
-Overfull \hbox (15.36543pt too wide) detected at line 133
-[]
- []
+File: images/ch_helloworld.png Graphic file (type png)
+ <use images/ch_helloworld.png>
+Package pdftex.def Info: images/ch_helloworld.png used on input line 326.
+(pdftex.def)             Requested size: 170.71652pt x 37.716pt.
 
+Underfull \hbox (badness 10000) in paragraph at lines 326--326
 
-Overfull \hbox (15.36543pt too wide) detected at line 133
-[]
  []
 
 [101
 
 ]
-Overfull \hbox (15.36543pt too wide) detected at line 133
-[]
- []
-
-
-Overfull \hbox (15.36543pt too wide) detected at line 133
-[]
- []
-
-[102
+File: images/ch_helloworld.png Graphic file (type png)
+ <use images/ch_helloworld.png>
+Package pdftex.def Info: images/ch_helloworld.png used on input line 326.
+(pdftex.def)             Requested size: 170.71652pt x 37.716pt.
+ [102
 
 ]
-Overfull \hbox (15.36543pt too wide) detected at line 133
-[]
- []
+File: images/ch_helloworld.png Graphic file (type png)
+ <use images/ch_helloworld.png>
+Package pdftex.def Info: images/ch_helloworld.png used on input line 326.
+(pdftex.def)             Requested size: 170.71652pt x 37.716pt.
 
+Underfull \hbox (badness 10000) in paragraph at lines 326--326
 
-Overfull \hbox (15.36543pt too wide) detected at line 133
-[]
  []
 
 [103
 
 ]
-Overfull \hbox (15.36543pt too wide) detected at line 133
-[]
- []
+File: images/ch_helloworld.png Graphic file (type png)
+ <use images/ch_helloworld.png>
+Package pdftex.def Info: images/ch_helloworld.png used on input line 326.
+(pdftex.def)             Requested size: 170.71652pt x 37.716pt.
+ [104
 
-
-Overfull \hbox (15.36543pt too wide) detected at line 133
-[]
- []
-
-[104
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 133
-[]
- []
-
-
-Overfull \hbox (15.36543pt too wide) detected at line 133
-[]
- []
+] <images/liste.png, id=3178, 582.67688pt x 162.6075pt>
+File: images/liste.png Graphic file (type png)
+ <use images/liste.png>
+Package pdftex.def Info: images/liste.png used on input line 344.
+(pdftex.def)             Requested size: 227.62204pt x 63.52087pt.
 
 [105
 
+ <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/liste.png>]
+File: images/liste.png Graphic file (type png)
+ <use images/liste.png>
+Package pdftex.def Info: images/liste.png used on input line 344.
+(pdftex.def)             Requested size: 227.62204pt x 63.52087pt.
+ [106
+
 ]
-Overfull \hbox (15.36543pt too wide) detected at line 133
+File: images/liste.png Graphic file (type png)
+
+<use images/liste.png>
+Package pdftex.def Info: images/liste.png used on input line 344.
+(pdftex.def)             Requested size: 227.62204pt x 63.52087pt.
+ [107
+
+]
+
+LaTeX Font Warning: Font shape `OT1/cmss/bx/it' undefined
+(Font)              using `OT1/cmss/bx/n' instead on input line 376.
+
+
+Overfull \hbox (3.01677pt too wide) in paragraph at lines 376--376
+[][] 
+ []
+
+
+Overfull \hbox (15.36543pt too wide) detected at line 376
 []
  []
 
 
-Overfull \hbox (15.36543pt too wide) detected at line 133
+Overfull \vbox (8.278pt too high) detected at line 376
+ []
+
+[108
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 402
 []
  []
 
-[106
 
-] (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.toc) [107
-
-] [108
-
-]
-LaTeX Font Info:    Try loading font information for OMS+cmss on input line 175.
-LaTeX Font Info:    No file OMScmss.fd. on input line 175.
-
-
-LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
-(Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbraceleft' on input line 175.
+Overfull \hbox (15.36543pt too wide) detected at line 402
+[]
+ []
 
 [109
 
-] [110
+]
+Overfull \hbox (15.36543pt too wide) detected at line 402
+[]
+ []
+
+
+Overfull \hbox (15.36543pt too wide) detected at line 402
+[]
+ []
+
+[110
 
 ]
-Overfull \hbox (15.36543pt too wide) detected at line 175
+Overfull \hbox (15.36543pt too wide) detected at line 402
+[]
+ []
+
+
+Overfull \hbox (15.36543pt too wide) detected at line 402
 []
  []
 
 [111
 
 ]
-Overfull \hbox (15.36543pt too wide) detected at line 175
+Overfull \hbox (15.36543pt too wide) detected at line 402
+[]
+ []
+
+
+Overfull \hbox (15.36543pt too wide) detected at line 402
 []
  []
 
 [112
 
+]
+Overfull \hbox (15.36543pt too wide) detected at line 402
+[]
+ []
+
+
+Overfull \hbox (15.36543pt too wide) detected at line 402
+[]
+ []
+
+[113
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 402
+[]
+ []
+
+
+Overfull \hbox (15.36543pt too wide) detected at line 402
+[]
+ []
+
+[114
+
+] (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.vrb
+Overfull \hbox (15.36543pt too wide) detected at line 19
+[]
+ []
+
+) [115
+
+] (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.vrb
+<images/list_mat1.png, id=3515, 392.21532pt x 190.46156pt>
+File: images/list_mat1.png Graphic file (type png)
+ <use images/list_mat1.png>
+Package pdftex.def Info: images/list_mat1.png used on input line 3.
+(pdftex.def)             Requested size: 227.62204pt x 110.5346pt.
+
+Overfull \hbox (15.36543pt too wide) detected at line 10
+[]
+ []
+
+) [116
+
+ <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/list_mat1.png>]
+(C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.vrb
+<images/list_mat2.png, id=3547, 389.95688pt x 189.70876pt>
+File: images/list_mat2.png Graphic file (type png)
+ <use images/list_mat2.png>
+Package pdftex.def Info: images/list_mat2.png used on input line 4.
+(pdftex.def)             Requested size: 227.62204pt x 110.73456pt.
+
+Overfull \hbox (15.36543pt too wide) detected at line 10
+[]
+ []
+
+) [117
+
+ <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/list_mat2.png>]
+(C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.vrb
+<images/list_mat3.png, id=3578, 391.4625pt x 189.70876pt>
+File: images/list_mat3.png Graphic file (type png)
+ <use images/list_mat3.png>
+Package pdftex.def Info: images/list_mat3.png used on input line 5.
+(pdftex.def)             Requested size: 227.62204pt x 110.30904pt.
+
+Overfull \hbox (15.36543pt too wide) detected at line 10
+[]
+ []
+
+) [118
+
+ <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/list_mat3.png>]
+(C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.vrb
+<images/list_mat6.png, id=3609, 391.4625pt x 189.70876pt>
+File: images/list_mat6.png Graphic file (type png)
+ <use images/list_mat6.png>
+Package pdftex.def Info: images/list_mat6.png used on input line 6.
+(pdftex.def)             Requested size: 227.62204pt x 110.30904pt.
+
+Overfull \hbox (15.36543pt too wide) detected at line 10
+[]
+ []
+
+) [119
+
+ <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/list_mat6.png>]
+(C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.vrb
+<images/list_mat4.png, id=3640, 391.4625pt x 188.95593pt>
+File: images/list_mat4.png Graphic file (type png)
+ <use images/list_mat4.png>
+Package pdftex.def Info: images/list_mat4.png used on input line 7.
+(pdftex.def)             Requested size: 227.62204pt x 109.87129pt.
+
+Overfull \hbox (15.36543pt too wide) detected at line 10
+[]
+ []
+
+) [120
+
+ <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/list_mat4.png>]
+(C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.vrb
+<images/list_mat7.png, id=3671, 391.4625pt x 190.46156pt>
+File: images/list_mat7.png Graphic file (type png)
+ <use images/list_mat7.png>
+Package pdftex.def Info: images/list_mat7.png used on input line 8.
+(pdftex.def)             Requested size: 227.62204pt x 110.74677pt.
+
+Overfull \hbox (15.36543pt too wide) detected at line 10
+[]
+ []
+
+) [121
+
+ <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/list_mat7.png>]
+(C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.vrb
+<images/list_mat5.png, id=3704, 391.4625pt x 191.21437pt>
+File: images/list_mat5.png Graphic file (type png)
+ <use images/list_mat5.png>
+Package pdftex.def Info: images/list_mat5.png used on input line 9.
+(pdftex.def)             Requested size: 227.62204pt x 111.1845pt.
+
+Overfull \hbox (15.36543pt too wide) detected at line 10
+[]
+ []
+
+) [122
+
+ <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/list_mat5.png>]
+Overfull \hbox (15.36543pt too wide) detected at line 460
+[]
+ []
+
+
+Overfull \hbox (15.36543pt too wide) detected at line 460
+[]
+ []
+
+[123
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 460
+[]
+ []
+
+
+Overfull \hbox (15.36543pt too wide) detected at line 460
+[]
+ []
+
+[124
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 460
+[]
+ []
+
+
+Overfull \hbox (15.36543pt too wide) detected at line 460
+[]
+ []
+
+[125
+
+] (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.vrb
+Overfull \hbox (5.7471pt too wide) in paragraph at lines 12--12
+[]\OT1/cmtt/m/n/9 >>> tpl2 = []tuple[]([5,6,12]) []# copie liste => nouv tuple (5,6,12)[][] 
+ []
+
+
+Overfull \hbox (15.36543pt too wide) detected at line 18
+[]
+ []
+
+) [126
+
+] <images/tuple0.png, id=3855, 389.95688pt x 184.43906pt>
+File: images/tuple0.png Graphic file (type png)
+ <use images/tuple0.png>
+Package pdftex.def Info: images/tuple0.png used on input line 489.
+(pdftex.def)             Requested size: 227.62204pt x 107.6586pt.
+
+Overfull \hbox (15.36543pt too wide) detected at line 489
+[]
+ []
+
+[127
+
+ <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/tuple0.png>]
+<images/tuple1.png, id=3887, 389.95688pt x 184.43906pt>
+File: images/tuple1.png Graphic file (type png)
+ <use images/tuple1.png>
+Package pdftex.def Info: images/tuple1.png used on input line 489.
+(pdftex.def)             Requested size: 227.62204pt x 107.6586pt.
+
+Overfull \hbox (15.36543pt too wide) detected at line 489
+[]
+ []
+
+[128
+
+ <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/tuple1.png>]
+Underfull \hbox (badness 2735) in paragraph at lines 522--522
+[]\OT1/cmss/m/n/10.95 Est une col-lec-tion mo-di-fiable, \OT1/cmss/bx/it/10.95 non or-donnee \OT1/cmss/m/n/10.95 d'el
+ements
+ []
+
+
+Overfull \hbox (15.36543pt too wide) detected at line 522
+[]
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+cmss on input line 522.
+LaTeX Font Info:    No file OMScmss.fd. on input line 522.
+
+LaTeX Font Warning: Font shape `OMS/cmss/bx/n' undefined
+(Font)              using `OMS/cmsy/m/n' instead
+(Font)              for symbol `textbraceleft' on input line 522.
+
+LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 522.
+LaTeX Font Info:    No file OMScmtt.fd. on input line 522.
+
+LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
+(Font)              using `OMS/cmsy/m/n' instead
+(Font)              for symbol `textbraceleft' on input line 522.
+
+
+Overfull \vbox (9.10175pt too high) detected at line 522
+ []
+
+[129
+
+]
+Underfull \hbox (badness 2735) in paragraph at lines 522--522
+[]\OT1/cmss/m/n/10.95 Est une col-lec-tion mo-di-fiable, \OT1/cmss/bx/it/10.95 non or-donnee \OT1/cmss/m/n/10.95 d'el
+ements
+ []
+
+
+Overfull \hbox (15.36543pt too wide) detected at line 522
+[]
+ []
+
+
+Overfull \vbox (9.10175pt too high) detected at line 522
+ []
+
+[130
+
+]
+Underfull \hbox (badness 2735) in paragraph at lines 522--522
+[]\OT1/cmss/m/n/10.95 Est une col-lec-tion mo-di-fiable, \OT1/cmss/bx/it/10.95 non or-donnee \OT1/cmss/m/n/10.95 d'el
+ements
+ []
+
+
+Overfull \hbox (15.36543pt too wide) detected at line 522
+[]
+ []
+
+
+Overfull \vbox (9.10175pt too high) detected at line 522
+ []
+
+[131
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 538
+[]
+ []
+
+[132
+
+] (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.vrb) [133
+
+]
+(C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.vrb) [134
+
+]
+(C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.vrb) [135
+
+]
+(C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.vrb
+Underfull \hbox (badness 10000) in paragraph at lines 49--49
+
+ []
+
+) [136
+
+] (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.vrb) [137
+
+]
+<images/dic1.png, id=4191, 353.82187pt x 176.15813pt>
+File: images/dic1.png Graphic file (type png)
+ <use images/dic1.png>
+Package pdftex.def Info: images/dic1.png used on input line 624.
+(pdftex.def)             Requested size: 228.59396pt x 113.81102pt.
+
+Overfull \hbox (15.36543pt too wide) detected at line 624
+[]
+ []
+
+[138
+
+ <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/dic1.png>]
+<images/dic2.png, id=4222, 353.82187pt x 176.15813pt>
+File: images/dic2.png Graphic file (type png)
+ <use images/dic2.png>
+Package pdftex.def Info: images/dic2.png used on input line 624.
+(pdftex.def)             Requested size: 228.59396pt x 113.81102pt.
+
+Overfull \hbox (15.36543pt too wide) detected at line 624
+[]
+ []
+
+[139
+
+ <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/dic2.png>]
+<images/dic3.png, id=4254, 353.82187pt x 176.91093pt>
+File: images/dic3.png Graphic file (type png)
+ <use images/dic3.png>
+Package pdftex.def Info: images/dic3.png used on input line 624.
+(pdftex.def)             Requested size: 227.62218pt x 113.81102pt.
+
+Overfull \hbox (15.36543pt too wide) detected at line 624
+[]
+ []
+
+[140
+
+ <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/dic3.png>]
+<images/dic4.png, id=4285, 363.60844pt x 176.91093pt>
+File: images/dic4.png Graphic file (type png)
+ <use images/dic4.png>
+Package pdftex.def Info: images/dic4.png used on input line 624.
+(pdftex.def)             Requested size: 233.9181pt x 113.81102pt.
+
+Overfull \hbox (15.36543pt too wide) detected at line 624
+[]
+ []
+
+[141
+
+ <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/dic4.png>]
+<images/dic5.png, id=4316, 364.36125pt x 176.91093pt>
+File: images/dic5.png Graphic file (type png)
+ <use images/dic5.png>
+Package pdftex.def Info: images/dic5.png used on input line 624.
+(pdftex.def)             Requested size: 234.4024pt x 113.81102pt.
+
+Overfull \hbox (15.36543pt too wide) detected at line 624
+[]
+ []
+
+[142
+
+ <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/dic5.png>]
+<images/dic6.png, id=4347, 392.96812pt x 176.91093pt>
+File: images/dic6.png Graphic file (type png)
+ <use images/dic6.png>
+Package pdftex.def Info: images/dic6.png used on input line 624.
+(pdftex.def)             Requested size: 252.8059pt x 113.81102pt.
+
+Overfull \hbox (15.36543pt too wide) detected at line 624
+[]
+ []
+
+[143
+
+ <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/dic6.png>]
+<images/dic7.png, id=4379, 392.96812pt x 176.91093pt>
+File: images/dic7.png Graphic file (type png)
+ <use images/dic7.png>
+Package pdftex.def Info: images/dic7.png used on input line 624.
+(pdftex.def)             Requested size: 252.8059pt x 113.81102pt.
+
+Overfull \hbox (15.36543pt too wide) detected at line 624
+[]
+ []
+
+[144
+
+ <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/dic7.png>]
+(C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.toc)
+Overfull \vbox (9.13676pt too high) detected at line 694
+ []
+
+[145
+
+] (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.vrb
+Overfull \hbox (15.36543pt too wide) detected at line 24
+[]
+ []
+
+)
+Overfull \vbox (13.57811pt too high) detected at line 722
+ []
+
+[146
+
+] (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.vrb
+Overfull \hbox (15.36543pt too wide) detected at line 24
+[]
+ []
+
+)
+Overfull \vbox (13.57811pt too high) detected at line 722
+ []
+
+[147
+
+] (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.vrb
+Overfull \hbox (15.36543pt too wide) detected at line 24
+[]
+ []
+
+) [148
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 750
+[]
+ []
+
+
+Overfull \hbox (15.36543pt too wide) detected at line 750
+[]
+ []
+
+
+Overfull \vbox (15.78316pt too high) detected at line 750
+ []
+
+[149
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 750
+[]
+ []
+
+
+Overfull \hbox (15.36543pt too wide) detected at line 750
+[]
+ []
+
+
+Overfull \vbox (15.78316pt too high) detected at line 750
+ []
+
+[150
+
+] (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.vrb
+Overfull \hbox (15.36543pt too wide) detected at line 8
+[]
+ []
+
+
+Overfull \hbox (15.36543pt too wide) detected at line 20
+[]
+ []
+
+) [151
+
+] (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.vrb
+Overfull \hbox (15.36543pt too wide) detected at line 8
+[]
+ []
+
+
+Overfull \hbox (15.36543pt too wide) detected at line 20
+[]
+ []
+
+) [152
+
+] (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.vrb
+Overfull \hbox (15.36543pt too wide) detected at line 8
+[]
+ []
+
+
+Overfull \hbox (15.36543pt too wide) detected at line 20
+[]
+ []
+
+) [153
+
+] (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.vrb
+Overfull \hbox (21.39726pt too wide) in paragraph at lines 17--51
+[][] 
+ []
+
+) [154
+
+] (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.vrb
+Overfull \hbox (21.39726pt too wide) in paragraph at lines 17--26
+[][]  
+ []
+
+
+Overfull \hbox (15.36543pt too wide) detected at line 26
+[]
+ []
+
+) [155
+
+] (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.vrb
+Overfull \hbox (15.36543pt too wide) detected at line 26
+[]
+ []
+
+
+Overfull \hbox (15.36543pt too wide) detected at line 50
+[]
+ []
+
+)
+Overfull \vbox (3.59557pt too high) detected at line 829
+ []
+
+[156
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 869--869
+
+ []
+
+
+Overfull \vbox (19.85637pt too high) detected at line 869
+ []
+
+[157
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 869--869
+
+ []
+
+
+Overfull \vbox (19.85637pt too high) detected at line 869
+ []
+
+[158
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 869--869
+
+ []
+
+
+Overfull \vbox (19.85637pt too high) detected at line 869
+ []
+
+[159
+
+] (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.toc)
+Overfull \vbox (9.13676pt too high) detected at line 973
+ []
+
+[160
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 991
+[]
+ []
+
+
+Overfull \hbox (13.60057pt too wide) in paragraph at lines 991--991
+[][][][][][][][][][][][][][]  
+ []
+
+[161
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 991
+[]
+ []
+
+
+Overfull \hbox (13.60057pt too wide) in paragraph at lines 991--991
+[][][][][][][][][][][][][][]  
+ []
+
+[162
+
+] <images/bloc.png, id=4937, 323.70938pt x 325.215pt>
+File: images/bloc.png Graphic file (type png)
+ <use images/bloc.png>
+Package pdftex.def Info: images/bloc.png used on input line 991.
+(pdftex.def)             Requested size: 113.28516pt x 113.81102pt.
+
+Overfull \hbox (15.36543pt too wide) detected at line 991
+[]
+ []
+
+
+Overfull \hbox (13.60057pt too wide) in paragraph at lines 991--991
+[][][][][][][][][][][][][][][]  
+ []
+
+
+Overfull \vbox (78.64192pt too high) detected at line 991
+ []
+
+[163
+
+ <C:/Users/toumiab/Documents/GitHub/Trans_python/Les_transparent/images/bloc.png>]
+Overfull \hbox (15.36543pt too wide) detected at line 991
+[]
+ []
+
+
+Overfull \hbox (13.60057pt too wide) in paragraph at lines 991--991
+[][][][][][][][][][][][][][][][]  
+ []
+
+[164
+
+] (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.toc)
+Overfull \vbox (9.13676pt too high) detected at line 994
+ []
+
+[165
+
+] (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.vrb) [166
+
+]
+(C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.vrb) [167
+
+]
+(C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.vrb) [168
+
+]
+(C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.vrb
+Overfull \hbox (15.36543pt too wide) detected at line 19
+[]
+ []
+
+) [169
+
+] (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.vrb
+Overfull \hbox (15.36543pt too wide) detected at line 38
+[]
+ []
+
+) [170
+
+] (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.toc)
+Overfull \vbox (9.13676pt too high) detected at line 1038
+ []
+
+[171
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 1079
+[]
+ []
+
+[172
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 1079
+[]
+ []
+
+[173
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 1079
+[]
+ []
+
+[174
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 1079
+[]
+ []
+
+[175
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 1079
+[]
+ []
+
+[176
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 1079
+[]
+ []
+
+[177
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 1079
+[]
+ []
+
+[178
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 1079
+[]
+ []
+
+[179
+
+] (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.toc)
+Overfull \vbox (9.13676pt too high) detected at line 1107
+ []
+
+[180
+
+] [181
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 1161
+[]
+ []
+
+
+Overfull \vbox (22.97816pt too high) detected at line 1161
+ []
+
+[182
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 1161
+[]
+ []
+
+[183
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 1210
+[]
+ []
+
+
+Overfull \hbox (15.36543pt too wide) detected at line 1210
+[]
+ []
+
+[184
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 1210
+[]
+ []
+
+
+Overfull \hbox (15.36543pt too wide) detected at line 1210
+[]
+ []
+
+[185
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 1210
+[]
+ []
+
+
+Overfull \hbox (15.36543pt too wide) detected at line 1210
+[]
+ []
+
+[186
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 1243
+[]
+ []
+
+
+Overfull \hbox (15.36543pt too wide) detected at line 1243
+[]
+ []
+
+
+Overfull \vbox (9.22552pt too high) detected at line 1243
+ []
+
+[187
+
+] [188
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 1284
+[]
+ []
+
+[189
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 1284
+[]
+ []
+
+[190
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 1309
+[]
+ []
+
+[191
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 1347
+[]
+ []
+
+[192
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 1347
+[]
+ []
+
+[193
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 1347
+[]
+ []
+
+[194
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 1347
+[]
+ []
+
+[195
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 1347
+[]
+ []
+
+[196
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 1347
+[]
+ []
+
+[197
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 1376
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1376--1376
+[]  \OT1/cmtt/m/n/10.95 print(s[i], end=' ') []# => septembre octobre[]
+ []
+
+
+Overfull \hbox (15.36543pt too wide) detected at line 1376
+[]
+ []
+
+[198
+
+]
+Overfull \hbox (15.36543pt too wide) detected at line 1376
+[]
+ []
+
+
+Overfull \hbox (15.36543pt too wide) detected at line 1376
+[]
+ []
+
+[199
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 1405--1405
+\OT1/cmtt/m/n/10.95 dic1 = \OMS/cmtt/m/n/10.95 f\OT1/cmtt/m/n/10.95 cle:val []for[] cle,val []in[] dic.items() []if[]
+ []
+
+[200
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 1405--1405
+\OT1/cmtt/m/n/10.95 dic1 = \OMS/cmtt/m/n/10.95 f\OT1/cmtt/m/n/10.95 cle:val []for[] cle,val []in[] dic.items() []if[]
+ []
+
+[201
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 1405--1405
+\OT1/cmtt/m/n/10.95 dic1 = \OMS/cmtt/m/n/10.95 f\OT1/cmtt/m/n/10.95 cle:val []for[] cle,val []in[] dic.items() []if[]
+ []
+
+[202
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 1405--1405
+\OT1/cmtt/m/n/10.95 dic1 = \OMS/cmtt/m/n/10.95 f\OT1/cmtt/m/n/10.95 cle:val []for[] cle,val []in[] dic.items() []if[]
+ []
+
+[203
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 1405--1405
+\OT1/cmtt/m/n/10.95 dic1 = \OMS/cmtt/m/n/10.95 f\OT1/cmtt/m/n/10.95 cle:val []for[] cle,val []in[] dic.items() []if[]
+ []
+
+[204
+
+]) (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\corps/horloge.tex
+(C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.toc)
+Overfull \vbox (9.13676pt too high) detected at line 1
+ []
+
+[205
+
+] [206
+
 ])
 \tf@nav=\write7
 \tf@toc=\write8
 \tf@snm=\write9
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 54.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 54.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 62.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 62.
  (C:\Users\toumiab\Documents\GitHub\Trans_python\Les_transparent\Python01.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 54.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 54.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 62.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 62.
 Package rerunfilecheck Info: File `Python01.out' has not changed.
-(rerunfilecheck)             Checksum: FCF317C8441F7901F66B8D81D902F37F;1056.
+(rerunfilecheck)             Checksum: D8F819B91D693663EC324F082DE77AE4;1047.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -1851,27 +3012,29 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 25864 strings out of 494045
- 501482 string characters out of 3145963
- 638454 words of memory out of 3000000
- 28229 multiletter control sequences out of 15000+200000
- 19402 words of font info for 73 fonts, out of 3000000 for 9000
+ 27309 strings out of 494045
+ 527328 string characters out of 3145963
+ 671911 words of memory out of 3000000
+ 29367 multiletter control sequences out of 15000+200000
+ 20099 words of font info for 76 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 55i,18n,75p,425b,1539s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/
-type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Prog
-ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmss9.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Program Files
- (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfo
-nts/cm/cmssi8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssi9.pfb><C:/Program Files (x86)/M
-iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
-sy7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Program Files (x86)/MiKTeX 2.9/f
-onts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt9.pfb><C:
-/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/
-type1/public/amsfonts/symbols/msam7.pfb>
-Output written on Python01.pdf (112 pages, 1118687 bytes).
+ 55i,18n,75p,421b,1614s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmitt10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Pro
+gram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmsltt10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Program Fil
+es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmss9.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Program Files (x86)/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
+cmssi8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssi9.pfb><C:/Program Files (x86)/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb
+><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt9.pfb><C:/Progra
+m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/ur
+w/zapfding/uzdr.pfb>
+Output written on Python01.pdf (206 pages, 1830586 bytes).
 PDF statistics:
- 1274 PDF objects out of 1440 (max. 8388607)
- 239 named destinations out of 1000 (max. 500000)
- 376 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 5927 PDF objects out of 6186 (max. 8388607)
+ 428 named destinations out of 1000 (max. 500000)
+ 620 words of extra memory for PDF output out of 10000 (max. 10000000)
 

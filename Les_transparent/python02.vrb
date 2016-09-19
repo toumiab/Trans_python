@@ -1,11 +1,39 @@
 \frametitle{Hello World}
-  \begin{lstlisting}
-/**
- * Premier programme Java : hello world
- */
-public class Hello {
-  public static void main(String args[]) {
-    System.out.println("Hello");
-  }
-}
+hello.py
+  \begin{lstlisting}{le script hello.py}
+# affiche 'hello World"
+""" Ceci est mon premier programme
+avec un commentaire fait sur plusieurs lignes """
+print("Hello World!")
   \end{lstlisting}
+
+\begin{itemize}
+  \item  Exécution : \emph{python3 hello.py ou python3 hello}
+  \item Passage de paramètres par l'attribut  \emph{sys.argv}
+  \item Ex : \emph{python3 hello 1234 xyz}
+    \begin{itemize}
+\item sys.argv[0] $\leftarrow$ hello
+    \item sys.argv[1] $\leftarrow$ 1234
+    \item sys.argv[2] $\leftarrow$ xyz
+    \end{itemize}
+\item Passage de paramètres par la fonction \emph{input()}
+\item Ex : \texttt{nb = input("Donner votre paramètre :")}
+  \end{itemize}
+
+
+
+
+
+%>>> help(test_for)
+%Help on module hello:
+%
+%NAME
+    %hello
+%
+%DESCRIPTION
+    %Ceci est mon premier programme
+    %avec un commentaire fait sur plusieurs lignes
+%
+%FILE
+    %c:\hello.py
+

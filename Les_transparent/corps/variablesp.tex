@@ -1,45 +1,95 @@
 
-\section{Typages des variables }
+%\section{Typages des variables }
 
 \subsection{Les types de base}
 
 
+%\begin{frame}
+%\frametitle{Typage des variables\chrono}
+%\only<1-2>{
+%\begin{itemize}
+%\item<1-2> Python: langage  typé dynamiquement 
+%\item<2> [$\Rightarrow$] typage lors de l'affectation
+%\item<2> Une variable peut changer de type au cours de l'exécution
+%\end{itemize}
+ %\pause 
+	%\begin{remarque}
+    %\begin{itemize}
+			%\item Pour connaître le type d'une variable ou expression, on peut utiliser la fonction \emph{type()}
+			%\item La fonction \emph{print()} permet d'afficher la valeur d'une variable
+		%\end{itemize}
+		%
+  %\end{remarque}
+%
+%}
+%\only<1->{
+%\begin{itemize}
+%\item<1-> \textbf{Les types intégrés de Python}
+%\begin{itemize}
+    %\item<2-> Entiers signés (complément à deux) : le type \emph{int} 
+    %\item<2-> Réels (IEEE 754) : le type \emph{float} en double précision (64 bits)
+    %\item<2-> Complexes : le type \emph{complex}
+		%\item<3-> Booléens : le type \emph{bool}
+		%\item<4-> Chaînes de caractères : type \emph{str}
+		%\item<5-> Listes : type \emph{list}
+		%\item<6-> Dictionnaires : type \emph{dict}
+		%\item<7-> Tuples : type \emph{tuple}
+		%\item<8-> Ensembles modifiables et immuables : le type \emph{set} et le type \emph{frozenset}
+    %\end{itemize}
+%\end{itemize}
+%}
+%\end{frame}
+
 \begin{frame}
-\frametitle{Typage des variables}
-\only<1-2>{
+\frametitle{Typage des variables\chrono} 
 \begin{itemize}
-\item<1-2> Python: langage  typé dynamiquement 
-\item<2> [$\Rightarrow$] typage lors de l'affectation
-\item<2> Une variable peut changer de type au cours de l'exécution
-\end{itemize}
- \pause 
-	\begin{remarque}
-    \begin{itemize}
-			\item Pour connaître le type d'une variable ou expression, on peut utiliser la fonction \emph{type()}
-			\item La fonction \emph{print()} permet d'afficher la valeur d'une variable
+\item \textbf{Les types intégrés de Python}
+\begin{itemize}
+\item Les types simples : 
+	\begin{itemize}
+		\item Entiers signés (\emph{int}), Réels (IEEE 754) (\emph{float}) et  Complexes (\emph{complex}), Booléens (\emph{bool})
+	\end{itemize}
+\item Les types composites (containers): 
+		\begin{itemize}
+		  \item \textbf{Les séquences} : Chaînes de caractères (\emph{str}) ;		Listes (\emph{list}) et  Tuples (\emph{tuple})
+			\item \textbf{Les maps }(hashs) : Dictionnaires (\emph{dict})
+			\item \textbf{Les ensembles} : le type \emph{set} et le type \emph{frozenset}
 		\end{itemize}
-		
-  \end{remarque}
-
-}
-\only<3->{
-\begin{itemize}
-\item<3-> \textbf{Les types intégrés de Python}
-\begin{itemize}
-    \item<4-> Entiers signés (complément à deux) : le type \emph{int} 
-    \item<4-> Réels (IEEE 754) : le type \emph{float} en double précision (64 bits)
-    \item<4-> Complexes : le type \emph{complex}
-		\item<5-> Booléens : le type \emph{bool}
-		\item<6-> Chaînes de caractères : type \emph{str}
-		\item<7-> Listes : type \emph{list}
-		\item<8-> Dictionnaires : type \emph{dict}
-		\item<9-> Tuples : type \emph{tuple}
-		\item<10-> Ensembles modifiables et immuables : le type \emph{set} et le type \emph{frozenset}
-    \end{itemize}
+ \end{itemize}
 \end{itemize}
-}
-\end{frame}
 
+
+\end{frame}
+\begin{frame}
+\frametitle{Types des variables\chrono}
+  \begin{exemple}
+    \begin{semiverbatim}
+ >>> i = 42 
+
+ >>> type(i)
+
+ <class 'int'>
+
+ >>> i = 'indice' 
+
+ >>> type(i)
+
+ <class 'str'>
+
+ >>> i = 42.0 
+
+ >>> type(i)
+
+ <class 'float'>
+
+ >>> print(i)
+
+42.5
+
+>>>
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
 
 
 

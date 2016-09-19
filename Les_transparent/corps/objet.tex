@@ -99,7 +99,7 @@ Utilité :
     \begin{itemize}
     \item En Python : l'héritage est défini  entre les parenthèses
 		\item Le constructeur est la méthode nommée \emph{$\_\_init\_\_$}
-    \item Visibilité des variables d'instance : $\Longrightarrow$ ($\_\_$) non recommandée
+    \item Visibilité des variables d'instance :  ($\_\_$) $\Longrightarrow$ décorateurs
     \item Si aucun héritage n'est précisé : hérite de \emph{object}
     \end{itemize}
 
@@ -477,10 +477,10 @@ ond east);
 \begin{frame}
   \frametitle{Principe}
   \begin{itemize}
-  \item Plusieurs méthodes avec le même nom dans un
+  \item Plusieurs méthodes avec le même nom dans une
     hiérarchie de classes
   \item Méthode appelée : correspond à l'objet instancié
-  \item Avantage : manipuler toutes les classes d'une hiérarchie de manière
+  \item Avantage : manipuler toutes les instances d'une hiérarchie de classes de manière
     uniforme
   \end{itemize}
   \uncover<2-4>{
@@ -583,7 +583,7 @@ Tour et Pion (héritant chacun du type Piece).}
 		
 		print(f)\pause
 
-    \only<-5>{\small \verb~<\_\_main\_\_.Pile object at 0x000000000575DBA8>~}\only<6->{Fig. Pos = (3,5)}
+    \only<-5>{\small \verb~<\_\_main\_\_.Figure object at 0x000000000575DBA8>~}\only<7->{\emph{Fig. Pos = (3,5)}}
   \end{semiverbatim}\pause
 
   \begin{semiverbatim}
@@ -861,7 +861,7 @@ shadow, text centered, text=white, text width=2cm, rectangle split, rectangle sp
 	
 	 \hspace{1cm}print(f.aire())
 	
-	\# fin de code
+
 	}
   \end{semiverbatim}
  

@@ -1,0 +1,16 @@
+\frametitle{Code Java}
+  \begin{lstlisting}
+  public void setMyValue(double myValue) {
+    this.myValue = myValue;
+    setChanged();
+    notifyObservers();
+  }
+  \end{lstlisting}
+  \begin{lstlisting}
+  public void update(Observable o, Object arg) {
+    // o est en fait un objet de type Data
+    Data mesDonnees = (Data)o;
+    // mise a jour l'interface
+    // ...
+  }
+  \end{lstlisting}

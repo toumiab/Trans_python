@@ -1,5 +1,25 @@
 \section{Introduction}
-
+\subsection{Déroulement de cours}
+\begin{frame}
+  \frametitle{Déroulement\chrono}
+	\initclock  % This must be used one time to initialize the clock
+  \begin{itemize}
+  \item Première partie  : les bases de Python
+  \item Deuxième partie :  objet et suite de l'algorithmique 
+  \item Projet informatique : deux parties (sans et avec une interface graphique)
+  \end{itemize}
+  \pause
+  \begin{itemize}
+  \item Programmation impérative et objet
+  \item Notions d'architecture logicielle
+  \end{itemize}
+  \pause
+	\begin{itemize}
+  \item Le cours est découpé :  CM ($\cong$30 min) + Pause (7 min) + CM  
+  \item Utilisation des cartons (\textcolor{green}{vert}/\textcolor{red}{rouge}) pour les exercices Q/R
+  \end{itemize}
+  Plateforme : \url{https://moodle.ensta-bretagne.fr}
+\end{frame}
 
 %\subsection{Histoire de Python}
 
@@ -321,13 +341,54 @@
   %}
 %\end{frame}
 
-\subsection{Les langages}
+%\subsection{Les langages}
 
 
+%
+%\begin{frame}
+  %\frametitle{Histoire des langages\chrono}
+ %\only<1->{
+ %Historiques des versions \\\url{https://en.wikipedia.org/wiki/History_of_Python}
+  %\begin{itemize}
+     %\item  Python 1.0 - January 1994
+			%\only<2>{
+			%\begin{itemize} 
+					%\item Python 1.5 - December 31, 1997
+					%\item Python 1.6 - September 5, 2000
+			%\end{itemize}
+			%}
+			%
+  %\item <3-> Python 2.0 - October 16, 2000
+	%\only<4>{
+		%\begin{itemize}
+		 %\item Python 2.1 - April 17, 2001
+     %\item Python 2.2 - December 21, 2001
+     %\item Python 2.3 - July 29, 2003
+     %\item Python 2.4 - November 30, 2004
+     %\item Python 2.5 - September 19, 2006
+     %\item Python 2.6 - October 1, 2008
+     %\item Python 2.7 - July 3, 2010
+	 %\end{itemize}
+	%}
+  %\item<5-> Python 3.0 - December 3, 2008
+	 %\only<6>{
+	%\begin{itemize} 
+		%\item  Python 3.1 - 27 juin, 2009
+		%\item  Python 3.2 - 20 février, 2011
+		%\item  Python 3.3 - 29 septembre, 2012
+		%\item  Python 3.4 - 16 mars, 2014
+		%\item  Python 3.5 - 13 septembre, 2015
+  %\end{itemize}
+	%}
+%\end{itemize}
+%}
+%\end{frame}
+
+\subsection{Langage Python}
 \begin{frame}
-  \frametitle{Histoire des langages}
+  \frametitle{Histoire des langages\chrono}
   
-  \begin{itemize}[<+->]
+  \begin{itemize}
   \item Début : langage machine
   \item Assembleur en 1950
   \item Fortran en 1954
@@ -337,63 +398,23 @@
 	\item Java  en 1995
 	
   \end{itemize}
-  \pause
+
   Historique : \href{file:lang_a4.pdf}{http://www.levenez.com}
 
   \pause
-  Langage choisi~: Python
+  Langage choisi~: Python (version 3.5)
 \end{frame}
 
 \begin{frame}
-  \frametitle{Histoire des langages}
- \only<1->{
- Historiques des versions \\\url{https://en.wikipedia.org/wiki/History_of_Python}
-  \begin{itemize}
-     \item  Python 1.0 - January 1994
-			\only<2>{
-			\begin{itemize} 
-					\item Python 1.5 - December 31, 1997
-					\item Python 1.6 - September 5, 2000
-			\end{itemize}
-			}
-			
-  \item <3-> Python 2.0 - October 16, 2000
-	\only<4>{
-		\begin{itemize}
-		 \item Python 2.1 - April 17, 2001
-     \item Python 2.2 - December 21, 2001
-     \item Python 2.3 - July 29, 2003
-     \item Python 2.4 - November 30, 2004
-     \item Python 2.5 - September 19, 2006
-     \item Python 2.6 - October 1, 2008
-     \item Python 2.7 - July 3, 2010
-	 \end{itemize}
-	}
-  \item<5-> Python 3.0 - December 3, 2008
-	 \only<6>{
-	\begin{itemize} 
-		\item  Python 3.1 - June 27, 2009
-		\item  Python 3.2 - February 20, 2011
-		\item  Python 3.3 - September 29, 2012
-		\item  Python 3.4 - March 16, 2014
-  \end{itemize}
-	}
-\end{itemize}
-}
-\end{frame}
-
-\subsection{Langage Python}
-
-\begin{frame}
-  \frametitle{Langage Python}
+  \frametitle{Langage Python\chrono}
   \only<10>{
     \centering
 		\includegraphics[width=10cm]{images/comparaisonLangages.png}
 		}
-	  \only<11>{
-		\includegraphics[width=10cm]{images/interpreter.png}
+	  %\only<11>{
+		%\includegraphics[width=10cm]{images/interpreter.png}
 	
-	}
+	%}
 	\only<1-9>{
     \begin{itemize}[<+->]
     \item  Python est interprété 
@@ -411,7 +432,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Exécution d'un programme Python}
+  \frametitle{Exécution d'un programme Python \chrono}
 	\only<1>{
     \begin{remarque}[Un programme Python]
 		Un programme est une suite d'instructions Python qui peut être exécuté de différentes  manières :
@@ -426,17 +447,18 @@
 		\item \textbf{En mode interactif} :
 		  
 		\begin{itemize}
-				\item avec l'\emph{interpréteur python} : via un terminal de commandes lancé avec la commande 'python' ou via le \emph{shell python}
+				\item avec l'\emph{interpréteur python} : via un terminal de commandes lancé avec la commande 'python3' ou via le \emph{shell python}
 				 \begin{itemize}
 					\item  Les instructions python à insérer après l'invite de commande ($>>>$), ou à l'invite de poursuit (...)  
 					\item  Les instructions sont exécutées immédiatement
 					\item  Le résultat d'une instruction est affiché sur le terminal		
    		   \end{itemize}
 				 \only<2>{
-				 \includegraphics[width=6cm]{images/console.png} 
+				 \includegraphics[width=8cm]{images/console.png} 
 				 }
 				\item <3-> avec \emph{ipython} : est une sourcouche de l'interpréteur Python offrant une plusieurs facilités. En version web : \emph{IPython Notebook }
 				 \only<3>{
+				
 				 \includegraphics[width=6cm]{images/ipython.png} 
 				 }
 				 \only<4>{
@@ -453,74 +475,85 @@
 
 
 
-
+%
+% slides supprimés
+%
 
 
 \begin{frame}
-   \frametitle{Exécution d'un programme Python}
+   \frametitle{Exécution d'un programme Python\chrono}
+  %%\only<2>{
+    %%\includegraphics[width=11cm]{images/compil1}
+  %%}
   %\only<2>{
-    %\includegraphics[width=11cm]{images/compil1}
+    %\includegraphics[width=11cm]{images/compil2}
   %}
-  \only<2>{
-    \includegraphics[width=11cm]{images/compil2}
-  }
-  \only<4>{
-    \includegraphics[width=11cm]{images/compil3}
-  }
-  \only<1,3>{
+  
+  \only<1,2>{
     \begin{itemize}
-		\item <1,3> \textbf{En mode script} (Programming mode): 
+		\item <1,2> \textbf{En mode script} (Programming mode): 
       \begin{itemize}
-			  \item<1>Écriture du programme Python (éditeur de texte) dans un fichier portant l'extension \emph{.py}
-				\item<3> Exécution (\$ \texttt{python monprogramme.py})
+			  \item<1,2>Écriture du programme Python (éditeur de texte) dans un fichier portant l'extension \emph{.py}
+				\item<2> Exécution 
+				\item<2> \$ \texttt{\textcolor[rgb]{0,0,1}{python monprogramme.py}  \# pour windows}
+				\item<2> \$ \texttt{\textcolor[rgb]{0,0,1}{python3 monprogramme.py}  \# pour linux}
       \end{itemize}
     \end{itemize}
+		%\only<2>{
+    %\includegraphics[width=11cm]{images/compil3}
+  %}
   }
 \end{frame}
 
-\subsection{Implémentations de Python}
+%
+% slides supprimés
+%
+
+%\subsection{Implémentations de Python}
+%\begin{frame}
+  %\frametitle{Implémentations de Python}
+%
+  %\begin{itemize}
+  %\item Autres implémentations Python : \url{https://www.python.org/download/alternatives/}
+    %\begin{itemize}
+    %\item Python (Cpython), codée en C
+		%\item IronPython, codée en C$\#$ et fonctionne sur les plate-formes .NET
+    %\item Jython, Python s'éxécutant sur une VM java
+    %\item PyPy, Python plus rapide, codé avec le compilateur JIT)
+    %\item Stackless Python, une branche de CPython supportant les microthreads
+    %\end{itemize} 
+	%\end{itemize}
+%\end{frame}
+%
+%
+%\subsection{Installation et environnement de développement}
+
 \begin{frame}
-  \frametitle{Implémentations de Python}
-
-  \begin{itemize}
-  \item Autres implémentations Python : \url{https://www.python.org/download/alternatives/}
-    \begin{itemize}
-    \item Python (Cpython), codée en C
-		\item IronPython, codée en C$\#$ et fonctionne sur les plate-formes .NET
-    \item Jython, Python s'éxécutant sur une VM java
-    \item PyPy, Python plus rapide, codé avec le compilateur JIT)
-    \item Stackless Python, une branche de CPython supportant les microthreads
-    \end{itemize} 
-	\end{itemize}
-\end{frame}
-
-
-\subsection{Installation et environnement de développement}
-
-\begin{frame}
- \frametitle{Installation d'un environnement Python}
+ \frametitle{Installation d'un environnement Python \chrono}
   
 \begin{itemize}
    \item Sous Windows, Python n'est pas installé par défaut. \pause
 	 \item Sous GNU/Linux et Mac OS X, Python et la librairie standard sont intégrés \pause
 	 \begin{itemize}
-				 \item depuis Ubuntu 14.04 on dispose en parallèle de Pyhon v2 et v3
+				 \item depuis Ubuntu 16.04 on dispose en parallèle de Pyhon v2 et v3.5
 				 \item Mac OS X 10.8, 10.9 et 10.10, Apple propose que Python 2.7
 				\pause
 		\end{itemize}
-	  \item Installation :
+	  \item Installation : 
 	 	 \begin{itemize}
-		 \item Windows : \emph{WinPython} distribution spécifique à Windows et très facile à mettre en \oe uvre. Il intègre notamment : IPython, Spyder, NumPy, SciPy, MatplotLib, Pandas, SymPy, PIP... \pause
-		\item GNU/Linux Ubuntu $\geq$ 14.04 : installation standard via les dépôts officiels Ubuntu de Canonical
+		 \item Windows : \emph{WinPython 3.5.1.3} distribution spécifique à Windows et très facile à mettre en \oe uvre. Il intègre notamment : IPython, Spyder, NumPy, SciPy, MatplotLib, Pandas, SymPy, PIP... 
+		 \item $+\longrightarrow$  {\small\url{http://www.lfd.uci.edu/~gohlke/pythonlibs/}}
+		\pause
+		\item GNU/Linux Ubuntu $\geq$ 16.04 : installation standard via les dépôts officiels Ubuntu de Canonical
 		\item Mac OS X : \emph{Anaconda } distribution Python multiplateforme très répandue dans les milieux scientifiques
 	 \end{itemize}
 	\end{itemize}
-	
+	  
 \end{frame}	
 	
 \begin{frame}
- \frametitle{Environnement de développement}
-  
+ \frametitle{Environnement de développement\chrono}
+ 
 \begin{itemize}
    \item bloc-note, notepad++, vim, emacs ;
    \item IDE (Integrated Development Environment) : 
@@ -541,7 +574,7 @@
 
 % ---------------------------------------------------------------------------------Slide ----
 \begin{frame}
-\frametitle{Python et le calcul scientifique}
+\frametitle{Python et le calcul scientifique\chrono}
 	\begin{itemize}
 		%\justifying
 		\item rapide à apprendre (mais long à maîtriser) ;
@@ -555,9 +588,9 @@
 \end{frame}
 
 
-% ---------------------------------------------------------------------------------Slide ----
+%% ---------------------------------------------------------------------------------Slide ----
 \begin{frame}
-\frametitle{Les principales librairies}
+\frametitle{Les principales librairies\chrono}
 \textbf{1. Calcul scientifique} \\
 \footnotesize{Pour plus d'information, consulter~: \url{http://numpy.org/} et \url{http://scipy.org/}}
 
@@ -593,7 +626,7 @@
 			
 			
 		\end{column}
-	    % colonne 3
+	     %%colonne 3
 		%\begin{column}{0.33\textwidth}
 			%\begin{center}
 				%matplotlib \\
@@ -608,7 +641,7 @@
 
 % ---------------------------------------------------------------------------------Slide ----
 \begin{frame}
-\frametitle{Les principales librairies}
+\frametitle{Les principales librairies\chrono}
 \textbf{2. Visualisation de données}\\
 \footnotesize{Plus d'informations sur les sites des modules~: \verb!http://matplotlib.org/!.}
 	\begin{center}
@@ -637,20 +670,23 @@
 
 
 % ---------------------------------------------------------------------------------Slide ----
-\begin{frame}{Les autres librairies}{}
+\begin{frame}{Quelques bibliothèques\chrono}
+\small
 	\begin{itemize}
 		%\justifying
-		\item numexpr (\verb!https://code.google.com/p/numexpr/!) ;
-		\item NLopt (\verb!http://ab-initio.mit.edu/wiki/index.php/NLopt!) ;
-		\item scikits (\verb!https://scikits.appspot.com/!) ;
-		\item pyQt4 (\verb!http://www.riverbankcomputing.co.uk/software/pyqt/download!) ;
-		\item PIL (\verb!http://www.pythonware.com/products/pil/!) ;
-		\item sympy (\verb!http://sympy.org/fr/index.html!) ;
-		\item guiqwt/guidata \verb!https://code.google.com/p/{guiqwt,guidata}/!)
-		\item pyqtgraph (\verb!http://www.pyqtgraph.org/!) ;
-		\item SfePy (\verb!http://sfepy.org/doc-devel/index.html!) ;
-		\item FEniCS (\verb!http://fenicsproject.org/!).
+		\item numexpr:\verb!https://code.google.com/p/numexpr/! 
+		\item NLopt : \verb!http://ab-initio.mit.edu/wiki/index.php/NLopt! 
+		\item scikits : \verb!https://scikits.appspot.com/!
+		\item \textcolor[rgb]{1,0,0}{pyQt4} : \verb!http://www.riverbankcomputing.co.uk/software/pyqt/!
+		\item PIL : \verb!http://www.pythonware.com/products/pil/!
+		\item sympy : \verb!http://sympy.org/fr/index.html!
+		\item guiqwt/guidata : \verb!https://code.google.com/p/{guiqwt,guidata}!
+		\item pyqtgraph : \verb!http://www.pyqtgraph.org/!
+		\item SfePy : \verb!http://sfepy.org/doc-devel/index.html!
+		\item FEniCS : \verb!http://fenicsproject.org/!
 	\end{itemize}	
+	\pause
+	   {\small WinPython : \url{http://www.lfd.uci.edu/~gohlke/pythonlibs/}}
 \end{frame}
 %%% Local Variables: 
 %%% mode: latex

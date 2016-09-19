@@ -1,0 +1,1451 @@
+
+%\section{Rappel : Notion de variables}
+%\begin{frame}
+%\frametitle{Typage des variables}
+%\only<1-4>{
+%\begin{itemize}
+%\item<1-4> Python: langage  typé dynamiquement 
+%\item<2-4> [$\Rightarrow$] typage lors de l'affectation
+%\item<3-4> Une variable peut changer de type au cours de l'exécution
+%\item<4> Une variable n'est qu'une référence à l'objet (entier, réel, \dots)
+%
+%\end{itemize}
+%}
+%\end{frame}
+
+%\begin{frame}
+%\frametitle{Les types de base }
+%\begin{itemize}
+%\item \textbf{Les types intégrés de Python}
+%\begin{itemize}
+%\item Les types simples : 
+	%\begin{itemize}
+		%\item Entiers signés (\emph{int}), Réels (IEEE 754) (\emph{float}) et  Complexes (\emph{complex}), Booléens (\emph{bool})
+	%\end{itemize}
+%\item Les types composites (containers): 
+		%\begin{itemize}
+		  %\item \textbf{Les séquences} : Chaînes de caractères (\emph{str}) ;		Listes (\emph{list}) et  Tuples (\emph{tuple})
+			%\item \textbf{Les maps }(hashs) : Dictionnaires (\emph{dict})
+			%\item \textbf{Les ensembles} : le type \emph{set} et le type \emph{frozenset}
+		%\end{itemize}
+ %\end{itemize}
+%\end{itemize}
+%\pause
+%
+%\begin{remarque}
+    %\begin{itemize}
+			%\item Pour connaître le type d'une variable ou expression, on peut utiliser la fonction \emph{type()} ou \emph{whos} (sous ipython)
+			%%\item La fonction \emph{print()} permet d'afficher la valeur d'une variable
+		%\end{itemize}
+		%
+  %\end{remarque}
+%\end{frame}
+
+
+%\begin{frame}
+%\frametitle{Types des variables}
+  %\begin{exemple}
+    %\begin{semiverbatim}
+ %>>> i = 42 
+%
+ %>>> type(i)
+%
+ %<class 'int'>
+%
+ %>>> i = 'indice' 
+%
+ %>>> type(i)
+%
+ %<class 'str'>
+%
+ %>>> i = 42.0 
+%
+ %>>> type(i)
+%
+ %<class 'float'>
+%
+ %>>> print(i)
+%
+%42.5
+%
+%>>>
+    %\end{semiverbatim}
+  %\end{exemple}
+%\end{frame}
+
+\section{Les Types de Python}
+
+\subsection{Rappel : types simples/composites}
+\begin{frame}
+\frametitle{Les types numériques\chrono}
+\begin{itemize}
+	\item \textbf{Les entiers }
+	 	\only<1-3>{ 
+		\begin{itemize}
+		 \item<1-3>  Leurs représentation n'est limitée que par la taille mémoire. \\
+		  \only<2-3>{$\Rightarrow$~pas de risque de débordement}
+		\end{itemize}
+		}
+	\only<3>{    
+  \begin{exemple}
+  \begin{semiverbatim}
+	>>> i = 42
+	
+	>>> i
+	
+	42
+	
+	>>> math.factorial(i)
+	
+	1405006117752879898543142606244511569936384000000000
+	\end{semiverbatim}
+  \end{exemple}
+	}
+	
+	\item<4-> \textbf{Les réels }
+	\only<4-6>{
+	\begin{itemize}
+		\item <4-6> Sont représentés en en double précision (64 bits).\\
+	$\Rightarrow$~{le plus petit nombre qu'il est possible de distinguer de 1 est $2.22E-16$}
+	 \item <5,6> Pour utiliser la simple précision, on peut faire appel à la bibliothèque {\tt
+    numpy}.
+		\end{itemize}
+		}
+	 \only<6>{    
+			\begin{exemple}
+			\begin{semiverbatim}
+				>>> freq = 10e9
+				
+				>>> freq
+				
+				10000000000.0
+			\end{semiverbatim}
+			\end{exemple}
+		 }
+	\item<7-> \textbf{Les complexes}
+	\only<7-9>{
+	\begin{itemize}
+		\item <7-9>Sont formés d'un couple de réels qui composent la partie réelle et la partie imaginaire
+		\item <8-9> Un suffixe \emph{j} pour regrouper deux valeurs composant la partie réelle et la partie imaginaire
+		\item <9> Un nombre complexe possède deux attributs en lecture seule \emph{.real} et \emph{.imag} et une méthode \emph{.conjugate()}
+	\end{itemize}
+	}	 
+		
+		
+		\only<10>{    
+			\begin{exemple}
+			\begin{semiverbatim}
+			>>> nb = 10 + 5j
+			
+			>>> nb.real
+			
+			10.0
+			
+			>>> nb.conjugate()
+			
+			(10-5j)
+			
+			>>> print(complex(10, 5))
+			
+			(10+5j)
+			\end{semiverbatim}
+			\end{exemple}
+	
+	  }
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Les booléens\chrono}
+
+ \begin{itemize}
+	 \item Un objet booléen peut prendre 2 valeurs \emph{True} ou \emph{False}
+	 \item Une variable booléenne supporte toutes les opérations logiques (and, or, not)
+	 \item Tout objet peut être interprété en tant que valeur booléenne 
+	\item Tout ce qui n'est pas faux est vrai
+	\begin{itemize}
+		\item l'objet None est faux
+		\item toutes les valeurs numériques non nulles sont vraies (0, 0.0, 0.0+0.0j sont fausses)
+		\item tous les agrégats (séquences, dictionnaires, ensembles) sont vrais s'ils contiennent au moins un élément, faux sinon
+	\end{itemize}
+ \end{itemize}
+
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les types simples\chrono}
+\begin{remarques}
+\begin{itemize}
+	\item Les types simples (scalaires, atomiques) permettent de stocker une seule donnée par variable, contrairement aux types composites (containers) 
+	\item Les types simples sont immutables (non modifiables)
+	\end{itemize}
+\end{remarques}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Le type None\chrono}
+\only<1-5>{
+\begin{remarque}[type \texttt{NoneType}]
+\begin{itemize}
+	\item <1-5>\emph{None} est un objet particulier signifiant \textsl{rien} ou \textsl{nul}, dépourvu de valeur.
+	\item <2-5>C'est un objet unique utilisable à n'importe quel endroit du programme
+	\item <3-5>Utilisé pour indiquer qu'un identifiant (variable) n'a pas de valeur
+	\item <4-5>Une fonction qui ne renvoie pas explicitement une valeur, renvoie \texttt{None}
+	\item <5>En mode interactif, l'affichage d'une variable (sans passer par \emph{print()}) qui vaut \textit{None} ne donne rien.
+\end{itemize}
+\end{remarque}
+}
+\only<6-7>{
+\begin{exemple}
+\only<6>{
+	\begin{semiverbatim}
+	
+		>>> a = None
+			
+		>>> a   
+		
+		>>> \hspace{2cm} \# Rien ne s'affiche
+		
+		
+		
+		
+			
+\end{semiverbatim}
+}
+\only<7>{
+\begin{semiverbatim}
+	
+		>>> a = None
+			
+		>>> a   
+			
+		>>> print(a)
+			
+		None
+			
+		>>> type(a)
+			
+		<class 'NoneType'>
+		
+		>>>				
+\end{semiverbatim}
+}
+\end{exemple}
+}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Les séquences\chrono}
+\begin{defi}[Une séquence]
+    est une collection \emph{ordonnée} d'objets ou chaque objet est accessible via son index (indice) 
+  \end{defi}
+	\pause
+\begin{itemize}
+	\item On distingue deux familles  de séquences
+   
+	 \begin{enumerate}
+		 \item Les séquences immutables (non modifiables, non-mutables) : Les chaînes de caractères (\emph{str}) et les tuples (\emph{tuple})
+		 \item Les séquences mutables (modifiables) : Les listes
+	 \end{enumerate}
+\end{itemize}
+\pause
+\begin{remarque}[]
+    Toutes les opérations sur les séquences immutables sont disponibles sur les séquences mutables. 
+  \end{remarque}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Les séquences\chrono}
+Indexation des séquences :
+\begin{itemize}[<+->]
+	\item Les séquences sont indexées en commençant par 0
+	\item Chaque élément (objet) d'une séquence est accessible via son index
+	\item Si l'index est négatif, on accède à la séquence à partir de la fin.\\
+    \verb!\colorbox{pink}{>>> s[-1] \# \footnotesize{renvoie le dernier élément de la séquence s}}!
+	 \item La tranche \texttt{[i:j]} désigne tous les éléments commençant de $i^e$ indice jusqu'au $(j-1)^e$ indice\\
+     \verb!\colorbox{pink}{>>> s[0:2] \# \footnotesize{renvoie une séquence contenant s[0] et s[1]}}!
+			
+		  
+			\begin{itemize}
+				\item \verb![:j]! : désigne tout ce qui précède j ($j^e$ élément exclu)
+				\item \verb![i:]! : désigne tout ce qui suit i ($i^e$ élément inclu)
+				\item \verb![:]!  : tous les éléments (utilisé pour réaliser une copie \textit{superficielle})
+				\item \verb![i:j:pas]! : pour réaliser une sélection avec \texttt{un pas} donné 
+			\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+
+
+\begin{frame}
+
+
+\frametitle{Chaîne de caractères\chrono}
+  
+\begin{itemize}%[<+->]
+		\item <1->délimitée par des apostrophes simple\emph{'} ou triple \emph{'''}, des guillemets simples \emph{"} ou triple \emph{"""} 
+	  \item <8->Pour la modifier, il faut créer une nouvelle.
+		\item <12-> Les opérateurs '*' et '+' réalisent la multiplication et la concaténation
+		\end{itemize}
+\only<5->{	\includegraphics[width=6cm]{images/ch_helloworld.png}}
+		
+\only<2->{
+		\colorbox{pink}{\parbox{9cm}{
+      \only<2-4>{\verb!>>> s = 'l$\backslash$'or'!\\}
+			\only<3-4>{\verb!>>> s = "l'or"!\\}
+			\only<4>{\verb!>>> s = """ c'est une phrase \\
+				en plusieurs	ligne"""!}
+			\only<5-7>{\verb!>>> s = "Hello World"\\!}
+			\only<6-7>{\verb!>>> print(s[0] , s[-1], s[2:5], s [:-1])\\!}
+			\only<7>{\verb!H d llo Hello Worl!}
+			\only<8-10>{\verb!>>>s[0]='h'\\!}
+			\only<9>{\verb!Traceback (most recent call last):\\
+											File "<pyshell \#14>", line 1, in <module>\\
+											TypeError : 'str ' object does not support item ...!}
+		\only<10-11>{\verb!>>> ch1 = "h" + s [1:]\\!}
+		\only<11>{\verb!>>> ch1\\!}
+		\only<11>{\verb! 'hello World'!}	
+		\only<12-13>{\verb!>>> a ='a'*2+'b'\\!}	
+		\only<13>{\verb!>>> a\\!}
+		\only<13>{\verb!'aab'!}	
+					} %   \parbox         
+		}%colorbox
+		}
+
+   % \end{itemize}
+
+
+
+\end{frame}
+
+
+
+
+
+\begin{frame}
+  \frametitle{Les listes\chrono}
+  
+	\begin{itemize}[<+->]
+		\item Elles sont composées d'un ensemble d'éléments placés entre crochets [] et séparés par des virgules,
+		\item Elles sont modifiables
+		\item Elles peuvent contenir des éléments hétérogènes (de types différents : str, list, etc)
+		\end{itemize}
+    %\pause
+		\centering
+			\includegraphics[width=8cm]{images/liste.png}
+ 
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{Les listes\chrono}
+  		\begin{propriete}[Opérations]
+
+		%\begin{table}
+		%	\centering
+				\begin{tabular}{l|l}
+				%\hline
+					\scriptsize{\emph{len(s)}}& \scriptsize{taille de \texttt{s}}\\
+					\scriptsize{\texttt{ls[i] = x} } 											& \scriptsize{affecte x au $i^e$ élément de \texttt{ls}}\\
+					\scriptsize{\emph{del} \texttt{ls[i]} }           		& \scriptsize{supprime le $i^e$ élément de \texttt{ls}}\\
+					\scriptsize{\emph{del} \texttt{ls[i:j]}}           		& \scriptsize{supprime la tranche de $i^e$ au $(j-1)^e$  élément}\\
+					\scriptsize{\emph{list(seq)}}           		& \scriptsize{transforme la séquence seq en une nouvelle liste}\\
+					\scriptsize{\texttt{ls1 += ls2}}           	& \scriptsize{ajoute le contenu de \texttt{ls2} à la fin de \texttt{ls1}}\\
+					\scriptsize{\texttt{ls3 = ls1 + ls2}}           	& \scriptsize{renvoie une nouvelle liste : concaténation de \texttt{ls1} et \texttt{ls2}}\\
+					\scriptsize{\texttt{ls1 = ls2 * i}}           	& \scriptsize{renvoie une nouvelle liste : duplication de \texttt{i} fois de  \texttt{ls2}}\\
+				
+			\hline	
+			      \scriptsize{ls.\emph{append(x)}}	                     & \scriptsize{ajouter l'élément x à la fin de la liste ls}\\
+						\scriptsize{ls.\emph{insert(pos, el)}	}									 & \scriptsize{insérer l'élément el à l'index pos spécifié}\\
+						\scriptsize{ls.\emph{remove(el)}	}											 & \scriptsize{supprime la première occurrence de la valeur el}\\
+						\scriptsize{ls.\emph{pop(pos)}	}											 & \scriptsize{envoie et supprime l'élément d'index pos (le dernier sinon)}\\
+						\scriptsize{\emph{***help(list)}}										              & \scriptsize{pour plus de détails sur les propriétés de l'objet list}\\
+					
+			\end{tabular}
+		%\end{table}
+		\end{propriete}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Les listes\chrono}
+  		\begin{remarque}[Manipulation de matrice]
+        \begin{itemize}[<+->]
+						\item Utilisation des listes imbriquées $\Rightarrow$  moins flexible et pas efficace.
+					  % \colorbox{pink}{{\verb!>>> mat\_2D =[ [1,2,3], [4,5,6] ] \#!}   
+							\verb!\colorbox{pink}{>>> mat\_2D =[ [1,2,3], [4,5,6] ] \# \footnotesize{listes imbriquées}}!
+						\item  Utilisation de la bibliothèque \emph{numpy}
+					\end{itemize}				
+			\end{remarque}
+			\pause
+\begin{alertblock}{Copie d'une liste}
+
+	\begin{itemize}[<+->]
+		\item \verb!lst2 = lst1 \#!  \footnotesize{n'effectue pas de copie des données} \\
+		$\Rightarrow$les 2 variables \verb!lst1! et \verb!lst2! référencent la même liste
+	
+		\item \emph{\verb!lst2 = lst1[:] \#!} \footnotesize{duplique que les éléments de $1^{er}$ niveau} 
+
+		\item  \emph{\verb!lst2 = copy.deepcopy(lst1) \#!}  \footnotesize{depuis le module \emph{copy}}
+	\end{itemize}
+	
+\end{alertblock}
+
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{Les listes\chrono}
+\begin{exemple}[Copie de liste]
+\footnotesize{
+\begin{verbatim}
+>>> import copy # importation du module copy
+>>> mat = [[1, 2, 3], 5] 
+>>> m1 = mat[:]
+>>> m2 = copy.deepcopy(mat)
+>>> mat[1] = 100
+>>> mat[0][1] = 20
+>>> mat
+[[1, 20, 3],  100]
+>>> m1
+[[1, 20, 3], 5]
+>>> m2
+[[1, 2, 3], 5]
+>>> 
+\end{verbatim}}
+\end{exemple}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{Les listes\chrono}
+\begin{exemple}[Copie de liste]
+\only<1>{\includegraphics[width=8cm]{images/list_mat1.png}}
+\only<2>{\includegraphics[width=8cm]{images/list_mat2.png}}
+\only<3>{\includegraphics[width=8cm]{images/list_mat3.png}}
+\only<4>{\includegraphics[width=8cm]{images/list_mat6.png}}
+\only<5>{\includegraphics[width=8cm]{images/list_mat4.png}}
+\only<6>{\includegraphics[width=8cm]{images/list_mat7.png}}
+\only<7>{\includegraphics[width=8cm]{images/list_mat5.png}}
+\end{exemple}
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{N-Uplets (Les tuples)\chrono}
+ 
+ \begin{defi}[Un tuple]
+  Une séquence (collection) ordonnée \textbf{non modifiable} d'éléments hétérogènes (\textit{c'est une liste non modifiable}) 
+	\end{defi}
+	\pause
+	\begin{itemize}
+	\item Ils sont notés entre parenthèses \emph{()}, ou une suite d'éléments séparés par des virgules
+	\item l'accès aux éléments du tuple est réalisé via les indices placés entre crochets\emph{ [ ] }(comme pour les listes).
+	\end{itemize}
+	\pause
+\begin{remarques}
+\begin{itemize}
+	\item Si un seul élément est dans un tuple, le faire suivre d'une virgule.    
+	\item Le tuple possède les mêmes \emph{méthodes} que la liste, à l'exception de celles permettant une modification.
+\end{itemize}
+\end{remarques}
+
+\end{frame}
+
+\begin{frame}[fragile]
+ \frametitle{N-Uplets (Les tuples)\chrono}
+ \begin{exemple}[Tuple]
+\footnotesize{
+\begin{semiverbatim}>>> nb = (1) ; ch = ('ab')      \textcolor{red}{# => entier & str !}
+>>> tpl = (1,) 	               \textcolor{red}{# ou  tpl =1, => tuple}
+>>> tpl = (1, 'janvier', 2)    \textcolor{red}{# on peut omettre ( )}
+>>> \textcolor{blue}{len}(tpl)             \textcolor{red}{# => 3 (nombre d'éléments)}
+>>> tpl[0:2]            \textcolor{red}{# => le tuple (1, 'janvier')}
+>>> tpl[2] = 3           \textcolor{red}{# => erreur (tuple non modifiable)}
+>>> tpl +=  5, 'mars'    \textcolor{red}{# crée un nouv objet tuple}
+>>> 'mars' \textcolor{blue}{in} tpl         \textcolor{red}{# => True}
+>>> tpl2 = \textcolor{blue}{tuple}([5,6,12]) \textcolor{red}{# copie liste => nouv tuple (5,6,12)}
+>>> tpl3 = \textcolor{blue}{tuple}('hello')  \textcolor{red}{# copie chaine => tuple}
+                          \textcolor{red}{#    => ('h','e','l','l','o')}
+>>> lst2= \textcolor{blue}{list}(tpl2)      \textcolor{red}{# copie tuple vers liste}
+                          \textcolor{red}{#  => [5,6,12]}
+\end{semiverbatim}}
+\end{exemple}
+
+\end{frame}
+\begin{frame}
+ \frametitle{N-Uplets (Les tuples)\chrono}
+ \begin{exemple}[Tuple]
+\only<1>{\includegraphics[width=8cm]{images/tuple0.png}}
+\only<2>{\includegraphics[width=8cm]{images/tuple1.png}}
+\end{exemple}
+\end{frame}
+
+
+
+
+
+\begin{frame}
+  \frametitle{Dictionnaire\chrono}
+ \begin{defi}[Dictionnaire]
+
+ Est une collection modifiable, \textbf{non ordonnée}  d'éléments hétérogènes ou chacun de ses éléments est indicé par une \emph{clé}.
+ \end{defi}
+\pause
+\begin{itemize}
+	\item Il est noté entre accolades \emph{\{\}}, ou créé à partir d'une liste de couples (clé, valeur) passée en argument à la fonction \emph{dict()}.\\ 
+	\pause
+	Exemple :\\
+	\footnotesize{
+	\colorbox{pink}{\parbox{9cm}{
+	 \verb!dic = \{1: 'a', 2: 'b'\}\\
+	 \textcolor[rgb]{1,0,0}{\# ou élément après élément :}\\
+	 dic=\{\} ; dic[1] = 'a' ; dic[2] = 'b' \\
+	 \textcolor[rgb]{1,0,0}{\# en utilisant la fonction dict()}\\
+	 dic = \textcolor[rgb]{0,0,1}{dict}([(1, 'a'), (2, 'b')]) \\
+   dic = \textcolor[rgb]{0,0,1}{dict}(\textcolor[rgb]{0,0,1}{zip}((1, 2), ('a', 'b')))\\
+	 len(dic)  \textcolor[rgb]{1,0,0}{ \# => 2 paires clé:valeur} \\
+	 1 \textcolor[rgb]{0,0,1}{in} dic   \textcolor[rgb]{1,0,0}{\# test existence clé => True }\\
+   5 \textcolor[rgb]{0,0,1}{in} dic   \textcolor[rgb]{1,0,0}{\# => False, car 5 n'est pas une clé }
+	 !}}
+	}
+\end{itemize}
+
+
+\end{frame}
+
+
+
+\begin{frame}
+ 
+ \frametitle{Dictionnaire\chrono}
+ \begin{propriete}[]
+ \begin{itemize}
+	\item Les \emph{clés} doivent être de type non modifiable (exemple : les types simples) et uniques. 
+	\item Les valeurs peuvent être de n'importe quel type
+	\item Les valeurs sont accessibles par leurs clés 
+	\item Pas de notion d'ordre
+	\end{itemize}
+ 
+ \end{propriete}
+\end{frame}
+
+\begin{frame}[fragile]
+ 
+ \frametitle{Dictionnaire\chrono}
+ 
+ \begin{itemize}
+	\item Opérations (Exemple : \verb!dic = {1: 'a', 2: 'b'}!)
+		\begin{itemize}
+		\item<1-> Récupération d'une valeur
+	   	\only<1>{
+			\footnotesize{
+	      \colorbox{pink}{\parbox{9cm}{
+	 \verb!dic[1]        \textcolor[rgb]{1,0,0}{    \# => 'a'}\\
+		dic['cx']        \textcolor[rgb]{1,0,0}{  \# retourne erreur KeyError} \\
+		dic.\textcolor[rgb]{0,0,1}{get}(2)     \textcolor[rgb]{1,0,0}{\# => 'b' } \\
+		dic.\textcolor[rgb]{0,0,1}{get}('cx','erreur blabla')  \textcolor[rgb]{1,0,0}{\# => 'erreur blabla'}
+  	 !}}}
+	}
+	\item<2-> Ajout, modification et suppression des éléments
+		\only<2>{
+		\footnotesize{
+	      \colorbox{pink}{\parbox{9cm}{
+	       \verb!dic['c'] = 3      \textcolor[rgb]{1,0,0}{   \# => \{1: 'a', 'c': 3, 2: 'b'\}}\\
+          dic[2] = 10       \textcolor[rgb]{1,0,0}{\# => \{1: 'a', 'c' : 3,  2: 10 \}}\\
+          \textcolor[rgb]{0,0,1}{del} dic[1]    \textcolor[rgb]{1,0,0}{    \# supp. de l'élément 1: 'a' }  \\
+					val = dic.\textcolor[rgb]{0,0,1}{pop}(2)  \textcolor[rgb]{1,0,0}{ \# => 'b' et supp. de l'élément 2:'b'}
+	        !}}}
+					}
+			
+			
+			\item<3-> Fusion de dictionnaires et mise à jour
+			  \only<3>{
+					\footnotesize{ 
+					\colorbox{pink}{\parbox{9cm}{
+	        \verb!dic.\textcolor[rgb]{0,0,1}{update}(\{2: 20, 'c': 30\}) \textcolor[rgb]{1,0,0}{\# dic.\textsl{update(dict)}} \\
+					\textcolor[rgb]{1,0,0}{\# => dic = \{1: 'a', 2: 20, 'c': 30\}}
+				  !}}}
+			}
+			
+			\item<4-> Parcourir un dictionnaire (via des objets itérables par une boucle \emph{for}) 
+			 \only<4>{
+					\footnotesize{ 
+					\colorbox{pink}{\parbox{9cm}{
+	        \verb!dic.\textcolor[rgb]{0,0,1}{keys()}     \textcolor[rgb]{1,0,0}{\# => dict\_keys([1, 2])} \\
+					dic.\textcolor[rgb]{0,0,1}{values()  }      \textcolor[rgb]{1,0,0}{\# => dict\_values(['a', 'b'])}\\
+					dic.\textcolor[rgb]{0,0,1}{items()}       \textcolor[rgb]{1,0,0}{\# => dict\_items([(1, 'a'), (2, 'b')])}\\
+	
+				 \textcolor[rgb]{1,0,0}{\# copie sur liste ou tuple}\\
+				 \textcolor[rgb]{0,0,1}{list}(dic.keys())    \textcolor[rgb]{1,0,0}{\# => [1, 2] }\\
+					\textcolor[rgb]{0,0,1}{tuple}(dic.values()) \textcolor[rgb]{1,0,0}{\# => ('a', 'b')}
+					!}}}
+			}
+			\item<5>Copie d'un dictionnaire		
+			
+				\only<5>{						 
+					\footnotesize{ 
+					\colorbox{pink}{\parbox{9cm}{
+	        \verb!dict1 = dic.\textcolor[rgb]{0,0,1}{copy()} \textcolor[rgb]{1,0,0}{\#  => copie superficielle}\\
+					 \textcolor[rgb]{1,0,0}{\# import copy} \\
+					 dic2 = \textcolor[rgb]{0,0,1}{copy.deepcopy}(dic)  \textcolor[rgb]{1,0,0}{\# =>  copie profonde}
+					!}}}
+			}
+			
+			
+			
+			\end{itemize}	
+			
+	\end{itemize}
+ 
+\end{frame}
+
+\begin{frame}
+ 
+ \frametitle{Dictionnaire\chrono}
+\begin{exemple}
+\only<1>{\includegraphics[height=4cm]{images/dic1.png}}
+\only<2>{\includegraphics[height=4cm]{images/dic2.png}}
+\only<3>{\includegraphics[height=4cm]{images/dic3.png}}
+\only<4>{\includegraphics[height=4cm]{images/dic4.png}}
+\only<5>{\includegraphics[height=4cm]{images/dic5.png}}
+\only<6>{\includegraphics[height=4cm]{images/dic6.png}}
+\only<7>{\includegraphics[height=4cm]{images/dic7.png}}
+
+
+\end{exemple}
+\end{frame}
+%
+%\subsection{Portée}
+%
+%\begin{frame}
+  %\frametitle{Portée, bloc}
+  %\begin{alertblock}{Portée}
+    %\begin{itemize}
+    %\item Portée : zone de visibilité d'une variable
+    %\item Notion fondamentale
+    %\item Utilise la notion de bloc
+    %\end{itemize}
+  %\end{alertblock}
+  %\pause
+  %\begin{defi}[Bloc]
+    %Ensemble des instructions entre
+    %une paire balancée d'accolades (accolade ouvrante et
+    %accolade fermante correspondante).
+  %\end{defi}
+%
+%\end{frame}
+%
+%
+%
+%\begin{frame}
+%\frametitle{Exemple de blocs}
+  %\begin{exemple}[Bloc]
+    %\begin{semiverbatim}
+      %public class MaClasse
+%
+      %\{   // debut \textcolor{red}{bloc 1}
+%
+      %\hspace{1cm}\textcolor{red}{private int variable1};
+%
+      %\hspace{1cm}public void essai()
+%
+      %\hspace{1cm}\{  // debut \textcolor{blue}{bloc 2}
+%
+      %\hspace{2cm}\textcolor{blue}{int i, j};
+%
+      %\hspace{1cm}\}  // fin \textcolor{blue}{bloc 2}
+%
+      %\hspace{1cm}public static void main(String args[])
+%
+      %\hspace{1cm}\{  // debut \textcolor{orange}{bloc 3}
+%
+      %\hspace{2cm}\textcolor{orange}{int i};
+%
+      %\hspace{1cm}\}  // fin \textcolor{orange}{bloc 3}
+%
+      %\} // fin \textcolor{red}{bloc 1}
+    %\end{semiverbatim}
+  %\end{exemple}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{Effet de bord}
+%\begin{alertblock}{Attention}
+  %Limiter la portée des variables au maximum : attention aux effets de bord
+%\end{alertblock}
+%
+%\pause
+%\begin{defi}[Effet de bord]
+  %Effet de bord vient de \emph{side effect} (effet secondaire).
+  %Modification d'une variable globale par une fonction.
+%\end{defi}
+%\pause
+%Le comportement d'un programme change selon l'ordre d'appel des fonctions à
+%effet de bord.
+%\end{frame}
+\subsection{Transtypage et opérations}
+\begin{frame}[fragile]
+  \frametitle{Transtypage / \emph{cast}\chrono}
+  \only<1-2>{
+    \begin{itemize}
+    \item<1-2> Objectif : convertir d'un type vers un autre.
+    \item<1-2> Exemple : \texttt{ b = 23; ch = str(b)}
+		\item<2> Utilisation des fonctions : int(), float(), bool(), str(), complex(), list(), tuple()
+		\end{itemize} 
+		}
+
+	\begin{exemple}[Transtypage]<3>
+	\footnotesize{
+	\begin{semiverbatim}
+		>>> int(12.5)   \textcolor[rgb]{1,0,0}{\# => 12}
+>>> int('125') \textcolor[rgb]{1,0,0}{\# => 125}
+>>> float(125) \textcolor[rgb]{1,0,0}{ \# => 125.0}
+>>> int("1000110" ,2)\textcolor[rgb]{1,0,0}{ \# =>  70}
+>>> complex("12+.5j")\textcolor[rgb]{1,0,0}{ \# => (12+0.5j)}
+>>> int(True) \textcolor[rgb]{1,0,0}{# => 1}
+>>> bool(0) \textcolor[rgb]{1,0,0}{\# => False}
+>>> bool(124) \textcolor[rgb]{1,0,0}{\# => True}
+>>> str(12+3j) \textcolor[rgb]{1,0,0}{\# => '(12+3j)'}
+	\end{semiverbatim}
+	}
+\end{exemple}
+  
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Affectation\chrono}  
+  \begin{defi}[Affectation (assignation)]
+    Affectation : donner une ou plusieurs valeurs à une ou à plusieurs variables réalisée par l'opérateur``=''. Elle peut être simple ou multiple.
+  \end{defi}
+  \pause
+  \begin{exemple}[Affectations]
+    \begin{semiverbatim}
+      \textcolor[rgb]{1,0,0}{\# affectation simple }
+			
+			a = 2 
+      
+			\textcolor[rgb]{1,0,0}{\# affectation multiple }
+      
+			a = b = 5 \textcolor[rgb]{1,0,0}{\# => a=5 et b=5}
+			
+			a, b = b, a \textcolor[rgb]{1,0,0}{\# échange le contenu de a et b}
+
+      c, d, e = 1, 5, 6 \textcolor[rgb]{1,0,0}{\# => c=1; e=5 et e=6}
+			
+			a, *reste = [1, 2, 3] \textcolor[rgb]{1,0,0}{\# => a=1 et reste=[2, 3]}
+			
+
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Affectation\chrono}
+  \begin{exemple}[Forme condensée]
+    \begin{semiverbatim}
+		a = b = 2
+		a += 2
+		b *= 3
+		\end{semiverbatim}
+  \end{exemple}
+  \pause
+  \begin{itemize}
+  \item Affectation très utile : i \verb# +=# 1 (ou i = i+1) \pause
+	\item Autres formes condensées avec :  \verb# +=#, \verb#-=#, \verb#*=#, \verb#/=#, 
+   \verb#//=#, \verb#%=#, \verb#**=#, \verb#>>=#, \verb#<<=#,\verb# &=#,
+   \verb#^=#, \verb#|=#.
+  \end{itemize}
+	
+	\begin{alertblock}{Attention}
+	Python n'accepte pas les expressions : \verb#i++#, \verb#i--#,
+\verb#++i# et \verb#--i#
+ \end{alertblock}
+
+  
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Comparaisons\chrono}
+\only<1,2>{
+\begin{tabular}{|l|l|l|}
+\hline
+Opérateur &	Exemple &	Signification\\
+\hline
+\verb!>! 	&\verb!a > 10! 	&strictement supérieur\\
+  \verb!<! 	&\verb!a < 10! 	&strictement inférieur\\
+  \verb!>=! 	&\verb!a >= 10! 	&supérieur ou égal\\
+  \verb!<=! 	&\verb!a <= 10! 	&inférieur ou égal\\
+  \verb!==! 	&\verb!a == 10! 	&égal à\\
+  \verb~!=~ 	&\verb~a != 10~ 	&différent de\\
+  \verb!is! 	&\verb!a is b! 	  & a et b représentent le même objet\\
+  \verb!is not! 	&\verb!a is not b! 	& a et b ne représentent pas le même objet\\
+\hline
+\end{tabular}
+}
+\only<2,3>{
+\begin{remarque}
+\begin{itemize}
+	\item Le test d'égalité == concerne le contenu, 
+	\item le test \texttt{is} concerne la référence
+
+\end{itemize}
+\end{remarque}
+}
+\only<3>{
+\begin{exemple}[comparaison]
+    \begin{semiverbatim}
+		>>> 2 is 2 
+		
+		True
+		
+		>>> 2+2 == 4 
+		
+		True
+		
+		>>> [2+2] is [4]
+		
+		False
+		
+		>>> [2+2] == [4] 
+		
+		True
+		
+		\end{semiverbatim}
+  \end{exemple}
+
+
+}
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+\begin{frame}
+  \frametitle{Opérations logiques\chrono}
+\begin{tabular}{|l|l|l|}
+\hline
+Opérateur &	Exemple &	Signification\\
+\hline
+\verb~not~ 	&\verb~not a~ 	& NON logique\\
+\verb~and~ 	&\verb~a and b~ &	ET logique~: évaluation paresseuse\\
+\verb~or~ 	&\verb~a or b~ &	OU logique~: évaluation paresseuse\\
+\verb~\&~ 	&\verb~a \& b~ 	& ET logique\\
+\verb~\^{}~ 	&\verb~a \^{} b~ 	& OU exclusif logique\\
+\verb~|~ 	&\verb~a | b~ 	& OU logique\\
+\hline
+\end{tabular}
+\pause
+Remarque : évaluation paresseuse
+\begin{itemize}
+	\item \texttt{a and b}  évalue et retourne a si a est False, sinon évalue et retourne b.
+	\item \texttt{a or b}  évalue et retourne a  si a est True, sinon évalue et retourne b\\
+	\pause 
+	\footnotesize{
+	\colorbox{pink}{\parbox{9cm}{
+	 \verb!>>> 5 and 6 \textcolor[rgb]{1,0,0}{\# => retourne 6 }\\
+	    >>> 0 and 5 \textcolor[rgb]{1,0,0}{\# => retourne 0} \\
+			>>> 5 or 0 \textcolor[rgb]{1,0,0}{\# => retourne 5} \\
+			>>> 0 or 5 \textcolor[rgb]{1,0,0}{\# => retourne 5} \\
+	 !}}
+	}
+\end{itemize}
+
+\end{frame}
+
+%
+%
+%
+%
+%
+%\begin{frame}
+  %\frametitle{Opérateurs sur les bits}
+%
+  %\begin{tabular}{|l|l|l|}
+    %\hline
+    %Opérateur &	Exemple &	Signification\\
+    %\hline
+    %\verb~<<~ & \verb~a << n~ & décalage à gauche de $n$ bits\\
+    %\verb~>>~ & \verb~a >> n~ & décalage à droite de $n$ bits\\
+    %\verb~>>>~ & \verb~a >>> n~ & décalage à droite non signé de $n$ bits\\
+    %\verb!\~{}! & \verb!\~{}a! & NON binaire\\
+    %\verb~\&~ 	&\verb~a \& b~ 	&ET binaire\\
+    %\verb~\^{}~ &\verb~a \^{} b~&OU exclusif binaire\\
+    %\verb~|~ 	&\verb~a | b~ 	&OU binaire\\
+    %\hline
+  %\end{tabular}
+%\end{frame}
+%
+%\begin{frame}
+  %\frametitle{Priorité des opérateurs}
+%%\begin{tabular}{|l|l|}
+%%\hline
+%%les parenthèses &( )\\
+%%\hline
+%%les opérateurs d'incrémentation &++, - - \\
+%%\hline
+%%les opérateurs de multiplication, division, et modulo &*, /,\%\\
+%%\hline
+%%les opérateurs d'addition et soustraction &+,-\\
+%%\hline
+%%les opérateurs de décalage &$<<$,$>>$\\
+%%\hline
+%%les opérateurs de comparaison &$<$,$>$,$<=$,$>=$\\
+%%\hline
+%%les opérateurs d'égalité &==,!=\\
+%%\hline
+%%l'opérateur OU exclusif &\^{}\\
+%%\hline
+%%l'opérateur ET &\&\\
+%%\hline
+%%l'opérateur OU &$|$\\
+%%\hline
+%%l'opérateur ET logique &\&\&\\
+%%\hline
+%%l'opérateur OU logique &$||$\\
+%%\hline
+%%les opérateurs d'affectation &=,+=,-=  \\
+%%\hline
+%%\end{tabular}
+%%\end{frame}
+%%
+%%
+%%
+%%\begin{frame}
+%\footnotesize{
+%\begin{tabular}{|l|l|}
+ %\hline
+  %\textbf{Nom de l'opérateur} & \textbf{Symbole} \\
+  %\hline
+  %Parenthèses, crochets et accolades &\verb!( )!, \verb![ ]!, \verb!\{ \}!\\
+  %\hline
+  %Accès à des éléments d'une séquence & \texttt{x[i]}, \texttt{x[i:j], x[i:j:k]}\\
+  %\hline
+  %Puissance & \verb!**!\\
+  %\hline
+  %Plus, moins et \textsc{non} unaire & \texttt{+x}, \texttt{-x}, \texttt{~x}\\
+  %\hline
+  %Multiplication, division, division entière, et modulo & \verb!*!,
+  %\verb!//!,   \verb!/!,   \verb!\%!\\
+  %\hline
+  %Addition et soustraction &\verb!+!, \verb!-!\\
+  %\hline
+  %Décalage &\verb!<<!, \verb!>>!\\
+  %\hline
+  %\textsc{Et} binaire &\verb!\&!\\
+  %\hline
+  %\textsc{Ou exclusif} binaire &\^{}\\
+  %\hline
+  %\textsc{Ou} binaire &\verb!|!\\
+  %\hline
+  %Comparaison & \verb!<!, \verb!>!, \verb!<=!, \verb!>=!, \verb!==!,
+  %\verb!!=!, \texttt{in}, \\
+	   %& \texttt{not in}, \texttt{is}, \texttt{is not} \\
+  %\hline
+  %\textsc{Non} booléen & \texttt{not}\\
+  %\hline
+  %\textsc{Et} booléen & \texttt{and}\\
+  %\hline
+  %\textsc{Ou} booléen & \texttt{or}\\
+  %\hline
+   %Les opérateurs d'affectation & \verb!=!  \verb!+=!, \verb!-=!, \verb!*=!, \verb!/=!,  \verb!//=!, \verb!\%=!, \verb!**=!,\\
+     %& \verb!>>=!, \verb!<<=!,\verb! \&=!, \verb!\^{ }=!, \verb!|=!.\\
+  %\hline
+ %\end{tabular}
+%}
+%\end{frame}
+
+\section{Instructions du langage Python - Rappel}
+
+\begin{frame}
+  \frametitle{Règles de base\chrono}
+
+\begin{itemize}[<+->]
+\item <1-> Python est sensible à la casse 
+\item <2-> Une instruction est forcément dans un bloc et peut tenir sur plusieurs lignes
+\item <3-> Un bloc de code commence par "\emph{:}"   et est indenté plus à droite pour le bloc contenant \\
+\only<3>{Exemple : \\ \includegraphics[height=4cm]{images/bloc.png}}
+\begin{remarques}<4>
+\begin{itemize}
+	\item Il est recommandé d'utiliser 4 $<$espace$>$ pour un niveau d'indentation
+	\item Un bloc de code doit contenir au minimum une instruction. S'il n'en a pas, on peut utiliser l'instruction \emph{pass}
+\end{itemize}
+ \end{remarques}
+ \end{itemize}
+
+\end{frame}
+
+
+\subsection{Commentaires}
+
+\begin{frame}[fragile]
+  \frametitle{Commentaires\chrono}
+  \begin{itemize}[<+->]
+  \item Commentaires : remarques en langage naturel
+  \item Ignorés par l'interpréteur
+  \item Deux types de commentaires :
+  \end{itemize}
+  \only<4>{
+    \begin{exemple}[Commentaire sur une ligne]
+      \begin{semiverbatim}
+			
+        \textcolor[rgb]{1,0,0}{\# Une division réelle}
+				
+        a = 12/5
+				
+				b = a // 3 \textcolor[rgb]{1,0,0}{\# division entière}
+				
+      \end{semiverbatim}
+    \end{exemple}
+  }
+  
+  \only<5>{
+    \begin{exemple}[Documentation automatique]
+      \begin{semiverbatim}
+			\textcolor[rgb]{0,0,1}{def} somProd(var1, var2):
+					
+			\hspace{1cm}\textcolor[rgb]{1,0,0}{"""Fonction calculant somme et produit }
+			
+			\hspace{1cm}\textcolor[rgb]{1,0,0}{de var1 et var2		}
+			
+			\hspace{1cm}\textcolor[rgb]{1,0,0}{Retour : 	}	
+			
+			\hspace{1cm}\textcolor[rgb]{1,0,0}{un tuple (var1+var2, var1*var2)"""}
+					
+			\hspace{1cm}\textcolor[rgb]{0,0,1}{return} (var1+var2, var1*var2)
+      
+			\end{semiverbatim}
+    \end{exemple}
+  }
+\end{frame}
+
+
+\subsection{Littéraux (constantes)}
+
+\begin{frame}
+  \frametitle{Types de littéraux\chrono}
+  \begin{itemize}
+  \item<1-> Entiers : base 10  \only<2->{, base 16  }\only<3->{, base 8}\only<4->{, base 2}
+  \item<5-> Réels : double précision 
+  \item<6-> Booléens
+	\item <7-> Complexes
+  \item<8-> Chaînes de caractères 
+  \end{itemize}
+
+  \begin{exemple}[Littéral]
+    \only<1>{
+      42, -7
+    }
+    \only<2>{
+      0x9AE3
+    }
+    \only<3>{
+      0o20 (= 16)
+    }
+    \only<4>{
+      0b101010 (= 42)
+    }
+    \only<5>{
+      3.14, 6.02E23 (= $6.02.10^{23}$)
+    }
+    \only<6>{
+      True, False
+    }
+    \only<7>{
+      1j, (-1)**0.5, 3**0.5/2+0.5j
+    }
+    \only<8>{
+      "Une chaîne de caractères", 'l$\backslash$'expression "dauphine" aussi' 
+    }
+		\only<8>{
+      'Ex$\backslash$u0065llent travail' (='Excellent travail')
+			}
+  \end{exemple}
+\end{frame}
+
+
+%\subsection{Mots clés}
+%
+%\begin{frame}
+%\frametitle{Les 33 mots clés\chrono}
+%\begin{tabular}{|l|l|l|l|l|l|}
+%\hline
+      %and & as & assert & break & class & continue \\
+      %\hline
+      %def & del & elif & else & except & False \\
+      %\hline
+      %finally & for & from & global & if & import \\
+      %\hline
+      %in & is & lambda & None & nonlocal & not\\
+      %\hline
+      %or & pass & raise & return & True & try\\
+      %\hline
+      %while & with & yield & & & \\
+      %\hline
+%\end{tabular}  
+%
+%
+%\end{frame}
+%
+
+
+\subsection{Branchements conditionnels et boucles}
+
+
+\begin{frame}
+  \frametitle{if, elif, else \chrono}
+  \begin{itemize}
+  \item Teste une condition booléenne
+  \item Si (\texttt{if}) \emph{vrai}, exécute une partie du code
+  \item Sinon (\texttt{else}), exécute autre partie
+  \end{itemize}
+
+  \only<2>{
+  \begin{exemple}[if, else]
+	
+    \begin{semiverbatim}
+      \textcolor[rgb]{0,0,1}{if} expressionBooleenne1: 
+      
+      \hspace{1cm}action1 
+
+      \textcolor[rgb]{0,0,1}{else}:
+			
+			\hspace{1cm}\textcolor[rgb]{0,0,1}{if} expressionBooleenne2:
+      
+			\hspace{2cm}action2 
+
+      \hspace{1cm}\textcolor[rgb]{0,0,1}{else}:
+      
+      \hspace{2cm}action3
+
+          
+    \end{semiverbatim}
+  \end{exemple}
+	}
+	\only<3>{
+	  \begin{exemple}[if, elif, else]
+		
+    \begin{semiverbatim}
+      \textcolor[rgb]{0,0,1}{if} expressionBooleenne1: 
+      
+      \hspace{1cm}action1 
+
+      \textcolor[rgb]{0,0,1}{elif} expressionBooleenne2:
+      
+			\hspace{1cm}action2 
+
+      \textcolor[rgb]{0,0,1}{else}:
+      
+      \hspace{1cm}action3
+
+          
+    \end{semiverbatim}
+	
+  \end{exemple}	
+	}
+\end{frame}
+
+%\begin{frame}
+  %\frametitle{Exemple de test}
+  %\begin{exemple}
+    %\begin{semiverbatim}
+      %boolean b = fonctionTest();
+%
+      %int i = calculComplique();
+%
+      %if ( (i>42) \&\& b) \{
+%
+      %\hspace{1cm}appelFonction();
+%
+      %\}      
+    %\end{semiverbatim}
+  %\end{exemple}
+%\end{frame}
+
+\begin{frame}
+  \begin{remarque}
+    \begin{itemize}
+    \item \emph{if} peut s'écrire sans \emph{else}
+    \end{itemize}
+  \end{remarque}
+
+  \pause
+    \begin{alertblock}{Correct mais à proscrire}
+      \begin{semiverbatim}
+        \textcolor[rgb]{0,0,1}{if} condition:
+				
+				\hspace{1cm}pass	
+				
+        \textcolor[rgb]{0,0,1}{else}:
+        
+        \hspace{1cm}action
+
+      \end{semiverbatim}
+    \end{alertblock}
+    \pause
+    \begin{beamerboxesrounded}{Forme préférée}
+      \begin{semiverbatim}
+        \textcolor[rgb]{0,0,1}{if not} condition : 
+
+        \hspace{1cm}action
+
+      \end{semiverbatim}
+    \end{beamerboxesrounded}
+
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{Conditions multiples, et fonctions logiques}
+  \begin{exemple}[conditions multiples]
+    \begin{semiverbatim}
+		
+     \textcolor[rgb]{0,0,1}{if} 0 <= a < 10:
+		
+     \textcolor[rgb]{1,0,0}{ \# équivalence}
+		
+		 \textcolor[rgb]{0,0,1}{if} (0 <= a) and (a < 10):
+
+
+    \end{semiverbatim}
+  \end{exemple}
+
+	\begin{remarques}[fonctions logiques : any, all]
+	\begin{itemize}
+		\item Tester des séquences et des objets itérables 
+		 		 \begin{itemize}
+			\item \texttt{any(objet)} : retourne \texttt{True} si  au moins un des éléments est True \\
+			 \colorbox{pink}{\parbox{7cm}{
+	     \verb! any(range(100)) \# => True !}}
+			\item \texttt{all(objet)}: retourne True si tous les éléments sont True \\
+						 \colorbox{pink}{\parbox{7cm}{
+	     \verb! all(range(100)) \# => False !}}
+		 \end{itemize}
+	\end{itemize}
+  \end{remarques} 
+
+\end{frame}
+
+
+
+%\subsection{Boucles}
+
+\begin{frame}
+  \frametitle{Principe}
+  \begin{itemize}
+  \item Boucle = structure de contrôle
+  \item But : exécuter certaines opérations plusieurs fois
+  \item Il existe deux types de boucles en Python 3 : for, while
+	\item Les deux boucles sont équivalentes
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{while}
+  \begin{semiverbatim}
+    \textcolor[rgb]{0,0,1}{while} condition :
+
+      \hspace{1cm}actions
+
+    
+  \end{semiverbatim}
+  \pause
+  \begin{exemple}[boucle while]
+    \begin{semiverbatim}
+		
+		i=0
+		
+		\textcolor[rgb]{0,0,1}{while} i<10:  \textcolor[rgb]{1,0,0}{\# boucle tant que i<10}
+		
+    \hspace{1cm}print(i)             \textcolor[rgb]{1,0,0}{\# affiche la valeur de i}
+		
+    \hspace{1cm}i = i+1              \textcolor[rgb]{1,0,0}{\# incrémente i}
+		
+    \textcolor[rgb]{1,0,0}{\# maintenant i vaut 10}
+
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+\begin{frame}
+  \frametitle{while : Sortie de boucle}
+  
+	\begin{itemize}
+	  \item Un bloc \emph{else :} peut être ajouté à la fin de la boucle
+		\item Le mot clé \emph{break} permet de sortir de la boucle
+		\item Le mot clé \emph{continue} permet de passer immédiatement à l'itération suivante
+	
+	\end{itemize}
+	%\begin{Remarque} [equi. do ... until]
+  \begin{exemple}[do ... until]
+    \begin{semiverbatim}
+		
+		\textcolor[rgb]{0,0,1}{while} True :
+		
+		\hspace{1cm}\# corps de la boucle 
+		
+    \hspace{1cm}if exit$_{}$condition :
+		
+		\hspace{2cm}break
+		
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{for}
+  Objectif : itérer les valeurs d'une collection (liste, tuple, chaîne, dictionnaire) ou de tout objet itérable\\
+  Syntaxe~:
+  \begin{semiverbatim}
+    \textcolor[rgb]{0,0,1}{for} variable in collection:
+		
+		 \hspace{1cm}actions \textcolor[rgb]{1,0,0}{\# corps de la boucle}
+   \end{semiverbatim}  
+	\only<1-5>{
+   \begin{exemple} 
+	  \begin{semiverbatim}
+		
+		\only<1>{s = ['septembre', 'octobre']}
+		\only<2>{s = "Python"}
+		\only<3>{s = 1,2,3,4}
+		\only<4-5>{s = \{'a':10, 'b':'deux'\}  }
+		
+		\only<5>{for \textcolor[rgb]{0,0,1}{n, val} in s.items():}\only<1-4>{\textcolor[rgb]{0,0,1}{for} n \textcolor[rgb]{0,0,1}{in} s:} \only<4>{\textcolor[rgb]{1,0,0}{\# s.values(), s.keys(), s.items()}}
+    		
+		\hspace{1cm} print(n, end=' ')   \only<1>{\textcolor[rgb]{1,0,0}{\# => septembre octobre}}\only<2>{\textcolor[rgb]{1,0,0}{\# => P y t h o n}} \only<3>{\textcolor[rgb]{1,0,0}{\# => 1 2 3 4 }}\only<4-5>{\textcolor[rgb]{1,0,0}{\# => a b }}
+   
+	\end{semiverbatim}  
+	  
+	 
+	\end{exemple}
+	}
+		\only<6>{
+	\begin{remarque}[for : sortie de boucle]
+ Possibilité de modifier l'exécution d'une boucle \emph{for} avec \emph{break} et
+  \emph{continue} comme dans le cas de la boucle while.
+ \end{remarque}
+	}
+			
+		
+\end{frame}
+
+\begin{frame}
+  \frametitle{Itérateur}
+  
+	
+	\begin{remarque}
+	
+	\begin{itemize}
+		\item L'itérateur \emph{range(deb,fin, inc) }permet d'itérer sur une suite de nombres entiers, 
+		\item La fonction \emph{enumerate(sequence)} retourne un objet permettant d'itérer sur l'indice et la valeur d'une séquence
+	\end{itemize}  
+	\end{remarque}
+	
+  	\begin{exemple}
+		\begin{semiverbatim}
+      s = ['septembre', 'octobre'] 
+		 
+		 \only<1>{for i in \textcolor[rgb]{0,0,1}{range(2)}:}\only<2>{for ind, val in \textcolor[rgb]{0,0,1}{enumerate(s)}:}
+		
+		 	\only<1>{\hspace{1cm} print(s[i], end=' ')   \textcolor[rgb]{1,0,0}{\# => septembre octobre}}
+		 \only<2>{\hspace{1cm}print(ind, val,  end = ' ')}
+		 
+		 \only<2>{\hspace{1cm}\textcolor[rgb]{1,0,0}{\# => 0 septembre 1 octobre }}
+			
+    \end{semiverbatim}
+
+	\end{exemple}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{for : forme condensée}
+\textbf{ Objectif : }Pour construire un container de type liste, dictionnaire ou set  à l'aide d'une boucle for.\\
+\pause
+Syntaxe :
+
+\texttt{liste = [expression \emph{for} expr \emph{in} iterable \emph{if} cond]}\\
+\texttt{dict = \{expr1:expr2 \emph{for} expr \emph{in} iterable \emph{if} cond\}}
+
+\pause 
+Exemple 1 :\\
+\colorbox{pink}{\parbox{10.5cm}{
+	     \verb!puiss2 = [nb*nb \emph{for} nb \emph{in} \emph{range}(1,11) \emph{if} nb\%2==0]\\
+			 \textcolor[rgb]{1,0,0}{\# => [4, 16, 36, 64, 100]}!}}\\
+			\pause
+
+Exemple 2 :\\
+\colorbox{pink}{\parbox{10.5cm}{
+	     \verb!dic = \{'a': 12, 'b': 1.5, 'c': 3\}\\
+        dic1 = \{cle:val \emph{for} cle,val \emph{in} dic.items() \emph{if} val**2>10\}
+				\textcolor[rgb]{1,0,0}{\# => dic1 = \pause \{'a': 12\}}!}}
+
+
+
+
+
+\end{frame}
+
+%\section{Premier programme}
+%
+%\begin{frame}[fragile]
+  %\frametitle{Hello World}
+	%hello.py
+  %\begin{lstlisting}{le script hello.py}
+	%# affiche 'hello World" 
+%""" Ceci est mon premier programme
+%avec un commentaire fait sur plusieurs lignes """
+%print("Hello World!")
+  %\end{lstlisting}
+	%
+%\begin{itemize}
+  %\item  Exécution : \emph{python3 hello.py ou python3 hello}
+  %\item Passage de paramètres par l'attribut  \emph{sys.argv}
+  %\item Ex : \emph{python3 hello 1234 xyz}
+    %\begin{itemize}
+		%\item sys.argv[0] $\leftarrow$ hello
+    %\item sys.argv[1] $\leftarrow$ 1234
+    %\item sys.argv[2] $\leftarrow$ xyz
+    %\end{itemize}
+		%\item Passage de paramètres par la fonction \emph{input()}
+		%\item Ex : \texttt{nb = input("Donner votre paramètre :")}
+  %\end{itemize}
+
+
+
+
+%
+%%>>> help(test_for)
+%%Help on module hello:
+%%
+%%NAME
+    %%hello
+%%
+%%DESCRIPTION
+    %%Ceci est mon premier programme
+    %%avec un commentaire fait sur plusieurs lignes
+%%
+%%FILE
+    %%c:\hello.py
+%
+%\end{frame}
+
+

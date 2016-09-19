@@ -1,0 +1,11 @@
+\frametitle{Visibilité des attributs }
+  \begin{exemple}
+  \begin{semiverbatim}
+class Personne( object ):
+        \hspace{1cm}def \_\_init\_\_(self):
+        \hspace{2cm}self.nom = "inconnu" \# Variable publique
+        \hspace{2cm}self.\_prenom = "xxx" \# Variable protégée par convention
+        \hspace{2cm}self.\_\_adresse = "brest" \# Variable privée : renommée en interne en \_Personne\_\_adresse
+     \end{semiverbatim}
+\end{exemple}
+

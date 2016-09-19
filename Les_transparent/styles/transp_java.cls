@@ -29,9 +29,18 @@
 \RequirePackage{colortbl}
 \RequirePackage[frenchb]{babel}
 \RequirePackage{tipa}
+% ajout malek 2016 pour la gestion de timer
+%\RequirePackage[font=Times, timeinterval=10]{tickingclock}
+\RequirePackage[font=Times,timeinterval=10, timeduration=4, timedeath=0, fillcolorwarningsecond=white!60!yellow,
+timewarningfirst=50,timewarningsecond=80,resetatpages=2]{tdclock}
+\newcommand{\chrono}{\hfill \toggleclock{\beamerbutton{toggle}}\color{red}\tdtime\resetcrono{\beamerbutton{reset}}}
+
+%% version eleves
+%\newcommand{\chrono}{}
+
 
 \ifpdf
-\graphicspath{{pdfs/}{images/}}
+\graphicspath{{pdfs/}{imgs/}}
 \DeclareGraphicsExtensions{.pdf,.png,.mps,.jpeg}
 \else
 \graphicspath{{epss/}}
@@ -65,7 +74,7 @@
 %          numberstyle=\tiny,
 %          stepnumber=5,
           frame=single,
-          language=Python}
+          language=Java}
 
 \RequirePackage[algo2e,lined,algoruled,french]{algorithm2e}
 

@@ -1,0 +1,18 @@
+\frametitle{Algorithme tri par sélection}
+   {\small
+
+\begin{lstlisting}[caption={Tri par sélection optimisé pour numpy}]
+def trisel(tab):
+   """ tri par sélection: paramètres
+    tab : numpy.array
+        tableau à trier.
+    """
+    for i in range(len(tab)-1):
+        # Recherche de la position du
+        # plus petit élément
+        i_min = np.argmin(tab[i:]) + i
+        # Permuter les cases i et i_min
+        tab[i], tab[i_min] = tab[i_min], tab[i]
+
+  \end{lstlisting}
+}

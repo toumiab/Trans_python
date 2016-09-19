@@ -1,0 +1,23 @@
+\frametitle{Utilisation de modules\chrono}
+
+\begin{exemple}[Les modules]
+{\small
+  \begin{lstlisting}[frame=none]
+# Fichier mon_module.py
+
+# Utilisation du module
+
+import mon_module      # => n'exécute pas code
+mon_module.carre(3)    # => 9
+mon_module.cube(2)     # => 8
+
+# Exécution du module en tant que script
+$ python3 mon_module.py   # => affiche ce qui suit :
+  Exemple de la fonction carre()
+    carre(4) =>  16
+  Exemple de la fonction cube()
+    cube(3) =>  27
+
+\end{lstlisting}
+}
+\end{exemple}

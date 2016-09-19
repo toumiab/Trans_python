@@ -1,0 +1,14 @@
+\frametitle{Autre possibilité}
+  \begin{itemize}
+  \item possibilité : créer des objets dans créer de classe
+  \item même principe qu'avec les classes internes
+  \item possibilité d'utiliser les variables de la classe externe
+  \end{itemize}
+
+  \begin{lstlisting}[frame=single]
+boutonFin.addActionListener(new ActionListener(){
+  public void actionPerformed(ActionEvent e) {
+    System.exit(0);
+  }
+});
+  \end{lstlisting}
