@@ -3,7 +3,8 @@
 \subsection{Paramètres formels/paramètres effectifs}
 
 \begin{frame}
-  \frametitle{Fonction fact}
+  \frametitle{Fonction fact\chrono}
+	\initclock
   \begin{itemize}[<+-|alert@+>]
   \item Paramètres formels
   \item Paramètres effectifs
@@ -28,14 +29,14 @@
 \end{frame}
 \subsection{Portée de variable}
 \begin{frame}[fragile]
-  \frametitle{Variables globales/locales}
+  \frametitle{Variables globales/locales\chrono}
   
 	\begin{remarques}
 	\begin{itemize}[<+->]
 		\item Les variables globales sont visibles dans les fonctions appelées mais on ne peut les réaffectées
 		\item Le contenu d'une variable globale est modifiable si elle est mutable (modifiable).
 		\item Les variables locales d'une fonction ne sont pas visibles dans les niveaux supérieurs
-		\item Les fonctions peuvent modifier des variables globales avec l'instruction \emph{global} 
+		\item Les fonctions peuvent modifier des variables globales (les types non modifiables)  avec l'instruction \emph{global} 
 		\item La fonction \emph{globals()} retourne le dictionnaire des objets globaux. \\
 		\item La fonction \emph{locals()} retourne la liste des objets l'espace local en cours
    \end{itemize}
@@ -43,7 +44,7 @@
 	
 \end{frame}
 \begin{frame}[fragile]
-  \frametitle{Variables globales/locales}
+  \frametitle{Variables globales/locales\chrono}
 \small{
  \begin{exemple}[Modification d'une variable globale en local]
     \begin{semiverbatim}
@@ -74,7 +75,7 @@ incremCompt() \textcolor[rgb]{0,0.58,0}{# => affiche: Appelé 3 fois}
 
 
 \begin{frame}
-  \frametitle{Définition}
+  \frametitle{Définition\chrono}
 \begin{defi}[Fonction récursive]
   Une fonction ou une méthode est dite récursive si elle se définit à partir
   d'elle même, c'est-à-dire si elle comporte un appel à elle même dans son
@@ -99,7 +100,7 @@ incremCompt() \textcolor[rgb]{0,0.58,0}{# => affiche: Appelé 3 fois}
 
 
 \begin{frame}
-  \frametitle{Exemple}
+  \frametitle{Exemple\chrono}
 
   Traduction immédiate des fonctions définies par récurrence.
 
@@ -130,7 +131,7 @@ incremCompt() \textcolor[rgb]{0,0.58,0}{# => affiche: Appelé 3 fois}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Condition d'arrêt}
+  \frametitle{Condition d'arrêt\chrono}
 
   \begin{defi}[Condition d'arrêt]
     Condition pour laquelle il n'y a pas d'appel récursif.
@@ -148,7 +149,7 @@ incremCompt() \textcolor[rgb]{0,0.58,0}{# => affiche: Appelé 3 fois}
 
 
 \begin{frame}
-  \frametitle{Condition d'arrêt}
+  \frametitle{Condition d'arrêt\chrono}
   \begin{exemple}[Plusieurs conditions d'arrêt]
     \begin{semiverbatim}
       def fact(n):
@@ -217,7 +218,7 @@ incremCompt() \textcolor[rgb]{0,0.58,0}{# => affiche: Appelé 3 fois}
 %
 
 \begin{frame}
-  \frametitle{Pile et récursivité}
+  \frametitle{Pile et récursivité\chrono}
 
   \begin{itemize}
   \item Pile d'appel : notion fondamentale pour la récursivité.
@@ -262,7 +263,7 @@ incremCompt() \textcolor[rgb]{0,0.58,0}{# => affiche: Appelé 3 fois}
 
 
 \begin{frame}[fragile]
-  \frametitle{Post et pré-traitement}
+  \frametitle{Post et pré-traitement\chrono}
  
  \begin{exemple}[Puissance d'entier : x**n]
 
@@ -299,7 +300,7 @@ post-traitement de n : 5}}
 \subsection{Explosion combinatoire}
 
 \begin{frame}
-  \frametitle{Suite de Fibonacci}
+  \frametitle{Suite de Fibonacci\chrono}
   $\left\{
     \begin{array}{l}
       \color<2>{red}F_0 = 0\\
@@ -336,7 +337,7 @@ post-traitement de n : 5}}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Explosion de la pile d'appel}
+  \frametitle{Explosion de la pile d'appel\chrono}
   Évolution de la pile lors du calcul de F(3) :\\
 
   \begin{tabular}{|ll|}
@@ -373,7 +374,7 @@ post-traitement de n : 5}}
 \subsection{Conception d'algorithme récursif}
 
 \begin{frame}
-  \frametitle{Conception d'algorithme récursif}
+  \frametitle{Conception d'algorithme récursif\chrono}
 
   \begin{itemize}[<+->]
   \item Découper l'algorithme en étapes
@@ -393,7 +394,7 @@ post-traitement de n : 5}}
 \subsection{Exemples}
 
 \begin{frame}
-  \frametitle{Recherche par dichotomie}
+  \frametitle{Recherche par dichotomie\chrono}
 
   \begin{itemize}[<+->]
   \item Recherche d'un élément dans un tableau trié
@@ -411,7 +412,7 @@ post-traitement de n : 5}}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Recherche par dichotomie}
+  \frametitle{Recherche par dichotomie\chrono}
   \begin{semiverbatim}
     def rech(tab, val, deb, fin):
 
@@ -438,7 +439,7 @@ post-traitement de n : 5}}
 
 
 \begin{frame}[fragile]
-  \frametitle{Tours de Hanoï}
+  \frametitle{Tours de Hanoï\chrono}
   Principe :
   \begin{itemize}
   \item Disques empilés : tour
@@ -481,7 +482,7 @@ post-traitement de n : 5}}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Tours de Hanoï : résolution}
+  \frametitle{Tours de Hanoï : résolution\chrono}
   \begin{itemize}
   \item Résolution par une fonction récursive
   \item Étapes de l'algorithme : hauteur de la tour
@@ -498,7 +499,7 @@ post-traitement de n : 5}}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Tours de Hanoï : algorithme}
+  \frametitle{Tours de Hanoï : algorithme\chrono}
 
 %\begin{algorithme}{Algorithme des tours de Hanoï}{alg:hanoi}
 %  \proc \algverb{hanoi} (entier n, entier source, entier dest, entier tmp)\\
@@ -541,7 +542,7 @@ post-traitement de n : 5}}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Étude de l'algorithme tours de Hanoï}
+  \frametitle{Étude de l'algorithme tours de Hanoï\chrono}
   $C(n)$ : nombre d'opération pour déplacer une tour de hauteur $n$\\
   \pause ~\\
     $\left\{
@@ -642,7 +643,7 @@ post-traitement de n : 5}}
 %\end{frame}
 %
 \begin{frame}
-  \frametitle{Quicksort}
+  \frametitle{Quicksort\chrono}
 \only<1-4>{
   {\small 
 \begin{procedure}[H]
@@ -707,7 +708,7 @@ post-traitement de n : 5}}
 
 
 \begin{frame}
-  \frametitle{Récursivité terminale}
+  \frametitle{Récursivité terminale\chrono}
 
   \begin{itemize}
   \item A chaque appel récursif : empilement de données\pause
@@ -730,7 +731,7 @@ post-traitement de n : 5}}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Écriture de fonction récursive terminale}
+  \frametitle{Écriture de fonction récursive terminale\chrono}
   \begin{itemize}
   \item Idée générale : utiliser un accumulateur
   \item Paramètre qui contient le résultat intermédiaire
@@ -752,7 +753,7 @@ post-traitement de n : 5}}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Fonctionnement :}
+  \frametitle{Fonctionnement\chrono}
   Appel :
   \begin{semiverbatim}
     fact(4, 1)

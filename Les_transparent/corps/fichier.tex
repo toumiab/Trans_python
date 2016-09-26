@@ -6,7 +6,8 @@
 \subsection{Principe}
 
 \begin{frame}
-  \frametitle{Principe}
+  \frametitle{Principe\chrono}
+	\initclock
   \begin{itemize}
   \item Mécanisme de gestion des erreurs en Python\pause
   \item Détournement du fonctionnement du programme
@@ -17,7 +18,7 @@
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Exemple}
+  \frametitle{Exemple\chrono}
   {\small
   \begin{semiverbatim}
 	>>> a = 10/0 \pause
@@ -60,7 +61,7 @@ Traceback (most recent call last):
 \subsection{Traitement des exceptions}
 
 \begin{frame}
-  \frametitle{Traitement}
+  \frametitle{Traitement\chrono}
  
   Deux possibilités :
   \begin{itemize}
@@ -70,7 +71,7 @@ Traceback (most recent call last):
 \end{frame}
 
 \begin{frame}
-  \frametitle{Traitement local : \emph{try-except}}
+  \frametitle{Traitement local : \emph{try-except}\chrono}
 
   Traiter une exception localement : utiliser le bloc \emph{try-except-finally}.
   \begin{itemize}
@@ -85,7 +86,7 @@ Traceback (most recent call last):
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Syntaxe}
+  \frametitle{Syntaxe\chrono}
   Syntaxe :
   \begin{semiverbatim}
 	
@@ -102,7 +103,7 @@ Traceback (most recent call last):
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Syntaxe}
+  \frametitle{Syntaxe\chrono}
   Traitement de plusieurs exceptions :
   \begin{semiverbatim}
 	try :
@@ -121,14 +122,14 @@ finally :
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Exemple}
+  \frametitle{Exemple\chrono}
   \begin{exemple}
      \begin{semiverbatim}
 \vspace{-1cm}
 \textcolor[rgb]{0,0,1}{try}:
     resultat = num / den
 \textcolor[rgb]{0,0,1}{except} NameError:
-    print("une des variables n'a pas été défini.")
+    print("une des variables n'a pas été définie.")
 \textcolor[rgb]{0,0,1}{except} TypeError:
     print("Type incompatible du num ou den.")
 \textcolor[rgb]{0,0,1}{except} ZeroDivisionError:
@@ -140,7 +141,7 @@ finally :
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Exemple}
+  \frametitle{Exemple\chrono}
   \begin{exemple}
      \begin{semiverbatim}
 \vspace{-1cm}
@@ -163,7 +164,7 @@ Relancer le programme
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Exemple}
+  \frametitle{Exemple\chrono}
   \begin{exemple}
      \begin{semiverbatim}
 \vspace{-1cm}
@@ -220,7 +221,7 @@ indice = calcul_indice_tableau ()
 \subsection{Déclenchement d'une exception}
 
 \begin{frame}[fragile]
-  \frametitle{Lever une exception}
+  \frametitle{Lever une exception\chrono}
 
   Lever une exception dans une méthode : utilisation de \emph{raise}
 
@@ -234,6 +235,7 @@ indice = calcul_indice_tableau ()
 \end{frame}
 
 \begin{frame}[fragile]
+\chrono
   \begin{exemple}[Entier positif]
     \begin{semiverbatim}
 		\vspace{-1cm}
@@ -262,7 +264,7 @@ nombre invalide}
 
 
 \begin{frame}[fragile]
-  \frametitle{Définition de classes d'exception}
+  \frametitle{Définition de classes d'exception\chrono}
 
   \begin{itemize}
   \item Définition de classes exception utilisateur
@@ -273,20 +275,19 @@ nombre invalide}
     \end{itemize}
   \item<4-> exception utilisable comme les autres
   \end{itemize}
-
   \begin{exemple}
     \begin{semiverbatim}
 		\vspace{-1cm}
-		\scriptsize{\uncover<1->{
-   class MonException (Exception ): }\uncover<2->{
+		\scriptsize{\uncover<1->{\vspace{-0.3cm}
+		   class MonException (Exception ): }\uncover<2->{
        def __init__ (self, valeur ):  
            self.valeur = valeur}\uncover<3->{
        def __str__ ( self ):
 	         return repr( self.valeur )}
-	\uncover<4->{
-    try :
+	\uncover<4->{\vspace{-0.3cm}
+	   try :
 	        raise ( MonException ("message à afficher") )
-    except MonException as err :
+   except MonException as err :
         print ('Exception : ', err.value)
 		}}
     \end{semiverbatim}
@@ -301,7 +302,7 @@ nombre invalide}
 \subsection{Principe}
 
 \begin{frame}
-  \frametitle{Intérêt}
+  \frametitle{Intérêt\chrono}
 
   \begin{itemize}
 	\item Sauver des données, des résultats de calcul et traitements, des simulations, \dots
@@ -321,7 +322,7 @@ nombre invalide}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Intérêt}
+  \frametitle{Intérêt\chrono}
   \begin{block}{Exemple de fichiers textes}
 \begin{itemize}
 	\item Pages Web (html, css, \dots)
@@ -336,7 +337,7 @@ nombre invalide}
 \subsection{Lecture de fichier texte}
 
 \begin{frame}
-  \frametitle{Lecture de fichier}
+  \frametitle{Lecture de fichier\chrono}
   \begin{block}{Principe}
 	
 	\begin{itemize}
@@ -363,7 +364,7 @@ nombre invalide}
 
 \end{frame}
 \begin{frame}
-  \frametitle{Ouverture d'un fichier }
+  \frametitle{Ouverture d'un fichier \chrono}
   \begin{block}{La commande \texttt{open}}
 		\texttt{f=open("mon\_fichier.txt", mode = "rt")}
    \end{block}
@@ -395,7 +396,7 @@ nombre invalide}
 
 
 \begin{frame}[fragile]
-  \frametitle{Lecture de fichier}
+  \frametitle{Lecture de fichier\chrono}
     \begin{exemple}[Lecture des caractères d'un fichier]
     \begin{semiverbatim}\scriptsize{
 \textcolor[rgb]{0,0,1}{try} :
@@ -415,7 +416,7 @@ nombre invalide}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Lecture de fichier}
+  \frametitle{Lecture de fichier\chrono}
     \begin{exemple}[Lectures par lignes]
     \begin{semiverbatim}
 		\vspace{-1cm}
@@ -446,7 +447,7 @@ for ligne in f:
 \subsection{Écriture de fichiers texte}
 
 \begin{frame}[fragile]
-  \frametitle{Écriture d'un fichier}
+  \frametitle{Écriture d'un fichier\chrono}
 
   \begin{itemize}
   \item<1-> Méthode \emph{write} : écrit une chaîne de caractères \emph{str}
@@ -473,7 +474,7 @@ Comme il s'agit de fichier texte, la méthode \emph{.write()} prend en argument u
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Écriture d'un fichier}
+  \frametitle{Écriture d'un fichier\chrono}
 
 \begin{remarques}[Formatage du texte]
 \begin{itemize}
@@ -502,7 +503,7 @@ f.close()}
 
 
 \begin{frame}[fragile]
-  \frametitle{Écriture d'un fichier en mode append}
+  \frametitle{Écriture d'un fichier en mode append\chrono}
   \begin{exemple}[mode ajout 'append']<1->
 	%\uncover<2->{	
     \begin{semiverbatim}\scriptsize{
@@ -520,7 +521,7 @@ f.close()}
 \end{frame}	
 	
 	\begin{frame}[fragile]
-  \frametitle{Écriture d'un fichier}
+  \frametitle{Écriture d'un fichier\chrono}
 utilisation de la commande 
 \begin{exemple}
 \begin{semiverbatim}\scriptsize{ 
@@ -542,7 +543,7 @@ utilisation de la commande
 
 \subsection{Fichiers formatés }
 \begin{frame}
-  \frametitle{Lecture/écriture fichiers formatés}
+  \frametitle{Lecture/écriture fichiers formatés\chrono}
   \begin{defi}
 	Un fichier texte formaté représente un tableau de données où toutes les lignes
 présentent une structure identique.
@@ -576,7 +577,7 @@ présentent une structure identique.
 \subsection{Fichiers binaires}
 
 \begin{frame}[fragile]
-  \frametitle{Lecture de fichiers binaires}
+  \frametitle{Lecture de fichiers binaires\chrono}
   \begin{itemize}
   \item Un fichier est lu octet par octet 
 	\item Nécessite la connaissance de sa structure interne
@@ -613,7 +614,7 @@ présentent une structure identique.
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Écriture de fichiers binaires}
+  \frametitle{Écriture de fichiers binaires\chrono}
   \begin{itemize}
 	\item Écriture octet par octet (ou une séquence d'octets)
   \item La méthode .write() permet d'écrire des octets dans un fichier,
@@ -631,6 +632,7 @@ présentent une structure identique.
 }
  \begin{exemple}<3>
   \begin{semiverbatim}\scriptsize{
+	\vspace{-0.8cm}
 \textcolor[rgb]{0.24,0.7,0.44}{# Ouverture du fichier binaire en écriture}
 \textcolor[rgb]{0,0,1}{with} open(filename, mode ='\textcolor[rgb]{1,0.41,0.13}{wb}') as f: 
     size = 10 \textcolor[rgb]{0.24,0.7,0.44}{# Nombre de données}
@@ -654,7 +656,7 @@ présentent une structure identique.
 
 
 \begin{frame}
-  \frametitle{Principe}
+  \frametitle{Principe\chrono}
   \begin{itemize}
   \item Sauvegarder directement des objets dans un fichier
   \item Puis les récupérer très simplement
@@ -669,7 +671,7 @@ présentent une structure identique.
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Utilisation du module \texttt{pickle}}
+  \frametitle{Utilisation du module \texttt{pickle}\chrono}
   \begin{enumerate}
   \item<2-> Sauvegarder les objets
   \item<4-> Restaurer les objets
@@ -695,7 +697,7 @@ with open('data.txt','wb') as f:
 
 
 \begin{frame}
-  \frametitle{Utilisation du module \texttt{pickle}}
+  \frametitle{Utilisation du module \texttt{pickle}\chrono}
   
 \begin{alertblock}{Remarques}
 \begin{itemize}
