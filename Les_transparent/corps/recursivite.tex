@@ -67,6 +67,29 @@ incremCompt() \textcolor[rgb]{0,0.58,0}{# => affiche: Appelé 3 fois}
 \end{frame}
 
 
+\begin{frame}[fragile]
+  \frametitle{Variables globales/locales\chrono}
+\small{
+ \begin{exemple}[Modification d'une variable globale en local]
+    \begin{semiverbatim}
+		\textcolor[rgb]{0,0,1}{def} maville(lm):
+    ville = 'Brest' \# variable locale
+    print (ville, cp,lm)
+    \onslide<2->{test()   
+\textcolor[rgb]{0,0,1}{def} test():
+    print('test',ville)
+}    
+
+\textcolor[rgb]{0,0.58,0}{\# cp=29200 variable globale vue par la fct}
+cp = 29200 \textcolor[rgb]{0,0.58,0}{\# variable globale}
+maville('France') \textcolor[rgb]{0,0.58,0}{\# => affiche 'Brest 29200 France'}
+\onslide<3>{\# => affiche 'test, Brest'	? }
+			
+ \end{semiverbatim}
+  \end{exemple}
+	}
+%}
+\end{frame}
 
 \section{Récursivité}
 
