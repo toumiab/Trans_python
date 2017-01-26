@@ -1,4 +1,4 @@
-\frametitle{Fonctionnement :}
+\frametitle{Fonctionnement\chrono}
   Appel :
   \begin{semiverbatim}
     fact(4, 1)

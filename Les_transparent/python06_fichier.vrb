@@ -1,4 +1,4 @@
-\frametitle{Utilisation du module \texttt{pickle}}
+\frametitle{Utilisation du module \texttt{pickle}\chrono}
   \begin{enumerate}
   \item<2-> Sauvegarder les objets
   \item<4-> Restaurer les objets

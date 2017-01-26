@@ -18,72 +18,81 @@
 \headcommand {\beamer@framepages {7}{12}}
 \headcommand {\slideentry {1}{2}{3}{13/13}{Port\'ee de variable}{0}}
 \headcommand {\beamer@framepages {13}{13}}
-\headcommand {\sectionentry {2}{R\'ecursivit\'e}{14}{R\'ecursivit\'e}{0}}
-\headcommand {\beamer@sectionpages {2}{13}}
-\headcommand {\beamer@subsectionpages {6}{13}}
-\headcommand {\slideentry {2}{0}{4}{14/14}{}{0}}
-\headcommand {\beamer@framepages {14}{14}}
-\headcommand {\beamer@subsectionentry {0}{2}{1}{15}{D\'efinition}}\headcommand {\beamer@subsectionpages {14}{14}}
-\headcommand {\slideentry {2}{1}{1}{15/15}{D\'efinition}{0}}
-\headcommand {\beamer@framepages {15}{15}}
-\headcommand {\slideentry {2}{1}{2}{16/18}{D\'efinition}{0}}
-\headcommand {\beamer@framepages {16}{18}}
-\headcommand {\slideentry {2}{1}{3}{19/23}{D\'efinition}{0}}
-\headcommand {\beamer@framepages {19}{23}}
-\headcommand {\slideentry {2}{1}{4}{24/26}{D\'efinition}{0}}
-\headcommand {\beamer@framepages {24}{26}}
-\headcommand {\slideentry {2}{1}{5}{27/28}{D\'efinition}{0}}
-\headcommand {\beamer@framepages {27}{28}}
-\headcommand {\beamer@subsectionentry {0}{2}{2}{29}{Pile d'appel}}\headcommand {\beamer@subsectionpages {15}{28}}
-\headcommand {\slideentry {2}{2}{1}{29/29}{Pile d'appel}{0}}
-\headcommand {\beamer@framepages {29}{29}}
-\headcommand {\slideentry {2}{2}{2}{30/37}{Pile d'appel}{0}}
-\headcommand {\beamer@framepages {30}{37}}
-\headcommand {\beamer@subsectionentry {0}{2}{3}{38}{M\'ecanisme des traitements}}\headcommand {\beamer@subsectionpages {29}{37}}
-\headcommand {\slideentry {2}{3}{1}{38/38}{M\'ecanisme des traitements}{0}}
-\headcommand {\beamer@framepages {38}{38}}
-\headcommand {\slideentry {2}{3}{2}{39/43}{M\'ecanisme des traitements}{0}}
-\headcommand {\beamer@framepages {39}{43}}
-\headcommand {\beamer@subsectionentry {0}{2}{4}{44}{Explosion combinatoire}}\headcommand {\beamer@subsectionpages {38}{43}}
-\headcommand {\slideentry {2}{4}{1}{44/44}{Explosion combinatoire}{0}}
-\headcommand {\beamer@framepages {44}{44}}
-\headcommand {\slideentry {2}{4}{2}{45/48}{Explosion combinatoire}{0}}
-\headcommand {\beamer@framepages {45}{48}}
-\headcommand {\slideentry {2}{4}{3}{49/65}{Explosion combinatoire}{0}}
-\headcommand {\beamer@framepages {49}{65}}
-\headcommand {\beamer@subsectionentry {0}{2}{5}{66}{Conception d'algorithme r\'ecursif}}\headcommand {\beamer@subsectionpages {44}{65}}
-\headcommand {\slideentry {2}{5}{1}{66/66}{Conception d'algorithme r\'ecursif}{0}}
-\headcommand {\beamer@framepages {66}{66}}
-\headcommand {\slideentry {2}{5}{2}{67/72}{Conception d'algorithme r\'ecursif}{0}}
-\headcommand {\beamer@framepages {67}{72}}
-\headcommand {\beamer@subsectionentry {0}{2}{6}{73}{Exemples}}\headcommand {\beamer@subsectionpages {66}{72}}
-\headcommand {\slideentry {2}{6}{1}{73/73}{Exemples}{0}}
-\headcommand {\beamer@framepages {73}{73}}
-\headcommand {\slideentry {2}{6}{2}{74/80}{Exemples}{0}}
-\headcommand {\beamer@framepages {74}{80}}
-\headcommand {\slideentry {2}{6}{3}{81/84}{Exemples}{0}}
-\headcommand {\beamer@framepages {81}{84}}
-\headcommand {\slideentry {2}{6}{4}{85/85}{Exemples}{0}}
-\headcommand {\beamer@framepages {85}{85}}
-\headcommand {\slideentry {2}{6}{5}{86/86}{Exemples}{0}}
-\headcommand {\beamer@framepages {86}{86}}
-\headcommand {\slideentry {2}{6}{6}{87/87}{Exemples}{0}}
-\headcommand {\beamer@framepages {87}{87}}
-\headcommand {\slideentry {2}{6}{7}{88/92}{Exemples}{0}}
-\headcommand {\beamer@framepages {88}{92}}
-\headcommand {\slideentry {2}{6}{8}{93/97}{Exemples}{0}}
-\headcommand {\beamer@framepages {93}{97}}
-\headcommand {\beamer@subsectionentry {0}{2}{7}{98}{Notion de r\'ecursivit\'e terminale}}\headcommand {\beamer@subsectionpages {73}{97}}
-\headcommand {\slideentry {2}{7}{1}{98/98}{Notion de r\'ecursivit\'e terminale}{0}}
-\headcommand {\beamer@framepages {98}{98}}
-\headcommand {\slideentry {2}{7}{2}{99/103}{Notion de r\'ecursivit\'e terminale}{0}}
-\headcommand {\beamer@framepages {99}{103}}
-\headcommand {\slideentry {2}{7}{3}{104/104}{Notion de r\'ecursivit\'e terminale}{0}}
-\headcommand {\beamer@framepages {104}{104}}
-\headcommand {\slideentry {2}{7}{4}{105/110}{Notion de r\'ecursivit\'e terminale}{0}}
-\headcommand {\beamer@framepages {105}{110}}
-\headcommand {\beamer@partpages {1}{110}}
-\headcommand {\beamer@subsectionpages {98}{110}}
-\headcommand {\beamer@sectionpages {14}{110}}
-\headcommand {\beamer@documentpages {110}}
-\headcommand {\def \inserttotalframenumber {34}}
+\headcommand {\slideentry {1}{2}{4}{14/16}{Port\'ee de variable}{0}}
+\headcommand {\beamer@framepages {14}{16}}
+\headcommand {\sectionentry {2}{R\'ecursivit\'e}{17}{R\'ecursivit\'e}{0}}
+\headcommand {\beamer@sectionpages {2}{16}}
+\headcommand {\beamer@subsectionpages {6}{16}}
+\headcommand {\slideentry {2}{0}{5}{17/17}{}{0}}
+\headcommand {\beamer@framepages {17}{17}}
+\headcommand {\beamer@subsectionentry {0}{2}{1}{18}{D\'efinition}}\headcommand {\beamer@subsectionpages {17}{17}}
+\headcommand {\slideentry {2}{1}{1}{18/18}{D\'efinition}{0}}
+\headcommand {\beamer@framepages {18}{18}}
+\headcommand {\slideentry {2}{1}{2}{19/21}{D\'efinition}{0}}
+\headcommand {\beamer@framepages {19}{21}}
+\headcommand {\slideentry {2}{1}{3}{22/26}{D\'efinition}{0}}
+\headcommand {\beamer@framepages {22}{26}}
+\headcommand {\slideentry {2}{1}{4}{27/29}{D\'efinition}{0}}
+\headcommand {\beamer@framepages {27}{29}}
+\headcommand {\slideentry {2}{1}{5}{30/31}{D\'efinition}{0}}
+\headcommand {\beamer@framepages {30}{31}}
+\headcommand {\beamer@subsectionentry {0}{2}{2}{32}{Pile d'appel}}\headcommand {\beamer@subsectionpages {18}{31}}
+\headcommand {\slideentry {2}{2}{1}{32/32}{Pile d'appel}{0}}
+\headcommand {\beamer@framepages {32}{32}}
+\headcommand {\slideentry {2}{2}{2}{33/40}{Pile d'appel}{0}}
+\headcommand {\beamer@framepages {33}{40}}
+\headcommand {\beamer@subsectionentry {0}{2}{3}{41}{M\'ecanisme des traitements}}\headcommand {\beamer@subsectionpages {32}{40}}
+\headcommand {\slideentry {2}{3}{1}{41/41}{M\'ecanisme des traitements}{0}}
+\headcommand {\beamer@framepages {41}{41}}
+\headcommand {\slideentry {2}{3}{2}{42/46}{M\'ecanisme des traitements}{0}}
+\headcommand {\beamer@framepages {42}{46}}
+\headcommand {\beamer@subsectionentry {0}{2}{4}{47}{Explosion combinatoire}}\headcommand {\beamer@subsectionpages {41}{46}}
+\headcommand {\slideentry {2}{4}{1}{47/47}{Explosion combinatoire}{0}}
+\headcommand {\beamer@framepages {47}{47}}
+\headcommand {\slideentry {2}{4}{2}{48/51}{Explosion combinatoire}{0}}
+\headcommand {\beamer@framepages {48}{51}}
+\headcommand {\slideentry {2}{4}{3}{52/68}{Explosion combinatoire}{0}}
+\headcommand {\beamer@framepages {52}{68}}
+\headcommand {\beamer@subsectionentry {0}{2}{5}{69}{Conception d'algorithme r\'ecursif}}\headcommand {\beamer@subsectionpages {47}{68}}
+\headcommand {\slideentry {2}{5}{1}{69/69}{Conception d'algorithme r\'ecursif}{0}}
+\headcommand {\beamer@framepages {69}{69}}
+\headcommand {\slideentry {2}{5}{2}{70/75}{Conception d'algorithme r\'ecursif}{0}}
+\headcommand {\beamer@framepages {70}{75}}
+\headcommand {\beamer@subsectionentry {0}{2}{6}{76}{Exemples}}\headcommand {\beamer@subsectionpages {69}{75}}
+\headcommand {\slideentry {2}{6}{1}{76/76}{Exemples}{0}}
+\headcommand {\beamer@framepages {76}{76}}
+\headcommand {\slideentry {2}{6}{2}{77/83}{Exemples}{0}}
+\headcommand {\beamer@framepages {77}{83}}
+\headcommand {\slideentry {2}{6}{3}{84/87}{Exemples}{0}}
+\headcommand {\beamer@framepages {84}{87}}
+\headcommand {\slideentry {2}{6}{4}{88/88}{Exemples}{0}}
+\headcommand {\beamer@framepages {88}{88}}
+\headcommand {\slideentry {2}{6}{5}{89/89}{Exemples}{0}}
+\headcommand {\beamer@framepages {89}{89}}
+\headcommand {\slideentry {2}{6}{6}{90/90}{Exemples}{0}}
+\headcommand {\beamer@framepages {90}{90}}
+\headcommand {\slideentry {2}{6}{7}{91/95}{Exemples}{0}}
+\headcommand {\beamer@framepages {91}{95}}
+\headcommand {\slideentry {2}{6}{8}{96/100}{Exemples}{0}}
+\headcommand {\beamer@framepages {96}{100}}
+\headcommand {\beamer@subsectionentry {0}{2}{7}{101}{Notion de r\'ecursivit\'e terminale}}\headcommand {\beamer@subsectionpages {76}{100}}
+\headcommand {\slideentry {2}{7}{1}{101/101}{Notion de r\'ecursivit\'e terminale}{0}}
+\headcommand {\beamer@framepages {101}{101}}
+\headcommand {\slideentry {2}{7}{2}{102/106}{Notion de r\'ecursivit\'e terminale}{0}}
+\headcommand {\beamer@framepages {102}{106}}
+\headcommand {\slideentry {2}{7}{3}{107/107}{Notion de r\'ecursivit\'e terminale}{0}}
+\headcommand {\beamer@framepages {107}{107}}
+\headcommand {\slideentry {2}{7}{4}{108/113}{Notion de r\'ecursivit\'e terminale}{0}}
+\headcommand {\beamer@framepages {108}{113}}
+\headcommand {\sectionentry {3}{Horloge }{114}{Horloge }{0}}
+\headcommand {\beamer@sectionpages {17}{113}}
+\headcommand {\beamer@subsectionpages {101}{113}}
+\headcommand {\slideentry {3}{0}{5}{114/114}{}{0}}
+\headcommand {\beamer@framepages {114}{114}}
+\headcommand {\slideentry {3}{0}{6}{115/115}{}{0}}
+\headcommand {\beamer@framepages {115}{115}}
+\headcommand {\beamer@partpages {1}{115}}
+\headcommand {\beamer@subsectionpages {114}{115}}
+\headcommand {\beamer@sectionpages {114}{115}}
+\headcommand {\beamer@documentpages {115}}
+\headcommand {\def \inserttotalframenumber {37}}

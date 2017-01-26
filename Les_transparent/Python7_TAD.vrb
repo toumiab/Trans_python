@@ -1,11 +1,36 @@
-\frametitle{Visibilité des attributs }
-  \begin{exemple}
-  \begin{semiverbatim}
-class Personne( object ):
-        \hspace{1cm}def \_\_init\_\_(self):
-        \hspace{2cm}self.nom = "inconnu" \# Variable publique
-        \hspace{2cm}self.\_prenom = "xxx" \# Variable protégée par convention
-        \hspace{2cm}self.\_\_adresse = "brest" \# Variable privée : renommée en interne en \_Personne\_\_adresse
-     \end{semiverbatim}
-\end{exemple}
+\frametitle{Intervalle\chrono}
 
+  \begin{itemize}
+  \item Principe : défini par des bornes supérieurs et inférieurs.
+\item Objcetif : L'arithmétique d'intervalles a été définie pour estimer des bornes inférieures et supérieures de fonctions non-convexes
+  \item Fonctionalités :
+    \begin{itemize}
+    \item Opérations : Addition,, soustraction, multiplication, division, ....
+
+
+  %\begin{center}
+%\begin{tikzpicture}
+  %\draw (0,2) -- (0,0) -- (1.5,0) -- (1.5,2);
+  %\foreach \y in {0.3,0.6,...,1.8} {
+    %\draw (0,\y) -- (1.5,\y);
+  %}
+  %\draw (0.75,1.8) node (top) {};
+  %\draw (-0.5,2.5) node (e) {Empiler};
+  %\draw (2,2.5) node (d) {Dépiler};
+  %\draw[->, auto, thick] (e) -- (top.west);
+  %\draw[->, auto, thick] (top.east) -- (d);
+%\end{tikzpicture}
+%%    \includegraphics[height=3cm]{pile}
+  %\end{center}
+$
+\begin{array}{l}
+\verb![a,b] + [c,d] = [a+c,b+d],! \\
+\verb![a,b] - [c,d] = [a-d, b-c],!\\
+\verb![a,b] * [c,d] = [min(ac,ad,bc,bd), max(ac,ad,bc,bd)],!\\
+\verb![a,b] / [c,d] = [a,b]*[!\frac{1}{d},\frac{1}{c}] \text{ si } 0 \notin[c,d].\\
+...
+\end{array}
+$
+\item Examiner les bornes (inf et sup)
+    \end{itemize}
+  \end{itemize}

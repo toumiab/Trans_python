@@ -1,4 +1,4 @@
-\frametitle{Algorithme tri par sélection}
+\frametitle{Algorithme tri par sélection\chrono}
    {\small
 
 \begin{lstlisting}[caption={Tri par sélection optimisé pour numpy}]

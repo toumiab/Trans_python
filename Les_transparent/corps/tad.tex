@@ -5,8 +5,8 @@
 \subsection{Définition}
 
 \begin{frame}
-  \frametitle{Définition}
-
+  \frametitle{Définition\chrono}
+  \initclock 
   \begin{defi}[Type abstrait de données]
     Concept d'utilisation de données ne tenant pas en compte leur
     représentation interne.
@@ -27,7 +27,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Exemple : rationnels}
+  \frametitle{Exemple : rationnels \chrono}
   \begin{itemize}[<+->]
   \item TAD nombre rationnel
   \item Opérations : 
@@ -38,7 +38,7 @@
     \item test d'égalité
     \end{itemize}
   \item Représentation interne : par exemple deux entiers
-  \item Contrainte interne : numérateur strictement positif
+  \item Contrainte interne : dénominateur strictement positif
   \end{itemize}
 \end{frame}
 
@@ -46,7 +46,7 @@
 
 
 \begin{frame}
-  \frametitle{Exemple : rationnels}
+  \frametitle{Exemple : rationnels \chrono}
 
   \begin{itemize}
   \item \only<1>{Définition d'un nouveau \textcolor{red}{type}}
@@ -130,7 +130,7 @@
 
 
 \begin{frame}
-  \frametitle{Exemple : rationnels}
+  \frametitle{Exemple : rationnels \chrono}
 	\only<1-4>{
 	\begin{exemple}
 		\begin{semiverbatim}
@@ -164,8 +164,8 @@
     
 		\begin{itemize}
 			\item Tous les attributs et méthodes des classes Python sont \texttt{publics}  au sens de java et C++, 
-			\item Le constructeur d'une classe est une méthode spéciale qui s'appelle \texttt{blue}{$\_\_init\_\_()$}.
-			\item Les attributs (variables d'instance) sont créés  et initialisés dans le constructeur 
+			\item Le constructeur d'une classe est une méthode spéciale qui s'appelle \textcolor{blue}{\texttt{$\_\_init\_\_(self)$}}.
+			\item Les attributs (variables d'instance) sont créés  et initialisés dans le constructeur (\textcolor{blue}{$self.\_\_nomVar$, $self.\_nomVar$, $self.nomVar$})
 			\item Toutes les méthodes d'instance prennent une variable \textcolor{blue}{self} comme premier argument. Cette variable est une référence à l'objet manipulé.
 \end{itemize}
 \end{remarques}
@@ -177,7 +177,7 @@
 \subsection{Concepts fondamentaux}
 
 \begin{frame}
-  \frametitle{Concepts}
+  \frametitle{Concepts \chrono}
   Objectif :
   \begin{itemize}
   \item Augmenter la réutilisabilité
@@ -291,7 +291,7 @@
 \subsection{POO en Python}
 
 \begin{frame}
-  \frametitle{Notion de classe et d'objet en Python}
+  \frametitle{Notion de classe et d'objet en Python \chrono}
   \begin{itemize}
   \item plusieurs classes peuvent être définies dans un seul fichier (module) \emph{.py}
   \item Nom de la classe dans le fichier après le \emph{class}
@@ -309,7 +309,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Instanciation de classes}
+  \frametitle{Instanciation de classes \chrono}
   \only<1,2,4>{
     \begin{itemize}
     \item Utiliser une classe $\Rightarrow$ créer une instance
@@ -374,7 +374,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Variables d'instance}
+  \frametitle{Variables d'instance\chrono}
   \begin{itemize}
 	\item <1-> Attributs de la classe : créées et initialisées dans le constructeur et attachées à la variable \textcolor[rgb]{0,0,1}{self}\\
   \item <2-> En général, pas accessibles directement  et renommées en interne   $\Longrightarrow \_\_$\texttt{attribut}\\
@@ -399,21 +399,21 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Visibilité des attributs }
+  \frametitle{Visibilité des attributs\chrono}
   \begin{remarque}
 	Tous les attributs et méthodes des classes Python sont \texttt{publics} au sens de java et C++, 
 		\end{remarque}
  Par convention :
 		
 		\begin{itemize}
-		  \item Une variable dont le nom commence par $(\_) \Longrightarrow$ est considérée comme \emph{protect}
+		  \item Une variable dont le nom commence par $(\_) \Longrightarrow$ est considérée comme \emph{private}
 			\item Une variable dont le nom commence par $(\_\_) \Longrightarrow$ est considérée \emph{private} et renommée en interne
 			\item Autrement $\Longrightarrow$ variable \emph{public}
 		\end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Visibilité des attributs }
+  \frametitle{Visibilité des attributs\chrono }
   \begin{exemple}
 	  \begin{semiverbatim}
 		\vspace{-.5cm}
@@ -423,7 +423,7 @@
 		
 		    \hspace{1.5cm}self.nom = "inconnu" \textcolor[rgb]{0,0.58,0}{\# Variable publique}
 				
-        \hspace{1.5cm}self.\textcolor[rgb]{1,0,0}{\_}prenom = "xxx" \textcolor[rgb]{0,0.58,0}{\# Variable protégée}
+        \hspace{1.5cm}self.\textcolor[rgb]{1,0,0}{\_}prenom = "xxx" \textcolor[rgb]{0,0.58,0}{\# Variable privée}
 				
         \hspace{1.5cm}self.\textcolor[rgb]{1,0,0}{\_\_}adr = "Brest" \textcolor[rgb]{0,0.58,0}{\# Variable privée,	}
 							
@@ -446,7 +446,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Accesseurs}
+  \frametitle{Accesseurs\chrono}
   \only<1-5>{
     \textcolor{red}{Encapsulation}
     \begin{itemize}[<+->]
@@ -514,7 +514,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Décorateur}
+  \frametitle{Décorateur\chrono}
   
     \textcolor{red}{Encapsulation}
     \begin{itemize}
@@ -535,7 +535,7 @@
 
 \begin{frame}
 
-  \frametitle{Décorateur}
+  \frametitle{Décorateur\chrono}
 
       \begin{exemple}
 			\begin{semiverbatim}
@@ -578,7 +578,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Constructeur}
+  \frametitle{Constructeur\chrono}
   \begin{itemize}
   \item Rôle : créer et initialiser l'objet (\textcolor{blue}{variables d'instance})
   \item Appelé par l'\textcolor{red}{appel de la classe} : \texttt{obj = Rationnnel(1,5)}
@@ -597,7 +597,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Contexte d'exécution}
+  \frametitle{Contexte d'exécution\chrono}
   \begin{itemize}
   \item Une variable = une instance = un contexte d'exécution
   \item chaque variable contient ses données propres
@@ -605,7 +605,7 @@
 
   \begin{exemple}
     \begin{semiverbatim}
-      x1 =  Rationnel(1,2)
+      x1 = Rationnel(1,2)
 
       x2 = Rationnel(2,3)
 
@@ -619,7 +619,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{L'objet \emph{self}}
+  \frametitle{L'objet \emph{self}\chrono}
   \only<1-3>{
     \begin{itemize}
     \item \emph{self} : objet représentant le contexte courant
@@ -802,12 +802,123 @@
 %\end{frame}
 
 \section{Retour sur la notion de TAD}
+\subsection{TAD Intervalle}
+\begin{frame}[fragile]
+  \frametitle{Intervalle\chrono}
+  
+  \begin{itemize}
+  \item Principe : défini par des bornes supérieurs et inférieurs. 
+	\item Objcetif : L'arithmétique d'intervalles a été définie pour estimer des bornes inférieures et supérieures de fonctions non-convexes
+  \item Fonctionalités :
+    \begin{itemize}
+    \item Opérations : Addition,, soustraction, multiplication, division, .... 
+    
+
+  %\begin{center}
+%\begin{tikzpicture}
+  %\draw (0,2) -- (0,0) -- (1.5,0) -- (1.5,2);
+  %\foreach \y in {0.3,0.6,...,1.8} {
+    %\draw (0,\y) -- (1.5,\y);
+  %}
+  %\draw (0.75,1.8) node (top) {};
+  %\draw (-0.5,2.5) node (e) {Empiler};
+  %\draw (2,2.5) node (d) {Dépiler};
+  %\draw[->, auto, thick] (e) -- (top.west);
+  %\draw[->, auto, thick] (top.east) -- (d);
+%\end{tikzpicture}
+%%    \includegraphics[height=3cm]{pile}
+  %\end{center}
+$
+\begin{array}{l} 
+\verb![a,b] + [c,d] = [a+c,b+d],! \\ 
+\verb![a,b] - [c,d] = [a-d, b-c],!\\ 
+\verb![a,b] * [c,d] = [min(ac,ad,bc,bd), max(ac,ad,bc,bd)],!\\ 
+\verb![a,b] / [c,d] = [a,b]*[!\frac{1}{d},\frac{1}{c}] \text{ si } 0 \notin[c,d].\\
+...
+\end{array}
+$
+\item Examiner les bornes (inf et sup)
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Représentation d'un Intervalle\chrono}
+  Exemple : Intervalle \only<1-2>{de réelles}\only<3>{ouvert, fermé}
+  \begin{itemize}
+  \item Choix d'une représentation interne : 
+	\begin{itemize}
+		\item \textcolor<2>{red}{deux réelles}
+		\item \textcolor<3>{red}{représentant une borne supérieure et une borne inférieure} 
+		\item etc
+	\end{itemize}
+	\pause
+  \item \textcolor<2>{red}{Création d'un Intervalle} \only<2>{: \textcolor{red}{création de deux bornes}\\} 
+	\item Les opérations et accès aux bornes
+  
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Intervalle en Python\chrono}
+	
+	\begin{itemize}
+		\only<1>{\item La classe Intervalle}
+		\only<2>{\item Le constructeur et les deux variables d'instance}
+		\only<3>{\item  Les décorateurs (accès aux deux bornes)}
+		\only<4>{\item  surcharge des méthodes : ex. la représentation (appelée lors d'une appel de print())}
+	\end{itemize}
+  \begin{exemple}[Intervalle]
+	\small
+    \begin{semiverbatim}
+class Intervalle(object): 
+\only<2>{  
+
+\hspace{1cm}def \_\_init\_\_(self, mini, maxi):
+
+    \hspace{2cm}self.\_\_inf = mini
+
+    \hspace{2cm}self.\_\_sup = maxi 
+}
+
+\only<3>{  \hspace{1cm}@property
+
+\hspace{1cm}def inf(self): 
+
+    \hspace{2cm}"""\textcolor{green}{Accès à la borne inférieure.}
+        """
+
+    \hspace{2cm}return self.\_\_inf
+
+ \hspace{1cm}@property
+
+    \hspace{1cm}def sup(self):  
+		
+		\hspace{2cm}"""\textcolor{green}{Accès à la borne supérieure}
+        """
+
+    \hspace{2cm}return self.\_\_inf
+
+  }
+\only<4>{ \hspace{1cm}def \_\_str\_\_(self):
+
+    \hspace{2cm}return '[{}, {}]'.format(self.inf, self.sup) 
+
+   }
+
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+
+
 
 
 \subsection{TAD Pile}
 
 \begin{frame}
-  \frametitle{Pile}
+  \frametitle{Pile\chrono}
   
   \begin{itemize}
   \item Principe : empiler et dépiler des éléments par le haut de la pile
@@ -839,7 +950,7 @@
 
 
 \begin{frame}
-  \frametitle{Représentation de la pile}
+  \frametitle{Représentation de la pile\chrono}
   Exemple : pile \only<1-2>{d'entiers}\only<3>{d'éléments}
   \begin{itemize}
   \item Choix d'une représentation interne : 
@@ -857,7 +968,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Pile en Python}
+  \frametitle{Pile en Python\chrono}
   \begin{exemple}[Pile]
 	\small
     \begin{semiverbatim}
@@ -914,7 +1025,7 @@ class Pile(object):
 \end{frame}
 
 \begin{frame}
-  \frametitle{Utilisation de piles}
+  \frametitle{Utilisation de piles\chrono}
   \begin{itemize}
   \item Pile d'appel
   \item Calcul d'expressions arithmétiques préfixées (ex : + 2 * 3 2)
@@ -928,7 +1039,7 @@ class Pile(object):
 \subsection{TAD File}
 
 \begin{frame}
-  \frametitle{TAD File}
+  \frametitle{TAD File\chrono}
   \begin{itemize}
   \item Principe : Insérer et supprimer des éléments de la file
   \item File = FIFO (First In First Out)
@@ -958,7 +1069,7 @@ class Pile(object):
 
 
 \begin{frame}
-  \frametitle{Représentation de la file}
+  \frametitle{Représentation de la file\chrono}
   Exemple : file d'entiers
   \begin{itemize}
   \item Représentation interne : liste, tableau + 2 indices
@@ -969,7 +1080,7 @@ class Pile(object):
 \end{frame}
 
 \begin{frame}
-  \frametitle{Utilisation des files}
+  \frametitle{Utilisation des files\chrono}
   \begin{itemize}
   \item File d'attente
   \item File de priorité
@@ -982,11 +1093,10 @@ class Pile(object):
 
 
 \begin{frame}
-  \frametitle{Autres TAD}
+  \frametitle{Autres TAD\chrono}
   \begin{itemize}
   \item Complexes
   \item Polynômes
-  \item Listes
   \item Arbres
   \item ...
   \end{itemize}

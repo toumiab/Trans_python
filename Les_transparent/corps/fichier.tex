@@ -561,7 +561,15 @@ présentent une structure identique.
 			
 			np.savetxt("colonne.txt", col)
 			
-			col2 = np.loadtxt("colonne.txt")}
+			col2 = np.loadtxt("colonne.txt")
+			
+			\textcolor[rgb]{0.24,0.7,0.44}{\# gain en temps de chargement}\pause
+			
+			np.save("colonne.npy", data)
+			
+			data = np.load("colonne.npy")
+			
+			}
     \end{semiverbatim}
 		\end{exemple}
   \end{minipage}&
