@@ -5,8 +5,8 @@
 \subsection{Généralités}
 
 \begin{frame}
-  \frametitle{Définition}
-
+  \frametitle{Définition\chrono}
+   \initclock
 \begin{defi}[Héritage]
 Mécanisme spécifique aux langages orientés objet qui
 permet à une classe B (appelée sous-classe ou 
@@ -24,7 +24,7 @@ Utilité :
 
 
 \begin{frame}
-  \frametitle{Exemple}
+  \frametitle{Exemple\chrono}
 
   \only<1>{
     \begin{itemize}
@@ -73,10 +73,10 @@ Utilité :
     \begin{remarque}[Héritage multiple]
       Python, à l'encontre de certains langages, permet d'hériter de plusieurs classes. 
     \end{remarque}
-    Exemple :
+    
   }
   \only<3>{
-    D hérite de B et C, B et C héritent de A.
+
 
     \begin{alertblock}{Attention}
       L'héritage multiple entraîne des problèmes théoriques lorsqu'on hérite plusieurs fois du même parent.
@@ -84,6 +84,8 @@ Utilité :
     \end{alertblock}
   }
   \only<2>{
+		Exemple :
+    D hérite de B et C, B et C héritent de A.
     \begin{center}
       \includegraphics[width=5cm]{images/heritage_multiple.png}
     \end{center}
@@ -94,7 +96,7 @@ Utilité :
 \subsection{Héritage en Python}
 
 \begin{frame}
-  \frametitle{Héritage en Python}
+  \frametitle{Héritage en Python\chrono}
   \only<1,3>{
     \begin{itemize}
     \item En Python : l'héritage est défini  entre les parenthèses
@@ -306,7 +308,7 @@ ond east);
 \subsection{Généralités}
 
 \begin{frame}
-  \frametitle{Définition}
+  \frametitle{Définition\chrono}
   \begin{defi}[Polymorphisme]
     Mécanisme selon lequel un même message peut être envoyé vers des objets de
     types différents, chaque objet réagissant de façon originale. 
@@ -475,7 +477,7 @@ ond east);
 \subsection{Polymorphisme d'héritage (redéfinition, spécialisation)}
 
 \begin{frame}
-  \frametitle{Principe}
+  \frametitle{Principe\chrono}
   \begin{itemize}
   \item Plusieurs méthodes avec le même nom dans une
     hiérarchie de classes
@@ -512,7 +514,7 @@ Tour et Pion (héritant chacun du type Piece).}
 
 
 \begin{frame}
-  \frametitle{Exemple}
+  \frametitle{Exemple\chrono}
   \begin{exemple}
     \begin{semiverbatim}
 		\small
@@ -545,7 +547,7 @@ Tour et Pion (héritant chacun du type Piece).}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Utilisation des figures}
+  \frametitle{Utilisation des figures\chrono}
   \begin{exemple}
     \begin{semiverbatim}
       
@@ -567,16 +569,16 @@ Tour et Pion (héritant chacun du type Piece).}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Exemple de surcharge : méthode \_\_str\_\_}
+  \frametitle{Exemple de surcharge : méthode \_\_str\_\_\chrono}
  \begin{itemize}
   \item Méthode appelée pour convertir un objet en chaîne de caractères\pause
   \item[$\Rightarrow$] afficher directement les objets\pause
   \item Prédéfinie dans la classe \texttt{object} 
 		\end{itemize}
 
-	Exemple vu (le type Pile) : l'affichage d'un objet \texttt{Pile}\pause \\
+	Exemple vu (le type \textcolor[rgb]{0,0,1}{Intervalle}) : l'affichage d'un objet \texttt{Intervalle}\pause \\
 		
-  Exemple affichage d'une figure \emph{f}:
+  Exemple d'affichage d'une figure \emph{f}:
   \begin{semiverbatim}
 	\small
     f = Figure(3,5)
@@ -594,7 +596,7 @@ Tour et Pion (héritant chacun du type Piece).}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Quelques méthodes à surcharger}
+  \frametitle{Quelques méthodes à surcharger\chrono}
 			\begin{center}
 		
 			\begin{tabular}{|l|l|}
@@ -629,7 +631,7 @@ Tour et Pion (héritant chacun du type Piece).}
 
 
 \begin{frame}
-  \frametitle{Principe}
+  \frametitle{Principe\chrono}
   \begin{itemize}
   \item Variables et méthodes propriétés de la classe, pas de l'instance
   \item $\Rightarrow$ un seul exemplaire par classe
@@ -645,7 +647,7 @@ Tour et Pion (héritant chacun du type Piece).}
 
 
 \begin{frame}
-  \frametitle{Exemple}
+  \frametitle{Exemple\chrono}
   \begin{exemple}
     \textcolor<2>{red}{Comment compter les figures créées dans la classe \emph{Figure} (et ses classes filles)} ou attribuer un numéro unique à chaque objet~$?$
 	\only<2-5>{	
@@ -681,7 +683,7 @@ Tour et Pion (héritant chacun du type Piece).}
 \end{frame}
 
 \begin{frame}
-\frametitle{Exemple}
+\frametitle{Exemple \chrono}
 \small
     \begin{semiverbatim}
      
@@ -695,6 +697,7 @@ Tour et Pion (héritant chacun du type Piece).}
 			
 \end{semiverbatim}
 \begin{center}
+
 \tikzstyle{classe}=[rectangle, draw=black, rounded corners, fill=blue!50, drop
 shadow, text centered, text=white, text width=2cm, rectangle split, rectangle split parts=3]
 \tikzstyle{static}=[rectangle, text justified, text=black, text width=2.5cm, rectangle split, rectangle split parts=2]
@@ -747,7 +750,7 @@ shadow, text centered, text=white, text width=2cm, rectangle split, rectangle sp
 \subsection{Méthodes et classes abstraites}
 
 \begin{frame}
-  \frametitle{Méthodes abstraites}
+  \frametitle{Méthodes abstraites\chrono}
   \begin{defi}[Méthode abstraite]
     Une méthode est abstraite si sa déclaration est précédée par le décorateur \emph{@abstractmethod}. Elle ne contient alors aucun code
 		\uncover<3->{	
@@ -787,7 +790,7 @@ shadow, text centered, text=white, text width=2cm, rectangle split, rectangle sp
 
 
 \begin{frame}
-  \frametitle{Héritage d'une classe abstraite}
+  \frametitle{Héritage d'une classe abstraite\chrono}
   Héritage
   \begin{itemize}
   \item Une sous-classe d'une classe abstraite peut être concrète si elle
@@ -805,7 +808,7 @@ shadow, text centered, text=white, text width=2cm, rectangle split, rectangle sp
 \end{frame}
 
 \begin{frame}
-  \frametitle{Exemple de classe abstraite}
+  \frametitle{Exemple de classe abstraite\chrono}
   \begin{semiverbatim}
 	\vspace{-.5cm}
 	\small
