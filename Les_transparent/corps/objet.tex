@@ -104,7 +104,6 @@ Utilité :
     \item Visibilité des variables d'instance :  ($\_\_$) $\Longrightarrow$ décorateurs
     \item Si aucun héritage n'est précisé : hérite de \emph{object}
     \end{itemize}
-
     \begin{exemple}[Figures]
 		\small
       \begin{semiverbatim}
@@ -122,7 +121,7 @@ Utilité :
 				f1 = Figure(10,2) \textcolor{green}{\# création de l'objet f1}
 				
 				f2 = Figure(0, 4) \textcolor{green}{\# création de l'objet f2}}
-				\uncover<3>{class Cercle \textcolor{red}{(Figure)}:
+				\only<3>{class Cercle \textcolor{red}{(Figure)}:
         
 				\hspace{0.5cm}def \_\_init\_\_(self,x=0, y=0, r=0):
 				
