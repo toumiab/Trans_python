@@ -17,6 +17,10 @@
   \end{itemize}
 \end{frame}
 
+
+
+
+
 \begin{frame}[fragile]
   \frametitle{Exemple\chrono}
   {\small
@@ -261,38 +265,38 @@ nombre invalide}
 \end{frame}
 
 
-
-
-\begin{frame}[fragile]
-  \frametitle{Définition de classes d'exception\chrono}
-
-  \begin{itemize}
-  \item Définition de classes exception utilisateur
-  \item Critères~:
-    \begin{itemize}
-    \item<1-> hériter de la classe \emph{Exception}
-    \item<3-> possibilité de redéfinir \emph{\twound{str}\twound{}}
-    \end{itemize}
-  \item<4-> exception utilisable comme les autres
-  \end{itemize}
-  \begin{exemple}
-    \begin{semiverbatim}
-		\vspace{-1cm}
-		\scriptsize{\uncover<1->{\vspace{-0.3cm}
-		   class MonException (Exception ): }\uncover<2->{
-       def __init__ (self, valeur ):  
-           self.valeur = valeur}\uncover<3->{
-       def __str__ ( self ):
-	         return repr( self.valeur )}
-	\uncover<4->{\vspace{-0.3cm}
-	   try :
-	        raise ( MonException ("message à afficher") )
-   except MonException as err :
-        print ('Exception : ', err.value)
-		}}
-    \end{semiverbatim}
-  \end{exemple}
-\end{frame}
+%
+%
+%\begin{frame}[fragile]
+  %\frametitle{Définition de classes d'exception\chrono}
+%
+  %\begin{itemize}
+  %\item Définition de classes exception utilisateur
+  %\item Critères~:
+    %\begin{itemize}
+    %\item<1-> hériter de la classe \emph{Exception}
+    %\item<3-> possibilité de redéfinir \emph{\twound{str}\twound{}}
+    %\end{itemize}
+  %\item<4-> exception utilisable comme les autres
+  %\end{itemize}
+  %\begin{exemple}
+    %\begin{semiverbatim}
+		%\vspace{-1cm}
+		%\scriptsize{\uncover<1->{\vspace{-0.3cm}
+		   %class MonException (Exception ): }\uncover<2->{
+       %def __init__ (self, valeur ):  
+           %self.valeur = valeur}\uncover<3->{
+       %def __str__ ( self ):
+	         %return repr( self.valeur )}
+	%\uncover<4->{\vspace{-0.3cm}
+	   %try :
+	        %raise ( MonException ("message à afficher") )
+   %except MonException as err :
+        %print ('Exception : ', err.value)
+		%}}
+    %\end{semiverbatim}
+  %\end{exemple}
+%\end{frame}
 
 
 
@@ -341,14 +345,14 @@ nombre invalide}
   \begin{block}{Principe}
 	
 	\begin{itemize}
-  \item ouverture de fichier avec la fonction  \texttt{open()}
+  \item ouverture de fichier avec la fonction  \texttt{\textcolor[rgb]{0,0,1}{open()}}
   \item lecture de son contenu :
 	\begin{itemize}
-		\item .readline() lit le fichier ligne par ligne 
-		\item .read() lit l'ensemble du fichier
-    \item .readlines() renvoie une liste contenant chaque ligne
+		\item \textcolor[rgb]{0,0,1}{.readline()} lit le fichier ligne par ligne 
+		\item \textcolor[rgb]{0,0,1}{.read()} lit l'ensemble du fichier
+    \item \textcolor[rgb]{0,0,1}{.readlines()} renvoie une liste contenant chaque ligne
 	\end{itemize}
-	\item fermeture de fichier avec la fonction \texttt{close()}
+	\item fermeture de fichier avec la fonction \texttt{\textcolor[rgb]{0,0,1}{close()}}
   \end{itemize}
    \end{block}
 	\pause
@@ -380,8 +384,8 @@ nombre invalide}
 	avec les deux type de données :
 	
 	\begin{itemize}
-		\item "t" pour du texte, 
-		\item "b" pour la lecture en mode binaire
+		\item \emph{"t"} pour du texte, 
+		\item \emph{"b"} pour la lecture en mode binaire
 	\end{itemize}
   %\only<-4>{
   %\begin{exemple}
@@ -423,18 +427,18 @@ nombre invalide}
 		\scriptsize{
 \textcolor[rgb]{0,0,1}{try} :
     f = \textcolor[rgb]{1,0.41,0.13}{open} ("mon\_fichier.txt") 
-except IOError as e:
+\emph{except} IOError as e:
     print ('Ouverture du fichier impossible \\n', e)
     sys.exit(1)
 \textcolor[rgb]{0,0.58,0}{# Lire le fichier sous forme de liste de lignes}\pause
-les_lignes = f.\textcolor[rgb]{1,0.41,0.13}{readlines} ()
+les_lignes = f.\textcolor[rgb]{1,0.41,0.13}{readlines}()
 print ('Nombre de lignes :', len( les_lignes ))\pause
 \textcolor[rgb]{0,0.58,0}{# Mettre le curseur au début du fichier}
 f. seek (0)\pause
 \textcolor[rgb]{0,0.58,0}{# Lecture du fichier ligne à ligne avec une boucle for}\pause
 for ligne in f:
 \textcolor[rgb]{0,0.58,0}{# Affiche chaque ligne du fichier à l'envers}
-   print ( ligne [:: -1] , end='')
+   print (ligne [:: -1] , end='')
 \textcolor[rgb]{0,0.58,0}{# Fermeture du fichier après lecture}\pause\color[rgb]{1,0.41,0.13}
  f. close ()
 }
@@ -692,10 +696,10 @@ présentent une structure identique.
 \textcolor[rgb]{0,0.58,0}{# exemple d'un objet
 }departement = \{36:'Indre',30:'Gard',75:'Paris'\}
 \textcolor[rgb]{0,0.58,0}{# ouverture de fichier en écriture binaire}
-with open('data.txt','wb') as f:
+with open('data.bin','wb') as f:
     \only<2->{\textcolor[rgb]{1,0.41,0.13}{pickle.dump}(departement,f) }
 \only<3->{\textcolor[rgb]{0,0.58,0}{# ouverture de fichier en lecture binaire}
-\textcolor[rgb]{0,0,1}{with} open('data.txt','\textcolor[rgb]{1,0.41,0.13}{rb}') as f:}
+\textcolor[rgb]{0,0,1}{with} open('data.bin','\textcolor[rgb]{1,0.41,0.13}{rb}') as f:}
     \only<4->{dep = \textcolor[rgb]{1,0.41,0.13}{pickle.load}(f) }
   \end{semiverbatim}
 	\end{exemple}

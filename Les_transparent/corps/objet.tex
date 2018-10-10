@@ -16,9 +16,9 @@ super-classe ou classe mère).
 
 Utilité :
 \begin{itemize}
-\item Factorisation du code
+\item Factoriser du code
 \item Gérer des différents de manière similaire
-\item Augmente la réutilisabilité
+\item Augmenter la réutilisabilité
 \end{itemize}
 \end{frame}
 
@@ -487,7 +487,7 @@ ond east);
   \uncover<2-4>{
 	  \begin{exemple}[\only<2>{Jeux d'échecs}\only<4>{Figures 2D, cercles, rectangles}]
    \only<2>{ Méthode \emph{deplacer()} pour les pièces :  Roi, Reine, Fou, Cavalier
-Tour et Pion (héritant chacun du type Piece).}
+Tour et Pion (héritant chacun du type Pièce).}
    
 	\only<4>{Méthode \emph{aire()} : fournit la valeur l'aire pour Cercle et
     Rectangle.} 
@@ -639,7 +639,7 @@ Tour et Pion (héritant chacun du type Piece).}
 	\end{itemize}
   \pause
   \begin{remarque}
-    On peut utiliser la fonction built-in \texttt{\emph{classmethod}(methdeClasse)} pour définir la méthode methodeClass() comme méthode de classe.
+    On peut utiliser la fonction built-in \texttt{\emph{classmethod}(methodeClasse)} pour définir la méthode methodeClass() comme méthode de classe.
   \end{remarque}
 \end{frame}
 
@@ -688,11 +688,11 @@ Tour et Pion (héritant chacun du type Piece).}
      
 		x = Figure (2, 3) 
 		
-		print (Figure.get\_nbfigures()) \pause \textcolor[rgb]{0,0.58,0}{ \# => 1}
+		print(Figure.get\_nbfigures()) \pause \textcolor[rgb]{0,0.58,0}{ \# => 1}
 		
 		y = Figure (0, 5)
 		
-		print (print (Figure.get\_nbfigures()) \pause  \textcolor[rgb]{0,0.58,0}{\# => 2})
+		print(Figure.get\_nbfigures()) \pause  \textcolor[rgb]{0,0.58,0}{\# => 2})
 			
 \end{semiverbatim}
 \begin{center}

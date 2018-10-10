@@ -1,7 +1,7 @@
 \frametitle{Algorithme tri par sélection\chrono}
-   {\small
-
-\begin{lstlisting}[caption={Tri par sélection optimisé pour numpy}]
+  	{\small
+	
+	\begin{lstlisting}[caption={Tri par sélection optimisé pour numpy}]
 def trisel(tab):
    """ tri par sélection: paramètres
     tab : numpy.array
@@ -13,6 +13,6 @@ def trisel(tab):
         i_min = np.argmin(tab[i:]) + i
         # Permuter les cases i et i_min
         tab[i], tab[i_min] = tab[i_min], tab[i]
-
+				
   \end{lstlisting}
-}
+	}

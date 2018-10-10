@@ -1,0 +1,69 @@
+\makeatletter\def\input@path{{styles/}{images/}{corps/}{bib/}}\makeatother
+
+\documentclass{transp_java}
+\usepackage{etex}
+\usepackage{listings}
+%\usepackage[font=Times,timeinterval=1, timeduration=2.0, timedeath=0, fillcolorwarningsecond=white!60!yellow,
+%timewarningfirst=50,timewarningsecond=80,resetatpages=2]{tdclock}
+
+\title[Langage et algorithmique : Python 3]{UE1.1. Introduction à la programmation \\ CR1. Introduction }
+\author{Abdelmalek TOUMI\\ 
+toumiab@ensta-bretagne.fr}
+%\date[DLT 2003]{Developments in Language Theory Conference, 2003}
+\date{2017/2018}
+\institute{ENSTA Bretagne}
+%\newcommand{\chrono}{\hfill \toggleclock{\beamerbutton{toggle}}\color{red}\tdtime\resetcrono{\beamerbutton{reset}}}
+
+%\usetheme{Transp}
+\usetheme{progressbar}
+%\usetheme{Darmstadt}
+%\usetheme{Madrid}
+\progressbaroptions{imagename= python-HE.png}
+%python-HE.png, Python-logo2.png
+
+\mode<handout>{
+  \usecolortheme{dove}
+  \usepackage{pgfpages}
+  \pgfpagesuselayout{4 on 1}[a4paper, border shrink=5mm, landscape]
+}
+
+%\usepackage[font=Times,timeinterval=1,resetatpages=2]{tdclock}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{Sommaire}
+    \tableofcontents[current,currentsection]
+  \end{frame}
+}
+
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{Sommaire}
+    \tableofcontents[current,currentsubsection]
+  \end{frame}
+}
+
+
+%%%
+\section{}
+%\input{corps/deroulement}
+\input{intro}
+\input{principes_gen}
+\input{variablesp}
+%\input{representation_var}
+\input{excercices}
+\input{syntaxe1}
+%\input{horloge}
+\end{document}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

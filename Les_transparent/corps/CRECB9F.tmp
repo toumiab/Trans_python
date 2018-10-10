@@ -1,0 +1,1108 @@
+
+\section{Type abstrait de données}
+
+
+\subsection{Définition}
+
+\begin{frame}
+  \frametitle{Définition\chrono}
+  \initclock 
+  \begin{defi}[Type abstrait de données]
+    Concept d'utilisation de données ne tenant pas en compte leur
+    représentation interne.
+  \end{defi}
+
+  \pause
+  \begin{itemize}
+  \item Conception d'un algorithme : démarche descendante \pause
+  \item Initialement : on est loin de l'implantation\ldots{} \pause 
+    puis on affine\pause 
+  \item Étape initiale : type abstrait de données (TAD)\pause
+  \item Définir les opérations sur le TAD
+  \item Cacher la représentation interne\pause
+  \item<alert@7> Objet simplifié 
+  \end{itemize}
+  \pause
+  Utilité : briques réutilisables
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exemple : rationnels \chrono}
+  \begin{itemize}[<+->]
+  \item TAD nombre rationnel
+  \item Opérations : 
+    \begin{itemize}
+    \item création
+    \item extraction numérateur et dénominateur
+    \item addition, soustraction, multiplication, division
+    \item test d'égalité
+    \end{itemize}
+  \item Représentation interne : par exemple deux entiers
+  \item Contrainte interne : numérateur strictement positif
+  \end{itemize}
+\end{frame}
+
+% #######################
+
+
+\begin{frame}
+  \frametitle{Exemple : rationnels \chrono}
+
+  \begin{itemize}
+  \item \only<1>{Définition d'un nouveau \textcolor{red}{type}}
+\only<2>{Représentation \textcolor{red}{interne}}
+\only<3-5>{\textcolor{red}{Initialisation} de la représentation interne}
+\only<6-8>{Opérations}
+  \end{itemize}
+	
+
+	
+\begin{itemize}
+	
+\item \only<1>{Classe}
+\only<2-5>{Constructeur}\only<3-5>{ et Variables d'instance}
+\only<6-8>{Méthodes d'instance : \textcolor<6>{red}{égalité}, \textcolor<7>{red}{multiplication}, \textcolor<8>{red}{représentation} }
+ \end{itemize}
+
+  \begin{semiverbatim}
+    \color<1>{red}class Rationnel (object):
+\only<2-5>{
+
+  \hspace{1cm}def \textcolor{red}{\twound{init}\twound}(\textcolor{blue}{self}, num, den = 1):
+	}
+
+\only<3>{	
+				\hspace{2cm}self.\_\_num = num
+
+        \hspace{2cm}self.\_\_den = den
+      }
+\only<4-5>{
+  %\hspace{1cm}def \textcolor{red}{\twound{init}\twound}(self, num, den =1) :
+    \hspace{2cm}if (den == 0):
+
+        \hspace{3cm}self.\_\_num = 0
+
+        \hspace{3cm}self.\_\_den = 0
+
+    \hspace{2cm}elif den < 0:
+
+        \hspace{3cm}self.\_\_num = - num
+
+        \hspace{3cm}self.\_\_den = - den
+      }
+\only<5>{
+
+    \hspace{2cm}else :
+
+        \hspace{3cm}self.\_\_num = num
+
+        \hspace{3cm}self.\_\_den = den
+}
+\only<6-7>{
+
+  \hspace{1cm}def \textcolor<6>{red}{\_\_eq\_\_}(\textcolor{blue}{self}, other):
+
+    \hspace{2cm}return self.\_\_num * other.\_\_den == self.\_\_den 
+		
+		\hspace{2cm}* other.\_\_num
+}
+\only<7-8>{
+	
+	\hspace{1cm}def \textcolor<7>{red}{\_\_mult\_\_}(\textcolor{blue}{self}, other):
+
+    \hspace{2cm}n = self.\_\_num * other.\_\_num
+		
+    \hspace{2cm}d = self.\_\_den * other.\_\_den
+		
+		\hspace{2cm}return Rationnel(n, d)
+}
+\only<8>{	
+
+\hspace{1cm}def \textcolor<8>{red}{\_\_str\_\_}(\textcolor{blue}{self}):
+
+    \hspace{2cm}return '\{0\}/\{1\}'.format(self.\_\_num, self.\_\_den)
+}
+  \end{semiverbatim}
+\end{frame}
+%################
+
+
+
+
+\begin{frame}
+  \frametitle{Exemple : rationnels \chrono}
+	\only<1-4>{
+	\begin{exemple}
+		\begin{semiverbatim}
+		 \textcolor{green}{\# Test : création de rationnels}
+		
+     r1 = Rationnel(1, -2)
+		
+     r2 = Rationnel(3, 5)
+		
+     \textcolor{green}{\# Affichage des rationnels}
+		
+     print(r1, r2, r1*r2, r1+r2) \pause 
+		 
+	  \textcolor{green}{	 \# => -1/2 3/5 -3/10 1/10}
+		
+     \pause\textcolor{green}{\# Test d'égalité de rationnels}
+		
+     print(r1 == Rationnel(-2, 4)) \pause\textcolor{green}{\# => True}
+		\end{semiverbatim}
+	\end{exemple}
+	}
+	\only<5>{
+ \hspace{3cm}  \includegraphics[height=6cm]{images/rationnel.png}
+}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Définition}
+	\begin{remarques}[Quelques remarques importantes ]
+
+    
+		\begin{itemize}
+			\item Tous les attributs et méthodes des classes Python sont \texttt{publics}  au sens de java et C++, 
+			\item Le constructeur d'une classe est une méthode spéciale qui s'appelle \textcolor{blue}{\texttt{$\_\_init\_\_(self)$}}.
+			\item Les attributs (variables d'instance) sont créés  et initialisés dans le constructeur (\textcolor{blue}{$self.\_\_nomVar$, $self.\_nomVar$, $self.nomVar$})
+			\item Toutes les méthodes d'instance prennent une variable \textcolor{blue}{self} comme premier argument. Cette variable est une référence à l'objet manipulé.
+\end{itemize}
+\end{remarques}
+\end{frame}
+
+\section{Notion d'objet}
+
+
+\subsection{Concepts fondamentaux}
+
+\begin{frame}
+  \frametitle{Concepts \chrono}
+  Objectif :
+  \begin{itemize}
+  \item Augmenter la réutilisabilité
+  \item[$\Rightarrow$] modularité du code, notion de composants
+  \end{itemize}
+
+  \pause
+  Concepts mis en place :
+  \begin{itemize}
+  \item {\color<3>{red}encapsulation}
+  \item héritage
+  \item polymorphisme
+  \end{itemize}
+
+  \uncover<4>{
+    \begin{defi}[Encapsulation]
+      Mécanisme permettent de cacher l'implantation d'un TAD. Fournit une
+      interface pour accéder aux données.
+    \end{defi}
+  }
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Notion de classe et d'instance}
+  \begin{itemize}
+  \item Classe $\simeq$ type
+  \item Instancier la classe $\simeq$ créer une variable de ce type
+  \item Objet ou instance : variable créée dont le type est une classe
+  \end{itemize}
+  \pause
+  Classe $\leadsto$ plan
+
+  Instance $\leadsto$ réalisation
+  \pause
+	\\
+  \begin{alertblock}{Important}
+    Un programme est composé d'instances (objets) et non de classes
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exemple}
+
+  \only<1,3,6>{
+    \begin{itemize}
+    \item<1-> Classe Rationnel
+    \item<3-> Création d'instances / objets
+    \item<6-> Utilisation d'objets : exemple x = x*y
+    \end{itemize}}
+  % \only<2>{
+  %   \includegraphics[height=7cm]{classe_objet1}
+  % }
+  % \only<4>{
+  %   \includegraphics[height=7cm]{classe_objet2_0}
+  % }
+  % \only<5>{
+  %   \includegraphics[height=7cm]{classe_objet2}
+  % }
+  % \only<7>{
+  %   \includegraphics[height=7cm]{classe_objet3}
+  % }
+  \only<2,4,5,7>{
+    \begin{center}
+      \tikzstyle{classe}=[rectangle, draw=black, rounded corners,
+      fill=blue!20, drop shadow, text centered, text=black, text width=2cm,
+      rectangle split, rectangle split parts=2]
+      \tikzstyle{uses}=[thick, arrows={-angle 60}, shorten >= 2pt]
+      \pgfdeclarelayer{background}
+      \pgfdeclarelayer{foreground}
+      \pgfsetlayers{background,main,foreground}
+      \begin{tikzpicture}[node distance=1cm]
+        \node (classe) {\textbf{Classe Rationnel}};
+        \uncover<3->{
+          \node (figure) [classe, node distance=4mm,below=of classe]
+          {
+            \texttt{\textcolor<7>{blue}{\_\_num=2\\\_\_den=3}}
+            \nodepart{second}\texttt{\textcolor<7>{red}{\_\_mult\_\_()}\\\_\_eq\_\_()}
+          };
+          \node (obj1) [below=of figure, xshift=-1cm] {\textcolor<7>{red}{x}};
+          \only<-5>{\draw[uses] (obj1) to (figure.south);}
+          \only<7>{\draw[uses,color=red] (obj1) to (figure.south);}
+        }
+        \node (main) [node distance=1mm,below=of obj1,xshift=1cm] {\texttt{x = Rationnel(2,3)}};
+				
+        \uncover<5->{
+          \node (figure2) [classe, right=of figure]
+          {
+            \texttt{\_\_num=1\\\_\_den=5}
+            \nodepart{second}\texttt{\_\_mult\_\_()\\\_\_eq\_\_()}
+          };
+					\node (main) [node distance=1mm,below=of obj1,yshift=-0.5cm,xshift=1cm] {\texttt{y = Rationnel(1,5)}};
+          \node (obj2) [below=of figure2, xshift=-1cm] {y};
+          \draw[uses] (obj2) to (figure2.south);
+				  	
+        }
+				
+
+        \begin{pgfonlayer}{background}
+          % Compute a few helper coordinates
+          \path (obj1.west |- classe.north)+(-0.5,0.3) node (a) {};
+          \path (main.south -| figure2.east)+(+0.3,-0.2) node (b) {};
+          \path[fill=yellow!20,rounded corners, draw=black!50, dashed] (a) rectangle (b);
+        \end{pgfonlayer}
+        
+      \end{tikzpicture}
+    \end{center}
+  }
+\end{frame}
+
+\subsection{POO en Python}
+
+\begin{frame}
+  \frametitle{Notion de classe et d'objet en Python \chrono}
+  \begin{itemize}
+  \item plusieurs classes peuvent être définies dans un seul fichier (module) \emph{.py}
+  \item Nom de la classe dans le fichier après le \emph{class}
+  \item Usage : faire commencer le nom de la classe par une majuscule
+  \end{itemize}
+  \pause
+  %\begin{remarques}
+    %\begin{itemize}
+    %\item En Java, une seule classe \textcolor{red}{publique} par
+      %fichier\pause
+    %\item En général, les classes sont publiques\pause
+    %\item[$\Rightarrow$] une seule classe par fichier
+    %\end{itemize}
+  %\end{remarques}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Instanciation de classes \chrono}
+  \only<1,2,4>{
+    \begin{itemize}
+    \item Utiliser une classe $\Rightarrow$ créer une instance
+    \item Instance = variable $\Rightarrow$ se manipule comme une variable
+      \begin{itemize}
+      \item<2-> création et initialisation
+      \item<4-> utilisation
+      \end{itemize}
+    \end{itemize}
+    \begin{exemple}
+      \begin{semiverbatim}
+        \uncover<2->{x = Rationnel(2,3)}
+     
+				\uncover<4->{x = x * x \textcolor{green}{\# x = x.\_\_mul\_\_(x)}}
+      \end{semiverbatim}
+    \end{exemple}}
+  \only<3,5>{
+    \begin{center}
+      \tikzstyle{classe}=[rectangle, draw=black, rounded corners,
+      fill=blue!20, drop shadow, text centered, text=black, text width=2cm,
+      rectangle split, rectangle split parts=2]
+      \tikzstyle{uses}=[thick, arrows={-angle 60}, shorten >= 2pt]
+      \pgfdeclarelayer{background}
+      \pgfdeclarelayer{foreground}
+      \pgfsetlayers{background,main,foreground}
+      \begin{tikzpicture}[node distance=1cm]
+        \node (classe) {\textbf{Classe Rationnel}};
+        
+        \uncover<3->{
+          \node (figure) [classe, node distance=4mm,below=of classe]
+          {
+            \texttt{\_\_num=2\\\_\_den=3}
+            \nodepart{second}\texttt{\textcolor<5>{red}{\_\_mult\_\_()}\\\_\_eq\_\_()}
+          };
+        }
+          \node (obj1) [below=of figure, xshift=-1cm] {\textcolor<5>{red}{x}};
+        \uncover<3->{
+          \only<-3>{\draw[uses] (obj1) to (figure.south);}
+          \only<5>{\draw[uses,color=red] (obj1) to (figure.south);}
+        }
+       % \node (main) [node distance=1mm,below=of obj1,xshift=1cm] {\texttt{main()}};
+
+        \begin{pgfonlayer}{background}
+          % Compute a few helper coordinates
+          \path (obj1.west |- classe.north)+(-0.5,0.3) node (a) {};
+          \path (main.south -| classe.east)+(+0.3,-0.2) node (b) {};
+          \path[fill=yellow!20,rounded corners, draw=black!50, dashed] (a) rectangle (b);
+        \end{pgfonlayer}
+        
+      \end{tikzpicture}
+    \end{center}
+  }
+  % \only<3>{
+  %   \includegraphics[height=7cm]{unobjet1}
+  % }
+  % \only<5>{
+  %   \includegraphics[height=7cm]{unobjet2}
+  % }
+  % \only<7>{
+  %   \includegraphics[height=7cm]{unobjet3}
+  % }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Variables d'instance\chrono}
+  \begin{itemize}
+	\item <1-> Attributs de la classe : créées et initialisées dans le constructeur et attachées à la variable \textcolor[rgb]{0,0,1}{self}\\
+  \item <2-> En général, pas accessibles directement  et renommées en interne   $\Longrightarrow \_\_$\texttt{attribut}\\
+	\item<3> Règle de nommage : nom commence par une minuscule
+	\end{itemize}
+  \only<1-3>{
+  \begin{exemple}[Rationnels]
+  \begin{semiverbatim}
+	class Rationnel (object):
+   
+	\hspace{1cm}def \textcolor<1>{red}{\twound{init}\twound}(\textcolor{blue}{self}, num, den = 1):
+	      
+				\hspace{2cm}\textcolor{green}{\# deux variables d'instance}
+				
+				\hspace{2cm}\textcolor<1>{red}{self.}\textcolor<2>{red}{\_\_}\textcolor<3>{red}{num} = num
+
+        \hspace{2cm}\textcolor<1>{red}{self.}\textcolor<2>{red}{\_\_}\textcolor<3>{red}{den} = den
+      
+    \end{semiverbatim}
+  \end{exemple}
+	}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Visibilité des attributs\chrono}
+  \begin{remarque}
+	Tous les attributs et méthodes des classes Python sont \texttt{publics} au sens de java et C++, 
+		\end{remarque}
+ Par convention :
+		
+		\begin{itemize}
+		  \item Une variable dont le nom commence par $(\_) \Longrightarrow$ est considérée comme \emph{protect}
+			\item Une variable dont le nom commence par $(\_\_) \Longrightarrow$ est considérée \emph{private} et renommée en interne
+			\item Autrement $\Longrightarrow$ variable \emph{public}
+		\end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Visibilité des attributs\chrono }
+  \begin{exemple}
+	  \begin{semiverbatim}
+		\vspace{-.5cm}
+		class Personne(object):
+		        
+		\hspace{0.5cm}def \_\_init\_\_(self):
+		
+		    \hspace{1.5cm}self.nom = "inconnu" \textcolor[rgb]{0,0.58,0}{\# Variable publique}
+				
+        \hspace{1.5cm}self.\textcolor[rgb]{1,0,0}{\_}prenom = "xxx" \textcolor[rgb]{0,0.58,0}{\# Variable protégée}
+				
+        \hspace{1.5cm}self.\textcolor[rgb]{1,0,0}{\_\_}adr = "Brest" \textcolor[rgb]{0,0.58,0}{\# Variable privée,	}
+							
+				\hspace{5.5cm} \textcolor[rgb]{0,0.58,0}{\# =>: \_Personne\_\_adr}
+			%\small{
+			\textcolor[rgb]{0,0.58,0}{\# Exécution}
+			
+			p = Personne()
+			
+			print(p.nom) \pause \textcolor[rgb]{0,0.58,0}{\# -> 'inconnu' }
+      
+			print(p.\_prenom) \pause \textcolor[rgb]{0,0.58,0}{\# ->'xxx' : non recommandé}
+      
+			\pause print(p.\_\_adr) \pause \textcolor[rgb]{0,0.58,0}{\# -> Erreur}\pause
+      
+			print(p.\_Personne\_\_adr)\textcolor[rgb]{0,0.58,0}{ \# -> 'Brest'}%}
+     \end{semiverbatim}
+	\end{exemple}
+ 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Accesseurs\chrono}
+  \only<1-5>{
+    \textcolor{red}{Encapsulation}
+    \begin{itemize}[<+->]
+    \item Protéger l'accès aux variables d'instance : comment y accéder ?
+    		\begin{enumerate}
+			      \item \color<3-5>{red}{Utilisation de méthodes \texttt{get} et \texttt{set}}
+			      \item Utilisation de décorateurs
+		     \end{enumerate}
+    \end{itemize}
+    
+		\uncover<3->{
+      \begin{exemple}[\texttt{get()} et \texttt{set()}]
+			class Rationnel(object):
+			
+			 \hspace{1cm}def \textcolor<1>{red}{\twound{init}\twound}(\textcolor{blue}{self}, num, den =1) :
+	     
+			\hspace{2cm}\textcolor<1>{red}{self.}\textcolor<2>{red}{\_\_}\textcolor<3>{red}{num} = num				
+        
+        
+        \uncover<4->{\hspace{1cm}\textcolor{red}{def} get\_numerateur(\textcolor{red}{self}) :
+
+          \hspace{2cm}return self.\_\_num
+          }
+
+        \uncover<5->{\hspace{1cm}\textcolor{red}{def} set\_numerateur(\textcolor{red}{self}, num): 
+
+          \hspace{2cm}self.\_\_num = num}
+      \end{exemple}}}
+  \only<6>{
+    \begin{center}
+      \tikzstyle{classe}=[rectangle, draw=black, rounded corners,
+      fill=blue!20, drop shadow, text centered, text=black, text width=2cm,
+      rectangle split, rectangle split parts=2]
+      \tikzstyle{uses}=[thick, arrows={-angle 60}, shorten >= 2pt]
+      \pgfdeclarelayer{background}
+      \pgfdeclarelayer{foreground}
+      \pgfsetlayers{background,main,foreground}
+      \begin{tikzpicture}[node distance=1cm]
+        \node (classe) {\textbf{Classe Rationnel}};
+        
+        \node (figure) [classe, node distance=4mm,below=of classe]
+        {
+          \texttt{\_\_num=2\\\_\_den=3}
+          \nodepart{second}\texttt{get\_num()\\set\_num()}
+        };
+        \node (obj1) [below=of figure, xshift=-1cm] {x};
+        \draw[uses] (obj1) to (figure.south);
+        \node (main) [node distance=1mm,below=of obj1,xshift=1cm] {\texttt{x = Rationnel(2,3)}};
+				\node (main) [node distance=1mm,below=of obj1,yshift=-0.5cm,xshift=0.5cm] {\texttt{x.set\_num(10)}};
+				\node (main) [node distance=1mm,below=of obj1,yshift=-0.5cm,xshift=0.5cm] {\texttt{x.set\_num(10)}};
+        \draw[uses] (figure.second east)+(-0.25,-0.3) .. controls +(1.5,0.3) and +(1.5,0.3) .. ([xshift=-0.5cm,yshift=-3mm] figure.north east);
+        \draw[uses] (figure.second east)+(-0.25,0.25) .. controls +(1,0.3) and +(1,0.3) .. ([xshift=-0.5cm,yshift=-3mm] figure.north east);
+
+        \begin{pgfonlayer}{background}
+          % Compute a few helper coordinates
+          \path (obj1.west |- classe.north)+(-0.5,0.3) node (a) {};
+          \path (main.south -| classe.east)+(+0.8,-0.2) node (b) {};
+          \path[fill=yellow!20,rounded corners, draw=black!50, dashed] (a) rectangle (b);
+        \end{pgfonlayer}
+        
+      \end{tikzpicture}
+    \end{center}
+%    \includegraphics[height=6cm]{getSet}
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Décorateur\chrono}
+  
+    \textcolor{red}{Encapsulation}
+    \begin{itemize}
+      \item Protéger l'accès aux variables d'instance : comment y accéder ?
+      \begin{enumerate}
+		    \item utilisation de méthodes \texttt{get} et \texttt{set}
+			  \item \color<1->{red}{utilisation de décorateurs : remplacent get() et set()} :
+		  \end{enumerate}		
+		  \begin{itemize}
+			  \item remplace le getteur d'un attribut par une méthode devant laquelle figure \textcolor{red}{\texttt{$@$proprety}}
+	\item remplace le setteur d'un attribut par une méthode devant laquelle figure \textcolor{red}{\texttt{$@$nomAttribut.setter}}
+				\end{itemize}
+		     
+    \end{itemize}
+   
+		
+\end{frame}
+
+\begin{frame}
+
+  \frametitle{Décorateur\chrono}
+
+      \begin{exemple}
+			\begin{semiverbatim}
+			\vspace{-0.5cm}
+			class Rationnel(object):
+			
+			 \hspace{1cm}def \textcolor{red}{\twound{init}\twound}(\textcolor{blue}{self}, num, den =1):
+	     
+			\hspace{2cm}\textcolor{red}{self.}\textcolor<2>{red}{\_\_}\textcolor{red}{num} = num				
+        
+        \hspace{1cm}\textcolor[rgb]{0.5,0.5,0.5}{@property}
+				
+        \hspace{1cm}\textcolor{red}{def} num(\textcolor{red}{self}):
+
+          \hspace{2cm}return self.\_\_num
+          
+        \hspace{1cm}\textcolor[rgb]{0.5,0.5,0.5}{@num.setter}
+				
+        \hspace{1cm}\textcolor{red}{def} num(\textcolor{red}{self}, num): 
+
+          \hspace{2cm}self.\_\_num = num
+					\pause
+					\small{
+					
+					\# Exécution ------------------------
+					
+					r = Rationnel(2,5) \textcolor[rgb]{0,0.58,0}{\# création de l'objet r =2/5}\pause
+					
+					print(r.num) \pause \textcolor[rgb]{0,0.58,0}{\# => acces à num de l'objet r : affiche 2}
+					
+					r.num = 10   \pause \textcolor[rgb]{0,0.58,0}{\# => appel au setter : num vaut 10}
+					
+					print(r.num)  \pause \textcolor[rgb]{0,0.58,0}{\# => acces à num de l'objet r : affiche 10}}
+
+					
+\end{semiverbatim}
+
+
+\end{exemple}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Constructeur\chrono}
+  \begin{itemize}
+  \item Rôle : créer et initialiser l'objet (\textcolor{blue}{variables d'instance})
+  \item Appelé par l'\textcolor{red}{appel de la classe} : \texttt{obj = Rationnnel(1,5)}
+  \item Méthode \texttt{\_\_init\_\_(self, ...)} dont le premier paramètre est \emph{self} 
+  \end{itemize}
+
+  \begin{exemple}[Constructeur]
+    def \_\_init\_\_(self, num, den):
+
+    \hspace{1cm}\textcolor{blue}{self.\_\_num} = num
+
+    \hspace{1cm}\textcolor{blue}{self.\_\_den} = den
+
+    
+  \end{exemple}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Contexte d'exécution\chrono}
+  \begin{itemize}
+  \item Une variable = une instance = un contexte d'exécution
+  \item chaque variable contient ses données propres
+  \end{itemize}
+
+  \begin{exemple}
+    \begin{semiverbatim}
+      x1 = Rationnel(1,2)
+
+      x2 = Rationnel(2,3)
+
+      print(x1.get\_numerateur())
+
+      print(x2.get\_numerateur())
+
+      $\Rightarrow$ 1 2
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+\begin{frame}
+  \frametitle{L'objet \emph{self}\chrono}
+  \only<1-3>{
+    \begin{itemize}
+    \item \emph{self} : objet représentant le contexte courant
+    \item utilisable uniquement dans une méthode d'instance
+		\item Utilisable quand on fait appel à une méthode d'instance depuis la classe
+    \end{itemize}
+    \pause
+    \begin{exemple}[Utilisation de \emph{self}]
+      \begin{semiverbatim}
+			\vspace{-0.5cm}
+       class Rationnel(object):
+			
+			\hspace{1cm}def \_\_init\_\_(self, n, d):
+      
+			\hspace{2cm}\textcolor[rgb]{1,0,0}{den = n + d}
+			
+      \only<2>{\hspace{2cm}\textcolor{blue}{self.\_\_num} = n}\only<3>{\hspace{2cm}\textcolor{red}{self.set\_num(n)}}
+
+      \hspace{2cm}\textcolor{blue}{self.\_\_den} = d
+        
+				\pause
+				\hspace{1cm}def get\_num(self):
+      
+        \hspace{2cm}num = 0
+
+        \hspace{2cm}return \textcolor{red}{self.}\_\_num
+
+      \end{semiverbatim}
+    \end{exemple}}
+  \only<4>{
+  \begin{center}
+    \tikzstyle{classe}=[rectangle, draw=black, rounded corners,
+    fill=blue!20, drop shadow, text centered, text=black, text width=2cm,
+    rectangle split, rectangle split parts=2]
+    \tikzstyle{uses}=[thick, arrows={-angle 60}, shorten >= 2pt]
+    \pgfdeclarelayer{background}
+    \pgfdeclarelayer{foreground}
+    \pgfsetlayers{background,main,foreground}
+    \begin{tikzpicture}[node distance=1cm, font=\small]
+      \node (classe) {\textbf{Classe Rationnel}};
+      \node (figure) [classe, node distance=4mm,below=of classe]
+      {
+        \texttt{\textcolor{red}{\_\_num=2}\\\_\_den=3}
+        \nodepart{second}\texttt{\textcolor{red}{get\_num()}\\set\_num()}
+      };
+    
+      \node (obj1) [below=of figure, xshift=-1cm] {x};
+      \draw[uses] (obj1) to (figure.south);
+      \node (main) [node distance=1mm,below=of obj1,xshift=1cm] {\texttt{x = Rationnel(2,3)}};  
+      \draw[uses,color=red] (figure.second east)+(-0.4,0.18) .. controls +(1.1,0.3) and +(1.1,0.3) .. ([xshift=-7mm,yshift=-2.7mm] figure.north east);
+      \begin{pgfonlayer}{background}
+        % Compute a few helper coordinates
+        \path (obj1.west |- classe.north)+(-0.5,0.3) node (a) {};
+        \path (main.south -| classe.east)+(+0.8,-0.2) node (b) {};
+        \path[fill=yellow!20,rounded corners, draw=black!50, dashed] (a) rectangle (b);
+      \end{pgfonlayer}
+    \end{tikzpicture}
+  \end{center}
+%    \includegraphics[height=6cm]{getNum}
+  }
+\end{frame}
+
+%\begin{frame}
+  %\frametitle{Exemple d'exécution}
+  %\only<1,3,5,7,9,11,13,15,17>{
+    %\begin{semiverbatim}
+      %public class Rationnel \{
+%
+      %\hspace{1cm}private int {\color<15>{blue}num}; 
+%
+      %\hspace{1cm}private int {\color<17>{blue}den};
+%
+      %\hspace{1cm}public int {\color<11>{blue}getNum}() \{ {\color<13>{red}return this.num;} \}
+%
+      %\hspace{1cm}public void {\color<9>{blue}mult}(Rationnel x) \{
+%
+      %\hspace{2cm}{\color<15>{red}num} *= {\color<11>{red}x.getNum()};
+%
+      %\hspace{2cm}{\color<17>{red}den} *= x.getDen();
+%
+      %\hspace{1cm}\}
+%
+      %\hspace{1cm}public static void {\color<1>{red}main}(String args[]) \{
+%
+      %\hspace{2cm}{\color<3>{red}Rationnel x} {\color<5>{red}= new Rationnel(1,2);}
+%
+      %\hspace{2cm}{\color<7>{red}Rationnel y = new Rationnel(3,5);}
+%
+      %\hspace{2cm}{\color<9>{red}x.mult(y);}
+%
+      %\hspace{1cm}\}
+%
+      %\}
+    %\end{semiverbatim}}
+  %\only<2,4,6,8,10,12,14,16,18> {
+    %\begin{center}
+      %\tikzstyle{classe}=[rectangle, draw=black, rounded corners,
+      %fill=blue!20, drop shadow, text centered, text=black, text width=2cm,
+      %rectangle split, rectangle split parts=2]
+      %\tikzstyle{uses}=[thick, arrows={-angle 60}, shorten >= 2pt]
+      %\pgfdeclarelayer{background}
+      %\pgfdeclarelayer{foreground}
+      %\pgfsetlayers{background,main,foreground}
+      %\begin{tikzpicture}[node distance=1cm, font=\small]
+        %\node (classe) {\textbf{Classe Rationnel}};
+        %\uncover<6->{
+          %\node (figure) [classe, node distance=4mm,below=of classe]
+          %{
+            %\texttt{\textcolor<16>{red}{num=\only<-14>{1}\only<16->{3}}\\
+              %\textcolor<18>{red}{den=\only<-16>{2}\only<18>{10}}}
+            %\nodepart{second}\texttt{getNum()\\setNum()\\\textcolor<10>{red}{\textcolor<12->{blue}{mult()}}}
+          %};
+        %}
+        %\uncover<4->{ \node (obj1) [below=of figure, xshift=-1cm] {\textcolor<10>{red}{x}};}
+        %\uncover<6->{ \draw[uses] (obj1) to (figure.south);}
+        %\node (main) [node distance=1mm,below=of obj1,xshift=1cm] {\texttt{main()}};
+        %\uncover<8->{
+          %\node (figure2) [classe, right=of figure]
+          %{
+            %\texttt{\textcolor<14>{red}{num=3}\\den=5}
+            %\nodepart{second}\texttt{\textcolor<12>{red}{\textcolor<14>{blue}{getNum()}}\\setNum()\\mult()}
+          %};
+          %\node (obj2) [below=of figure2, xshift=-1cm] {y};
+          %\draw[uses] (obj2) to (figure2.south);
+        %}
+%
+        %\only<10>{ 
+          %\draw[uses,color=red] (obj1) to (figure.south);
+          %\draw[uses,dashed, color=purple] ([xshift=-5mm,yshift=-4mm] figure.second east) to (obj2);
+        %}
+        %\only<12,14>{
+          %\draw[uses,color=blue] ([xshift=-5mm,yshift=-4mm] figure.second east) to ([xshift=4mm,yshift=4mm] figure2.second west);
+        %}
+        %\only<14>{
+          %\draw[uses,color=red] (figure2.second east)+(-4mm,3.5mm) .. controls +(1.2,0.25) and +(1.2,0.25) .. ([xshift=-7mm,yshift=-2.7mm] figure2.north east);
+        %}
+        %\only<16>{
+          %\draw[uses,color=red] (figure.second east)+(-5.5mm,-4mm) .. controls +(1.2,0.2) and +(1.2,0.2) .. ([xshift=-7mm,yshift=-2.7mm] figure.north east);
+        %}
+        %\only<18>{
+          %\draw[uses,color=red] (figure.second east)+(-5.5mm,-4mm) .. controls +(1.2,0.15) and +(1.2,0.15) .. ([xshift=-5.5mm,yshift=-7mm] figure.north east);
+        %}
+        %\begin{pgfonlayer}{background}
+          %% Compute a few helper coordinates
+          %\path (obj1.west |- classe.north)+(-0.5,0.3) node (a) {};
+          %\path (main.south -| figure2.east)+(+0.8,-0.2) node (b) {};
+          %\path[fill=yellow!20,rounded corners, draw=black!50, dashed] (a) rectangle (b);
+        %\end{pgfonlayer}
+        %
+      %\end{tikzpicture}
+    %\end{center}
+  %}
+  %% \only<2>{
+  %%   \includegraphics[height=7cm]{ex_rat1}
+  %% }
+  %% \only<4>{
+  %%   \includegraphics[height=7cm]{ex_rat2}
+  %% }
+  %% \only<6>{
+  %%   \includegraphics[height=7cm]{ex_rat3}
+  %% }
+  %% \only<8>{
+  %%   \includegraphics[height=7cm]{ex_rat4}
+  %% }
+  %% \only<10>{
+  %%   \includegraphics[height=7cm]{ex_rat5}
+  %% }
+  %% \only<12>{
+  %%   \includegraphics[height=7cm]{ex_rat6}
+  %% }
+  %% \only<14>{
+  %%   \includegraphics[height=7cm]{ex_rat7}
+  %% }
+  %% \only<16>{
+  %%   \includegraphics[height=7cm]{ex_rat8}
+  %% }
+  %% \only<18>{
+  %%   \includegraphics[height=7cm]{ex_rat9}
+  %% }
+%\end{frame}
+
+\section{Retour sur la notion de TAD}
+\subsection{TAD Intervalle}
+\begin{frame}[fragile]
+  \frametitle{Intervalle\chrono}
+  
+  \begin{itemize}
+  \item Principe : défini par des bornes supérieurs et inférieurs. 
+	\item Objcetif : L'arithmétique d'intervalles a été définie pour estimer des bornes inférieures et supérieures de fonctions non-convexes
+  \item Fonctionalités :
+    \begin{itemize}
+    \item Opération : Addition, multiplication, négation, .... 
+    \item Examiner les bornes (inf et sup)
+    \end{itemize}
+  \end{itemize}
+
+  %\begin{center}
+%\begin{tikzpicture}
+  %\draw (0,2) -- (0,0) -- (1.5,0) -- (1.5,2);
+  %\foreach \y in {0.3,0.6,...,1.8} {
+    %\draw (0,\y) -- (1.5,\y);
+  %}
+  %\draw (0.75,1.8) node (top) {};
+  %\draw (-0.5,2.5) node (e) {Empiler};
+  %\draw (2,2.5) node (d) {Dépiler};
+  %\draw[->, auto, thick] (e) -- (top.west);
+  %\draw[->, auto, thick] (top.east) -- (d);
+%\end{tikzpicture}
+%%    \includegraphics[height=3cm]{pile}
+  %\end{center}
+
+\begin{array}{l} 
+\verb![a,b] + [c,d] = [a+c,b+d],! \\ 
+\verb![a,b] - [c,d] = [a-d, b-c],!\\ 
+\verb![a,b] * [c,d] = [\min(ac, ad, bc, bd),\max(ac, ad, bc, bd)],!\\ 
+\verb![a,b]/[c,d] = [a,b]*[\frac{1}{d},\frac{1}{c}]$ si $0\notin [c,d].! \\
+\end{array}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Représentation de la pile\chrono}
+  Exemple : pile \only<1-2>{d'entiers}\only<3>{d'éléments}
+  \begin{itemize}
+  \item Choix d'une représentation interne : 
+	\begin{itemize}
+		\item \textcolor<2>{red}{tableau d'entiers + position du sommet de la pile}
+		\item \textcolor<3>{red}{une liste + capacité autorisée de la pile : possibilité de mettre tout type d'objet} 
+		\item etc
+	\end{itemize}
+	\pause
+  \item \textcolor<2>{red}{Création d'une pile} \only<2>{: \textcolor{red}{allouer le tableau}\\} 
+	       \only<2>{$\Longrightarrow$ voir le polycopié du cours} \only<3>{: \textcolor{red}{définir une liste + capacité}}
+  \item Empiler, dépiler, extraire le sommet : accéder au tableau/liste
+  \item Pile vide ou pleine : tester la taille du tableau/capacité de la liste
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Pile en Python\chrono}
+  \begin{exemple}[Pile]
+	\small
+    \begin{semiverbatim}
+class Pile(object): 
+
+\only<2>{  \hspace{1cm}def \_\_init\_\_(self, max):
+
+    \hspace{2cm}self.\_\_contenu = []
+
+    \hspace{2cm}self.\_\_maxpile = max 
+}
+
+\only<3>{  \hspace{1cm}def estvide(self): 
+
+    \hspace{2cm}return len(self.\_\_contenu)==0
+
+ \hspace{1cm}def estpleine(self):  
+
+    \hspace{2cm}return len(self.\_\_contenu) == \
+		self.\_\_maxpile
+
+  }
+\only<4>{ \hspace{1cm}def empiler(self, val):
+
+    \hspace{2cm}if not self.estpleine(): 
+
+        \hspace{3cm}self.\_\_contenu.append(val)
+				
+    \hspace{2cm}else: 
+		   
+			 \hspace{3cm}raise ValueError("err : pile pleine")
+  }
+\only<5>{  \hspace{1cm}def depiler(self): 
+
+    \hspace{2cm}if not self.estvide():  
+
+        \hspace{3cm}return self.\_\_contenu.pop()
+
+    \hspace{2cm}else:
+
+      \hspace{3cm}return None 
+    }
+\only<6>{  \hspace{1cm}def lire\_sommet(self): 
+
+    \hspace{2cm}if not self.estvide():
+
+      \hspace{3cm}return self.\_\_contenu[-1]
+
+    \hspace{2cm}return None 
+}
+     
+    \end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+
+
+
+
+%\subsection{TAD Pile}
+%
+%\begin{frame}
+  %\frametitle{Pile\chrono}
+  %
+  %\begin{itemize}
+  %\item Principe : empiler et dépiler des éléments par le haut de la pile
+  %\item Pile = LIFO (Last In First Out)
+  %\item Fonctionnalités :
+    %\begin{itemize}
+    %\item Empiler, dépiler
+    %\item Examiner le sommet (sans dépiler)
+    %\item Tester si la pile est pleine ou vide
+    %\end{itemize}
+  %\end{itemize}
+%
+  %\begin{center}
+%\begin{tikzpicture}
+  %\draw (0,2) -- (0,0) -- (1.5,0) -- (1.5,2);
+  %\foreach \y in {0.3,0.6,...,1.8} {
+    %\draw (0,\y) -- (1.5,\y);
+  %}
+  %\draw (0.75,1.8) node (top) {};
+  %\draw (-0.5,2.5) node (e) {Empiler};
+  %\draw (2,2.5) node (d) {Dépiler};
+  %\draw[->, auto, thick] (e) -- (top.west);
+  %\draw[->, auto, thick] (top.east) -- (d);
+%\end{tikzpicture}
+%%    \includegraphics[height=3cm]{pile}
+  %\end{center}
+  %
+%\end{frame}
+%
+%
+%\begin{frame}
+  %\frametitle{Représentation de la pile\chrono}
+  %Exemple : pile \only<1-2>{d'entiers}\only<3>{d'éléments}
+  %\begin{itemize}
+  %\item Choix d'une représentation interne : 
+	%\begin{itemize}
+		%\item \textcolor<2>{red}{tableau d'entiers + position du sommet de la pile}
+		%\item \textcolor<3>{red}{une liste + capacité autorisée de la pile : possibilité de mettre tout type d'objet} 
+		%\item etc
+	%\end{itemize}
+	%\pause
+  %\item \textcolor<2>{red}{Création d'une pile} \only<2>{: \textcolor{red}{allouer le tableau}\\} 
+	       %\only<2>{$\Longrightarrow$ voir le polycopié du cours} \only<3>{: \textcolor{red}{définir une liste + capacité}}
+  %\item Empiler, dépiler, extraire le sommet : accéder au tableau/liste
+  %\item Pile vide ou pleine : tester la taille du tableau/capacité de la liste
+  %\end{itemize}
+%\end{frame}
+%
+%\begin{frame}
+  %\frametitle{Pile en Python\chrono}
+  %\begin{exemple}[Pile]
+	%\small
+    %\begin{semiverbatim}
+%class Pile(object): 
+%
+%\only<2>{  \hspace{1cm}def \_\_init\_\_(self, max):
+%
+    %\hspace{2cm}self.\_\_contenu = []
+%
+    %\hspace{2cm}self.\_\_maxpile = max 
+%}
+%
+%\only<3>{  \hspace{1cm}def estvide(self): 
+%
+    %\hspace{2cm}return len(self.\_\_contenu)==0
+%
+ %\hspace{1cm}def estpleine(self):  
+%
+    %\hspace{2cm}return len(self.\_\_contenu) == \
+		%self.\_\_maxpile
+%
+  %}
+%\only<4>{ \hspace{1cm}def empiler(self, val):
+%
+    %\hspace{2cm}if not self.estpleine(): 
+%
+        %\hspace{3cm}self.\_\_contenu.append(val)
+				%
+    %\hspace{2cm}else: 
+		   %
+			 %\hspace{3cm}raise ValueError("err : pile pleine")
+  %}
+%\only<5>{  \hspace{1cm}def depiler(self): 
+%
+    %\hspace{2cm}if not self.estvide():  
+%
+        %\hspace{3cm}return self.\_\_contenu.pop()
+%
+    %\hspace{2cm}else:
+%
+      %\hspace{3cm}return None 
+    %}
+%\only<6>{  \hspace{1cm}def lire\_sommet(self): 
+%
+    %\hspace{2cm}if not self.estvide():
+%
+      %\hspace{3cm}return self.\_\_contenu[-1]
+%
+    %\hspace{2cm}return None 
+%}
+     %
+    %\end{semiverbatim}
+  %\end{exemple}
+%\end{frame}
+
+\begin{frame}
+  \frametitle{Utilisation de piles\chrono}
+  \begin{itemize}
+  \item Pile d'appel
+  \item Calcul d'expressions arithmétiques préfixées (ex : + 2 * 3 2)
+  \item Simulation de récursivité en itératif
+  \item Parcours de graphes
+  \item ...
+  \end{itemize}
+\end{frame}
+
+
+\subsection{TAD File}
+
+\begin{frame}
+  \frametitle{TAD File\chrono}
+  \begin{itemize}
+  \item Principe : Insérer et supprimer des éléments de la file
+  \item File = FIFO (First In First Out)
+  \item Fonctionnalités :
+    \begin{itemize}
+    \item Insérer, supprime
+    \item Examiner la tête (sans défiler)
+    \item Tester si la file est pleine ou vide
+    \end{itemize}
+  \end{itemize}
+  \begin{center}
+\begin{tikzpicture}
+  \draw (0,1) -- (2,1);
+  \draw (0,0) -- (2,0);
+  \foreach \x in {0.3,0.6,...,1.8} {
+    \draw (\x,0) -- (\x,1);
+  }
+  \draw (-1.2,0.8) node (e) {Enfiler};
+  \draw (3,0.8) node (d) {Défiler};
+  \draw[->, auto, thick] (e) -- (0.1,0.5);
+  \draw[->, auto, thick] (1.7,0.5) -- (d);
+\end{tikzpicture}
+%    \includegraphics[height=3cm]{file}
+  \end{center}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Représentation de la file\chrono}
+  Exemple : file d'entiers
+  \begin{itemize}
+  \item Représentation interne : liste, tableau + 2 indices
+  \item Création d'une file : initialiser la liste ou le vecteur, allouer le tableau
+  \item Enfiler, défiler, extraire la tête : accéder au tableau
+  \item File vide ou pleine : tester les indices d'entrée et de sortie
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Utilisation des files\chrono}
+  \begin{itemize}
+  \item File d'attente
+  \item File de priorité
+  \item Gestion de flux de données
+  \item Parcours de graphes
+  \end{itemize}
+\end{frame}
+
+\subsection{Autres TAD}
+
+
+\begin{frame}
+  \frametitle{Autres TAD\chrono}
+  \begin{itemize}
+  \item Complexes
+  \item Polynômes
+	\item intervalles 
+  \item Arbres
+  \item ...
+  \end{itemize}
+\end{frame}

@@ -134,14 +134,15 @@
 \begin{frame}[fragile]
  \frametitle{Argument(s) par défaut\chrono}
  
+
 	
 	\begin{itemize}
 		\item Objectif : attribuer des valeurs par défaut aux arguments 
-		\item <2> Attention : les paramètres positionnels doivent apparaitre avant les paramètres nommés 
-		  
+		\item <2> Attention : les paramètres positionnels doivent apparaitre avant les paramètres nommés 	  
 	\end{itemize}
 	\begin{exemple}[valeur par défaut]
-  \begin{lstlisting}[frame=none]
+	\vspace{-0.5}
+  \begin{lstlisting}[frame=None]
 	def hello(name, lang='English'):
       # name est obligatoire
 	      if lang=='English':
@@ -152,10 +153,8 @@
 hello('Claire','French') # => Bonjour Claire
 hello(lang ='French', name = 'Claire') 
 hello('Claire') # => Hello Claire
-
-
-    \end{lstlisting}
-  \end{exemple}
+\end{lstlisting}
+\end{exemple}
 
 \end{frame}
 
@@ -195,11 +194,13 @@ hello('Claire') # => Hello Claire
 		\end{itemize}
 			\end{remarque}
 	\begin{alertblock}{Exemple : Valeur d'un argument}
-  \begin{semiverbatim}
+  %\begin{semiverbatim}
+	\begin{lstlisting}[frame=none]
 	def aj(b, liste=[1,2]):
     liste.append(b)
     return liste
-  
+  \end{lstlisting}
+	\begin{semiverbatim}
 	lst=aj(5)   \# \only<1>{lst = ?}\only<2->{lst = [1, 2, 5] ?}
 	lst1=aj(6)  \# \only<2>{ lst1 = ?, lst = ?} \only<3>{lst1 =  [1, 2, 6]?} \only<4>{lst = [1,2,5] ?}\only<5>{sol => lst1 = lst = [1, 2, 5, 6]}
 	\end{semiverbatim}
@@ -219,7 +220,7 @@ hello('Claire') # => Hello Claire
 			\end{remarque}
 	\begin{exemple}[Solution]
   \begin{lstlisting}[frame=none]
-	def ajout(b, liste=None):
+	def aj(b, liste=None):
     if liste == None :
 		       liste = [1,2]
 	    liste.append(b)
@@ -385,8 +386,9 @@ Résultat de l'exécution :
 \begin{frame}[fragile]
   \frametitle{Variables globales/locales\chrono}
 
- \begin{exemple}[Modification d'une variable globale en local]
+ \begin{exemple}[Modification d'une variable globale]
     \begin{semiverbatim}
+		\vspace{-1cm}
 		\emph{def} noise ():
 		    i = np.random.randint(0, len(tab) -1)
 		    j = np.random.randint(0, len(tab) -1)
@@ -396,12 +398,22 @@ Résultat de l'exécution :
 		tab = list(range(10)) \textcolor[rgb]{0.2,0.8,0.2}{\# variable globale}
 		print(tab) \pause \textcolor[rgb]{0.2,0.8,0.2}{\# [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}\pause
 		noise()
-		print(tab) \pause \textcolor[rgb]{0.2,0.8,0.2}{\# [0, 1, 8, 3, 4, 5, 6, 7, 2, 9]}
-		
-				
+		print(tab) \pause \textcolor[rgb]{0.2,0.8,0.2}{\# [0, 1, 8, 3, 4, 5, 6, 7, 2, 9]}		
  \end{semiverbatim}
+ %\begin{lstlisting}[frame=none,langage=python]
+		%def noise():
+		    %i = np.random.randint(0,len(tab)-1)
+		    %j = np.random.randint(0, len(tab)-1)
+		    %# modification de la varibale globale tab
+		    %tab[i],tab[j] = tab[j],tab[i] 
+		%
+		%tab = list(range(10)) # variable globale
+		%print(tab) #[0,1,2,3,4,5,6,7,8,9]
+		%noise()
+		%print(tab) $\pause$ # [0,1,8,3,4,5,6,7,2,9]
+		%
+ %\end{lstlisting}
   \end{exemple}
-%}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -475,37 +487,42 @@ Résultat de l'exécution :
 
 \begin{frame}
   \frametitle{Modules, bibiothèques, librairies\chrono}
-   
+     \only<1-4>{
 	 \begin{itemize}[<+->]
 	   \item Un fichier source Python constitue un module 
 		 \item Objectif : regrouper des définitions de fonctions et de classes dans un fichier Python utilisable dans d'autres programmes\\
 		Exemple : un fichier regroupant les fonctions de tris.
 		 \item On importe le contenu d'un module dans le module courant avec la commande \emph{import }
-		\item La variable d'environnement PATHPYTHON liste les répertoires dans lesquels l'interpréteur cherche les modules/packages
+		\item  La variable d'environnement PATHPYTHON liste les répertoires dans lesquels l'interpréteur cherche les modules/packages
 	 \end{itemize}
-	\pause
+	}
+	\only<5-6>{
+	
+	\begin{itemize}
+		\item Accès à la variable d'environnement PATHPYTHON 
+	\end{itemize}
  \begin{exemple}[Path Python]
 {\small
     \begin{semiverbatim}
 		\vspace{-.5cm}
-		>>> import sys \only<7>{as alias}
+		>>> import sys \only<6>{as alias}
 		
-		>>> \only<6>{sys.path}\only<7>{alias.path}
+		>>> \only<5>{sys.path}\only<6>{alias.path}
 		
-		['','C:\\python-3.3.5.amd64\\Lib\\idlelib','C:\\python-
-		3.3.5.amd64\\lib\\site-packages\\Pythonwin', \dots]
+		['','C:\\python-3.6.1.amd64\\Lib\\idlelib','C:\\python-
+		3.6.1.amd64\\lib\\site-packages\\Pythonwin', \dots]
 		
-	  >>> \only<6>{sys.path}\only<7>{alias.path}.append('chemin de module')	
+	  >>> \only<5>{sys.path}\only<6>{alias.path}.append('chemin de module')	
  \end{semiverbatim}
 }
   \end{exemple}
 
-%}
+}
 \end{frame}
 
 \begin{frame}
   \frametitle{Modules, bibiothèques, librairies\chrono}
-   
+ 
 	 \begin{itemize}[<+->]
 	   \item Importer une partie d'un module
 		\item $=>$ pas besoin de préfixer les identifiants par le nom du module
@@ -520,7 +537,7 @@ Résultat de l'exécution :
 		
 		>>> path  
 		
-		['','C:\\python-3.5.3.amd64\\Lib\\idlelib','C:\\python-
+		['','C:\\python-3.6.1.amd64\\Lib\\idlelib','C:\\python-
 		3.5.3.amd64\\lib\\site-packages\\Pythonwin', \dots]
 		
 	  >>> path.append('chemin de module')	
@@ -560,7 +577,7 @@ Résultat de l'exécution :
 	\item Lors de l'importation d'un module, le code présent dans ce module est exécuté.  
 	
 	\begin{itemize}
-		\item Utilisation  corps principal du programme via la variable \verb!\_\kern-.14ex\_name\_\kern-.14ex\_ 
+		\item Utilisation du corps principal du programme via la variable \verb!\_\kern-.14ex\_name\_\kern-.14ex\_ 
 		
 		Utilisation : 
 		if \twound{name}\twound{} == '\twound{main}\twound{}':!
@@ -604,21 +621,19 @@ if __name__ == '__main__':
 	\begin{exemple}[Les modules]
 	{\small
   \begin{lstlisting}[frame=none]
-	# Fichier mon_module.py 
-
-# Utilisation du module 
-
-import mon_module      # => n'exécute pas code
-mon_module.carre(3)    # => 9
-mon_module.cube(2)     # => 8
-
+	# Fichier module_autre.py 
+import mon_module as md    # => n'exécute pas code
+print(md.carre(3))    # => 9
+print(md.cube(2))     # => 8
 # Exécution du module en tant que script 
-$ python3 mon_module.py   # => affiche ce qui suit :
+$python3.6 module_autre.py # => affiche :
+9
+8
+$python3.6 mon_module.py   # => affiche  :
   Exemple de la fonction carre()
     carre(4) =>  16
   Exemple de la fonction cube()
     cube(3) =>  27
-
 \end{lstlisting}
 }
 \end{exemple}

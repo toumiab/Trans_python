@@ -1,0 +1,12 @@
+\beamer@endinputifotherversion {3.12pt}
+\select@language {french}
+\beamer@sectionintoc {1}{H\'eritage}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{G\'en\'eralit\'es}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{H\'eritage en Python}{10}{0}{1}
+\beamer@sectionintoc {2}{Polymorphisme}{25}{0}{2}
+\beamer@subsectionintoc {2}{1}{G\'en\'eralit\'es}{26}{0}{2}
+\beamer@subsectionintoc {2}{2}{Polymorphisme d'h\'eritage (red\'efinition, sp\'ecialisation)}{29}{0}{2}
+\beamer@sectionintoc {3}{Variables et m\'ethodes de classe}{46}{0}{3}
+\beamer@sectionintoc {4}{Abstraction}{57}{0}{4}
+\beamer@subsectionintoc {4}{1}{M\'ethodes et classes abstraites}{58}{0}{4}
+\beamer@sectionintoc {5}{Horloge }{72}{0}{5}

@@ -1,0 +1,59 @@
+\makeatletter\def\input@path{{images/}{styles/}{corps/}{bib/}}\makeatother
+
+\documentclass{transp_java}
+\usepackage{etex}
+\title[UE 1.1 : Introduction \`{a} la programmation - Python 3]{CR3. Fonctions et modules}
+\author{A. Malek TOUMI\\ toumiab@ensta-bretagne.fr}
+
+\date{2018/2019}
+\institute{ENSTA Bretagne}
+
+
+%\usetheme{Transp}
+\usetheme{progressbar}
+%\usetheme{Darmstadt}
+\progressbaroptions{imagename= python-HE.png}
+
+
+
+\mode<handout>{
+  \usecolortheme{dove}
+  \usepackage{pgfpages}
+  \pgfpagesuselayout{4 on 1}[a4paper, border shrink=5mm, landscape]
+}
+
+
+
+\begin{document}
+
+\frame{\titlepage}
+
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{Sommaire}
+    \tableofcontents[current,currentsection]
+  \end{frame}
+}
+
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{Sommaire}
+    \tableofcontents[current,currentsubsection]
+  \end{frame}
+}
+
+\newlength\dunder
+\settowidth{\dunder}{\_}
+\newcommand{\twound}{\rule{2\dunder}{0.4pt}}
+%%%
+\input{fonctions1}
+%\input{horloge}
+\end{document}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

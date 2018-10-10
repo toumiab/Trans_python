@@ -74,7 +74,7 @@ timewarningfirst=50,timewarningsecond=80,resetatpages=2]{tdclock}
 %          numberstyle=\tiny,
 %          stepnumber=5,
           frame=single,
-          language=Java}
+          language=Python}
 
 \RequirePackage[algo2e,lined,algoruled,french]{algorithm2e}
 

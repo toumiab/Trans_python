@@ -253,7 +253,7 @@ maville('France') \textcolor[rgb]{0,0.58,0}{\# => affiche 'Brest 29200 France'}
   \begin{tabular}{ll}
     \begin{minipage}{0.6\linewidth}
     \begin{semiverbatim}
-      def fact(n) \{
+      def fact(n) :
 
       \hspace{1cm}if n==0:
 
@@ -263,7 +263,8 @@ maville('France') \textcolor[rgb]{0,0.58,0}{\# => affiche 'Brest 29200 France'}
 
       \hspace{2cm}return n*fact(n-1)
 
-      \}
+
+    \textcolor[rgb]{1,0,0}{>>>res = fact(2)}
     \end{semiverbatim}
   \end{minipage}&
   \begin{minipage}{0.35\linewidth}
@@ -297,7 +298,7 @@ maville('France') \textcolor[rgb]{0,0.58,0}{\# => affiche 'Brest 29200 France'}
 	        \only<2->{print("cas de base n :", n)}
 	        return 1 \uncover<2->{\textcolor[rgb]{0,0.58,0}{\# cas de base}}
 	    else:
-	        \only<3,5>{print("prétraitement pour n :", n)} 
+	        \only<2,3,5>{print("prétraitement pour n :", n)} 
 	        \only<1-3>{return}\only<4->{y =} x* puissance (x, n-1)
 	        \only<4->{print("post-traitement n :", n)} 
 	        \only<4->{return y}
@@ -360,9 +361,8 @@ post-traitement de n : 5}}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Explosion de la pile d'appel\chrono}
+  \frametitle{Explosion de la pile d'appels\chrono}
   Évolution de la pile lors du calcul de F(3) :\\
-
   \begin{tabular}{|ll|}
     \hline
     \uncover<7-8>{\color<7-8>{purple}f(0)} & \uncover<8>{= 0}\\
@@ -374,22 +374,22 @@ post-traitement de n : 5}}
     f(3) & \uncover<2->{= \only<2-11>{{\color<2-9>{blue}f(2)}+{\color<10-11>{blue}f(1)}} \only<12->{2}}\\
     \hline
   \end{tabular}\\
-
+	\footnotesize{
   \begin{itemize}
   \item<13-> Traduction immédiate de la formule de récurrence
   \item[$\Rightarrow$]<14-> peu efficace dans ce cas
-  \item<15-> Nombre d'appel à F en $\Theta(2^n)$
+  \item<15-> Nombre d'appels à F en $\Theta(2^n)$
   \end{itemize}
+	}
+	\tiny{
 	\uncover<16->{
 	\begin{alertblock}{Important}
-   
 	 \begin{itemize}
 		 \item <16-> Le nombre d'appels est limité par défaut, à 1000 appels. \\ $\Rightarrow$ \small{\emph{RuntimeError: maximum recursion depth exceeded ...}} 
 		 \item <17> Exemple : Augmenter la taille à  1500: \texttt{sys.setrecursionlimit(1500)} 
 	 \end{itemize}
-		\end{alertblock}
-	
-}	
+		\end{alertblock}	}
+}
   
 \end{frame}
 

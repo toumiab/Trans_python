@@ -90,8 +90,10 @@ np.zeros((3,2))  \textcolor[rgb]{0,0.58,0}{ \# crée un tableau de 0.0}
 \hspace{ 3cm} \textcolor[rgb]{0,0.58,0}{ \# de 3 lignes et 2 colonnes}
 
 np.ones((3,2)) \hspace{ 0.01cm} \textcolor[rgb]{0,0.58,0}{\# crée un tableau de 1.0}
+
+\hspace{ 3cm} \textcolor[rgb]{0,0.58,0}{ \# de 3 lignes et 2 colonnes}
                
-M = np.linspace(0,1,11) \textcolor[rgb]{0,0.58,0}{\# renvoie [0,0.1,..., 1.0]}
+M = np.linspace(0,1,11) \textcolor[rgb]{0,0.58,0}{\# renvoie [0.,0.1,...,1.0]}
 N = np.arange(2,5) \hspace{ 0.8cm} \textcolor[rgb]{0,0.58,0}{\# renvoie [2,3,4]}               
 \end{semiverbatim}
 \end{exemple}
@@ -309,17 +311,17 @@ Les dimensions des vecteurs-matrices doivent êtres conformes à l'opération souha
 	  n -= 1
   \end{lstlisting}
 \end{frame}
-\subsection{Excercice}
+\subsection{Exercice}
 \begin{frame}[fragile]
-  \frametitle{Excercice\chrono}
+  \frametitle{Exercice\chrono}
   \begin{semiverbatim}
 	\vspace{-1cm}
 	>>>import numpy as np
 	>>>tab = np.array([[1, 2, 3],[4, 5]])
 	>>>tab ? , np.shape(tab) ?
 \only<2>{tab = erreur? }\only<3>{array([[1, 2, 3],
-      [4, 5, 0]] , (2,3)}\only<4>{array([[1, 2, 3], [4, 5]]), (2,)}\only<5>{\textcolor[rgb]{0,0.58,0}{\# solution :} 
-			array([[1, 2, 3], [4, 5]], dtype=object), (2,)}
+      [4, 5, 0]] , (2,3)?}\only<4>{array([[1, 2, 3], [4, 5]])?, (2,)?}\only<5>{\textcolor[rgb]{0,0.58,0}{\# solution :} 
+			array([list([1, 2, 3]), list([4, 5])], dtype=object), (2,)}
   \end{semiverbatim}
 \end{frame}
 

@@ -84,15 +84,8 @@
 \headcommand {\beamer@framepages {107}{107}}
 \headcommand {\slideentry {2}{7}{4}{108/113}{Notion de r\'ecursivit\'e terminale}{0}}
 \headcommand {\beamer@framepages {108}{113}}
-\headcommand {\sectionentry {3}{Horloge }{114}{Horloge }{0}}
-\headcommand {\beamer@sectionpages {17}{113}}
+\headcommand {\beamer@partpages {1}{113}}
 \headcommand {\beamer@subsectionpages {101}{113}}
-\headcommand {\slideentry {3}{0}{5}{114/114}{}{0}}
-\headcommand {\beamer@framepages {114}{114}}
-\headcommand {\slideentry {3}{0}{6}{115/115}{}{0}}
-\headcommand {\beamer@framepages {115}{115}}
-\headcommand {\beamer@partpages {1}{115}}
-\headcommand {\beamer@subsectionpages {114}{115}}
-\headcommand {\beamer@sectionpages {114}{115}}
-\headcommand {\beamer@documentpages {115}}
-\headcommand {\def \inserttotalframenumber {37}}
+\headcommand {\beamer@sectionpages {17}{113}}
+\headcommand {\beamer@documentpages {113}}
+\headcommand {\def \inserttotalframenumber {35}}

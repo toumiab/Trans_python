@@ -1,0 +1,70 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[a4paper]{geometry}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage[frenchb]{babel}
+
+\lstdefinelanguage{test}{%
+   morekeywords={%
+    %%% BOUCLE, TEST & Co.
+      if, elif, then, else, and, or,
+    %%% IMPORT & Co.
+      import, from,
+    %%% MODULES
+      mod_1, mod_2,
+    %%% FONCTIONS NUMERIQUES
+      cos, sin, tan, acos, asin, atan,
+    %%% CONSTANTES
+      pi, True, False,
+  },
+  sensitive=true,
+  morecomment=[l]{\#},
+  morestring=[b]',
+  stringstyle=\color{green}
+}
+% On va pouvoir définir différents types de mises en forme suivant le type de mots-clés.
+% La méthode est fastidieuse mais pas compliquée.
+\lstset{language=test,
+    %%% BOUCLE, TEST & Co.
+      emph={if, elif, then, else, and, or},
+      emphstyle=\color{blue},
+    %%% IMPORT & Co.
+      emph={[2]import, from},
+      emphstyle=[2]\color{red},
+    %%% MODULES
+      emph={[3]mod_1, mod_2},
+      emphstyle=[3]\color{red!50!green},
+    %%% FONCTIONS NUMERIQUES
+      emph={[4]cos, sin, tan, acos, asin, atan},
+      emphstyle=[4]\color{gray},
+    %%% CONSTANTES
+      emph={[5]pi, True, False},
+      emphstyle=[5]\color{orange}
+}
+% ATTENTION ! On ne dispose "que" de 7 styles,
+% ce qui est à la fois raisonnable et suffisant :
+%   1) Chaînes de caractères
+%   2) Commentaire
+%   3-7) Cinq styles de mots clés
+
+\begin{document}
+Un langage fictif pour des applications bien réelles...
+\begin{lstlisting}[caption=Sympa ce package listings]
+# Un programme quelque peu fictif...
+import mod_1
+from mod_2 import inconnu
+
+if a==True or b==False then c=pi
+
+if b==True :
+    c=sin(4)
+elif :
+    c=tan(sin(4))
+else:
+    print 'Hum, Hum'
+\end{lstlisting}
+Une colorisation affreuse montrant ce qu'il est possible de faire...
+\end{document}

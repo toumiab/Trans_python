@@ -1,22 +1,23 @@
-\beamer@endinputifotherversion {3.12pt}
 \headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
 \headcommand {\beamer@framepages {1}{1}}
-\headcommand {\sectionentry {1}{Rappel :}{2}{Rappel :}{0}}
 \headcommand {\beamer@sectionpages {1}{1}}
 \headcommand {\beamer@subsectionpages {1}{1}}
-\headcommand {\slideentry {1}{0}{2}{2/2}{}{0}}
+\headcommand {\sectionentry {1}{Rappel :}{2}{Rappel :}{0}}
+\headcommand {\slideentry {1}{0}{1}{2/2}{}{0}}
 \headcommand {\beamer@framepages {2}{2}}
-\headcommand {\beamer@subsectionentry {0}{1}{1}{3}{Les types int\'egr\'es}}\headcommand {\beamer@subsectionpages {2}{2}}
+\headcommand {\beamer@subsectionpages {2}{2}}
+\headcommand {\beamer@subsectionentry {0}{1}{1}{3}{Les types int\'egr\'es}}
 \headcommand {\slideentry {1}{1}{1}{3/3}{Les types int\'egr\'es}{0}}
 \headcommand {\beamer@framepages {3}{3}}
 \headcommand {\slideentry {1}{1}{2}{4/7}{Les types int\'egr\'es}{0}}
 \headcommand {\beamer@framepages {4}{7}}
-\headcommand {\sectionentry {2}{Les Tableaux}{8}{Les Tableaux}{0}}
 \headcommand {\beamer@sectionpages {2}{7}}
 \headcommand {\beamer@subsectionpages {3}{7}}
-\headcommand {\slideentry {2}{0}{3}{8/8}{}{0}}
+\headcommand {\sectionentry {2}{Les Tableaux}{8}{Les Tableaux}{0}}
+\headcommand {\slideentry {2}{0}{1}{8/8}{}{0}}
 \headcommand {\beamer@framepages {8}{8}}
-\headcommand {\beamer@subsectionentry {0}{2}{1}{9}{Cr\'eation d'un tableau}}\headcommand {\beamer@subsectionpages {8}{8}}
+\headcommand {\beamer@subsectionpages {8}{8}}
+\headcommand {\beamer@subsectionentry {0}{2}{1}{9}{Cr\'eation d'un tableau}}
 \headcommand {\slideentry {2}{1}{1}{9/9}{Cr\'eation d'un tableau}{0}}
 \headcommand {\beamer@framepages {9}{9}}
 \headcommand {\slideentry {2}{1}{2}{10/11}{Cr\'eation d'un tableau}{0}}
@@ -33,24 +34,27 @@
 \headcommand {\beamer@framepages {18}{20}}
 \headcommand {\slideentry {2}{1}{8}{21/22}{Cr\'eation d'un tableau}{0}}
 \headcommand {\beamer@framepages {21}{22}}
-\headcommand {\beamer@subsectionentry {0}{2}{2}{23}{M\'elange d'un tableau}}\headcommand {\beamer@subsectionpages {9}{22}}
+\headcommand {\beamer@subsectionpages {9}{22}}
+\headcommand {\beamer@subsectionentry {0}{2}{2}{23}{M\'elange d'un tableau}}
 \headcommand {\slideentry {2}{2}{1}{23/23}{M\'elange d'un tableau}{0}}
 \headcommand {\beamer@framepages {23}{23}}
 \headcommand {\slideentry {2}{2}{2}{24/24}{M\'elange d'un tableau}{0}}
 \headcommand {\beamer@framepages {24}{24}}
 \headcommand {\slideentry {2}{2}{3}{25/25}{M\'elange d'un tableau}{0}}
 \headcommand {\beamer@framepages {25}{25}}
-\headcommand {\beamer@subsectionentry {0}{2}{3}{26}{Excercice}}\headcommand {\beamer@subsectionpages {23}{25}}
-\headcommand {\slideentry {2}{3}{1}{26/26}{Excercice}{0}}
+\headcommand {\beamer@subsectionpages {23}{25}}
+\headcommand {\beamer@subsectionentry {0}{2}{3}{26}{Exercice}}
+\headcommand {\slideentry {2}{3}{1}{26/26}{Exercice}{0}}
 \headcommand {\beamer@framepages {26}{26}}
-\headcommand {\slideentry {2}{3}{2}{27/31}{Excercice}{0}}
+\headcommand {\slideentry {2}{3}{2}{27/31}{Exercice}{0}}
 \headcommand {\beamer@framepages {27}{31}}
-\headcommand {\sectionentry {3}{Algorithmes de tris}{32}{Algorithmes de tris}{0}}
 \headcommand {\beamer@sectionpages {8}{31}}
 \headcommand {\beamer@subsectionpages {26}{31}}
-\headcommand {\slideentry {3}{0}{3}{32/32}{}{0}}
+\headcommand {\sectionentry {3}{Algorithmes de tris}{32}{Algorithmes de tris}{0}}
+\headcommand {\slideentry {3}{0}{1}{32/32}{}{0}}
 \headcommand {\beamer@framepages {32}{32}}
-\headcommand {\beamer@subsectionentry {0}{3}{1}{33}{Tri par s\'election}}\headcommand {\beamer@subsectionpages {32}{32}}
+\headcommand {\beamer@subsectionpages {32}{32}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{33}{Tri par s\'election}}
 \headcommand {\slideentry {3}{1}{1}{33/33}{Tri par s\'election}{0}}
 \headcommand {\beamer@framepages {33}{33}}
 \headcommand {\slideentry {3}{1}{2}{34/43}{Tri par s\'election}{0}}
@@ -63,14 +67,16 @@
 \headcommand {\beamer@framepages {48}{48}}
 \headcommand {\slideentry {3}{1}{6}{49/53}{Tri par s\'election}{0}}
 \headcommand {\beamer@framepages {49}{53}}
-\headcommand {\beamer@subsectionentry {0}{3}{2}{54}{Tri bulles}}\headcommand {\beamer@subsectionpages {33}{53}}
+\headcommand {\beamer@subsectionpages {33}{53}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{54}{Tri bulles}}
 \headcommand {\slideentry {3}{2}{1}{54/54}{Tri bulles}{0}}
 \headcommand {\beamer@framepages {54}{54}}
 \headcommand {\slideentry {3}{2}{2}{55/64}{Tri bulles}{0}}
 \headcommand {\beamer@framepages {55}{64}}
 \headcommand {\slideentry {3}{2}{3}{65/68}{Tri bulles}{0}}
 \headcommand {\beamer@framepages {65}{68}}
-\headcommand {\beamer@subsectionentry {0}{3}{3}{69}{Tri par insertion}}\headcommand {\beamer@subsectionpages {54}{68}}
+\headcommand {\beamer@subsectionpages {54}{68}}
+\headcommand {\beamer@subsectionentry {0}{3}{3}{69}{Tri par insertion}}
 \headcommand {\slideentry {3}{3}{1}{69/69}{Tri par insertion}{0}}
 \headcommand {\beamer@framepages {69}{69}}
 \headcommand {\slideentry {3}{3}{2}{70/81}{Tri par insertion}{0}}
@@ -79,7 +85,8 @@
 \headcommand {\beamer@framepages {82}{82}}
 \headcommand {\slideentry {3}{3}{4}{83/86}{Tri par insertion}{0}}
 \headcommand {\beamer@framepages {83}{86}}
-\headcommand {\beamer@subsectionentry {0}{3}{4}{87}{Tri shell}}\headcommand {\beamer@subsectionpages {69}{86}}
+\headcommand {\beamer@subsectionpages {69}{86}}
+\headcommand {\beamer@subsectionentry {0}{3}{4}{87}{Tri shell}}
 \headcommand {\slideentry {3}{4}{1}{87/87}{Tri shell}{0}}
 \headcommand {\beamer@framepages {87}{87}}
 \headcommand {\slideentry {3}{4}{2}{88/88}{Tri shell}{0}}
@@ -88,22 +95,14 @@
 \headcommand {\beamer@framepages {89}{89}}
 \headcommand {\slideentry {3}{4}{4}{90/90}{Tri shell}{0}}
 \headcommand {\beamer@framepages {90}{90}}
-\headcommand {\slideentry {3}{4}{5}{91/97}{Tri shell}{0}}
-\headcommand {\beamer@framepages {91}{97}}
-\headcommand {\beamer@subsectionentry {0}{3}{5}{98}{Autres tris}}\headcommand {\beamer@subsectionpages {87}{97}}
-\headcommand {\slideentry {3}{5}{1}{98/98}{Autres tris}{0}}
-\headcommand {\beamer@framepages {98}{98}}
-\headcommand {\slideentry {3}{5}{2}{99/99}{Autres tris}{0}}
-\headcommand {\beamer@framepages {99}{99}}
-\headcommand {\sectionentry {4}{Horloge }{100}{Horloge }{0}}
-\headcommand {\beamer@sectionpages {32}{99}}
-\headcommand {\beamer@subsectionpages {98}{99}}
-\headcommand {\slideentry {4}{0}{3}{100/100}{}{0}}
-\headcommand {\beamer@framepages {100}{100}}
-\headcommand {\slideentry {4}{0}{4}{101/101}{}{0}}
-\headcommand {\beamer@framepages {101}{101}}
-\headcommand {\beamer@partpages {1}{101}}
-\headcommand {\beamer@subsectionpages {100}{101}}
-\headcommand {\beamer@sectionpages {100}{101}}
-\headcommand {\beamer@documentpages {101}}
-\headcommand {\def \inserttotalframenumber {41}}
+\headcommand {\beamer@subsectionpages {87}{90}}
+\headcommand {\beamer@subsectionentry {0}{3}{5}{91}{Autres tris}}
+\headcommand {\slideentry {3}{5}{1}{91/91}{Autres tris}{0}}
+\headcommand {\beamer@framepages {91}{91}}
+\headcommand {\slideentry {3}{5}{2}{92/92}{Autres tris}{0}}
+\headcommand {\beamer@framepages {92}{92}}
+\headcommand {\beamer@partpages {1}{92}}
+\headcommand {\beamer@subsectionpages {91}{92}}
+\headcommand {\beamer@sectionpages {32}{92}}
+\headcommand {\beamer@documentpages {92}}
+\headcommand {\gdef \inserttotalframenumber {38}}

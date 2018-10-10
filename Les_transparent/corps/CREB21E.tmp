@@ -1,0 +1,693 @@
+
+\section{Fonction}
+
+
+\subsection{Déclaration d'une fonction}
+
+\begin{frame}
+\frametitle{Intérêt des fonctions\chrono}
+\initclock 
+  \begin{itemize}
+  \item Découpage du programme en sous-programmes : fonctions
+  \item Avantage : modularité, réutilisabilité
+  \item Évite les copier/coller !
+  \item Structure le code
+	\item Rend le code plus lisible, plus compact
+  \end{itemize}
+  \pause
+	Syntaxe : \\
+	     \verb!\emph{def} nomFontion (arg1,arg2, \dots,argn):!\\
+       \hspace{1cm} \verb!<instruction>\\!
+       \hspace{1cm} \verb!\emph{return} <valeur> !\\
+	\pause
+	Exemples~:
+  \begin{itemize}
+  \item Fonctions de calcul
+  \item Fonctions d'analyse des fichiers
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Syntaxe\chrono}
+ 		\only<1>{\includegraphics[height=6 cm]{images/fonctions.jpg}}
+		\only<2>{\includegraphics[height=4cm]{images/fonction_utilisation1.jpg}}
+    \only<3>{
+		\includegraphics[height=3.5 cm]{images/fonction_utilisation.jpg}
+		
+		\begin{remarques}
+		\begin{itemize}
+		  \item Utiliser un nom qui commence par un minuscule\\ 
+			Exexmple : \texttt{uneFonctionBienNommee}
+			\item La correspondance des paramètres effectifs/formels est positionnelle par défaut
+			\item Pour l'appel, les paramètres et arguments doivent coïncider en nombre par défaut
+		\end{itemize}
+		\end{remarques}
+		}  	
+\end{frame}
+
+\begin{frame}
+  \frametitle{Fonction sans valeur de retour\chrono}
+  \begin{itemize}
+
+  \item Pas de return % \only<2>{\textcolor[rgb]{1,0,0}{(ou pas de valeur retournée)}}
+	\item Valeur de retour conventionnelle : None
+  \end{itemize}
+  \begin{exemple}
+    \begin{semiverbatim}
+    \textcolor{red}{def} ajouElemSpecial(liste,element):
+
+    \hspace{1cm} nouvElem=[element] * 2
+
+    \hspace{1cm} liste.append(nouvElem)
+		 
+		\hspace{1cm} print(liste)
+    
+		%\hspace{1cm} \only<2>{\textcolor[rgb]{1,0,0}{return}} 
+	  
+    lst =[1, 2]
+		
+		ajouElemSpecial(lst, 4)
+    
+		\end{semiverbatim}
+  \end{exemple}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Fonction avec valeur(s) de \emph{retour}\chrono}
+  
+  \begin{exemple}
+    \begin{semiverbatim}
+      \textcolor{red}{def} operations(ch, val):
+
+    \hspace{1cm} \emph{if} ch.count(str(val)) \emph{and} val:
+		
+    \hspace{2cm} \emph{return} int(ch)/val\only<2>{, int(ch)//int(val)}
+		
+    \hspace{1cm} \emph{else} \emph{return} 0\only<2>{, 0 \textcolor[rgb]{1,0,0}{\# retourne (0,0)}} 
+		
+		 
+    s = '25'
+		
+		divR\only<2>{, divE} = operations(s,2) \textcolor[rgb]{1,0,0}{\# => divR=12.5}
+		
+		 \hspace{5.6cm} \uncover<2>{\textcolor[rgb]{1,0,0} {\# et divE=12}}
+		
+    \end{semiverbatim}
+  \end{exemple}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Lambda fonctions\chrono}
+  
+	\begin{itemize}
+		\item Pour créer une fonction \textsl{anonyme} contenant une seule instruction (expression)
+		\item Syntaxe : \texttt{lambda arguments... : expression}
+	\end{itemize}
+	\pause
+  \begin{exemple}
+    \begin{semiverbatim}
+    \vspace{-0.5cm}		
+		\textcolor[rgb]{0.24,0.7,0.44}{\# La lambda fonction }
+		
+      somProd = \emph{lambda} n1, n2: (n1+n2, n1*n2)
+     
+		\uncover<3>{
+     \textcolor[rgb]{0.24,0.7,0.44}{\# est équivalente à :}
+		
+     \emph{def} somProd(n1, n2):
+		
+     \hspace{1cm} return (n1+n2, n1*n2)
+
+     \textcolor[rgb]{0.24,0.7,0.44}{\# Dans les 2 cas :}}
+		
+     somProd(3, 10)    \textcolor[rgb]{0.24,0.7,0.44}{\# => (13, 30) }
+		\end{semiverbatim}
+  \end{exemple}
+
+\end{frame}
+
+
+
+\subsection{Valeurs par défaut des arguments}
+
+\begin{frame}[fragile]
+ \frametitle{Argument(s) par défaut\chrono}
+ 
+	
+	\begin{itemize}
+		\item Objectif : attribuer des valeurs par défaut aux arguments 
+		\item <2> Attention : les paramètres positionnels doivent apparaitre avant les paramètres nommés 
+		  
+	\end{itemize}
+	\begin{exemple}[valeur par défaut]
+  \begin{lstlisting}[frame=Python]
+	def hello(name, lang='English'):
+      # name est obligatoire
+	      if lang=='English':
+         print('Hello ', name)
+      elif lang=='French':
+        print('Bonjour ', name)
+      
+hello('Claire','French') # => Bonjour Claire
+hello(lang ='French', name = 'Claire') 
+hello('Claire') # => Hello Claire
+
+
+    \end{lstlisting}
+  \end{exemple}
+
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+\frametitle{Arguments par défaut\chrono}
+\begin{remarque}
+		\begin{itemize}
+		  \item L'ordre des paramètres avec valeur par défaut n'est pas important 
+			\item Les arguments par défaut sont optionnels
+		\end{itemize}
+\end{remarque}
+	\begin{exemple}[Valeur par défaut]
+  \begin{lstlisting}[frame=none]
+	def generer(min=0, max =100):
+	    """ renvoie une liste d'entiers générés
+    aléatoirement entre min et max  """
+    < Corps de la fonction>
+ # exemples (Appel)			
+ l1 = generer(max=200, min=20) 
+ # équvalent l1 = generer(20, 200) 
+ l2 = generer(max= 10)
+  \end{lstlisting}
+  \end{exemple}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Arguments par défaut\chrono}
+\begin{remarque}
+		\begin{itemize}
+		 \item L'objet utilisé comme valeur par défaut du paramètre est toujours le même (même objet)
+			\begin{itemize}
+				\item \textcolor[rgb]{1,0,0}{Il reste dangereux d'utiliser des objets modifiables comme valeur par défaut }
+			\end{itemize}
+		\end{itemize}
+			\end{remarque}
+	\begin{alertblock}{Exemple : Valeur d'un argument}
+  %\begin{semiverbatim}
+	\begin{lstlisting}[frame=none]
+	def aj(b, liste=[1,2]):
+    liste.append(b)
+    return liste
+  \end{lstlisting}
+	\begin{semiverbatim}
+	lst=aj(5)   \# \only<1>{lst = ?}\only<2->{lst = [1, 2, 5] ?}
+	lst1=aj(6)  \# \only<2>{ lst1 = ?, lst = ?} \only<3>{lst1 =  [1, 2, 6]?} \only<4>{lst = [1,2,5] ?}\only<5>{sol => lst1 = lst = [1, 2, 5, 6]}
+	\end{semiverbatim}
+
+  \end{alertblock}
+
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{Arguments par défaut\chrono}
+\begin{remarque}
+		\begin{itemize}
+		 \item L'objet utilisé comme valeur par défaut du paramètre est toujours le même
+			\begin{itemize}
+				\item \textcolor[rgb]{1,0,0}{Il reste dangereux d'utiliser des objets modifiables comme valeur par défaut }
+			\end{itemize}
+		\end{itemize}
+			\end{remarque}
+	\begin{exemple}[Solution]
+  \begin{lstlisting}[frame=none]
+	def ajout(b, liste=None):
+    if liste == None :
+		       liste = [1,2]
+	    liste.append(b)
+    return liste
+ lst=aj(5)  # lst = [1, 2, 5]
+ lst1=aj(6) # lst1 = [1, 2, 6];lst = [1, 2, 5]
+\end{lstlisting}
+
+  \end{exemple}
+
+\end{frame}
+
+\subsection{Passage de paramètres}
+
+\begin{frame}[fragile]
+  \frametitle{Passage de paramètres\chrono}
+	
+	
+	\begin{itemize}[<+->]
+		
+  \item Deux types de passages de paramètres :
+  \begin{itemize}
+  \item Passage par valeur (copie de donnée) : paramètres de type non modifiable. Ex. les types simples, les tuples, les chaînes ...
+	\item Passage par variable : paramètres de type modifiable. 
+	\end{itemize}
+\end{itemize}
+%{\small
+  \begin{exemple}[Passage par valeur/variable]<4-7>
+    \only<4-7>{
+		\begin{semiverbatim}
+		\vspace{-0.5cm}
+		\emph{def} ajoutElem(liste, elem):
+		
+		 \hspace{1cm}   liste.append(elem)
+		
+		 \hspace{1cm} 	elem = 'quatre' \textcolor[rgb]{0.24,0.7,0.44}{\# elem est modifié}
+		
+		 \hspace{1cm}    \textcolor[rgb]{0.24,0.7,0.44}{\# Note : Pas de return !}
+        
+	lst=['un'] 
+	
+	el='deux'
+	
+	ajoutElem(lst, el)
+	
+	print(el)  \textcolor[rgb]{0.24,0.7,0.44}{\# => el = \only<5> {'quatre'? }\only<6> {'deux' }}
+	
+	print(lst) \textcolor[rgb]{0.24,0.7,0.44}{\# => lst = \only<7> {['un', 'deux']?}}
+	\end{semiverbatim}
+	}
+   \end{exemple}
+  
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Passage par variable\chrono}
+
+  \begin{exemple}[Passage par variable : type modifiable]
+    \begin{semiverbatim}
+		\vspace{-1cm}
+      \only<1>{
+		\emph{def} ajoutsupp(liste, elem):
+		    liste.append(elem)
+		    liste[0]='dix'
+		\emph{def} ajoutsupp1(liste, elem):
+		    liste = ['cinq, six']
+		    liste.append(elem)
+		    liste[0]='douze'
+	lst=['un'] ; el='deux'
+	ajoutsupp(lst, el)
+	print(lst) \textcolor[rgb]{0.24,0.7,0.44}{\# => lst = ['dix', 'deux']?}
+	ajoutsupp1(lst, el)
+	print(lst)  \textcolor[rgb]{0.24,0.7,0.44}{\# => lst = ['douze', 'six', 'deux']? }
+	}
+	\end{semiverbatim}
+	
+
+  \only<2>{
+Résultat de l'exécution :
+    \begin{semiverbatim}
+    >>> 
+		
+		['dix', 'deux']
+		
+		['dix', 'deux']
+		
+		>>> 
+    \end{semiverbatim}
+  }
+
+  \end{exemple}
+\end{frame}
+\subsection{Portée de variables}
+\begin{frame}
+  \frametitle{Portée de variables\chrono}
+	 \only<1>{
+	\begin{defi}
+	  La portée est le périmètre dans lequel un nom (de variable, fonction...) est connu (visible) et utilisable
+		\end{defi}
+  
+	\begin{itemize}
+	\item \textbf{Variables globales} (espace des noms globaux) d'un programme : portée limitée à l'intérieur du programme et toutes les fonctions invoquées
+	\item \textbf{Variables locales} (espace des noms locaux) de la fonction  : portée limitée à la fonction
+   
+	 %\begin{itemize}
+		 %\item Paramètres d'une fonction : portée limitée à la fonction et celle invoquées depuis son corps
+	 %\end{itemize}
+  \end{itemize}
+  }
+	\only<2-5>{
+  \begin{exemple}[Visibilité de variables]
+    \begin{semiverbatim}
+		\vspace{-.5cm}	
+		def maville():
+		
+		\hspace{1cm}	 ville = 'Brest'  \textcolor[rgb]{0.24,0.7,0.44}{\# variable locale}
+			
+	  \hspace{1cm}   print (ville, cp\only<4->{, pays})
+		
+		\hspace{1cm} \textcolor[rgb]{0.24,0.7,0.44}{\# cp=29200 variable globale vue par la fct}
+    
+		\uncover<4->{ville = 'Quimper' ; pays = 'France'}
+    
+		cp = 29200 \textcolor[rgb]{0.24,0.7,0.44}{\# variable globale}
+				
+	  maville() \textcolor[rgb]{0.24,0.7,0.44}{\# =>  affiche 'Brest 29200 \only<3->{France}'}
+		
+		\textcolor[rgb]{0.24,0.7,0.44}{\only<4->{\# ville = 'Brest' => var. loc masquant var. glob}}
+		
+    \only<3,5>{print(ville)}\only<3>{ \textcolor[rgb]{0.24,0.7,0.44}{\#  => NameError}} \only<5>{\textcolor[rgb]{0.24,0.7,0.44}{ \#  => 'Quimper'}}
+    \end{semiverbatim}
+  \end{exemple}
+	}
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+  \frametitle{Variables globales/locales\chrono}
+  
+	\begin{remarques}
+	\begin{itemize}[<+->]
+	\item La recherche d'un nom débute dans l'espace de noms le plus intérieur, puis s'étend jusqu'à l'espace de nom global
+  	\begin{itemize}
+		\item Les variables globales sont visibles dans les fonctions appelées mais on ne peut les réaffectées
+		\item Le contenu d'une variable globale est modifiable si elle est mutable (modifiable).
+		\item Les variables locales d'une fonction ne sont pas visibles dans les niveaux supérieurs
+		\item Les fonctions peuvent modifier des variables globales avec l'instruction \emph{global} 
+		\end{itemize}
+		\item La fonction \emph{globals()} retourne le dictionnaire des objets globaux. \\
+	
+		\item La fonction \emph{locals()} retourne la liste des objets l'espace local en cours
+   \end{itemize}
+  \end{remarques}
+	
+\end{frame}
+
+
+
+
+
+
+\begin{frame}[fragile]
+  \frametitle{Variables globales/locales\chrono}
+
+ \begin{exemple}[Modification d'une variable globale]
+    \begin{semiverbatim}
+		\vspace{-1cm}
+		\emph{def} noise ():
+		    i = np.random.randint(0, len(tab) -1)
+		    j = np.random.randint(0, len(tab) -1)
+		    \textcolor[rgb]{0.2,0.8,0.2}{\# modification de la varibale globale tab}
+		    tab[i], tab[j] = tab[j], tab[i] 
+		
+		tab = list(range(10)) \textcolor[rgb]{0.2,0.8,0.2}{\# variable globale}
+		print(tab) \pause \textcolor[rgb]{0.2,0.8,0.2}{\# [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}\pause
+		noise()
+		print(tab) \pause \textcolor[rgb]{0.2,0.8,0.2}{\# [0, 1, 8, 3, 4, 5, 6, 7, 2, 9]}
+		
+				
+ \end{semiverbatim}
+ %\begin{lstlisting}[frame=none,langage=python]
+		%def noise():
+		    %i = np.random.randint(0,len(tab)-1)
+		    %j = np.random.randint(0, len(tab)-1)
+		    %# modification de la varibale globale tab
+		    %tab[i],tab[j] = tab[j],tab[i] 
+		%
+		%tab = list(range(10)) # variable globale
+		%print(tab) #[0,1,2,3,4,5,6,7,8,9]
+		%noise()
+		%print(tab) $\pause$ # [0,1,8,3,4,5,6,7,2,9]
+		%
+ %\end{lstlisting}
+  \end{exemple}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Variables globales/locales\chrono}
+ \begin{exemple}[Variable globale]
+    \begin{semiverbatim}
+		\emph{def} maville():
+		    \emph{global} code, ville
+		    ville = 'Brest'
+		    code ='29200'
+		    print (ville, code)
+				
+				
+		ville, code = 'Quimper', '29000'
+		print(ville, code) \pause \textcolor[rgb]{0.24,0.7,0.44}{# => Quimper 29000}
+		maville()  \pause \textcolor[rgb]{0.24,0.7,0.44}{# => Brest 29200}
+		print(ville, code) \pause \textcolor[rgb]{0.24,0.7,0.44}{# => Brest 29200}
+ \end{semiverbatim}
+  \end{exemple}
+%}
+\end{frame}
+
+%\subsection{Notion de pile d'appel}
+%
+%\begin{frame}
+  %\frametitle{Pile d'appel}
+  %\begin{itemize}[<+->]
+  %\item Zone de mémoire
+  %\item Contient :
+    %\begin{itemize}
+    %\item<3-|alert@8-9> paramètres
+    %\item<4-|alert@10> adresse de retour
+    %\item<5-|alert@11> variables locales
+    %\end{itemize}
+  %\item<6-> Fonctionnement lors de l'appel d'une fonction
+  %\end{itemize}
+%
+  %\uncover<7->{
+  %\begin{tabular}{ll}
+    %\begin{minipage}{0.8\linewidth}
+    %\begin{semiverbatim}
+      %def fct({\color<8>{red} a}, {\color<9>{red} b}) 
+%
+      %\hspace{1cm}{\color<11>{red} i = 0}
+%
+     %
+%
+      %fct({\color<8>{red}2}, {\color<9>{red}1.5});
+    %\end{semiverbatim}
+  %\end{minipage}&
+  %\begin{minipage}{0.15\linewidth}
+  %\begin{tabular}{|r|}
+    %\hline
+    %\uncover<11>{i}\\
+    %\hline
+    %\uncover<10->{0x1E3C85}\\
+    %\hline
+    %\uncover<9->{1.5}\\
+    %\hline
+    %\uncover<8->{2}\\
+    %\hline
+  %\end{tabular}
+  %\end{minipage}
+%\end{tabular}
+%}
+%\end{frame}
+
+\section{Les modules}
+
+
+
+\begin{frame}
+  \frametitle{Modules, bibiothèques, librairies\chrono}
+   
+	 \begin{itemize}[<+->]
+	   \item Un fichier source Python constitue un module 
+		 \item Objectif : regrouper des définitions de fonctions et de classes dans un fichier Python utilisable dans d'autres programmes\\
+		Exemple : un fichier regroupant les fonctions de tris.
+		 \item On importe le contenu d'un module dans le module courant avec la commande \emph{import }
+		\item La variable d'environnement PATHPYTHON liste les répertoires dans lesquels l'interpréteur cherche les modules/packages
+	 \end{itemize}
+	\pause
+ \begin{exemple}[Path Python]
+{\small
+    \begin{semiverbatim}
+		\vspace{-.5cm}
+		>>> import sys \only<7>{as alias}
+		
+		>>> \only<6>{sys.path}\only<7>{alias.path}
+		
+		['','C:\\python-3.3.5.amd64\\Lib\\idlelib','C:\\python-
+		3.3.5.amd64\\lib\\site-packages\\Pythonwin', \dots]
+		
+	  >>> \only<6>{sys.path}\only<7>{alias.path}.append('chemin de module')	
+ \end{semiverbatim}
+}
+  \end{exemple}
+
+%}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Modules, bibiothèques, librairies\chrono}
+   
+	 \begin{itemize}[<+->]
+	   \item Importer une partie d'un module
+		\item $=>$ pas besoin de préfixer les identifiants par le nom du module
+		
+		
+		\end{itemize}
+ \begin{exemple}[Path Python]
+{\small
+    \begin{semiverbatim}
+		\vspace{-.5cm}
+		>>> from sys import path
+		
+		>>> path  
+		
+		['','C:\\python-3.5.3.amd64\\Lib\\idlelib','C:\\python-
+		3.5.3.amd64\\lib\\site-packages\\Pythonwin', \dots]
+		
+	  >>> path.append('chemin de module')	
+ \end{semiverbatim}
+}
+  \end{exemple}
+
+%}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Importer un module\chrono}
+   \begin{alertblock}{Importer tout un module}
+	    \texttt{from module importe * }
+			\begin{itemize} [<+->]
+				\item Attention : Importe l'ensemble du contenu d'un module (tous les identifiants de l'espace de noms du module) à l'exception des noms commençant par '\_'
+				\item $=>$ masquage de noms déjà définis\\
+				Exemple : \\
+				\texttt{from os import *}  \textcolor[rgb]{0.2,0.8,0.2}{\verb!\#! masque la fonction open()}
+			\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Importer un module\chrono}
+
+	
+\begin{remarques}
+	
+	\begin{itemize}[<+->]
+		
+		\item Un module n'est importé qu'une seule fois par l'interpréteur et mis en cache dans \texttt{sys.modules} pour être utilisé.
+		\item Pour recharger un module : \\
+		\texttt{from imp import reload}\\
+		\texttt{reload(module)}
+		
+	\item Lors de l'importation d'un module, le code présent dans ce module est exécuté.  
+	
+	\begin{itemize}
+		\item Utilisation  corps principal du programme via la variable \verb!\_\kern-.14ex\_name\_\kern-.14ex\_ 
+		
+		Utilisation : 
+		if \twound{name}\twound{} == '\twound{main}\twound{}':!
+	\end{itemize}
+	\end{itemize}
+\end{remarques}
+
+%}
+\end{frame}
+
+
+
+
+\begin{frame} [fragile]
+  \frametitle{Utilisation de modules\chrono}
+	
+	\begin{exemple}[Les modules]
+	{\small
+  \begin{lstlisting}[frame=none]
+	# Fichier mon_module.py 
+def carre(nb):
+    return nb*nb
+def cube(nb):
+    return nb*nb*nb
+
+if __name__ == '__main__':
+    # module exécuté en tant que script
+    print('Exemple de la fonction carre()')
+    print('  carre(4) => ', carre(4))
+    print('Exemple de la fonction cube()')
+    print('  cube(3) => ', cube(3))
+
+\end{lstlisting}
+}
+\end{exemple}
+\end{frame}
+
+\begin{frame} [fragile]
+  \frametitle{Utilisation de modules\chrono}
+	
+	\begin{exemple}[Les modules]
+	{\small
+  \begin{lstlisting}[frame=none]
+	# Fichier mon_module.py 
+
+# Utilisation du module 
+
+import mon_module      # => n'exécute pas code
+mon_module.carre(3)    # => 9
+mon_module.cube(2)     # => 8
+
+# Exécution du module en tant que script 
+$ python3 mon_module.py   # => affiche ce qui suit :
+  Exemple de la fonction carre()
+    carre(4) =>  16
+  Exemple de la fonction cube()
+    cube(3) =>  27
+
+\end{lstlisting}
+}
+\end{exemple}
+\end{frame}
+
+
+
+
+
+
+
+%\section{Retour sur les tableaux}
+%\subsection{Recherche dichotomique}
+%
+%\begin{frame}
+  %\frametitle{Recherche par dichotomie}
+  %\begin{itemize}[<+->]
+  %\item Exemple : recherche d'un élément dans un tableau trié
+  %\item Principe : comparer l'élément avec la valeur médiane
+  %\item puis recommencer dans le sous tableau contenant l'élément
+  %\end{itemize}
+%
+%
+    %\begin{center}
+      %\begin{tabular}{|l|l|l|l|l|}
+        %\hline
+        %{\color<3-4>{blue}1} & {\color<3>{blue}\color<4>{red}2} & {\color<2>{red}\color<3-4>{blue}3} & 4 & 5\\
+        %\hline
+      %\end{tabular}
+    %\end{center}
+%
+%\pause Complexité : \pause $\Theta(\log n)$
+%\end{frame}
+%
+%\subsection{Diviser pour régner}
+%
+%\begin{frame}
+  %\begin{itemize}[<+->]
+  %\item Principe : décomposer le problème en sous problèmes (sous ensemble des
+    %données)
+  %\item résoudre les sous problèmes (éventuellement en redécoupant)
+  %\item puis fusionner les résultats
+  %\item Exemples~:
+    %\begin{itemize}
+    %\item tri par partition/fusion
+    %\item tri rapide
+    %\end{itemize}
+  %\end{itemize}
+%\end{frame}
+%
+%
+
+
+
+  %\url{http://172.20.110.1/documentation/jdk1.5.0/api/index.html}
+
