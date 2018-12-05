@@ -665,19 +665,19 @@ post-traitement de n : 5}}
   %\end{itemize}
 %\end{frame}
 %
-\begin{frame}
-  \frametitle{Quicksort\chrono}
-\only<1-4>{
-  {\small 
-\begin{procedure}[H]
-  \caption{triSeg(tableau\_entier tab, entier debut, entier fin)}
-  \If{$debut<fin$} {\pause
-      choisir élément pivot $p$ entre debut et fin \;\pause
-      placer pivot en $i$, $\leqslant$ pivot avant, $\geqslant$ pivot après \;\pause
-      \triSeg(tab, deb, i-1) \;
-      \triSeg(tab, i+1, fin) \;
-  }
-\end{procedure}
+%\begin{frame}
+  %\frametitle{Quicksort\chrono}
+%\only<1-4>{
+  %{\small 
+%\begin{procedure}[H]
+  %\caption{triSeg(tableau\_entier tab, entier debut, entier fin)}
+  %\If{$debut<fin$} {\pause
+      %choisir élément pivot $p$ entre debut et fin \;\pause
+      %placer pivot en $i$, $\leqslant$ pivot avant, $\geqslant$ pivot après \;\pause
+      %\triSeg(tab, deb, i-1) \;
+      %\triSeg(tab, i+1, fin) \;
+  %}
+%\end{procedure}
 % \begin{algorithmic}[1]
 %   \Procedure{triSeg}{entier tab[], entier debut, entier fin}
 %   \If{$debut<fin$}  // condition d'arrêt\pause
@@ -687,44 +687,44 @@ post-traitement de n : 5}}
 %     \State triSeg(tab, i+1, fin)
 %   \EndIf
 %   \EndProcedure
-%   \end{algorithmic}
-}
-}
-\only<5>{
-  {\small 
-\begin{procedure}[H]
-  \caption{triSeg(tableau\_entier tab, entier debut, entier fin)}
-  \If{$debut<fin$} {
-    \eIf{$fin - debut \leqslant 1$ \tcp{cas particulier : 2 éléments à trier}} {
-      \If{$tab[debut] > tab[fin]$} {
-        permuter tab[debut], tab[fin] \;
-      }
-    }
-    {
-      choisir élément pivot $p$ entre debut et fin \;
-      placer pivot en $i$, $\leqslant$ pivot avant, $\geqslant$ pivot après \;
-      \triSeg(tab, deb, i-1) \;
-      \triSeg(tab, i+1, fin) \;
-    }
-  }
-\end{procedure}
-% \begin{algorithmic}[1]
-%   \Procedure{triSegIns}{entier tab[], entier debut, entier fin}
-%     \If{$debut<fin$} // condition d'arrêt
-%       \If{\textcolor{blue}{$fin - debut \le seuil$}} // cas particulier 
-%         \State \textcolor{blue}{triIns(tab, debut, fin)}
-%       \Else
-%         \State choisir élément pivot $p$ entre debut et fin
-%         \State placer pivot en $i$, $\le$ pivot avant, $\geqslant$ pivot après
-%         \State triSeg(tab, deb, i-1)
-%         \State triSeg(tab, i+1, fin)
-%       \EndIf
-%     \EndIf
-%   \EndProcedure
-%   \end{algorithmic}
-}
-}
-\end{frame}
+%%   \end{algorithmic}
+%}
+%}
+%\only<5>{
+  %{\small 
+%\begin{procedure}[H]
+  %\caption{triSeg(tableau\_entier tab, entier debut, entier fin)}
+  %\If{$debut<fin$} {
+    %\eIf{$fin - debut \leqslant 1$ \tcp{cas particulier : 2 éléments à trier}} {
+      %\If{$tab[debut] > tab[fin]$} {
+        %permuter tab[debut], tab[fin] \;
+      %}
+    %}
+    %{
+      %choisir élément pivot $p$ entre debut et fin \;
+      %placer pivot en $i$, $\leqslant$ pivot avant, $\geqslant$ pivot après \;
+      %\triSeg(tab, deb, i-1) \;
+      %\triSeg(tab, i+1, fin) \;
+    %}
+  %}
+%\end{procedure}
+%% \begin{algorithmic}[1]
+%%   \Procedure{triSegIns}{entier tab[], entier debut, entier fin}
+%%     \If{$debut<fin$} // condition d'arrêt
+%%       \If{\textcolor{blue}{$fin - debut \le seuil$}} // cas particulier 
+%%         \State \textcolor{blue}{triIns(tab, debut, fin)}
+%%       \Else
+%%         \State choisir élément pivot $p$ entre debut et fin
+%%         \State placer pivot en $i$, $\le$ pivot avant, $\geqslant$ pivot après
+%%         \State triSeg(tab, deb, i-1)
+%%         \State triSeg(tab, i+1, fin)
+%%       \EndIf
+%%     \EndIf
+%%   \EndProcedure
+%%   \end{algorithmic}
+%}
+%}
+%\end{frame}
 
 
 \subsection{Notion de récursivité terminale}
