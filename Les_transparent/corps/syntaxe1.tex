@@ -77,7 +77,7 @@
 
 \subsection{Rappel : types simples/composites}
 \begin{frame}
-\frametitle{Les types numériques\chrono}
+\frametitle{Les types numériques}%\chrono}
 \begin{itemize}
 	\item \textbf{Les entiers }
 	 	\only<1-3>{ 
@@ -156,7 +156,7 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{Les booléens\chrono}
+\frametitle{Les booléens}%\chrono}
 
  \begin{itemize}
 	 \item Un objet booléen peut prendre 2 valeurs \emph{True} ou \emph{False}
@@ -174,7 +174,7 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{Les types simples\chrono}
+\frametitle{Les types simples}%\chrono}
 \begin{remarques}
 \begin{itemize}
 	\item Les types simples (scalaires, atomiques) permettent de stocker une seule donnée par variable, contrairement aux types composites (containers) 
@@ -185,7 +185,7 @@
 
 
 \begin{frame}
-\frametitle{Le type None\chrono}
+\frametitle{Le type None}%\chrono}
 \only<1-5>{
 \begin{remarque}[type \texttt{NoneType}]
 \begin{itemize}
@@ -239,7 +239,7 @@
 
 
 \begin{frame}
-\frametitle{Les séquences\chrono}
+\frametitle{Les séquences}%\chrono}
 \begin{defi}[Une séquence]
     est une collection \emph{ordonnée} d'objets ou chaque objet est accessible via son index (indice) 
   \end{defi}
@@ -261,7 +261,7 @@
 
 
 \begin{frame}
-\frametitle{Les séquences\chrono}
+\frametitle{Les séquences}%\chrono}
 Indexation des séquences :
 \begin{itemize}[<+->]
 	\item Les séquences sont indexées en commençant par 0
@@ -287,7 +287,7 @@ Indexation des séquences :
 \begin{frame}
 
 
-\frametitle{Chaîne de caractères\chrono}
+\frametitle{Chaîne de caractères}%\chrono}
   
 \begin{itemize}%[<+->]
 		\item <1->délimitée par des apostrophes simple\emph{'} ou triple \emph{'''}, des guillemets simples \emph{"} ou triple \emph{"""} 
@@ -330,7 +330,7 @@ Indexation des séquences :
 
 
 \begin{frame}
-  \frametitle{Les listes\chrono}
+  \frametitle{Les listes}%\chrono}
   
 	\begin{itemize}[<+->]
 		\item Elles sont composées d'un ensemble d'éléments placés entre crochets [] et séparés par des virgules,
@@ -346,7 +346,7 @@ Indexation des séquences :
 
 
 \begin{frame}
-  \frametitle{Les listes\chrono}
+  \frametitle{Les listes}%\chrono}
   		\begin{propriete}[Opérations]
 
 		%\begin{table}
@@ -376,7 +376,7 @@ Indexation des séquences :
 \end{frame}
 
 \begin{frame}
-  \frametitle{Les listes\chrono}
+  \frametitle{Les listes}%\chrono}
   		\begin{remarque}[Manipulation de matrice]
         \begin{itemize}[<+->]
 						\item Utilisation des listes imbriquées $\Rightarrow$  moins flexible et pas efficace.
@@ -401,7 +401,7 @@ Indexation des séquences :
 
 \end{frame}
 \begin{frame}[fragile]
-  \frametitle{Les listes\chrono}
+  \frametitle{Les listes}%\chrono}
 \begin{exemple}[Copie de liste]
 \footnotesize{
 \begin{verbatim}
@@ -424,7 +424,7 @@ Indexation des séquences :
 
 
 \begin{frame}[fragile]
-  \frametitle{Les listes\chrono}
+  \frametitle{Les listes}%\chrono}
 \begin{exemple}[Copie de liste]
 \only<1>{\includegraphics[width=8cm]{images/list_mat1.png}}
 \only<2>{\includegraphics[width=8cm]{images/list_mat2.png}}
@@ -439,7 +439,7 @@ Indexation des séquences :
 
 
 \begin{frame}
-  \frametitle{N-Uplets (Les tuples)\chrono}
+  \frametitle{N-Uplets (Les tuples)}%\chrono}
  
  \begin{defi}[Un tuple]
   Une séquence (collection) ordonnée \textbf{non modifiable} d'éléments hétérogènes (\textit{c'est une liste non modifiable}) 
@@ -460,7 +460,7 @@ Indexation des séquences :
 \end{frame}
 
 \begin{frame}[fragile]
- \frametitle{N-Uplets (Les tuples)\chrono}
+ \frametitle{N-Uplets (Les tuples)}%\chrono}
  \begin{exemple}[Tuple]
 \footnotesize{
 \begin{semiverbatim}>>> nb = (1) ; ch = ('ab')      \textcolor{red}{# => entier & str !}
@@ -481,7 +481,7 @@ Indexation des séquences :
 
 \end{frame}
 \begin{frame}
- \frametitle{N-Uplets (Les tuples)\chrono}
+ \frametitle{N-Uplets (Les tuples)}%\chrono}
  \begin{exemple}[Tuple]
 \only<1>{\includegraphics[width=8cm]{images/tuple0.png}}
 \only<2>{\includegraphics[width=8cm]{images/tuple1.png}}
@@ -493,7 +493,7 @@ Indexation des séquences :
 
 
 \begin{frame}
-  \frametitle{Dictionnaire\chrono}
+  \frametitle{Dictionnaire}%\chrono}
  \begin{defi}[Dictionnaire]
 
  Est une collection modifiable, \textbf{non ordonnée}  d'éléments hétérogènes ou chacun de ses éléments est indicé par une \emph{clé}.
@@ -525,7 +525,7 @@ Indexation des séquences :
 
 \begin{frame}
  
- \frametitle{Dictionnaire\chrono}
+ \frametitle{Dictionnaire}%\chrono}
  \begin{propriete}[]
  \begin{itemize}
 	\item Les \emph{clés} doivent être de type non modifiable (exemple : les types simples) et uniques. 
@@ -539,7 +539,7 @@ Indexation des séquences :
 
 \begin{frame}[fragile]
  
- \frametitle{Dictionnaire\chrono}
+ \frametitle{Dictionnaire}%\chrono}
  
  \begin{itemize}
 	\item Opérations (Exemple : \verb!dic = {1: 'a', 2: 'b'}!)
@@ -609,7 +609,7 @@ Indexation des séquences :
 
 \begin{frame}
  
- \frametitle{Dictionnaire\chrono}
+ \frametitle{Dictionnaire}%\chrono}
 \begin{exemple}
 \only<1>{\includegraphics[height=4cm]{images/dic1.png}}
 \only<2>{\includegraphics[height=4cm]{images/dic2.png}}
@@ -693,7 +693,7 @@ Indexation des séquences :
 %\end{frame}
 \subsection{Transtypage et opérations}
 \begin{frame}[fragile]
-  \frametitle{Transtypage / \emph{cast}\chrono}
+  \frametitle{Transtypage / \emph{cast}}%\chrono}
   \only<1-2>{
     \begin{itemize}
     \item<1-2> Objectif : convertir d'un type vers un autre.
@@ -723,7 +723,7 @@ Indexation des séquences :
 
 
 \begin{frame}
-  \frametitle{Affectation\chrono}  
+  \frametitle{Affectation}%\chrono}  
   \begin{defi}[Affectation (assignation)]
     Affectation : donner une ou plusieurs valeurs à une ou à plusieurs variables réalisée par l'opérateur``=''. Elle peut être simple ou multiple.
   \end{defi}
@@ -750,7 +750,7 @@ Indexation des séquences :
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Affectation\chrono}
+  \frametitle{Affectation}%\chrono}
   \begin{exemple}[Forme condensée]
     \begin{semiverbatim}
 		a = b = 2
@@ -775,7 +775,7 @@ Indexation des séquences :
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Comparaisons\chrono}
+  \frametitle{Comparaisons}%\chrono}
 \only<1,2>{
 \begin{tabular}{|l|l|l|}
 \hline
@@ -837,7 +837,7 @@ Opérateur &	Exemple &	Signification\\
 
 
 \begin{frame}
-  \frametitle{Opérations logiques\chrono}
+  \frametitle{Opérations logiques}%\chrono}
 \begin{tabular}{|l|l|l|}
 \hline
 Opérateur &	Exemple &	Signification\\
@@ -973,7 +973,7 @@ Remarque : évaluation paresseuse
 \section{Instructions du langage Python - Rappel}
 
 \begin{frame}
-  \frametitle{Règles de base\chrono}
+  \frametitle{Règles de base}%\chrono}
 
 \begin{itemize}[<+->]
 \item <1-> Python est sensible à la casse 
@@ -994,7 +994,7 @@ Remarque : évaluation paresseuse
 \subsection{Commentaires}
 
 \begin{frame}[fragile]
-  \frametitle{Commentaires\chrono}
+  \frametitle{Commentaires}%\chrono}
   \begin{itemize}[<+->]
   \item Commentaires : remarques en langage naturel
   \item Ignorés par l'interpréteur
@@ -1038,7 +1038,7 @@ Remarque : évaluation paresseuse
 \subsection{Littéraux (constantes)}
 
 \begin{frame}
-  \frametitle{Types de littéraux\chrono}
+  \frametitle{Types de littéraux}%\chrono}
   \begin{itemize}
   \item<1-> Entiers : base 10  \only<2->{, base 16  }\only<3->{, base 8}\only<4->{, base 2}
   \item<5-> Réels : double précision 
@@ -1082,7 +1082,7 @@ Remarque : évaluation paresseuse
 %\subsection{Mots clés}
 %
 %\begin{frame}
-%\frametitle{Les 33 mots clés\chrono}
+%\frametitle{Les 33 mots clés}%\chrono}
 %\begin{tabular}{|l|l|l|l|l|l|}
 %\hline
       %and & as & assert & break & class & continue \\
@@ -1108,7 +1108,7 @@ Remarque : évaluation paresseuse
 
 
 \begin{frame}
-  \frametitle{if, elif, else \chrono}
+  \frametitle{if, elif, else }%\chrono}
   \begin{itemize}
   \item Teste une condition booléenne
   \item Si (\texttt{if}) \emph{vrai}, exécute une partie du code

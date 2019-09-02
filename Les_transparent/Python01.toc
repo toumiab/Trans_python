@@ -1,5 +1,4 @@
-\beamer@endinputifotherversion {3.12pt}
-\select@language {french}
+\babel@toc {french}{}
 \beamer@sectionintoc {2}{Introduction}{2}{0}{1}
 \beamer@subsectionintoc {2}{1}{D\'eroulement de cours}{3}{0}{1}
 \beamer@subsectionintoc {2}{2}{Langage Python}{7}{0}{1}

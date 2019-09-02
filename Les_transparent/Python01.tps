@@ -10,15 +10,15 @@ MinPos.y=-1
 MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
-NormalPos.top=32
-NormalPos.right=1704
-NormalPos.bottom=703
+NormalPos.top=44
+NormalPos.right=2378
+NormalPos.bottom=1030
 Class=LaTeXView
 Document=Python01.tex
 
 [Frame0_View0,0]
-TopLine=0
-Cursor=80
+TopLine=44
+Cursor=1526
 
 [Frame1]
 Flags=0
@@ -28,17 +28,17 @@ MinPos.y=-1
 MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
-NormalPos.top=32
-NormalPos.right=1704
-NormalPos.bottom=703
+NormalPos.top=44
+NormalPos.right=2378
+NormalPos.bottom=1030
 Class=LaTeXView
 Document=corps\intro.tex
 
 [Frame1_View0,0]
-TopLine=671
-Cursor=22445
+TopLine=654
+Cursor=21487
 
 [SessionInfo]
 FrameCount=2
-ActiveFrame=1
+ActiveFrame=0
 
