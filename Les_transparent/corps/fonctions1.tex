@@ -5,7 +5,7 @@
 \subsection{Déclaration d'une fonction}
 
 \begin{frame}
-\frametitle{Intérêt des fonctions\chrono}
+\frametitle{Intérêt des fonctions}%\chrono}
 \initclock 
   \begin{itemize}
   \item Découpage du programme en sous-programmes : fonctions
@@ -28,7 +28,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Syntaxe\chrono}
+  \frametitle{Syntaxe}%\chrono}
  		\only<1>{\includegraphics[height=6 cm]{images/fonctions.jpg}}
 		\only<2>{\includegraphics[height=4cm]{images/fonction_utilisation1.jpg}}
     \only<3>{
@@ -46,7 +46,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Fonction sans valeur de retour\chrono}
+  \frametitle{Fonction sans valeur de retour}%\chrono}
   \begin{itemize}
 
   \item Pas de return % \only<2>{\textcolor[rgb]{1,0,0}{(ou pas de valeur retournée)}}
@@ -73,7 +73,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Fonction avec valeur(s) de \emph{retour}\chrono}
+  \frametitle{Fonction avec valeur(s) de \emph{retour}}%\chrono}
   
   \begin{exemple}
     \begin{semiverbatim}
@@ -98,7 +98,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Lambda fonctions\chrono}
+  \frametitle{Lambda fonctions}%\chrono}
   
 	\begin{itemize}
 		\item Pour créer une fonction \textsl{anonyme} contenant une seule instruction (expression)
@@ -132,16 +132,12 @@
 \subsection{Valeurs par défaut des arguments}
 
 \begin{frame}[fragile]
- \frametitle{Argument(s) par défaut\chrono}
- 
-
-	
+ \frametitle{Argument(s) par défaut}%\chrono}
 	\begin{itemize}
 		\item Objectif : attribuer des valeurs par défaut aux arguments 
 		\item <2> Attention : les paramètres positionnels doivent apparaitre avant les paramètres nommés 	  
 	\end{itemize}
 	\begin{exemple}[valeur par défaut]
-	\vspace{-0.5}
   \begin{lstlisting}[frame=None]
 	def hello(name, lang='English'):
       # name est obligatoire
@@ -161,7 +157,7 @@ hello('Claire') # => Hello Claire
 
 
 \begin{frame}[fragile]
-\frametitle{Arguments par défaut\chrono}
+\frametitle{Arguments par défaut}%\chrono}
 \begin{remarque}
 		\begin{itemize}
 		  \item L'ordre des paramètres avec valeur par défaut n'est pas important 
@@ -184,7 +180,7 @@ hello('Claire') # => Hello Claire
 
 
 \begin{frame}[fragile]
-\frametitle{Arguments par défaut\chrono}
+\frametitle{Arguments par défaut}%\chrono}
 \begin{remarque}
 		\begin{itemize}
 		 \item L'objet utilisé comme valeur par défaut du paramètre est toujours le même (même objet)
@@ -209,7 +205,7 @@ hello('Claire') # => Hello Claire
 
 \end{frame}
 \begin{frame}[fragile]
-\frametitle{Arguments par défaut\chrono}
+\frametitle{Arguments par défaut}%\chrono}
 \begin{remarque}
 		\begin{itemize}
 		 \item L'objet utilisé comme valeur par défaut du paramètre est toujours le même
@@ -236,7 +232,7 @@ hello('Claire') # => Hello Claire
 \subsection{Passage de paramètres}
 
 \begin{frame}[fragile]
-  \frametitle{Passage de paramètres\chrono}
+  \frametitle{Passage de paramètres}%\chrono}
 	
 	
 	\begin{itemize}[<+->]
@@ -276,7 +272,7 @@ hello('Claire') # => Hello Claire
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Passage par variable\chrono}
+  \frametitle{Passage par variable}%\chrono}
 
   \begin{exemple}[Passage par variable : type modifiable]
     \begin{semiverbatim}
@@ -315,7 +311,7 @@ Résultat de l'exécution :
 \end{frame}
 \subsection{Portée de variables}
 \begin{frame}
-  \frametitle{Portée de variables\chrono}
+  \frametitle{Portée de variables}%\chrono}
 	 \only<1>{
 	\begin{defi}
 	  La portée est le périmètre dans lequel un nom (de variable, fonction...) est connu (visible) et utilisable
@@ -359,7 +355,7 @@ Résultat de l'exécution :
 
 
 \begin{frame}[fragile]
-  \frametitle{Variables globales/locales\chrono}
+  \frametitle{Variables globales/locales}%\chrono}
   
 	\begin{remarques}
 	\begin{itemize}[<+->]
@@ -384,7 +380,7 @@ Résultat de l'exécution :
 
 
 \begin{frame}[fragile]
-  \frametitle{Variables globales/locales\chrono}
+  \frametitle{Variables globales/locales}%\chrono}
 
  \begin{exemple}[Modification d'une variable globale]
     \begin{semiverbatim}
@@ -417,7 +413,7 @@ Résultat de l'exécution :
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Variables globales/locales\chrono}
+  \frametitle{Variables globales/locales}%\chrono}
  \begin{exemple}[Variable globale]
     \begin{semiverbatim}
 		\emph{def} maville():
@@ -486,7 +482,7 @@ Résultat de l'exécution :
 
 
 \begin{frame}
-  \frametitle{Modules, bibiothèques, librairies\chrono}
+  \frametitle{Modules, bibiothèques, librairies}%\chrono}
      \only<1-4>{
 	 \begin{itemize}[<+->]
 	   \item Un fichier source Python constitue un module 
@@ -521,7 +517,7 @@ Résultat de l'exécution :
 \end{frame}
 
 \begin{frame}
-  \frametitle{Modules, bibiothèques, librairies\chrono}
+  \frametitle{Modules, bibiothèques, librairies}%\chrono}
  
 	 \begin{itemize}[<+->]
 	   \item Importer une partie d'un module
@@ -549,7 +545,7 @@ Résultat de l'exécution :
 \end{frame}
 
 \begin{frame}
-  \frametitle{Importer un module\chrono}
+  \frametitle{Importer un module}%\chrono}
    \begin{alertblock}{Importer tout un module}
 	    \texttt{from module importe * }
 			\begin{itemize} [<+->]
@@ -562,7 +558,7 @@ Résultat de l'exécution :
 \end{frame}
 
 \begin{frame}
-  \frametitle{Importer un module\chrono}
+  \frametitle{Importer un module}%\chrono}
 
 	
 \begin{remarques}
@@ -592,7 +588,7 @@ Résultat de l'exécution :
 
 
 \begin{frame} [fragile]
-  \frametitle{Utilisation de modules\chrono}
+  \frametitle{Utilisation de modules}%\chrono}
 	
 	\begin{exemple}[Les modules]
 	{\small
@@ -616,7 +612,7 @@ if __name__ == '__main__':
 \end{frame}
 
 \begin{frame} [fragile]
-  \frametitle{Utilisation de modules\chrono}
+  \frametitle{Utilisation de modules}%\chrono}
 	
 	\begin{exemple}[Les modules]
 	{\small

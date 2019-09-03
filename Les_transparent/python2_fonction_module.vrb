@@ -1,9 +1,9 @@
-\frametitle{Utilisation de modules\chrono}
-
-\begin{exemple}[Les modules]
-{\small
+\frametitle{Utilisation de modules}%\chrono}
+	
+	\begin{exemple}[Les modules]
+	{\small
   \begin{lstlisting}[frame=none]
-# Fichier module_autre.py
+	# Fichier module_autre.py
 import mon_module as md    # => n'exécute pas code
 print(md.carre(3))    # => 9
 print(md.cube(2))     # => 8
