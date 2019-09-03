@@ -10,15 +10,15 @@ MinPos.y=-1
 MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
-NormalPos.top=32
-NormalPos.right=1704
-NormalPos.bottom=703
+NormalPos.top=26
+NormalPos.right=1562
+NormalPos.bottom=549
 Class=LaTeXView
 Document=corps\fonctions1.tex
 
 [Frame0_View0,0]
-TopLine=0
-Cursor=83
+TopLine=67
+Cursor=2037
 
 [Frame1]
 Flags=0
@@ -28,17 +28,17 @@ MinPos.y=-1
 MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
-NormalPos.top=32
-NormalPos.right=1704
-NormalPos.bottom=703
+NormalPos.top=26
+NormalPos.right=1562
+NormalPos.bottom=549
 Class=LaTeXView
-Document=styles\transp_java.cls
+Document=python2_fonction_module.tex
 
 [Frame1_View0,0]
-TopLine=52
-Cursor=2390
+TopLine=38
+Cursor=288
 
 [SessionInfo]
 FrameCount=2
-ActiveFrame=1
+ActiveFrame=0
 

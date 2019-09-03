@@ -1,13 +1,17 @@
 \frametitle{Utilisation de modules}%\chrono}
-	
-	\begin{exemple}[Les modules]
+	\begin{itemize}
+		\item Utilisation du corps principal du programme via la variable \twound{name}\twound{}
+	\end{itemize}
 	{\small
-  \begin{lstlisting}[frame=none]
-	# Fichier module_autre.py
-import mon_module as md    # => n'exécute pas code
+  \begin{lstlisting}
+# Fichier module_autre.py
+import mon_module as md # exécute les instructions
+                      # hors main dans 'mon_module'
 print(md.carre(3))    # => 9
 print(md.cube(2))     # => 8
-# Exécution du module en tant que script
+\end{lstlisting}
+Exécution du module en tant que script
+\begin{lstlisting}
 $python3.6 module_autre.py # => affiche :
 9
 8
@@ -18,4 +22,4 @@ $python3.6 mon_module.py   # => affiche  :
     cube(3) =>  27
 \end{lstlisting}
 }
-\end{exemple}
+
