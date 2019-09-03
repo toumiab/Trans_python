@@ -7,8 +7,8 @@
 
 
 \begin{frame}
-  \frametitle{Les types intégrés\chrono}
-    \initclock
+  \frametitle{Les types intégrés}%\chrono}
+   % \initclock
 
 \begin{itemize}
 \item Les types simples : 
@@ -22,7 +22,7 @@
 		  \item \textbf{Les séquences} : Chaînes de caractères (\emph{str}) ;		Listes (\emph{list}) et  Tuples (\emph{tuple})
 			\item \textbf{Les maps }(hashs) : Dictionnaires (\emph{dict})
 			\textcolor[rgb]{0.4,0.4,0.4}{\item \textbf{Les ensembles} : le type \emph{set} et le type \emph{frozenset}}
-		   \pause
+		  
 			\item \textcolor[rgb]{1,0,0}{\verb!=>! Les types \texttt{str}, et \texttt{tuple} ne sont pas modifiables}
 			\item  \textcolor[rgb]{1,0,0}{\verb!=>! Les types \texttt{list}, et \texttt{dict} sont modifiables}
 		
@@ -40,7 +40,7 @@
 \section{Les Tableaux}
 \subsection{Création d'un tableau}
 \begin{frame}
-  \frametitle{Les tableaux\chrono}
+  \frametitle{Les tableaux}%\chrono}
 
   \begin{defi}[Tableau]
     Structure de données contenant plusieurs éléments du \emph{même type}
@@ -78,7 +78,7 @@ m = np.array([[0,2],[np.pi,5]]) \textcolor[rgb]{0,0.58,0}{\# création d'une matr
 
 
 \begin{frame}
-\frametitle{Les tableaux\chrono}
+\frametitle{Les tableaux}%\chrono}
 \begin{exemple} [Création d'un tableau Numpy]
 
 \begin{semiverbatim}
@@ -101,7 +101,7 @@ N = np.arange(2,5) \hspace{ 0.8cm} \textcolor[rgb]{0,0.58,0}{\# renvoie [2,3,4]}
 
 
 \begin{frame}
-\frametitle{Opérations\chrono}
+\frametitle{Opérations}%\chrono}
 \begin{itemize}
 		\item Opération élément pas élément : addition (A+B), produit (A*B), puissance (A**B)\\
 	 exemple : \texttt{tab+2; tab*2; tab**3; tab + tab*2; tab**tab}
@@ -132,7 +132,7 @@ Les dimensions des vecteurs-matrices doivent êtres conformes à l'opération souha
 
 
 \begin{frame}
-\frametitle{Copie d'un tableau\chrono}
+\frametitle{Copie d'un tableau}%\chrono}
 
 \begin{alertblock}{Copie de tableau}
 \begin{semiverbatim}
@@ -157,7 +157,7 @@ Les dimensions des vecteurs-matrices doivent êtres conformes à l'opération souha
 
 
 \begin{frame}
-  \frametitle{Accès aux éléments d'un tableau\chrono}
+  \frametitle{Accès aux éléments d'un tableau}%\chrono}
   
 	\begin{remarque}
    Utiliser la vectorisation quand c'est possible 
@@ -189,7 +189,7 @@ Les dimensions des vecteurs-matrices doivent êtres conformes à l'opération souha
 	\end{frame}
 	
 	\begin{frame}
-  \frametitle{Accès aux éléments des tableaux\chrono}
+  \frametitle{Accès aux éléments des tableaux}%\chrono}
   \begin{itemize}
   \item Accéder à un élément = accéder à une case du tableau
   \item Opérateur \texttt{[]}
@@ -230,7 +230,7 @@ Les dimensions des vecteurs-matrices doivent êtres conformes à l'opération souha
 	
 		
 	\begin{frame}
-  \frametitle{Accès aux éléments des tableaux\chrono}
+  \frametitle{Accès aux éléments des tableaux}%\chrono}
  
  \begin{itemize}
 	 \item Parcourir un tableau à l'aide d'une boucle
@@ -281,7 +281,7 @@ Les dimensions des vecteurs-matrices doivent êtres conformes à l'opération souha
 
 
 \begin{frame}[fragile]
-  \frametitle{Mélange d'un tableau\chrono}
+  \frametitle{Mélange d'un tableau}%\chrono}
   \begin{algorithm2e}[H]
     \caption{Mélange()}
     \KwIn{tab : entier[]}
@@ -299,7 +299,7 @@ Les dimensions des vecteurs-matrices doivent êtres conformes à l'opération souha
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Mélange d'un tableau\chrono}
+  \frametitle{Mélange d'un tableau}%\chrono}
   \begin{lstlisting}
 	import numpy as np
 	n = len(tab) - 1 
@@ -313,19 +313,34 @@ Les dimensions des vecteurs-matrices doivent êtres conformes à l'opération souha
 \end{frame}
 \subsection{Exercice}
 \begin{frame}[fragile]
-  \frametitle{Exercice\chrono}
+  \frametitle{Exercice}%\chrono}
   \begin{semiverbatim}
 	\vspace{-1cm}
 	>>>import numpy as np
 	>>>tab = np.array([[1, 2, 3],[4, 5]])
 	>>>tab ? , np.shape(tab) ?
-\only<2>{tab = erreur? }\only<3>{array([[1, 2, 3],
-      [4, 5, 0]] , (2,3)?}\only<4>{array([[1, 2, 3], [4, 5]])?, (2,)?}\only<5>{\textcolor[rgb]{0,0.58,0}{\# solution :} 
+\only<2>{tab = erreur V/F? }\only<3>{array([[1, 2, 3],
+      [4, 5, 0]] , (2,3) V/F?}\only<4>{array([[1, 2, 3], [4, 5]])?, (2,)?}\only<5>{\textcolor[rgb]{0,0.58,0}{\# solution :} 
 			array([list([1, 2, 3]), list([4, 5])], dtype=object), (2,)}
   \end{semiverbatim}
 \end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{Exercice}%\chrono}
+  \begin{semiverbatim}
+	\vspace{-1cm}
+	>>>import numpy as np
+	>>>tab = np.array([1, 2, 3])
+	>>>len(tab) , np.shape(tab) ?
+\only<1>{3, (1,3) V/F ?}
+\only<2>{>>>res = (tab.T == tab) }
+\only<2>{>>>res ? erreur - dimension errors V/F?}
 
+\only<3>{\textcolor{red}{Attention : 
+np.array([[1, 2, 3]]) !=  np.array([1, 2, 3])}}
+      
+  \end{semiverbatim}
+\end{frame}
 
 
 
@@ -337,7 +352,7 @@ Les dimensions des vecteurs-matrices doivent êtres conformes à l'opération souha
 \subsection{Tri par sélection}
 
 \begin{frame}
-  \frametitle{Principe du tri par sélection\chrono}
+  \frametitle{Principe du tri par sélection}%\chrono}
   \only<1-9>{
   \begin{itemize}
   \item Rechercher le plus petit élément du tableau
@@ -418,7 +433,7 @@ Les dimensions des vecteurs-matrices doivent êtres conformes à l'opération souha
 \end{frame}
 
 \begin{frame}
-  \frametitle{Algorithme du tri par sélection\chrono}
+  \frametitle{Algorithme du tri par sélection}%\chrono}
 {\small
 \begin{algorithm2e}[H]
   \caption{triSel}
@@ -458,7 +473,7 @@ Les dimensions des vecteurs-matrices doivent êtres conformes à l'opération souha
 
 
 \begin{frame}[fragile]
-  \frametitle{Algorithme tri par sélection\chrono}
+  \frametitle{Algorithme tri par sélection}%\chrono}
   	{\small
 	
 
@@ -484,7 +499,7 @@ def trisel(tab):
 
 
 \begin{frame}[fragile]
-  \frametitle{Algorithme tri par sélection\chrono}
+  \frametitle{Algorithme tri par sélection}%\chrono}
   	{\small
 	
 	\begin{lstlisting}[caption={Tri par sélection optimisé pour numpy}]
@@ -526,7 +541,7 @@ def trisel(tab):
 %\end{frame}
 
 \begin{frame}
-  \frametitle{Étude de la complexité du tri\chrono}
+  \frametitle{Étude de la complexité du tri}%\chrono}
   \begin{defi}{Complexité}
 	  Ordre de grandeur du nombre d'opérations d'un algorithme. Notation $\Theta(g(n))$.
    \end{defi}
@@ -552,7 +567,7 @@ def trisel(tab):
 \subsection{Tri bulles}
 
 \begin{frame}
-  \frametitle{Principe du tri bulles\chrono}
+  \frametitle{Principe du tri bulles}%\chrono}
   \only<1-10>{
   \begin{itemize}
   \item Très simple à mettre en \oe uvre
@@ -638,7 +653,7 @@ def trisel(tab):
 
 
 \begin{frame}
-  \frametitle{Algorithme du tri bulles\chrono}
+  \frametitle{Algorithme du tri bulles}%\chrono}
 {\small
 \begin{algorithm2e}[H]
   \caption{Algorithme du tri bulles}
@@ -674,7 +689,7 @@ def trisel(tab):
 \subsection{Tri par insertion}
 
 \begin{frame}
-  \frametitle{Principe du tri par insertion\chrono}  
+  \frametitle{Principe du tri par insertion}%\chrono}  
   \begin{itemize}
   \item<1-> Principe : découper le tableau en deux parties
   \item<2-> Une partie triée
@@ -772,7 +787,7 @@ def trisel(tab):
 \end{frame}
 
 \begin{frame}
-  \frametitle{Principe du tri par insertion\chrono}  
+  \frametitle{Principe du tri par insertion}%\chrono}  
   \begin{itemize}
  % \item<1->  {\scriptsize Généralement, nous trions le tableau lorsque nous insérons ses éléments dedans, lors de leur insertion, d'où le nom du tri.}
   \item<1-> {\scriptsize Exemple : Insérer 11, 2, 16, 10 et 1 dans un tableau en cherchant à le trier.}
@@ -782,7 +797,7 @@ def trisel(tab):
 \end{frame}
 
 \begin{frame}
-  \frametitle{algorithme de tris par insertion\chrono}
+  \frametitle{algorithme de tris par insertion}%\chrono}
 {\small  
 \begin{algorithm2e}[H]
   \caption{Algorithme du tri par insertion}
@@ -824,7 +839,7 @@ def trisel(tab):
 \subsection{Tri shell}
 
 \begin{frame}
-  \frametitle{Principe du tri shell\chrono}
+  \frametitle{Principe du tri shell}%\chrono}
   \begin{itemize}
   \item Proposé en 1959 par Donald L. Shell
   \item Tri par insertion optimisé
@@ -844,7 +859,7 @@ def trisel(tab):
 
 
 \begin{frame}
-  \frametitle{Algorithme du tri shell\chrono}
+  \frametitle{Algorithme du tri shell}%\chrono}
 {\small  
 \begin{algorithm2e}[H]
   \caption{Tri Shell}
@@ -877,7 +892,7 @@ def trisel(tab):
 
 
 \begin{frame}
-  \frametitle{Algorithme du tri shell\chrono}
+  \frametitle{Algorithme du tri shell}%\chrono}
 %  \begin{columns}
 %  \column{6.5cm}
 {\small  
@@ -919,7 +934,7 @@ def trisel(tab):
 \end{frame}
 %
 %\begin{frame}
-  %\frametitle{Étude du tri shell\chrono}
+  %\frametitle{Étude du tri shell}%\chrono}
   %\begin{itemize}[<+->]
   %\item Complexité dépend de la suite $h_n$ utilisée
   %\item Meilleure suite inconnue
@@ -938,7 +953,7 @@ def trisel(tab):
 \subsection{Autres tris}
 
 \begin{frame}
-  \frametitle{Autres tris\chrono}
+  \frametitle{Autres tris}%\chrono}
   Il existe d'autres tris plus performants mais plus complexes.
   \begin{itemize}
   \item tri par segmentation (quicksort)

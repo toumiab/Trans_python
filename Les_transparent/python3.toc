@@ -1,13 +1,13 @@
 \babel@toc {french}{}
 \beamer@sectionintoc {1}{Rappel :}{2}{0}{1}
 \beamer@subsectionintoc {1}{1}{Les types int\'egr\'es}{3}{0}{1}
-\beamer@sectionintoc {2}{Les Tableaux}{8}{0}{2}
-\beamer@subsectionintoc {2}{1}{Cr\'eation d'un tableau}{9}{0}{2}
-\beamer@subsectionintoc {2}{2}{M\'elange d'un tableau}{23}{0}{2}
-\beamer@subsectionintoc {2}{3}{Exercice}{26}{0}{2}
-\beamer@sectionintoc {3}{Algorithmes de tris}{32}{0}{3}
-\beamer@subsectionintoc {3}{1}{Tri par s\'election}{33}{0}{3}
-\beamer@subsectionintoc {3}{2}{Tri bulles}{54}{0}{3}
-\beamer@subsectionintoc {3}{3}{Tri par insertion}{69}{0}{3}
-\beamer@subsectionintoc {3}{4}{Tri shell}{87}{0}{3}
-\beamer@subsectionintoc {3}{5}{Autres tris}{91}{0}{3}
+\beamer@sectionintoc {2}{Les Tableaux}{7}{0}{2}
+\beamer@subsectionintoc {2}{1}{Cr\'eation d'un tableau}{8}{0}{2}
+\beamer@subsectionintoc {2}{2}{M\'elange d'un tableau}{22}{0}{2}
+\beamer@subsectionintoc {2}{3}{Exercice}{25}{0}{2}
+\beamer@sectionintoc {3}{Algorithmes de tris}{34}{0}{3}
+\beamer@subsectionintoc {3}{1}{Tri par s\'election}{35}{0}{3}
+\beamer@subsectionintoc {3}{2}{Tri bulles}{56}{0}{3}
+\beamer@subsectionintoc {3}{3}{Tri par insertion}{71}{0}{3}
+\beamer@subsectionintoc {3}{4}{Tri shell}{89}{0}{3}
+\beamer@subsectionintoc {3}{5}{Autres tris}{93}{0}{3}
