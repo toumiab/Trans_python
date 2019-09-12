@@ -1,12 +1,12 @@
-\beamer@endinputifotherversion {3.12pt}
 \headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
 \headcommand {\beamer@framepages {1}{1}}
-\headcommand {\sectionentry {1}{Les exceptions}{2}{Les exceptions}{0}}
 \headcommand {\beamer@sectionpages {1}{1}}
 \headcommand {\beamer@subsectionpages {1}{1}}
-\headcommand {\slideentry {1}{0}{2}{2/2}{}{0}}
+\headcommand {\sectionentry {1}{Les exceptions}{2}{Les exceptions}{0}}
+\headcommand {\slideentry {1}{0}{1}{2/2}{}{0}}
 \headcommand {\beamer@framepages {2}{2}}
-\headcommand {\beamer@subsectionentry {0}{1}{1}{3}{Principe}}\headcommand {\beamer@subsectionpages {2}{2}}
+\headcommand {\beamer@subsectionpages {2}{2}}
+\headcommand {\beamer@subsectionentry {0}{1}{1}{3}{Principe}}
 \headcommand {\slideentry {1}{1}{1}{3/3}{Principe}{0}}
 \headcommand {\beamer@framepages {3}{3}}
 \headcommand {\slideentry {1}{1}{2}{4/6}{Principe}{0}}
@@ -15,7 +15,8 @@
 \headcommand {\beamer@framepages {7}{8}}
 \headcommand {\slideentry {1}{1}{4}{9/13}{Principe}{0}}
 \headcommand {\beamer@framepages {9}{13}}
-\headcommand {\beamer@subsectionentry {0}{1}{2}{14}{Traitement des exceptions}}\headcommand {\beamer@subsectionpages {3}{13}}
+\headcommand {\beamer@subsectionpages {3}{13}}
+\headcommand {\beamer@subsectionentry {0}{1}{2}{14}{Traitement des exceptions}}
 \headcommand {\slideentry {1}{2}{1}{14/14}{Traitement des exceptions}{0}}
 \headcommand {\beamer@framepages {14}{14}}
 \headcommand {\slideentry {1}{2}{2}{15/18}{Traitement des exceptions}{0}}
@@ -36,26 +37,29 @@
 \headcommand {\beamer@framepages {29}{29}}
 \headcommand {\slideentry {1}{2}{10}{30/30}{Traitement des exceptions}{0}}
 \headcommand {\beamer@framepages {30}{30}}
-\headcommand {\beamer@subsectionentry {0}{1}{3}{31}{D\'eclenchement d'une exception}}\headcommand {\beamer@subsectionpages {14}{30}}
+\headcommand {\beamer@subsectionpages {14}{30}}
+\headcommand {\beamer@subsectionentry {0}{1}{3}{31}{D\'eclenchement d'une exception}}
 \headcommand {\slideentry {1}{3}{1}{31/31}{D\'eclenchement d'une exception}{0}}
 \headcommand {\beamer@framepages {31}{31}}
 \headcommand {\slideentry {1}{3}{2}{32/33}{D\'eclenchement d'une exception}{0}}
 \headcommand {\beamer@framepages {32}{33}}
 \headcommand {\slideentry {1}{3}{3}{34/37}{D\'eclenchement d'une exception}{0}}
 \headcommand {\beamer@framepages {34}{37}}
-\headcommand {\sectionentry {2}{Utilisation de fichiers}{38}{Utilisation de fichiers}{0}}
 \headcommand {\beamer@sectionpages {2}{37}}
 \headcommand {\beamer@subsectionpages {31}{37}}
-\headcommand {\slideentry {2}{0}{4}{38/38}{}{0}}
+\headcommand {\sectionentry {2}{Utilisation de fichiers}{38}{Utilisation de fichiers}{0}}
+\headcommand {\slideentry {2}{0}{1}{38/38}{}{0}}
 \headcommand {\beamer@framepages {38}{38}}
-\headcommand {\beamer@subsectionentry {0}{2}{1}{39}{Principe}}\headcommand {\beamer@subsectionpages {38}{38}}
+\headcommand {\beamer@subsectionpages {38}{38}}
+\headcommand {\beamer@subsectionentry {0}{2}{1}{39}{Principe}}
 \headcommand {\slideentry {2}{1}{1}{39/39}{Principe}{0}}
 \headcommand {\beamer@framepages {39}{39}}
 \headcommand {\slideentry {2}{1}{2}{40/41}{Principe}{0}}
 \headcommand {\beamer@framepages {40}{41}}
 \headcommand {\slideentry {2}{1}{3}{42/42}{Principe}{0}}
 \headcommand {\beamer@framepages {42}{42}}
-\headcommand {\beamer@subsectionentry {0}{2}{2}{43}{Lecture de fichier texte}}\headcommand {\beamer@subsectionpages {39}{42}}
+\headcommand {\beamer@subsectionpages {39}{42}}
+\headcommand {\beamer@subsectionentry {0}{2}{2}{43}{Lecture de fichier texte}}
 \headcommand {\slideentry {2}{2}{1}{43/43}{Lecture de fichier texte}{0}}
 \headcommand {\beamer@framepages {43}{43}}
 \headcommand {\slideentry {2}{2}{2}{44/45}{Lecture de fichier texte}{0}}
@@ -66,7 +70,8 @@
 \headcommand {\beamer@framepages {48}{48}}
 \headcommand {\slideentry {2}{2}{5}{49/54}{Lecture de fichier texte}{0}}
 \headcommand {\beamer@framepages {49}{54}}
-\headcommand {\beamer@subsectionentry {0}{2}{3}{55}{\'Ecriture de fichiers texte}}\headcommand {\beamer@subsectionpages {43}{54}}
+\headcommand {\beamer@subsectionpages {43}{54}}
+\headcommand {\beamer@subsectionentry {0}{2}{3}{55}{\'Ecriture de fichiers texte}}
 \headcommand {\slideentry {2}{3}{1}{55/55}{\'Ecriture de fichiers texte}{0}}
 \headcommand {\beamer@framepages {55}{55}}
 \headcommand {\slideentry {2}{3}{2}{56/59}{\'Ecriture de fichiers texte}{0}}
@@ -77,19 +82,22 @@
 \headcommand {\beamer@framepages {62}{62}}
 \headcommand {\slideentry {2}{3}{5}{63/63}{\'Ecriture de fichiers texte}{0}}
 \headcommand {\beamer@framepages {63}{63}}
-\headcommand {\beamer@subsectionentry {0}{2}{4}{64}{Fichiers format\'es }}\headcommand {\beamer@subsectionpages {55}{63}}
+\headcommand {\beamer@subsectionpages {55}{63}}
+\headcommand {\beamer@subsectionentry {0}{2}{4}{64}{Fichiers format\'es }}
 \headcommand {\slideentry {2}{4}{1}{64/64}{Fichiers format\'es }{0}}
 \headcommand {\beamer@framepages {64}{64}}
 \headcommand {\slideentry {2}{4}{2}{65/67}{Fichiers format\'es }{0}}
 \headcommand {\beamer@framepages {65}{67}}
-\headcommand {\beamer@subsectionentry {0}{2}{5}{68}{Fichiers binaires}}\headcommand {\beamer@subsectionpages {64}{67}}
+\headcommand {\beamer@subsectionpages {64}{67}}
+\headcommand {\beamer@subsectionentry {0}{2}{5}{68}{Fichiers binaires}}
 \headcommand {\slideentry {2}{5}{1}{68/68}{Fichiers binaires}{0}}
 \headcommand {\beamer@framepages {68}{68}}
 \headcommand {\slideentry {2}{5}{2}{69/71}{Fichiers binaires}{0}}
 \headcommand {\beamer@framepages {69}{71}}
 \headcommand {\slideentry {2}{5}{3}{72/74}{Fichiers binaires}{0}}
 \headcommand {\beamer@framepages {72}{74}}
-\headcommand {\beamer@subsectionentry {0}{2}{6}{75}{S\'erialisation}}\headcommand {\beamer@subsectionpages {68}{74}}
+\headcommand {\beamer@subsectionpages {68}{74}}
+\headcommand {\beamer@subsectionentry {0}{2}{6}{75}{S\'erialisation}}
 \headcommand {\slideentry {2}{6}{1}{75/75}{S\'erialisation}{0}}
 \headcommand {\beamer@framepages {75}{75}}
 \headcommand {\slideentry {2}{6}{2}{76/77}{S\'erialisation}{0}}
@@ -102,4 +110,4 @@
 \headcommand {\beamer@subsectionpages {75}{82}}
 \headcommand {\beamer@sectionpages {38}{82}}
 \headcommand {\beamer@documentpages {82}}
-\headcommand {\def \inserttotalframenumber {42}}
+\headcommand {\gdef \inserttotalframenumber {42}}

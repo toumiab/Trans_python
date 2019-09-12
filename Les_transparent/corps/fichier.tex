@@ -6,8 +6,8 @@
 \subsection{Principe}
 
 \begin{frame}
-  \frametitle{Principe\chrono}
-	\initclock
+  \frametitle{Principe}%\chrono}
+	%\initclock
   \begin{itemize}
   \item Mécanisme de gestion des erreurs en Python\pause
   \item Détournement du fonctionnement du programme
@@ -22,7 +22,7 @@
 
 
 \begin{frame}[fragile]
-  \frametitle{Exemple\chrono}
+  \frametitle{Exemple}%\chrono}
   {\small
   \begin{semiverbatim}
 	>>> a = 10/0 \pause
@@ -65,7 +65,7 @@ Traceback (most recent call last):
 \subsection{Traitement des exceptions}
 
 \begin{frame}
-  \frametitle{Traitement\chrono}
+  \frametitle{Traitement}%\chrono}
  
   Deux possibilités :
   \begin{itemize}
@@ -75,7 +75,7 @@ Traceback (most recent call last):
 \end{frame}
 
 \begin{frame}
-  \frametitle{Traitement local : \emph{try-except}\chrono}
+  \frametitle{Traitement local : \emph{try-except}}%\chrono}
 
   Traiter une exception localement : utiliser le bloc \emph{try-except-finally}.
   \begin{itemize}
@@ -90,7 +90,7 @@ Traceback (most recent call last):
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Syntaxe\chrono}
+  \frametitle{Syntaxe}%\chrono}
   Syntaxe :
   \begin{semiverbatim}
 	
@@ -107,7 +107,7 @@ Traceback (most recent call last):
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Syntaxe\chrono}
+  \frametitle{Syntaxe}%\chrono}
   Traitement de plusieurs exceptions :
   \begin{semiverbatim}
 	try :
@@ -126,7 +126,7 @@ finally :
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Exemple\chrono}
+  \frametitle{Exemple}%\chrono}
   \begin{exemple}
      \begin{semiverbatim}
 \vspace{-1cm}
@@ -145,7 +145,7 @@ finally :
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Exemple\chrono}
+  \frametitle{Exemple}%\chrono}
   \begin{exemple}
      \begin{semiverbatim}
 \vspace{-1cm}
@@ -168,7 +168,7 @@ Relancer le programme
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Exemple\chrono}
+  \frametitle{Exemple}%\chrono}
   \begin{exemple}
      \begin{semiverbatim}
 \vspace{-1cm}
@@ -225,7 +225,7 @@ indice = calcul_indice_tableau ()
 \subsection{Déclenchement d'une exception}
 
 \begin{frame}[fragile]
-  \frametitle{Lever une exception\chrono}
+  \frametitle{Lever une exception}%\chrono}
 
   Lever une exception dans une méthode : utilisation de \emph{raise}
 
@@ -238,8 +238,7 @@ indice = calcul_indice_tableau ()
 }
 \end{frame}
 
-\begin{frame}[fragile]
-\chrono
+\begin{frame}[fragile]%\chrono
   \begin{exemple}[Entier positif]
     \begin{semiverbatim}
 		\vspace{-1cm}
@@ -268,7 +267,7 @@ nombre invalide}
 %
 %
 %\begin{frame}[fragile]
-  %\frametitle{Définition de classes d'exception\chrono}
+  %\frametitle{Définition de classes d'exception}%\chrono}
 %
   %\begin{itemize}
   %\item Définition de classes exception utilisateur
@@ -306,7 +305,7 @@ nombre invalide}
 \subsection{Principe}
 
 \begin{frame}
-  \frametitle{Intérêt\chrono}
+  \frametitle{Intérêt}%\chrono}
 
   \begin{itemize}
 	\item Sauver des données, des résultats de calcul et traitements, des simulations, \dots
@@ -326,7 +325,7 @@ nombre invalide}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Intérêt\chrono}
+  \frametitle{Intérêt}%\chrono}
   \begin{block}{Exemple de fichiers textes}
 \begin{itemize}
 	\item Pages Web (html, css, \dots)
@@ -341,7 +340,7 @@ nombre invalide}
 \subsection{Lecture de fichier texte}
 
 \begin{frame}
-  \frametitle{Lecture de fichier\chrono}
+  \frametitle{Lecture de fichier}%\chrono}
   \begin{block}{Principe}
 	
 	\begin{itemize}
@@ -368,7 +367,7 @@ nombre invalide}
 
 \end{frame}
 \begin{frame}
-  \frametitle{Ouverture d'un fichier \chrono}
+  \frametitle{Ouverture d'un fichier }%\chrono}
   \begin{block}{La commande \texttt{open}}
 		\texttt{f=open("mon\_fichier.txt", mode = "rt")}
    \end{block}
@@ -400,7 +399,7 @@ nombre invalide}
 
 
 \begin{frame}[fragile]
-  \frametitle{Lecture de fichier\chrono}
+  \frametitle{Lecture de fichier}%\chrono}
     \begin{exemple}[Lecture des caractères d'un fichier]
     \begin{semiverbatim}\scriptsize{
 \textcolor[rgb]{0,0,1}{try} :
@@ -420,7 +419,7 @@ nombre invalide}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Lecture de fichier\chrono}
+  \frametitle{Lecture de fichier}%\chrono}
     \begin{exemple}[Lectures par lignes]
     \begin{semiverbatim}
 		\vspace{-1cm}
@@ -451,7 +450,7 @@ for ligne in f:
 \subsection{Écriture de fichiers texte}
 
 \begin{frame}[fragile]
-  \frametitle{Écriture d'un fichier\chrono}
+  \frametitle{Écriture d'un fichier}%\chrono}
 
   \begin{itemize}
   \item<1-> Méthode \emph{write} : écrit une chaîne de caractères \emph{str}
@@ -478,7 +477,7 @@ Comme il s'agit de fichier texte, la méthode \emph{.write()} prend en argument u
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Écriture d'un fichier\chrono}
+  \frametitle{Écriture d'un fichier}%\chrono}
 
 \begin{remarques}[Formatage du texte]
 \begin{itemize}
@@ -500,33 +499,42 @@ f.write("ligne3 \\t 5.6\\n")
 f.write("ligne4 \\t"+str(46.6)+"\\n")
 f.write("Ligne \{:d\} \\t \{:f\} \\t \{:f\}\\n".format(5,12.566,14.5))
 f.write("Ligne \{:d\} \\t {:f} \\t {:f}\\n".format(6,12.666,16.5))
-f.close()}
+f.close()
+}
 \end{semiverbatim}
  \end{exemple}
 \end{frame}
 
 
 \begin{frame}[fragile]
-  \frametitle{Écriture d'un fichier en mode append\chrono}
-  \begin{exemple}[mode ajout 'append']<1->
+\frametitle{Écriture d'un fichier}
+\begin{itemize}
+	\item Écriture en fin de fichier : mode \textbf{append}
+\end{itemize}
+  \begin{exemple}[mode ajout "append"]<1->
 	%\uncover<2->{	
     \begin{semiverbatim}\scriptsize{
 		\vspace{-0.6cm}
 		f = open('mon_fichier.txt','a')		
-		f.write('\\nUne deuxième ligne.\\n') \textcolor[rgb]{0,0.58,0}{# '\\n' saut de ligne}
+		f.write('\\nUne deuxième ligne.\\n') \textcolor[rgb]{0,0.58,0}{# '\\n' retour à de ligne}
 		f.write('abc\\tABC\\t123 \\n')	\textcolor[rgb]{0,0.58,0}{# '\\t' tabulation}
 		f.write(str(126.85)+'\\n') # str() 
 		f.write('\\x31\\x41\\x61\\n')	# écriture de '1Aa' 
 		f.write(chr(0x62))+'\\n') # écriture de 'b' 
 		f.write(chr(99))	# écriture de 'c'
-		f.close()}
+		f.close()
+		}
     \end{semiverbatim}
   \end{exemple}
-\end{frame}	
+
+\end{frame}
 	
-	\begin{frame}[fragile]
-  \frametitle{Écriture d'un fichier\chrono}
-utilisation de la commande 
+\begin{frame}[fragile]
+  \frametitle{Écriture d'un fichier}%\chrono}
+\begin{itemize}
+	\item Utilisation de la commande \texttt{with}
+
+\end{itemize}
 \begin{exemple}
 \begin{semiverbatim}\scriptsize{ 
 \vspace{-0.6cm} 
@@ -535,9 +543,8 @@ utilisation de la commande
     \textcolor[rgb]{0,0,1}{for} mot \textcolor[rgb]{0,0,1}{in} [1, 'abc', (1, 2)]:
         f.write (str(mot))
         f.write ('\\n')
-\textcolor[rgb]{0,0.58,0}{# Fermeture du fichier implicite
-}
-\textcolor[rgb]{0,0.58,0}{# Ouverture du fichier texte en é criture}
+\textcolor[rgb]{0,0.58,0}{# Fermeture du fichier implicite}
+\textcolor[rgb]{0,0.58,0}{# Ouverture du fichier texte en écriture}
 \textcolor[rgb]{0,0,1}{with} open (filename , mode ='a') as f: # a -> append
     f.write ('Suite du fichier \\n')
 		}
@@ -547,17 +554,26 @@ utilisation de la commande
 
 \subsection{Fichiers formatés }
 \begin{frame}
-  \frametitle{Lecture/écriture fichiers formatés\chrono}
+  \frametitle{Lecture/écriture fichiers formatés}%\chrono}
   \begin{defi}
 	Un fichier texte formaté représente un tableau de données où toutes les lignes
 présentent une structure identique.
+\begin{itemize}
+	\item Exemple : utilisation \textsl{numpy} : 
+	
+	\begin{itemize}
+		\item fichiers textes : loadtxt(), savetxt()
+		\item fichiers binaires (.npy) : load(), save() recommandées
+	\end{itemize}	
+\end{itemize}
 	\end{defi}
 	\pause
 	 \begin{tabular}{ll}
 	 \begin{minipage}{0.6\linewidth}
 	  \begin{exemple}
+		\vspace{-.3cm}
     \begin{semiverbatim}\scriptsize{
-      import numpy as np
+			import numpy as np
 			
 			val = np.loadtxt("fichier\_formate.txt")
 			
@@ -589,7 +605,7 @@ présentent une structure identique.
 \subsection{Fichiers binaires}
 
 \begin{frame}[fragile]
-  \frametitle{Lecture de fichiers binaires\chrono}
+  \frametitle{Lecture de fichiers binaires}%\chrono}
   \begin{itemize}
   \item Un fichier est lu octet par octet 
 	\item Nécessite la connaissance de sa structure interne
@@ -626,7 +642,7 @@ présentent une structure identique.
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Écriture de fichiers binaires\chrono}
+  \frametitle{Écriture de fichiers binaires}%\chrono}
   \begin{itemize}
 	\item Écriture octet par octet (ou une séquence d'octets)
   \item La méthode .write() permet d'écrire des octets dans un fichier,
@@ -668,7 +684,7 @@ présentent une structure identique.
 
 
 \begin{frame}
-  \frametitle{Principe\chrono}
+  \frametitle{Principe}%\chrono}
   \begin{itemize}
   \item Sauvegarder directement des objets dans un fichier
   \item Puis les récupérer très simplement
@@ -683,7 +699,7 @@ présentent une structure identique.
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Utilisation du module \texttt{pickle}\chrono}
+  \frametitle{Utilisation du module \texttt{pickle}}%}%\chrono}
   \begin{enumerate}
   \item<2-> Sauvegarder les objets
   \item<4-> Restaurer les objets
@@ -709,7 +725,7 @@ with open('data.bin','wb') as f:
 
 
 \begin{frame}
-  \frametitle{Utilisation du module \texttt{pickle}\chrono}
+  \frametitle{Utilisation du module \texttt{pickle}}%\chrono}
   
 \begin{alertblock}{Remarques}
 \begin{itemize}

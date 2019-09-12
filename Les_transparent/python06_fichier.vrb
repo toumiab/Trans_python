@@ -1,12 +1,12 @@
-\frametitle{Utilisation du module \texttt{pickle}\chrono}
+\frametitle{Utilisation du module \texttt{pickle}}%}%\chrono}
   \begin{enumerate}
   \item<2-> Sauvegarder les objets
   \item<4-> Restaurer les objets
   \end{enumerate}
 
-\begin{exemple}
+	\begin{exemple}
   \begin{semiverbatim}
-\vspace{-1cm}
+	\vspace{-1cm}
 \textcolor[rgb]{1,0.41,0.13}{import pickle}
 \textcolor[rgb]{0,0.58,0}{# exemple d'un objet
 }departement = \{36:'Indre',30:'Gard',75:'Paris'\}
@@ -17,5 +17,5 @@ with open('data.bin','wb') as f:
 \textcolor[rgb]{0,0,1}{with} open('data.bin','\textcolor[rgb]{1,0.41,0.13}{rb}') as f:}
     \only<4->{dep = \textcolor[rgb]{1,0.41,0.13}{pickle.load}(f) }
   \end{semiverbatim}
-\end{exemple}
+	\end{exemple}
 

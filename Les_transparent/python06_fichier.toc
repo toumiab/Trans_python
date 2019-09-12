@@ -1,5 +1,4 @@
-\beamer@endinputifotherversion {3.12pt}
-\select@language {french}
+\babel@toc {french}{}
 \beamer@sectionintoc {1}{Les exceptions}{2}{0}{1}
 \beamer@subsectionintoc {1}{1}{Principe}{3}{0}{1}
 \beamer@subsectionintoc {1}{2}{Traitement des exceptions}{14}{0}{1}
