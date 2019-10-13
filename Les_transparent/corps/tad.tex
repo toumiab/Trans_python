@@ -5,8 +5,8 @@
 \subsection{Définition}
 
 \begin{frame}
-  \frametitle{Définition\chrono}
-  \initclock 
+  \frametitle{Définition}%}
+  %\initclock 
   \begin{defi}[Type abstrait de données]
     Concept d'utilisation de données ne tenant pas en compte leur
     représentation interne.
@@ -27,7 +27,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Exemple : rationnels \chrono}
+  \frametitle{Exemple : rationnels }%}
   \begin{itemize}[<+->]
   \item TAD nombre rationnel
   \item Opérations : 
@@ -46,7 +46,7 @@
 
 
 \begin{frame}
-  \frametitle{Exemple : rationnels \chrono}
+  \frametitle{Exemple : rationnels }%\chrono}
 
   \begin{itemize}
   \item \only<1>{Définition d'un nouveau \textcolor{red}{type}}
@@ -128,7 +128,7 @@
 %################
 
 \begin{frame}
-\frametitle{Exemple d'opérations \chrono}
+\frametitle{Exemple d'opérations }%\chrono}
 \begin{itemize}
 	\item Méthodes d'affichage
 	
@@ -157,7 +157,7 @@
 
 
 \begin{frame}
-  \frametitle{Exemple : rationnels \chrono}
+  \frametitle{Exemple : rationnels }%\chrono}
 	\only<1-4>{
 	\begin{exemple}
 		\begin{semiverbatim}
@@ -204,7 +204,7 @@
 \subsection{Concepts fondamentaux}
 
 \begin{frame}
-  \frametitle{Concepts \chrono}
+  \frametitle{Concepts }%\chrono}
   Objectif :
   \begin{itemize}
   \item Augmenter la réutilisabilité
@@ -318,7 +318,7 @@
 \subsection{POO en Python}
 
 \begin{frame}
-  \frametitle{Notion de classe et d'objet en Python \chrono}
+  \frametitle{Notion de classe et d'objet en Python }%\chrono}
   \begin{itemize}
   \item plusieurs classes peuvent être définies dans un seul fichier (module) \emph{.py}
   \item Nom de la classe dans le fichier après le \emph{class}
@@ -336,7 +336,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Instanciation de classes \chrono}
+  \frametitle{Instanciation de classes }%\chrono}
   \only<1,2,4>{
     \begin{itemize}
     \item Utiliser une classe $\Rightarrow$ créer une instance
@@ -401,7 +401,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Variables d'instance\chrono}
+  \frametitle{Variables d'instance}%\chrono}
   \begin{itemize}
 	\item <1-> Attributs de la classe : créées et initialisées dans le constructeur et attachées à la variable \textcolor[rgb]{0,0,1}{self}\\
   \item <2-> En général, pas accessibles directement  et renommées en interne   $\Longrightarrow \_\_$\texttt{attribut}\\
@@ -426,7 +426,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Visibilité des attributs\chrono}
+  \frametitle{Visibilité des attributs}%\chrono}
   \begin{remarque}
 	Tous les attributs et méthodes des classes Python sont \texttt{publics} au sens de java et C++, 
 		\end{remarque}
@@ -440,7 +440,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Visibilité des attributs\chrono }
+  \frametitle{Visibilité des attributs}%\chrono }
   \begin{exemple}
 	  \begin{semiverbatim}
 		\vspace{-.5cm}
@@ -473,7 +473,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Accesseurs\chrono}
+  \frametitle{Accesseurs}%\chrono}
   \only<1-5>{
     \textcolor{red}{Encapsulation}
     \begin{itemize}[<+->]
@@ -541,7 +541,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Décorateur\chrono}
+  \frametitle{Décorateur}%\chrono}
   
     \textcolor{red}{Encapsulation}
     \begin{itemize}
@@ -562,7 +562,7 @@
 
 \begin{frame}
 
-  \frametitle{Décorateur\chrono}
+  \frametitle{Décorateur}%\chrono}
 
       \begin{exemple}
 			\begin{semiverbatim}
@@ -605,7 +605,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Constructeur\chrono}
+  \frametitle{Constructeur}%\chrono}
   \begin{itemize}
   \item Rôle : créer et initialiser l'objet (\textcolor{blue}{variables d'instance})
   \item Appelé par l'\textcolor{red}{appel de la classe} : \texttt{obj = Rationnnel(1,5)}
@@ -624,7 +624,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Contexte d'exécution\chrono}
+  \frametitle{Contexte d'exécution}%\chrono}
   \begin{itemize}
   \item Une variable = une instance = un contexte d'exécution
   \item chaque variable contient ses données propres
@@ -646,7 +646,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{L'objet \emph{self}\chrono}
+  \frametitle{L'objet \emph{self}}%\chrono}
   \only<1-3>{
     \begin{itemize}
     \item \emph{self} : Objet représentant le contexte courant
@@ -831,7 +831,7 @@
 \section{Retour sur la notion de TAD}
 \subsection{TAD Intervalle}
 \begin{frame}[fragile]
-  \frametitle{Intervalle\chrono}
+  \frametitle{Intervalle}%\chrono}
   
   \begin{itemize}
   \item Principe : défini par des bornes supérieurs et inférieurs. 
@@ -871,7 +871,7 @@ $
 
 
 \begin{frame}
-  \frametitle{Représentation d'un Intervalle\chrono}
+  \frametitle{Représentation d'un Intervalle}%\chrono}
   Exemple : Intervalle \only<1-2>{de réelles}\only<3>{ouvert, fermé}
   \begin{itemize}
   \item Choix d'une représentation interne : 
@@ -888,7 +888,7 @@ $
 \end{frame}
 
 \begin{frame}
-  \frametitle{Intervalle en Python\chrono}
+  \frametitle{Intervalle en Python}%\chrono}
 	
 	\begin{itemize}
 		\only<1>{\item La classe Intervalle}
@@ -945,7 +945,7 @@ class Intervalle(object):
 \subsection{TAD Pile}
 
 \begin{frame}
-  \frametitle{Pile\chrono}
+  \frametitle{Pile}%\chrono}
   
   \begin{itemize}
   \item Principe : empiler et dépiler des éléments par le haut de la pile
@@ -977,7 +977,7 @@ class Intervalle(object):
 
 
 \begin{frame}
-  \frametitle{Représentation de la pile\chrono}
+  \frametitle{Représentation de la pile}%\chrono}
   Exemple : pile \only<1-2>{d'entiers}\only<3>{d'éléments}
   \begin{itemize}
   \item Choix d'une représentation interne : 
@@ -995,7 +995,7 @@ class Intervalle(object):
 \end{frame}
 
 \begin{frame}
-  \frametitle{Pile en Python\chrono}
+  \frametitle{Pile en Python}%\chrono}
   \begin{exemple}[Pile]
 	\small
     \begin{semiverbatim}
@@ -1052,7 +1052,7 @@ class Pile(object):
 \end{frame}
 
 \begin{frame}
-  \frametitle{Utilisation de piles\chrono}
+  \frametitle{Utilisation de piles}%\chrono}
   \begin{itemize}
   \item Pile d'appel
   \item Calcul d'expressions arithmétiques préfixées (ex : + 2 * 3 2)
@@ -1066,7 +1066,7 @@ class Pile(object):
 \subsection{TAD File}
 
 \begin{frame}
-  \frametitle{TAD File\chrono}
+  \frametitle{TAD File}%\chrono}
   \begin{itemize}
   \item Principe : Insérer et supprimer des éléments de la file
   \item File = FIFO (First In First Out)
@@ -1096,7 +1096,7 @@ class Pile(object):
 
 
 \begin{frame}
-  \frametitle{Représentation de la file\chrono}
+  \frametitle{Représentation de la file}%\chrono}
   Exemple : file d'entiers
   \begin{itemize}
   \item Représentation interne : liste, tableau + 2 indices
@@ -1107,7 +1107,7 @@ class Pile(object):
 \end{frame}
 
 \begin{frame}
-  \frametitle{Utilisation des files\chrono}
+  \frametitle{Utilisation des files}%\chrono}
   \begin{itemize}
   \item File d'attente
   \item File de priorité
@@ -1120,7 +1120,7 @@ class Pile(object):
 
 
 \begin{frame}
-  \frametitle{Autres TAD\chrono}
+  \frametitle{Autres TAD}%\chrono}
   \begin{itemize}
   \item Complexes
   \item Polynômes

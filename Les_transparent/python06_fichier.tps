@@ -40,7 +40,7 @@ Cursor=16978
 
 [SessionInfo]
 FrameCount=2
-ActiveFrame=1
+ActiveFrame=0
 
 [Bookmarks]
 corps\fichier.tex=246 

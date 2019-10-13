@@ -1,13 +1,13 @@
-\frametitle{Intervalle\chrono}
+\frametitle{Intervalle}%\chrono}
 
   \begin{itemize}
   \item Principe : défini par des bornes supérieurs et inférieurs.
-\item Objcetif : L'arithmétique d'intervalles a été définie pour estimer des bornes inférieures et supérieures de fonctions non-convexes
+	\item Objcetif : L'arithmétique d'intervalles a été définie pour estimer des bornes inférieures et supérieures de fonctions non-convexes
   \item Fonctionalités :
     \begin{itemize}
     \item Opérations : Addition,, soustraction, multiplication, division, ....
 
-
+%
   %\begin{center}
 %\begin{tikzpicture}
   %\draw (0,2) -- (0,0) -- (1.5,0) -- (1.5,2);

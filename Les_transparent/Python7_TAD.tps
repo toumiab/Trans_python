@@ -10,15 +10,15 @@ MinPos.y=-1
 MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
-NormalPos.top=32
-NormalPos.right=1351
-NormalPos.bottom=703
+NormalPos.top=26
+NormalPos.right=1562
+NormalPos.bottom=293
 Class=LaTeXView
 Document=Python7_TAD.tex
 
 [Frame0_View0,0]
 TopLine=0
-Cursor=124
+Cursor=427
 
 [Frame1]
 Flags=0
@@ -28,15 +28,15 @@ MinPos.y=-1
 MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
-NormalPos.top=32
-NormalPos.right=1351
-NormalPos.bottom=703
+NormalPos.top=26
+NormalPos.right=1562
+NormalPos.bottom=293
 Class=LaTeXView
 Document=corps\tad.tex
 
 [Frame1_View0,0]
-TopLine=328
-Cursor=13371
+TopLine=1119
+Cursor=35597
 
 [Frame2]
 Flags=0
@@ -46,9 +46,9 @@ MinPos.y=-1
 MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
-NormalPos.top=32
-NormalPos.right=1351
-NormalPos.bottom=703
+NormalPos.top=26
+NormalPos.right=1562
+NormalPos.bottom=293
 Class=LaTeXView
 Document=corps\intro.tex
 
@@ -58,5 +58,5 @@ Cursor=1215
 
 [SessionInfo]
 FrameCount=3
-ActiveFrame=0
+ActiveFrame=1
 
