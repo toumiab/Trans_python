@@ -12,7 +12,7 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
 NormalPos.right=1562
-NormalPos.bottom=293
+NormalPos.bottom=306
 Class=LaTeXView
 Document=Python7_TAD.tex
 
@@ -30,12 +30,12 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
 NormalPos.right=1562
-NormalPos.bottom=293
+NormalPos.bottom=306
 Class=LaTeXView
 Document=corps\tad.tex
 
 [Frame1_View0,0]
-TopLine=1119
+TopLine=1129
 Cursor=35597
 
 [Frame2]
@@ -48,7 +48,7 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
 NormalPos.right=1562
-NormalPos.bottom=293
+NormalPos.bottom=306
 Class=LaTeXView
 Document=corps\intro.tex
 
