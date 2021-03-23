@@ -1,3 +1,146 @@
+\begin{frame}
+\vspace{-1 cm}
+\begin{figure}
+		\includegraphics[height=8cm, width=11cm]{images/joie.png}
+		\label{fig:joie}
+\end{figure}
+\end{frame}
+\section{Rappel : Objet }
+
+\subsection {Type abstrait de données}
+
+\begin{frame}
+
+  \frametitle{Exemple : rationnels }%\chrono}
+\begin{itemize}
+\item Définition d'une Classe : Constructeur et Variables d'instance
+\item + méthodes d'instance : égalité, multiplication, représentation, ... 
+
+ \end{itemize}
+
+  \begin{semiverbatim}
+    \textcolor{red}{class Rationnel (object):}
+\only<1-4>{
+
+  \hspace{1cm}def \textcolor<1>{red}{\twound{init}\twound}(\textcolor{blue}{self}, num, den = 1):
+	}
+
+\only<1-4>{	
+				\hspace{2cm}self.\_\_num = num
+
+        \hspace{2cm}self.\_\_den = den
+      }
+
+\only<2>{
+
+  \hspace{1cm}def \textcolor<2>{red}{\_\_eq\_\_}(\textcolor{blue}{self}, other):
+
+    \hspace{2cm}return self.\_\_num * other.\_\_den == self.\_\_den 
+		
+		\hspace{2cm}* other.\_\_num
+}
+\only<3>{
+	
+	\hspace{1cm}def \textcolor<3>{red}{\_\_mult\_\_}(\textcolor{blue}{self}, other):
+
+    \hspace{2cm}n = self.\_\_num * other.\_\_num
+		
+    \hspace{2cm}d = self.\_\_den * other.\_\_den
+		
+		\hspace{2cm}return Rationnel(n, d)
+}
+\only<4>{	
+
+\hspace{1cm}def \textcolor<4>{red}{\_\_str\_\_}(\textcolor{blue}{self}):
+
+    \hspace{2cm}return '\{0\}/\{1\}'.format(self.\_\_num, self.\_\_den)
+}
+  \end{semiverbatim}
+\end{frame}
+
+
+
+
+\begin{frame}
+  \frametitle{Exemple : Classe/Type \texttt{ Rationnel} }%\chrono}
+ \hspace{3cm}  \includegraphics[height=6cm]{images/rationnel.png}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Définition}
+	\begin{remarques}[Quelques remarques importantes ]
+
+    
+		\begin{itemize}
+			\item Tous les attributs et méthodes des classes Python sont \texttt{publics}  au sens de java et C++, 
+			\item Le constructeur d'une classe est une méthode spéciale qui s'appelle \textcolor{blue}{\texttt{$\_\_init\_\_(self)$}}.
+			\item Les attributs (variables d'instance) sont créés  et initialisés dans le constructeur (\textcolor{blue}{$self.\_\_nomVar$, $self.\_nomVar$, $self.nomVar$})
+			\item Toutes les méthodes d'instance prennent une variable \textcolor{blue}{self} comme premier argument. Cette variable est une référence à l'objet manipulé.
+\end{itemize}
+\end{remarques}
+\end{frame}
+
+\subsection{Notion d'objet :Concepts fondamentaux}
+
+\begin{frame}
+  \frametitle{Concepts }%\chrono}
+  Objectif :
+  \begin{itemize}
+  \item Augmenter la réutilisabilité
+  \item[$\Rightarrow$] modularité du code, notion de composants
+  \end{itemize}
+
+  Concepts mis en place :
+  \begin{itemize}
+  \item {\color{red}encapsulation} : les décorateurs ; les getteurs/setteurs
+  \item héritage (UE 2.1)
+  \item polymorphisme (UE 2.1)
+  \end{itemize}
+
+    \begin{defi}[Encapsulation]
+      Mécanisme permettent de cacher l'implantation d'un TAD. Fournit une
+      interface pour accéder aux données.
+    \end{defi}
+  
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Notion de classe et d'instance}
+  \begin{itemize}
+  \item Classe $\simeq$ type
+  \item Instancier la classe $\simeq$ créer une variable de ce type
+  \item Objet ou instance : variable créée dont le type est une classe
+  \end{itemize}
+  Classe $\leadsto$ plan
+
+  Instance $\leadsto$ réalisation
+\vspace{0.5cm}
+  \begin{alertblock}{Important}
+    Un programme est composé d'instances (objets) et non de classes
+  \end{alertblock}
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% Cours POO début
 
 \section{Héritage}
 
@@ -5,8 +148,8 @@
 \subsection{Généralités}
 
 \begin{frame}
-  \frametitle{Définition\chrono}
-   \initclock
+  \frametitle{Définition}%\chrono}
+   %\initclock
 \begin{defi}[Héritage]
 Mécanisme spécifique aux langages orientés objet qui
 permet à une classe B (appelée sous-classe ou 
@@ -24,7 +167,7 @@ Utilité :
 
 
 \begin{frame}
-  \frametitle{Exemple\chrono}
+  \frametitle{Exemple}%\chrono}
 
   \only<1>{
     \begin{itemize}
@@ -96,7 +239,7 @@ Utilité :
 \subsection{Héritage en Python}
 
 \begin{frame}
-  \frametitle{Héritage en Python\chrono}
+  \frametitle{Héritage en Python}%\chrono}
   \only<1,3>{
     \begin{itemize}
     \item En Python : l'héritage est défini  entre les parenthèses
@@ -118,9 +261,9 @@ Utilité :
         
 				\only<1>{
 				
-				f1 = Figure(10,2) \textcolor{green}{\# création de l'objet f1}
+				f1 = Figure(10,2) \textcolor{green}{\# création de l'objet  Figure f1}
 				
-				f2 = Figure(0, 4) \textcolor{green}{\# création de l'objet f2}}
+				f2 = Figure(0, 4) \textcolor{green}{\# création de l'objet Figure f2}}
 				\only<3>{class Cercle \textcolor{red}{(Figure)}:
         
 				\hspace{0.5cm}def \_\_init\_\_(self,x=0, y=0, r=0):
@@ -156,11 +299,11 @@ Utilité :
 \end{center}
     %\includegraphics[height=4cm]{herite2}
   \only<2>{
-	\texttt{f = Figure(10,11) \textcolor[rgb]{0,0.58,0}{\# Création de l'objet figure f}\\
+	\texttt{f = Figure(10,11) \textcolor[rgb]{0,0.58,0}{\# Création de l'objet Figure f}\\
   f1 = Figure (1,5) \textcolor[rgb]{0,0.58,0}{\#  Création de l'objet Figure f1}}
 	}
 	  \only<4>{
-	\texttt{f= Figure(10,11) \textcolor[rgb]{0,0.58,0}{\# Création de l'objet figure f}\\
+	\texttt{f= Figure(10,11) \textcolor[rgb]{0,0.58,0}{\# Création de l'objet Figure f}\\
   c= Cercle (1,5,3) \textcolor[rgb]{0,0.58,0}{\#  Création de l'objet Cercle c}}
 	}
 	}
@@ -307,7 +450,7 @@ ond east);
 \subsection{Généralités}
 
 \begin{frame}
-  \frametitle{Définition\chrono}
+  \frametitle{Définition}%\chrono}
   \begin{defi}[Polymorphisme]
     Mécanisme selon lequel un même message peut être envoyé vers des objets de
     types différents, chaque objet réagissant de façon originale. 
@@ -476,7 +619,7 @@ ond east);
 \subsection{Polymorphisme d'héritage (redéfinition, spécialisation)}
 
 \begin{frame}
-  \frametitle{Principe\chrono}
+  \frametitle{Principe}%\chrono}
   \begin{itemize}
   \item Plusieurs méthodes avec le même nom dans une
     hiérarchie de classes
@@ -513,7 +656,7 @@ Tour et Pion (héritant chacun du type Pièce).}
 
 
 \begin{frame}
-  \frametitle{Exemple\chrono}
+  \frametitle{Exemple}%\chrono}
   \begin{exemple}
     \begin{semiverbatim}
 		\small
@@ -546,7 +689,7 @@ Tour et Pion (héritant chacun du type Pièce).}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Utilisation des figures\chrono}
+  \frametitle{Utilisation des figures}%\chrono}
   \begin{exemple}
     \begin{semiverbatim}
       
@@ -568,7 +711,7 @@ Tour et Pion (héritant chacun du type Pièce).}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Exemple de surcharge : méthode \_\_str\_\_\chrono}
+  \frametitle{Exemple de surcharge : méthode \_\_str\_\_}%\chrono}
  \begin{itemize}
   \item Méthode appelée pour convertir un objet en chaîne de caractères\pause
   \item[$\Rightarrow$] afficher directement les objets\pause
@@ -595,7 +738,7 @@ Tour et Pion (héritant chacun du type Pièce).}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Quelques méthodes à surcharger\chrono}
+  \frametitle{Quelques méthodes à surcharger}%\chrono}
 			\begin{center}
 		
 			\begin{tabular}{|l|l|}
@@ -630,7 +773,7 @@ Tour et Pion (héritant chacun du type Pièce).}
 
 
 \begin{frame}
-  \frametitle{Principe\chrono}
+  \frametitle{Principe}%\chrono}
   \begin{itemize}
   \item Variables et méthodes propriétés de la classe, pas de l'instance
   \item $\Rightarrow$ un seul exemplaire par classe
@@ -646,7 +789,7 @@ Tour et Pion (héritant chacun du type Pièce).}
 
 
 \begin{frame}
-  \frametitle{Exemple\chrono}
+  \frametitle{Exemple}%\chrono}
   \begin{exemple}
     \textcolor<2>{red}{Comment compter les figures créées dans la classe \emph{Figure} (et ses classes filles)} ou attribuer un numéro unique à chaque objet~$?$
 	\only<2-5>{	
@@ -682,7 +825,7 @@ Tour et Pion (héritant chacun du type Pièce).}
 \end{frame}
 
 \begin{frame}
-\frametitle{Exemple \chrono}
+\frametitle{Exemple }%\chrono}
 \small
     \begin{semiverbatim}
      
@@ -749,7 +892,7 @@ shadow, text centered, text=white, text width=2cm, rectangle split, rectangle sp
 \subsection{Méthodes et classes abstraites}
 
 \begin{frame}
-  \frametitle{Méthodes abstraites\chrono}
+  \frametitle{Méthodes abstraites}%\chrono}
   \begin{defi}[Méthode abstraite]
     Une méthode est abstraite si sa déclaration est précédée par le décorateur \emph{@abstractmethod}. Elle ne contient alors aucun code
 		\uncover<3->{	
@@ -789,7 +932,7 @@ shadow, text centered, text=white, text width=2cm, rectangle split, rectangle sp
 
 
 \begin{frame}
-  \frametitle{Héritage d'une classe abstraite\chrono}
+  \frametitle{Héritage d'une classe abstraite}%\chrono}
   Héritage
   \begin{itemize}
   \item Une sous-classe d'une classe abstraite peut être concrète si elle
@@ -807,7 +950,7 @@ shadow, text centered, text=white, text width=2cm, rectangle split, rectangle sp
 \end{frame}
 
 \begin{frame}
-  \frametitle{Exemple de classe abstraite\chrono}
+  \frametitle{Exemple de classe abstraite}%\chrono}
   \begin{semiverbatim}
 	\vspace{-.5cm}
 	\small

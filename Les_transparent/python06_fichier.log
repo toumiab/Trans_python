@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2019.5.14)  12 SEP 2019 11:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2019.5.14)  13 SEP 2020 23:48
 entering extended mode
 **./python06_fichier.tex
 (python06_fichier.tex
@@ -1575,9 +1575,17 @@ Overfull \hbox (15.36543pt too wide) detected at line 396
 [47
 
 ]
+! Too many }'s.
+\endframe ->\egroup 
+                    \begingroup \def \@currenvir {frame}
+l.397 \end{frame}
+                 
+You've closed more groups than you opened.
+Such booboos are generally harmless, so keep going.
+
 \openout4 = `python06_fichier.vrb'.
 
- (python06_fichier.vrb
+(python06_fichier.vrb
 Overfull \hbox (15.36543pt too wide) detected at line 17
 []
  []
@@ -1596,7 +1604,7 @@ Overfull \hbox (15.36543pt too wide) detected at line 24
  []
 
 )
-Overfull \vbox (7.72539pt too high) detected at line 446
+Overfull \vbox (7.72539pt too high) detected at line 447
  []
 
 [49
@@ -1607,7 +1615,7 @@ Overfull \hbox (15.36543pt too wide) detected at line 24
  []
 
 )
-Overfull \vbox (7.72539pt too high) detected at line 446
+Overfull \vbox (7.72539pt too high) detected at line 447
  []
 
 [50
@@ -1618,7 +1626,7 @@ Overfull \hbox (15.36543pt too wide) detected at line 24
  []
 
 )
-Overfull \vbox (7.72539pt too high) detected at line 446
+Overfull \vbox (7.72539pt too high) detected at line 447
  []
 
 [51
@@ -1629,7 +1637,7 @@ Overfull \hbox (15.36543pt too wide) detected at line 24
  []
 
 )
-Overfull \vbox (7.72539pt too high) detected at line 446
+Overfull \vbox (7.72539pt too high) detected at line 447
  []
 
 [52
@@ -1640,7 +1648,7 @@ Overfull \hbox (15.36543pt too wide) detected at line 24
  []
 
 )
-Overfull \vbox (7.72539pt too high) detected at line 446
+Overfull \vbox (7.72539pt too high) detected at line 447
  []
 
 [53
@@ -1651,7 +1659,7 @@ Overfull \hbox (15.36543pt too wide) detected at line 24
  []
 
 )
-Overfull \vbox (7.72539pt too high) detected at line 446
+Overfull \vbox (7.72539pt too high) detected at line 447
  []
 
 [54
@@ -1759,122 +1767,122 @@ Overfull \hbox (15.36543pt too wide) detected at line 20
 ] (python06_fichier.toc) [64
 
 ]
-Overfull \hbox (15.36543pt too wide) detected at line 603
+Overfull \hbox (15.36543pt too wide) detected at line 604
 []
  []
 
 
-Overfull \hbox (9.21936pt too wide) detected at line 603
+Overfull \hbox (9.21936pt too wide) detected at line 604
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 604--604
 [][][][][][][][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 604--604
 
  []
 
 <images/fichier.PNG, id=661, 334.24875pt x 135.50626pt>
 File: images/fichier.PNG Graphic file (type png)
 <use images/fichier.PNG>
-Package pdftex.def Info: images/fichier.PNG  used on input line 603.
+Package pdftex.def Info: images/fichier.PNG  used on input line 604.
 (pdftex.def)             Requested size: 126.3273pt x 51.21504pt.
 
-Overfull \hbox (3.41324pt too wide) in paragraph at lines 603--603
+Overfull \hbox (3.41324pt too wide) in paragraph at lines 604--604
  [] 
  []
 
 
-Overfull \hbox (23.99998pt too wide) in paragraph at lines 603--603
+Overfull \hbox (23.99998pt too wide) in paragraph at lines 604--604
 []  
  []
 
 
-Overfull \vbox (14.82909pt too high) detected at line 603
+Overfull \vbox (14.82909pt too high) detected at line 604
  []
 
 [65
 
  <./images/fichier.PNG>]
-Overfull \hbox (15.36543pt too wide) detected at line 603
+Overfull \hbox (15.36543pt too wide) detected at line 604
 []
  []
 
 
-Overfull \hbox (9.21936pt too wide) detected at line 603
+Overfull \hbox (9.21936pt too wide) detected at line 604
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 604--604
 [][][][][][][][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 604--604
 
  []
 
 File: images/fichier.PNG Graphic file (type png)
 <use images/fichier.PNG>
-Package pdftex.def Info: images/fichier.PNG  used on input line 603.
+Package pdftex.def Info: images/fichier.PNG  used on input line 604.
 (pdftex.def)             Requested size: 126.3273pt x 51.21504pt.
 
-Overfull \hbox (3.41324pt too wide) in paragraph at lines 603--603
+Overfull \hbox (3.41324pt too wide) in paragraph at lines 604--604
  [] 
  []
 
 
-Overfull \hbox (23.99998pt too wide) in paragraph at lines 603--603
+Overfull \hbox (23.99998pt too wide) in paragraph at lines 604--604
 []  
  []
 
 
-Overfull \vbox (14.82909pt too high) detected at line 603
+Overfull \vbox (14.82909pt too high) detected at line 604
  []
 
 [66
 
 ]
-Overfull \hbox (15.36543pt too wide) detected at line 603
+Overfull \hbox (15.36543pt too wide) detected at line 604
 []
  []
 
 
-Overfull \hbox (9.21936pt too wide) detected at line 603
+Overfull \hbox (9.21936pt too wide) detected at line 604
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 604--604
 [][][][][][][][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 604--604
 
  []
 
 File: images/fichier.PNG Graphic file (type png)
 <use images/fichier.PNG>
-Package pdftex.def Info: images/fichier.PNG  used on input line 603.
+Package pdftex.def Info: images/fichier.PNG  used on input line 604.
 (pdftex.def)             Requested size: 126.3273pt x 51.21504pt.
 
-Overfull \hbox (3.41324pt too wide) in paragraph at lines 603--603
+Overfull \hbox (3.41324pt too wide) in paragraph at lines 604--604
  [] 
  []
 
 
-Overfull \hbox (23.99998pt too wide) in paragraph at lines 603--603
+Overfull \hbox (23.99998pt too wide) in paragraph at lines 604--604
 []  
  []
 
 
-Overfull \vbox (14.82909pt too high) detected at line 603
+Overfull \vbox (14.82909pt too high) detected at line 604
  []
 
 [67
@@ -1890,7 +1898,7 @@ Overfull \hbox (15.36543pt too wide) detected at line 33
  []
 
 )
-Overfull \vbox (1.5212pt too high) detected at line 642
+Overfull \vbox (1.5212pt too high) detected at line 643
  []
 
 [69
@@ -1906,7 +1914,7 @@ Overfull \hbox (15.36543pt too wide) detected at line 33
  []
 
 )
-Overfull \vbox (92.46083pt too high) detected at line 642
+Overfull \vbox (92.46083pt too high) detected at line 643
  []
 
 [70
@@ -1917,7 +1925,7 @@ Overfull \hbox (15.36543pt too wide) detected at line 33
  []
 
 )
-Overfull \vbox (1.5212pt too high) detected at line 642
+Overfull \vbox (1.5212pt too high) detected at line 643
  []
 
 [71
@@ -1931,7 +1939,7 @@ Overfull \hbox (15.36543pt too wide) detected at line 35
  []
 
 )
-Overfull \vbox (13.2075pt too high) detected at line 680
+Overfull \vbox (13.2075pt too high) detected at line 681
  []
 
 [72
@@ -1947,7 +1955,7 @@ Overfull \hbox (15.36543pt too wide) detected at line 35
  []
 
 )
-Overfull \vbox (104.14714pt too high) detected at line 680
+Overfull \vbox (104.14714pt too high) detected at line 681
  []
 
 [73
@@ -1958,7 +1966,7 @@ Overfull \hbox (15.36543pt too wide) detected at line 35
  []
 
 )
-Overfull \vbox (13.2075pt too high) detected at line 680
+Overfull \vbox (13.2075pt too high) detected at line 681
  []
 
 [74
@@ -1966,14 +1974,14 @@ Overfull \vbox (13.2075pt too high) detected at line 680
 ] (python06_fichier.toc) [75
 
 ]
-Overfull \hbox (15.36543pt too wide) detected at line 699
+Overfull \hbox (15.36543pt too wide) detected at line 700
 []
  []
 
 [76
 
 ]
-Overfull \hbox (15.36543pt too wide) detected at line 699
+Overfull \hbox (15.36543pt too wide) detected at line 700
 []
  []
 
@@ -1989,7 +1997,7 @@ Overfull \hbox (15.36543pt too wide) detected at line 20
 
 )
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 723.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 724.
  [78
 
 ] (python06_fichier.vrb
@@ -2005,7 +2013,7 @@ Overfull \hbox (15.36543pt too wide) detected at line 20
  []
 
 )
-Overfull \vbox (4.56155pt too high) detected at line 723
+Overfull \vbox (4.56155pt too high) detected at line 724
  []
 
 [80
@@ -2016,13 +2024,13 @@ Overfull \hbox (15.36543pt too wide) detected at line 20
  []
 
 )
-Overfull \vbox (4.56155pt too high) detected at line 723
+Overfull \vbox (4.56155pt too high) detected at line 724
  []
 
 [81
 
 ]
-Overfull \hbox (15.36543pt too wide) detected at line 739
+Overfull \hbox (15.36543pt too wide) detected at line 740
 []
  []
 
@@ -2062,7 +2070,7 @@ fonts/cm/cmsy9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
 onts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt8.pfb><C:/Progr
 am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/sy
 mbols/msam7.pfb>
-Output written on python06_fichier.pdf (82 pages, 430818 bytes).
+Output written on python06_fichier.pdf (82 pages, 430816 bytes).
 PDF statistics:
  894 PDF objects out of 1000 (max. 8388607)
  176 named destinations out of 1000 (max. 500000)
