@@ -1,10 +1,12 @@
-\begin{frame}
-\vspace{-1 cm}
-\begin{figure}
-		\includegraphics[height=8cm, width=11cm]{images/joie.png}
-		\label{fig:joie}
-\end{figure}
-\end{frame}
+
+% frame Bonne année
+%\begin{frame}
+%\vspace{-1 cm}
+%\begin{figure}
+		%\includegraphics[height=8cm, width=11cm]{images/joie.png}
+		%\label{fig:joie}
+%\end{figure}
+%\end{frame}
 \section{Rappel : Objet }
 
 \subsection {Type abstrait de données}
@@ -75,7 +77,8 @@
 		\begin{itemize}
 			\item Tous les attributs et méthodes des classes Python sont \texttt{publics}  au sens de java et C++, 
 			\item Le constructeur d'une classe est une méthode spéciale qui s'appelle \textcolor{blue}{\texttt{$\_\_init\_\_(self)$}}.
-			\item Les attributs (variables d'instance) sont créés  et initialisés dans le constructeur (\textcolor{blue}{$self.\_\_nomVar$, $self.\_nomVar$, $self.nomVar$})
+			\item Les attributs (variables d'instance) sont \textit{généralement} créés  et initialisés dans le constructeur \\
+			(exemple : \textcolor{blue}{$self.\_\_nomVar$, $self.\_nomVar$, $self.nomVar$})
 			\item Toutes les méthodes d'instance prennent une variable \textcolor{blue}{self} comme premier argument. Cette variable est une référence à l'objet manipulé.
 \end{itemize}
 \end{remarques}
@@ -99,8 +102,8 @@
   \end{itemize}
 
     \begin{defi}[Encapsulation]
-      Mécanisme permettent de cacher l'implantation d'un TAD. Fournit une
-      interface pour accéder aux données.
+      Mécanisme permettent de cacher l'implantation d'un TAD. Ce méchanisme nous fournit une
+      interface pour accéder aux données (lecture/écriture de contenu).
     \end{defi}
   
 

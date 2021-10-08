@@ -1,0 +1,440 @@
+Langage et algorithmique
+Rod´eric Moiti´e 2018­2019
+ENSTA Bretagne
+Python 1 / 32
+
+Pourquoi tester ?
+Sommaire
+1 Pourquoi tester ? 2 Test unitaire 3 Python et unittest 4 G´en´eration automatique de documentation
+Python 2 / 32
+
+Pourquoi tester ?
+Exemple : Ariane 501
+Vol de qualification du 4 juin 1996
+Python 3 / 32
+
+Pourquoi tester ?
+Exemple : Ariane 501
+Vol de qualification du 4 juin 1996 36 premi`eres secondes : vol normal
+Python 3 / 32
+
+Pourquoi tester ?
+Exemple : Ariane 501
+Vol de qualification du 4 juin 1996 36 premi`eres secondes : vol normal H+37s : erreur dans les SRI (syst`eme de r´ef´erence inertielle) 1 et 2
+Python 3 / 32
+
+Pourquoi tester ?
+Exemple : Ariane 501
+Vol de qualification du 4 juin 1996 36 premi`eres secondes : vol normal H+37s : erreur dans les SRI (syst`eme de r´ef´erence inertielle) 1 et 2 Braquage des tuy`eres angle > 20
+Python 3 / 32
+
+Pourquoi tester ?
+Exemple : Ariane 501
+Vol de qualification du 4 juin 1996 36 premi`eres secondes : vol normal H+37s : erreur dans les SRI (syst`eme de r´ef´erence inertielle) 1 et 2 Braquage des tuy`eres angle > 20 H+39s : autodestruction d´eclench´ee automatiquement
+Python 3 / 32
+
+Pourquoi tester ?
+Exemple : Ariane 501
+Vol de qualification du 4 juin 1996 36 premi`eres secondes : vol normal H+37s : erreur dans les SRI (syst`eme de r´ef´erence inertielle) 1 et 2 Braquage des tuy`eres angle > 20 H+39s : autodestruction d´eclench´ee automatiquement Cou^t : 500Me
+Python 3 / 32
+
+Pourquoi tester ?
+Analyse de l'erreur du vol Ariane 501
+SR2 a transmis des donn´ees erron´ees
+Python 4 / 32
+
+Pourquoi tester ?
+Analyse de l'erreur du vol Ariane 501
+SR2 a transmis des donn´ees erron´ees Raison : exception logicielle
+Python 4 / 32
+
+Pourquoi tester ?
+Analyse de l'erreur du vol Ariane 501
+SR2 a transmis des donn´ees erron´ees Raison : exception logicielle Erreur lors de la conversion d'un flottant (> 32768) en entier 16 bits
+Python 4 / 32
+
+Pourquoi tester ?
+Analyse de l'erreur du vol Ariane 501
+SR2 a transmis des donn´ees erron´ees Raison : exception logicielle Erreur lors de la conversion d'un flottant (> 32768) en entier 16 bits Pas de protection de la conversion. . .
+Python 4 / 32
+
+Pourquoi tester ?
+Analyse de l'erreur du vol Ariane 501
+SR2 a transmis des donn´ees erron´ees Raison : exception logicielle Erreur lors de la conversion d'un flottant (> 32768) en entier 16 bits Pas de protection de la conversion. . .  Valeur trop ´elev´ee dans la fonction de calcul de biais horizontal
+Python 4 / 32
+
+Pourquoi tester ?
+Analyse de l'erreur du vol Ariane 501
+SR2 a transmis des donn´ees erron´ees Raison : exception logicielle Erreur lors de la conversion d'un flottant (> 32768) en entier 16 bits Pas de protection de la conversion. . .  Valeur trop ´elev´ee dans la fonction de calcul de biais horizontal Raison Trajectoires Ariane 4 et Ariane 5 diff´erentes !
+Python 4 / 32
+
+Pourquoi tester ?
+Analyse de l'´echec
+Pas une erreur de programmation Non protection de la variable justifi´ee par les marges de s´ecurit´e prises
+Pas une erreur de conception D´ecision justifi´ee pour Ariane 4
+R´eutilisation d'un composant d'Ariane 4 avec une contrainte cach´ee  pr´econdition : |BH| < 32768.0
+Respect´ee pour Ariane 4, pas pour Ariane 5
+Python 5 / 32
+
+Pourquoi tester ?
+Autres bugs ayant cou^t´e cher
+1985 : la machine Therac-25 (traitement cancer) envoie une dose mortelle de radiations  cause : overflow quand le technicien tapait trop vite, 5 d´ec`es
+Python 6 / 32
+
+Pourquoi tester ?
+Autres bugs ayant cou^t´e cher
+1985 : la machine Therac-25 (traitement cancer) envoie une dose mortelle de radiations  cause : overflow quand le technicien tapait trop vite, 5 d´ec`es 1991 : des missiles Patriot ratent l'interception d'un Scud  cause : bug dans l'arrondi de temps, 28 morts
+Python 6 / 32
+
+Pourquoi tester ?
+Autres bugs ayant cou^t´e cher
+1985 : la machine Therac-25 (traitement cancer) envoie une dose mortelle de radiations  cause : overflow quand le technicien tapait trop vite, 5 d´ec`es 1991 : des missiles Patriot ratent l'interception d'un Scud  cause : bug dans l'arrondi de temps, 28 morts 1999 : la sonde Mars Climate Orbiter entre trop bas dans l'atmosph`ere de Mars  cause : probl`eme d'unit´es entre syst`eme m´etrique et syst`eme anglo-saxon, cou^t : $125M
+Python 6 / 32
+
+Pourquoi tester ?
+Autres bugs ayant cou^t´e cher
+1985 : la machine Therac-25 (traitement cancer) envoie une dose mortelle de radiations  cause : overflow quand le technicien tapait trop vite, 5 d´ec`es 1991 : des missiles Patriot ratent l'interception d'un Scud  cause : bug dans l'arrondi de temps, 28 morts 1999 : la sonde Mars Climate Orbiter entre trop bas dans l'atmosph`ere de Mars  cause : probl`eme d'unit´es entre syst`eme m´etrique et syst`eme anglo-saxon, cou^t : $125M 1996-2013 : LOgiciel Unique `a VOcation Interarm´ees de la Solde (Louvois). Logiciel mal con¸cu, nombreux bugs  calcul de solde fortement erron´e. Prix achat + dysfonctionnement 470Me.
+Python 6 / 32
+
+Pourquoi tester ?
+Autres bugs ayant cou^t´e cher
+1985 : la machine Therac-25 (traitement cancer) envoie une dose mortelle de radiations  cause : overflow quand le technicien tapait trop vite, 5 d´ec`es 1991 : des missiles Patriot ratent l'interception d'un Scud  cause : bug dans l'arrondi de temps, 28 morts 1999 : la sonde Mars Climate Orbiter entre trop bas dans l'atmosph`ere de Mars  cause : probl`eme d'unit´es entre syst`eme m´etrique et syst`eme anglo-saxon, cou^t : $125M 1996-2013 : LOgiciel Unique `a VOcation Interarm´ees de la Solde (Louvois). Logiciel mal con¸cu, nombreux bugs  calcul de solde fortement erron´e. Prix achat + dysfonctionnement 470Me. 2017 : probl`eme lors de la mise `a jour du logiciel d'aiguillage de la sncf. Gare Montparnasse bloqu´ee.
+Python 6 / 32
+
+Pourquoi tester ?
+Probl´ematique
+On ne peut pas tout tester ni tout prouver formellement  choisir les cas int´eressants
+Dijkstra : Program testing can be used to prove the presence of bugs, but never their absence. Prouver l'absence de bug : ind´ecidable. . . On se contente d'augmenter la confiance dans le logiciel Test : 80% du cou^t total d'un projet
+Python 7 / 32
+
+Pourquoi tester ?
+Diff´erents tests
+E´chelles de test : Test unitaire Test d'int´egration Test syst`eme
+Types de tests : Test de non r´egression Test de mont´ee en charge Test de robustesse
+
+Python 8 / 32
+
+Pourquoi tester ?
+Diff´erents tests
+E´chelles de test : Test unitaire Test d'int´egration Test syst`eme
+Types de tests : Test de non r´egression Test de mont´ee en charge Test de robustesse
+
+Python 8 / 32
+
+Test unitaire
+Sommaire
+1 Pourquoi tester ? 2 Test unitaire 3 Python et unittest 4 G´en´eration automatique de documentation
+Python 9 / 32
+
+Test unitaire
+Test manuel
+Principe : on fait tout `a la main. . .
+Python 10 / 32
+
+Test unitaire
+Test manuel
+Principe : on fait tout `a la main. . . Souvent pratiqu´e par les d´ebutants (utilisation de print, . . . )
+Python 10 / 32
+
+Test unitaire
+Test manuel
+Principe : on fait tout `a la main. . . Souvent pratiqu´e par les d´ebutants (utilisation de print, . . . ) Peu fiable : obligation de lire le r´esultat
+Python 10 / 32
+
+Test unitaire
+Test manuel
+Principe : on fait tout `a la main. . . Souvent pratiqu´e par les d´ebutants (utilisation de print, . . . ) Peu fiable : obligation de lire le r´esultat Difficile de relancer les tests
+Python 10 / 32
+
+Test unitaire
+Test manuel
+Principe : on fait tout `a la main. . . Souvent pratiqu´e par les d´ebutants (utilisation de print, . . . ) Peu fiable : obligation de lire le r´esultat Difficile de relancer les tests Pas d'automatisation
+Python 10 / 32
+
+Test unitaire
+Test manuel
+Principe : on fait tout `a la main. . . Souvent pratiqu´e par les d´ebutants (utilisation de print, . . . ) Peu fiable : obligation de lire le r´esultat Difficile de relancer les tests Pas d'automatisation Ne laisse pas de trace
+Python 10 / 32
+
+Test unitaire
+Test automatis´e
+Objectifs : Lisibilit´e des r´esultats de test Possibilit´e de relancer les tests simplement Possibilit´e de lancer les tests r´eguli`erement Compte-rendu de test
+
+Python 11 / 32
+
+Test unitaire
+Test unitaire en pratique
+Utiliser un framework de test (unittest) Cas de test = une m´ethode
+configuration initiale donn´ees de test oracle Une classe de test par classe test´ee
+Remarque L'oracle a souvent besoin d'acc´eder `a des donn´ees internes  pr´evoir la testabilit´e du logiciel.
+Python 12 / 32
+
+Test unitaire
+Tests de non r´egression
+Objectif V´erifier que l'ajout de nouvelles fonctionnalit´es n'alt`ere pas les fonctionnalit´es existantes.
+Test `a appliquer : apr`es refactoring ; apr`es ajout ou suppression de fonctionnalit´e ; apr`es une correction de bug.
+Caract´eristiques : test fastidieux ; test `a ex´ecuter tr`es souvent.
+Python 13 / 32
+
+Test unitaire
+Couverture de code
+Objectif V´erifier que le code a ´et´e suffisamment test´e Plusieurs types de couverture :
+Couverture fonctionnelle : chaque fonction est ex´ecut´ee
+Python 14 / 32
+
+Test unitaire
+Couverture de code
+Objectif V´erifier que le code a ´et´e suffisamment test´e Plusieurs types de couverture :
+Couverture fonctionnelle : chaque fonction est ex´ecut´ee Couverture structurelle : chaque instruction est ex´ecut´ee
+Python 14 / 32
+
+Test unitaire
+Couverture de code
+Objectif V´erifier que le code a ´et´e suffisamment test´e Plusieurs types de couverture :
+Couverture fonctionnelle : chaque fonction est ex´ecut´ee Couverture structurelle : chaque instruction est ex´ecut´ee Couverture niveau d´ecision : chaque structure de contr^ole est ´evalu´ee `a vrai et faux
+Python 14 / 32
+
+Test unitaire
+Couverture de code
+Objectif V´erifier que le code a ´et´e suffisamment test´e Plusieurs types de couverture :
+Couverture fonctionnelle : chaque fonction est ex´ecut´ee Couverture structurelle : chaque instruction est ex´ecut´ee Couverture niveau d´ecision : chaque structure de contr^ole est ´evalu´ee `a vrai et faux Couverture niveau condition : chaque sous-expression bool´eenne est ´evalu´ee `a vrai et faux
+Python 14 / 32
+
+Test unitaire
+Couverture de code
+Objectif V´erifier que le code a ´et´e suffisamment test´e Plusieurs types de couverture :
+Couverture fonctionnelle : chaque fonction est ex´ecut´ee Couverture structurelle : chaque instruction est ex´ecut´ee Couverture niveau d´ecision : chaque structure de contr^ole est ´evalu´ee `a vrai et faux Couverture niveau condition : chaque sous-expression bool´eenne est ´evalu´ee `a vrai et faux Couverture de chemin : tous les chemins d'ex´ecution possibles sont couverts
+Python 14 / 32
+
+Test unitaire
+Exemple en avionique : DO-178C
+Logiciel critique : 5 niveaux de criticit´e E Probl`eme sans effet sur la s´ecurit´e du vol
+
+Contraintes sur le logiciel Aucune contrainte.
+
+Python 15 / 32
+
+Test unitaire
+Exemple en avionique : DO-178C
+Logiciel critique : 5 niveaux de criticit´e E Probl`eme sans effet sur la s´ecurit´e du vol D Probl`eme pouvant perturber la s´ecurit´e du vol
+Contraintes sur le logiciel Couverture fonctionnelle du code, justification de toute modification, documentation du code, assurance qualit´e.
+Python 15 / 32
+
+Test unitaire
+Exemple en avionique : DO-178C
+Logiciel critique : 5 niveaux de criticit´e E Probl`eme sans effet sur la s´ecurit´e du vol D Probl`eme pouvant perturber la s´ecurit´e du vol C Probl`eme s´erieux : dysfonctionnement des ´equipements vitaux de l'appareil
+Contraintes sur le logiciel Couverture structurelle du code, v´erification formelle des exigences bas niveau.
+Python 15 / 32
+
+Test unitaire
+Exemple en avionique : DO-178C
+Logiciel critique : 5 niveaux de criticit´e E Probl`eme sans effet sur la s´ecurit´e du vol D Probl`eme pouvant perturber la s´ecurit´e du vol C Probl`eme s´erieux : dysfonctionnement des ´equipements vitaux de l'appareil B Probl`eme majeur : d´eg^ats s´erieux/mort de quelques occupants
+Contraintes sur le logiciel Couverture niveau d´ecision du code, d´eveloppement et v´erification par des ´equipes ind´ependantes.
+Python 15 / 32
+
+Test unitaire
+Exemple en avionique : DO-178C
+Logiciel critique : 5 niveaux de criticit´e E Probl`eme sans effet sur la s´ecurit´e du vol D Probl`eme pouvant perturber la s´ecurit´e du vol C Probl`eme s´erieux : dysfonctionnement des ´equipements vitaux de l'appareil B Probl`eme majeur : d´eg^ats s´erieux/mort de quelques occupants A Probl`eme catastrophique : crash de l'avion
+Contraintes sur le logiciel Couverture de code niveau condition.
+Python 15 / 32
+
+Test unitaire
+Analyse de mutation
+Objectif Mesurer l'efficacit´e des tests Principe :
+Introduire des erreurs intentionnellement (injection de faute)
+Python 16 / 32
+
+Test unitaire
+Analyse de mutation
+Objectif Mesurer l'efficacit´e des tests Principe :
+Introduire des erreurs intentionnellement (injection de faute) E´value la proportion de fautes d´etect´ees
+Python 16 / 32
+
+Test unitaire
+Analyse de mutation
+Objectif Mesurer l'efficacit´e des tests Principe :
+Introduire des erreurs intentionnellement (injection de faute) E´value la proportion de fautes d´etect´ees Passer les tests, et examiner les mutants vivants
+Python 16 / 32
+
+Test unitaire
+Analyse de mutation
+Objectif Mesurer l'efficacit´e des tests Principe :
+Introduire des erreurs intentionnellement (injection de faute) E´value la proportion de fautes d´etect´ees Passer les tests, et examiner les mutants vivants
+Mutant ´equivalent `a l'original : supprimer manuellement
+Python 16 / 32
+
+Test unitaire
+Analyse de mutation
+Objectif Mesurer l'efficacit´e des tests Principe :
+Introduire des erreurs intentionnellement (injection de faute) E´value la proportion de fautes d´etect´ees Passer les tests, et examiner les mutants vivants
+Mutant ´equivalent `a l'original : supprimer manuellement Mutant non ´equivalent : cas de test insuffisants
+Python 16 / 32
+
+Test unitaire
+Analyse de mutation
+Objectif Mesurer l'efficacit´e des tests Principe :
+Introduire des erreurs intentionnellement (injection de faute) E´value la proportion de fautes d´etect´ees Passer les tests, et examiner les mutants vivants
+Mutant ´equivalent `a l'original : supprimer manuellement Mutant non ´equivalent : cas de test insuffisants Aide : g´en´eration automatique de mutants
+Python 16 / 32
+
+Test unitaire
+Analyse de mutation
+Objectif Mesurer l'efficacit´e des tests Principe :
+Introduire des erreurs intentionnellement (injection de faute) E´value la proportion de fautes d´etect´ees Passer les tests, et examiner les mutants vivants
+Mutant ´equivalent `a l'original : supprimer manuellement Mutant non ´equivalent : cas de test insuffisants Aide : g´en´eration automatique de mutants Op´erateurs de mutation (remplacer + par -, modifier un op´erateur logique, modifier les op´erateurs relationnels, supprimer des instructions, perturber les constantes)
+Python 16 / 32
+
+Python et unittest
+Sommaire
+1 Pourquoi tester ? 2 Test unitaire 3 Python et unittest 4 G´en´eration automatique de documentation
+Python 17 / 32
+
+Python et unittest
+Python et unittest
+Framework de test  cadre simplifiant le test
+Objectifs : Test d'applications Facilite la cr´eation de tests Facilite l'ex´ecution de tests Permet les tests de non r´egression Test de couverture de code
+
+Python 18 / 32
+
+Python et unittest
+E´criture d'un cas de test
+Principe Cas de test : classe h´eritant de unittest.TestCase Une m´ethode de test par m´ethode `a tester Le nom de la m´ethode de test doit commencer par test M´ethodes appel´ees automatiquement par unittest.main() Utilisation d'assertions
+Python 19 / 32
+
+Python et unittest
+Assertions
+assertEqual(a, b) -- assertNotEqual(a, b) assertTrue(x) -- assertFalse(x) assertIs(a, b) -- assertIsNot(a, b) assertIsNone(x) -- assertIsNotNone(x) assertIn(a, b) -- assertNotIn(a, b) assertIsInstance(a, b) -- assertNotIsInstance(a, b) assertAlmostEqual(a, b) -- assertNotAlmostEqual(a, b) assertGreater(a, b) -- assertLess(a, b) assertRaises()
+Python 20 / 32
+
+Python et unittest
+Exemple de test unitaire
+class Rationnel: def __init__(self , num , den=1): if den == 0: raise Exception('Invalid number') else: self.num = num self.den = den
+def __eq__(self , other): return self.num * other.den == other.num * self.den
+def __add__(self , other): n = self.num * other.den + self.den * other. num d = self.den * other.den return Rationnel(n, d)
+Python 21 / 32
+
+Python et unittest
+Exemple de test unitaire
+import unittest from rationnel import Rationnel
+class TestRationnel(unittest.TestCase): def testInit(self): r = Rationnel(1, -1) self.assertEqual(r.num , -1) self.assertEqual(r.den , 1)
+def testInitUndef(self): with self.assertRaises(Exception): r = Rationnel(1, 0)
+def testEq(self): r1 = Rationnel(-1, 3) r2 = Rationnel(2, -6) self.assertEqual(r1 , r2)
+
+Python 22 / 32
+
+Python et unittest
+
+Exemple de test unitaire
+
+class TestRationnel(unittest.TestCase): def setUp(self): self.__two = Rationnel(2)
+
+def testAdd(self): r1 = Rationnel(1, 2) r2 = Rationnel(-1, 3) self.assertEqual(r1+r2 , Rationnel (1, 6))
+
+def testAddMult(self): for num in range(-3, 4): for den in range(1, 3): r1 = Rationnel(num , den) r2 = r1 * self.__two self.assertEqual(r1 + r1 , r2)
+
+if __name__ == '__main__': unittest . main ()
+
+Python 23 / 32
+
+Python et unittest
+Exemple : ex´ecution de test
+Test OK
+....... -------------------------------------------Ran 7 tests in 0.001s OK
+Test erreur
+FF ..... FAIL: testAddMult (__main__.TestRationnel) -------------------------------------------Traceback (most recent call last):
+File "test_rationnel.py", line 55, in testAddMult ... FAILED (failures=2)
+Python 24 / 32
+
+Python et unittest
+Exemple : test dans Pycharm
+Si le programme contient des fonctions dont le nom commence par test : ex´ecute avec pytest
+Python 25 / 32
+
+Python et unittest
+Couverture de code
+
+$ coverage run test_rationnel.py ....... ---------------------------------------------Ran 7 tests in 0.001s
+
+OK
+
+$ coverage report -m
+
+Name
+
+Stmts Miss Cover Missing
+
+----------------------------------------------
+
+rationnel
+
+30
+
+5
+
+83% 53, 57-62
+
+test_rationnel
+
+46
+
+0 100%
+
+----------------------------------------------
+
+TOTAL
+
+76
+
+5
+
+93%
+
+Python 26 / 32
+
+G´en´eration automatique de documentation
+Sommaire
+1 Pourquoi tester ? 2 Test unitaire 3 Python et unittest 4 G´en´eration automatique de documentation
+Python 27 / 32
+
+G´en´eration automatique de documentation
+Objectif
+Commentaire de programme Commentaires de documentation : """ Commenter proprement le code
+En-t^etes Classes Fonctions G´en´erer automatiquement la documentation Cr´eation de pages html
+
+Python 28 / 32
+
+G´en´eration automatique de documentation
+Outils de g´en´eration de documentation
+Sphinx Voir le poly annexe B http://www.sphinx-doc.org/en/1.5.1/tutorial.html
+Pydoc Lire la page de manuel pydoc3.5 -w fichier.py https://docs.python.org/3/library/pydoc.html
+Python 29 / 32
+
+G´en´eration automatique de documentation
+Exemple : documentation de module
+"""Example NumPy style docstrings.
+This module demonstrates documentation as specified by the `NumPy Documentation HOWTO `_. Docstrings may extend over multiple lines. Sections are created with a section header followed by an underline of equal length.
+Example ------Examples can be given using either the ``Example `` or ``Examples `` sections.
+.. Source: http://sphinxcontrib -napoleon.readthedocs.io/en/ latest/example_numpy.html
+"""
+Python 30 / 32
+
+G´en´eration automatique de documentation
+Exemple : documentation de fonction
+def function_with_types_in_docstring(param1 , param2): """ Example function with types documented in the docstring.
+Parameters ---------param1 : int
+The first parameter. param2 : str
+The second parameter.
+Returns ------bool
+True if successful , False otherwise. """
+Python 31 / 32
+
+G´en´eration automatique de documentation
+Exemple : documentation de classe
+class ExampleClass(object): """The summary line for a class docstring should fit on one line.
+If the class has public attributes , they may be documented here in an ``Attributes `` section. Alternatively , attributes may be documented inline with the attribute's declaration.
+Attributes ---------attr1 : str
+Description of `attr1 `. attr2 : :obj:`int `, optional
+Description of `attr2 `. """
+Python 32 / 32
+
+

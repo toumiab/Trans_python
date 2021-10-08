@@ -17,8 +17,8 @@ Class=LaTeXView
 Document=python3.tex
 
 [Frame0_View0,0]
-TopLine=0
-Cursor=328
+TopLine=25
+Cursor=896
 
 [Frame1]
 Flags=0
@@ -32,11 +32,11 @@ NormalPos.top=32
 NormalPos.right=1540
 NormalPos.bottom=602
 Class=LaTeXView
-Document=corps\tris_malek.tex
+Document=styles\transp_java.cls
 
 [Frame1_View0,0]
 TopLine=0
-Cursor=8885
+Cursor=95
 
 [SessionInfo]
 FrameCount=2

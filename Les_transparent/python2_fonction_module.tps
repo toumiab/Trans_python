@@ -17,7 +17,7 @@ Class=LaTeXView
 Document=corps\fonctions1.tex
 
 [Frame0_View0,0]
-TopLine=703
+TopLine=713
 Cursor=19112
 
 [Frame1]
@@ -36,7 +36,7 @@ Document=python2_fonction_module.tex
 
 [Frame1_View0,0]
 TopLine=0
-Cursor=0
+Cursor=314
 
 [SessionInfo]
 FrameCount=2

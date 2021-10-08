@@ -1,10 +1,14 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2021.10.3)  8 OCT 2021 23:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2021.10.3)  4 OCT 2021 00:11
 entering extended mode
-**./python05.tex
-(python05.tex
+**./transp_java.cls
+(transp_java.cls
 LaTeX2e <2020-02-02> patch level 5
-L3 programming layer <2020-05-15> (styles/transp_java.cls
-Document Class: transp_java 2008/10/20
+L3 programming layer <2020-05-15>
+
+LaTeX Warning: You have requested package `',
+               but the package provides `transp_java'.
+
+Package: transp_java 2008/10/20
 ("C:\Program Files\MiKTeX 2.9\tex/latex/iftex\ifpdf.sty"
 Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
  ("C:\Program Files\MiKTeX 2.9\tex/latex/iftex\iftex.sty"
@@ -424,7 +428,7 @@ LaTeX Info: Redefining \pageref on input line 6421.
 Package hyperref Message: Stopped early.
 
 )
-Package hyperref Info: Driver (autodetected): hpdftex.
+Package hyperref Info: Driver: hpdftex.
  ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\hpdftex.def"
 File: hpdftex.def 2020-05-15 v7.00e Hyperref driver for pdfTeX
 
@@ -616,15 +620,31 @@ Package: amsthm 2017/10/31 v2.20.4
 )
 \c@theorem=\count309
 ) ("C:\Program Files\MiKTeX 2.9\tex/latex/beamer\beamerbasethemes.sty"))
-("C:\Program Files\MiKTeX 2.9\tex/latex/beamer\beamerthemedefault.sty"
-("C:\Program Files\MiKTeX 2.9\tex/latex/beamer\beamerfontthemedefault.sty")
-("C:\Program Files\MiKTeX 2.9\tex/latex/beamer\beamercolorthemedefault.sty")
-("C:\Program Files\MiKTeX 2.9\tex/latex/beamer\beamerinnerthemedefault.sty"
-\beamer@dima=\dimen275
-\beamer@dimb=\dimen276
-)
-("C:\Program Files\MiKTeX 2.9\tex/latex/beamer\beamerouterthemedefault.sty")))
-("C:\Program Files\MiKTeX 2.9\tex/latex/pgf/basiclayer\pgf.sty"
+
+! LaTeX Error: \usepackage before \documentclass.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.366 \usetheme{default}
+                        
+\usepackage may only appear in the document preamble, i.e.,
+between \documentclass and \begin{document}.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.366 \usetheme{default}
+                        
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+) ("C:\Program Files\MiKTeX 2.9\tex/latex/pgf/basiclayer\pgf.sty"
 Package: pgf 2020/01/08 v3.1.5b (3.1.5b)
 
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/modules\pgfmoduleshapes.code.tex"
@@ -636,8 +656,8 @@ File: pgfmoduleplot.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/pgf/compatibility\pgfcomp-version-0-65.sty"
 Package: pgfcomp-version-0-65 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@nodesepstart=\dimen277
-\pgf@nodesepend=\dimen278
+\pgf@nodesepstart=\dimen275
+\pgf@nodesepend=\dimen276
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/pgf/compatibility\pgfcomp-version-1-18.sty"
 Package: pgfcomp-version-1-18 2020/01/08 v3.1.5b (3.1.5b)
@@ -652,8 +672,8 @@ Package: pgfcomp-version-1-18 2020/01/08 v3.1.5b (3.1.5b)
 Package: pgffor 2020/01/08 v3.1.5b (3.1.5b)
 
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/math\pgfmath.code.tex")
-\pgffor@iter=\dimen279
-\pgffor@skip=\dimen280
+\pgffor@iter=\dimen277
+\pgffor@skip=\dimen278
 \pgffor@stack=\toks44
 \pgffor@toks=\toks45
 ))
@@ -663,16 +683,16 @@ Package: tikz 2020/01/08 v3.1.5b (3.1.5b)
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/libraries\pgflibraryplothandlers.code.tex"
 File: pgflibraryplothandlers.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgf@plot@mark@count=\count310
-\pgfplotmarksize=\dimen281
+\pgfplotmarksize=\dimen279
 )
-\tikz@lastx=\dimen282
-\tikz@lasty=\dimen283
-\tikz@lastxsaved=\dimen284
-\tikz@lastysaved=\dimen285
-\tikz@lastmovetox=\dimen286
-\tikz@lastmovetoy=\dimen287
-\tikzleveldistance=\dimen288
-\tikzsiblingdistance=\dimen289
+\tikz@lastx=\dimen280
+\tikz@lasty=\dimen281
+\tikz@lastxsaved=\dimen282
+\tikz@lastysaved=\dimen283
+\tikz@lastmovetox=\dimen284
+\tikz@lastmovetoy=\dimen285
+\tikzleveldistance=\dimen286
+\tikzsiblingdistance=\dimen287
 \tikz@figbox=\box74
 \tikz@figbox@bg=\box75
 \tikz@tempbox=\box76
@@ -703,14 +723,14 @@ es library on input line 14.
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarydecorations.pathmorphing.code.tex"
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarydecorations.code.tex"
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/modules\pgfmoduledecorations.code.tex"
-\pgfdecoratedcompleteddistance=\dimen290
-\pgfdecoratedremainingdistance=\dimen291
-\pgfdecoratedinputsegmentcompleteddistance=\dimen292
-\pgfdecoratedinputsegmentremainingdistance=\dimen293
-\pgf@decorate@distancetomove=\dimen294
+\pgfdecoratedcompleteddistance=\dimen288
+\pgfdecoratedremainingdistance=\dimen289
+\pgfdecoratedinputsegmentcompleteddistance=\dimen290
+\pgfdecoratedinputsegmentremainingdistance=\dimen291
+\pgf@decorate@distancetomove=\dimen292
 \pgf@decorate@repeatstate=\count319
-\pgfdecorationsegmentamplitude=\dimen295
-\pgfdecorationsegmentlength=\dimen296
+\pgfdecorationsegmentamplitude=\dimen293
+\pgfdecorationsegmentlength=\dimen294
 )
 \tikz@lib@dec@box=\box78
 )
@@ -742,7 +762,7 @@ File: tikzlibraryarrows.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/libraries\pgflibraryarrows.code.tex"
 File: pgflibraryarrows.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\arrowsize=\dimen297
+\arrowsize=\dimen295
 ))
 ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.code.tex"
 File: tikzlibraryshapes.code.tex 2020/01/08 v3.1.5b (3.1.5b)
@@ -817,9 +837,9 @@ File: latin1.def 2018/08/11 v1.3c Input encoding file
 Package: colortbl 2020/01/04 v1.0e Color table columns (DPC)
  ("C:\Program Files\MiKTeX 2.9\tex/latex/latex-tools\array.sty"
 Package: array 2020/10/01 v2.5c Tabular extension package (FMi)
-\col@sep=\dimen298
+\col@sep=\dimen296
 \ar@mcellbox=\box100
-\extrarowheight=\dimen299
+\extrarowheight=\dimen297
 \NC@list=\toks48
 \extratabsurround=\skip63
 \backup@length=\skip64
@@ -833,7 +853,7 @@ Package: babel 2020/05/13 3.44 The Babel package
  ("C:\Program Files\MiKTeX 2.9\tex/generic/babel\babel.def"
 File: babel.def 2020/05/13 3.44 Babel common definitions
 \babel@savecnt=\count320
-\U@D=\dimen300
+\U@D=\dimen298
 \l@babelnohyphens=\language8
 
 ("C:\Program Files\MiKTeX 2.9\tex/generic/babel\txtbabel.def")
@@ -869,20 +889,20 @@ Package babel Info: Making ! an active character on input line 421.
 Package babel Info: Making ? an active character on input line 422.
 \FBguill@level=\count323
 \FBold@everypar=\toks50
-\FB@Mht=\dimen301
+\FB@Mht=\dimen299
 \mc@charclass=\count324
 \mc@charfam=\count325
 \mc@charslot=\count326
 \std@mcc=\count327
 \dec@mcc=\count328
 \c@FBcaption@count=\count329
-\listindentFB=\dimen302
-\descindentFB=\dimen303
-\labelindentFB=\dimen304
-\labelwidthFB=\dimen305
-\leftmarginFB=\dimen306
-\parindentFFN=\dimen307
-\FBfnindent=\dimen308
+\listindentFB=\dimen300
+\descindentFB=\dimen301
+\labelindentFB=\dimen302
+\labelwidthFB=\dimen303
+\leftmarginFB=\dimen304
+\parindentFFN=\dimen305
+\FBfnindent=\dimen306
 )))
 ("C:\Program Files\MiKTeX 2.9\tex/latex/carlisle\scalefnt.sty")
 Package french.ldf Info: No list customisation for the beamer class,
@@ -909,29 +929,29 @@ Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 \XKV@depth=\count330
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
-\clock@fontsize=\dimen309
-\clock@height=\dimen310
+\clock@fontsize=\dimen307
+\clock@height=\dimen308
 \sizebox=\box102
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/latex-tools\multicol.sty"
 Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
 \c@tracingmulticols=\count331
 \mult@box=\box103
-\multicol@leftmargin=\dimen311
+\multicol@leftmargin=\dimen309
 \c@unbalance=\count332
 \c@collectmore=\count333
 \doublecol@number=\count334
 \multicoltolerance=\count335
 \multicolpretolerance=\count336
-\full@width=\dimen312
-\page@free=\dimen313
-\premulticols=\dimen314
-\postmulticols=\dimen315
+\full@width=\dimen310
+\page@free=\dimen311
+\premulticols=\dimen312
+\postmulticols=\dimen313
 \multicolsep=\skip66
 \multicolbaselineskip=\skip67
 \partial@page=\box104
 \last@line=\box105
-\maxbalancingoverflow=\dimen316
+\maxbalancingoverflow=\dimen314
 \mult@rightbox=\box106
 \mult@grightbox=\box107
 \mult@gfirstbox=\box108
@@ -976,9 +996,9 @@ Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
 \c@minrows=\count337
 \c@columnbadness=\count338
 \c@finalcolumnbadness=\count339
-\last@try=\dimen317
-\multicolovershoot=\dimen318
-\multicolundershoot=\dimen319
+\last@try=\dimen315
+\multicolovershoot=\dimen316
+\multicolundershoot=\dimen317
 \mult@nat@firstbox=\box147
 \colbreak@box=\box148
 \mc@col@check@num=\count340
@@ -991,14 +1011,14 @@ Package: dsfont 1995/08/01 v0.1 Double stroke roman fonts
 \lst@gtempboxa=\box149
 \lst@token=\toks53
 \lst@length=\count342
-\lst@currlwidth=\dimen320
+\lst@currlwidth=\dimen318
 \lst@column=\count343
 \lst@pos=\count344
-\lst@lostspace=\dimen321
-\lst@width=\dimen322
+\lst@lostspace=\dimen319
+\lst@width=\dimen320
 \lst@newlines=\count345
 \lst@lineno=\count346
-\lst@maxwidth=\dimen323
+\lst@maxwidth=\dimen321
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/listings\lstmisc.sty"
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
@@ -1013,1135 +1033,81 @@ Package: listings 2020/03/24 1.8d (Carsten Heinz)
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/listings\lstlang1.sty"
 File: lstlang1.sty 2020/03/24 1.8d listings language file
-)
-("C:\Program Files\MiKTeX 2.9\tex/latex/algorithm2e\algorithm2e.sty"
-Package: algorithm2e 2017/07/18 v5.2 algorithms environments
+) (algorithm2e.sty
+Package: algorithm2e 2008/00/00 v3.10 algorithms environments
 \c@AlgoLine=\count349
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/base\ifthen.sty"
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
-)
-\algocf@hangindent=\skip68
- ("C:\Program Files\MiKTeX 2.9\tex/latex/ifoddpage\ifoddpage.sty"
-Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
-\c@checkoddpage=\count350
 ) ("C:\Program Files\MiKTeX 2.9\tex/latex/latex-tools\xspace.sty"
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
-)
-("C:\Program Files\MiKTeX 2.9\tex/latex/relsize\relsize.sty"
+) ("C:\Program Files\MiKTeX 2.9\tex/latex/relsize\relsize.sty"
 Package: relsize 2013/03/29 ver 4.1
 )
-\skiptotal=\skip69
-\skiplinenumber=\skip70
-\skiprule=\skip71
-\skiphlne=\skip72
-\skiptext=\skip73
-\skiplength=\skip74
-\algomargin=\skip75
-\skipalgocfslide=\skip76
-\algowidth=\dimen324
-\inoutsize=\dimen325
-\inoutindent=\dimen326
-\interspacetitleruled=\dimen327
-\interspacealgoruled=\dimen328
-\interspacetitleboxruled=\dimen329
-\algocf@ruledwidth=\skip77
+********************************************************
+Package `algorithm2e' Release 4.01 -- december 14 2009 --
+- algorithm2e-announce@lirmm.fr mailing list for announcement about releases
+- algorithm2e-discussion@lirmm.fr mailing list for discussion about package
+subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
+- Author: Christophe Fiorio (fiorio@lirmm.fr)
+********************************************************
+\skiptotal=\skip68
+\skiplinenumber=\skip69
+\skiprule=\skip70
+\skiphlne=\skip71
+\skiptext=\skip72
+\skiplength=\skip73
+\algomargin=\skip74
+\skipalgocfslide=\skip75
+\algowidth=\dimen322
+\inoutsize=\dimen323
+\inoutline=\dimen324
+\interspacetitleruled=\dimen325
+\interspacealgoruled=\dimen326
+\interspacetitleboxruled=\dimen327
 \algocf@inoutbox=\box151
 \algocf@inputbox=\box152
-\AlCapSkip=\skip78
-\AlCapHSkip=\skip79
-\algoskipindent=\skip80
+\AlCapSkip=\skip76
+\AlCapHSkip=\skip77
 \algocf@nlbox=\box153
 \algocf@hangingbox=\box154
-\algocf@untilbox=\box155
-\algocf@skipuntil=\skip81
-\algocf@capbox=\box156
-\algocf@lcaptionbox=\skip82
-\algoheightruledefault=\skip83
-\algoheightrule=\skip84
-\algotitleheightruledefault=\skip85
-\algotitleheightrule=\skip86
-\c@algocfline=\count351
-\c@algocfproc=\count352
-\c@algocf=\count353
-\algocf@algoframe=\box157
-\algocf@algobox=\box158
+\algocf@capbox=\box155
+\algoheightruledefault=\skip78
+\algoheightrule=\skip79
+\algotitleheightruledefault=\skip80
+\algotitleheightrule=\skip81
+\c@algocfline=\count350
+\c@algocfproc=\count351
+\c@algocf=\count352
+\algocf@algoframe=\box156
+\algocf@algobox=\box157
 )
-\c@defi=\count354
-\c@remarque=\count355
-\c@remarques=\count356
-\c@exemple=\count357
-\c@exemples=\count358
+\c@defi=\count353
+\c@remarque=\count354
+\c@remarques=\count355
+\c@exemple=\count356
+\c@exemples=\count357
 
 
 Package amsthm Warning: Unknown theoremstyle `theorem' on input line 122.
 
-\c@theoreme=\count359
-\c@propriete=\count360
-\c@lemme=\count361
-\c@corollaire=\count362
+\c@theoreme=\count358
+\c@propriete=\count359
+\c@lemme=\count360
+\c@corollaire=\count361
 )
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 7.
-
-(styles/beamerthemeprogressbar.sty
-Package: beamerthemeprogressbar 2007/06/21
- ("C:\Program Files\MiKTeX 2.9\tex/latex/bibunits\bibunits.sty"
-Package: bibunits 2004/05/12 v2.4 Multiple bibliographies in one document.
-\@bibunitaux=\write5
-\@bibunitauxcnt=\count363
-)
-(styles/beamercolorthemeprogressbar.sty
-Package: beamercolorthemeprogressbar 2007/06/21
- ("C:\Program Files\MiKTeX 2.9\tex/latex/beamer\beamercolorthemerose.sty"))
-(styles/beamerinnerthemeprogressbar.sty
-Package: beamerinnerthemeprogressbar 2007/06/21
-\progressbar@blockbox=\box159
-) (styles/beamerfontthemeprogressbar.sty
-Package: beamerfontthemeprogressbar 2007/06/21
-) (styles/beamerouterthemeprogressbar.sty
-Package: beamerouterthemeprogressbar 2007/06/21
-\progressbar@currentbarlength=\dimen330
-\progressbar@framenumberrectangle=\dimen331
-\progressbar@titlerectangle=\dimen332
-\progressbar@leftbar=\dimen333
-\progressbar@tmpresult=\dimen334
-\progressbar@barlength=\dimen335
-\progressbar@stepbar=\dimen336
-\progressbar@numer=\count364
-\progressbar@denom=\count365
-\progressbar@framenumberbox=\box160
-\progressbar@firstpb=\count366
-\progressbar@sectionboxwidth=\skip87
-\progressbar@sectionboxheight=\skip88
-\progressbar@sectionbox=\box161
-\progressbar@sectionboxbox=\box162
-)) ("C:\Program Files\MiKTeX 2.9\tex/latex/l3backend\l3backend-pdfmode.def"
-File: l3backend-pdfmode.def 2020-05-05 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count367
-\l__pdf_internal_box=\box163
-) (python05.aux)
-\openout1 = `python05.aux'.
-
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 28.
-LaTeX Font Info:    Trying to load font information for T3+cmr on input line 28.
-
-("C:\Program Files\MiKTeX 2.9\tex/latex/tipa\t3cmr.fd"
-File: t3cmr.fd 2001/12/31 TIPA font definitions
-)
-LaTeX Font Info:    ... okay on input line 28.
-
-*geometry* driver: auto-detecting
-*geometry* detected driver: pdftex
-*geometry* verbose mode - [ preamble ] result:
-* driver: pdftex
-* paper: custom
-* layout: <same size as paper>
-* layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: includehead includefoot 
-* h-part:(L,W,R)=(28.45274pt, 307.28987pt, 28.45274pt)
-* v-part:(T,H,B)=(0.0pt, 273.14662pt, 0.0pt)
-* \paperwidth=364.19536pt
-* \paperheight=273.14662pt
-* \textwidth=307.28987pt
-* \textheight=244.6939pt
-* \oddsidemargin=-43.81725pt
-* \evensidemargin=-43.81725pt
-* \topmargin=-72.26999pt
-* \headheight=14.22636pt
-* \headsep=0.0pt
-* \topskip=11.0pt
-* \footskip=14.22636pt
-* \marginparwidth=4.0pt
-* \marginparsep=10.0pt
-* \columnsep=10.0pt
-* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
-* \hoffset=0.0pt
-* \voffset=0.0pt
-* \mag=1000
-* \@twocolumnfalse
-* \@twosidefalse
-* \@mparswitchfalse
-* \@reversemarginfalse
-* (1in=72.27pt=25.4mm, 1cm=28.453pt)
-
-("C:\Program Files\MiKTeX 2.9\tex/context/base\supp-pdf.mkii"
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count368
-\scratchdimen=\dimen337
-\scratchbox=\box164
-\nofMPsegments=\count369
-\nofMParguments=\count370
-\everyMPshowfont=\toks54
-\MPscratchCnt=\count371
-\MPscratchDim=\dimen338
-\MPnumerator=\count372
-\makeMPintoPDFobject=\count373
-\everyMPtoPDFconversion=\toks55
-) ("C:\Program Files\MiKTeX 2.9\tex/latex/epstopdf-pkg\epstopdf-base.sty"
-Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
-) ABD: EveryShipout initializing macros
-\AtBeginShipoutBox=\box165
-Package hyperref Info: Link coloring OFF on input line 28.
-
-("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\nameref.sty"
-Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
-
-("C:\Program Files\MiKTeX 2.9\tex/latex/oberdiek\refcount.sty"
-Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
-)
-("C:\Program Files\MiKTeX 2.9\tex/generic/gettitlestring\gettitlestring.sty"
-Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
-)
-\c@section@level=\count374
-)
-LaTeX Info: Redefining \ref on input line 28.
-LaTeX Info: Redefining \pageref on input line 28.
-LaTeX Info: Redefining \nameref on input line 28.
- (python05.out) (python05.out)
-\@outlinefile=\write6
-\openout6 = `python05.out'.
-
-LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 28.
-LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 28.
-\symnumbers=\mathgroup6
-\sympureletters=\mathgroup7
-LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 28.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 28.
-LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 28.
-LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 28.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 28.
-LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 28.
-LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 28.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 28.
-LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 28.
-LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 28.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 28.
-LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 28.
-LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 28.
-LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 28.
-LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 28.
-LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/cmr/b/n on input line 28.
-LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/cmss/b/n on input line 28.
-LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 28.
-LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 28.
-LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 28.
-LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 28.
-LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
-(Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 28.
-LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 28.
-LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on input line 28.
-
-("C:\Program Files\MiKTeX 2.9\tex/latex/translator\translator-basic-dictionary-English.dict"
-Dictionary: translator-basic-dictionary, Language: English 
-)
-("C:\Program Files\MiKTeX 2.9\tex/latex/translator\translator-bibliography-dictionary-English.dict"
-Dictionary: translator-bibliography-dictionary, Language: English 
-)
-("C:\Program Files\MiKTeX 2.9\tex/latex/translator\translator-environment-dictionary-English.dict"
-Dictionary: translator-environment-dictionary, Language: English 
-)
-("C:\Program Files\MiKTeX 2.9\tex/latex/translator\translator-months-dictionary-English.dict"
-Dictionary: translator-months-dictionary, Language: English 
-)
-("C:\Program Files\MiKTeX 2.9\tex/latex/translator\translator-numbers-dictionary-English.dict"
-Dictionary: translator-numbers-dictionary, Language: English 
-)
-("C:\Program Files\MiKTeX 2.9\tex/latex/translator\translator-theorem-dictionary-English.dict"
-Dictionary: translator-theorem-dictionary, Language: English 
-)
-LaTeX Info: Redefining \degres on input line 28.
-LaTeX Info: Redefining \dots on input line 28.
-LaTeX Info: Redefining \up on input line 28.
-\c@lstlisting=\count375
-
-..................................................................
-You are using the progressbar beamer theme (Sylvain B.)
-Version: 0.42 September 2010.
-..................................................................
-(python05.nav)
-\progressbar@framenumberboxwidth=\dimen339
-LaTeX Font Info:    Trying to load font information for U+msa on input line 28.
- ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 28.
-
-("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 28.
-
-("C:\Program Files\MiKTeX 2.9\tex/latex/sansmathaccent\ot1mathkerncmss.fd"
-File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mathkerncmss.
-) [1
-
-{C:/Users/toumiab/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./python-HE.png>]
-\dunder=\skip89
- (corps/recursivite.tex (python05.toc) [2
-
- <./python-HE.png>] (python05.toc) [3
-
-] [4
-
-] [5
-
-] (python05.toc) [6
-
-]
-\openout4 = `python05.vrb'.
-
- (python05.vrb
-Overfull \hbox (15.36543pt too wide) detected at line 12
-[]
- []
-
-)
-Overfull \vbox (1.81972pt too high) detected at line 45
- []
-
-[7
-
-] (python05.vrb
-Overfull \hbox (15.36543pt too wide) detected at line 12
-[]
- []
-
-)
-Overfull \vbox (1.81972pt too high) detected at line 45
- []
-
-[8
-
-] (python05.vrb
-Overfull \hbox (15.36543pt too wide) detected at line 12
-[]
- []
-
-)
-Overfull \vbox (1.81972pt too high) detected at line 45
- []
-
-[9
-
-] (python05.vrb
-Overfull \hbox (15.36543pt too wide) detected at line 12
-[]
- []
-
-)
-Overfull \vbox (1.81972pt too high) detected at line 45
- []
-
-[10
-
-] (python05.vrb
-Overfull \hbox (15.36543pt too wide) detected at line 12
-[]
- []
-
-)
-Overfull \vbox (1.81972pt too high) detected at line 45
- []
-
-[11
-
-] (python05.vrb
-Overfull \hbox (15.36543pt too wide) detected at line 12
-[]
- []
-
-)
-Overfull \vbox (1.81972pt too high) detected at line 45
- []
-
-[12
-
-]
-\openout4 = `python05.vrb'.
-
- (python05.vrb
-Overfull \hbox (15.36543pt too wide) detected at line 25
-[]
- []
-
-) [13
-
-] (python05.vrb
-Overfull \hbox (15.36543pt too wide) detected at line 25
-[]
- []
-
-) [14
-
-] (python05.vrb
-Overfull \hbox (15.36543pt too wide) detected at line 25
-[]
- []
-
-)
-Overfull \vbox (4.84483pt too high) detected at line 74
- []
-
-[15
-
-]
-\openout4 = `python05.vrb'.
-
- (python05.vrb
-Overfull \hbox (15.36543pt too wide) detected at line 19
-[]
- []
-
-)
-Overfull \vbox (4.84483pt too high) detected at line 99
- []
-
-[16
-
-] (python05.vrb
-Overfull \hbox (15.36543pt too wide) detected at line 19
-[]
- []
-
-)
-Overfull \vbox (4.84483pt too high) detected at line 99
- []
-
-[17
-
-] (python05.vrb
-Overfull \hbox (15.36543pt too wide) detected at line 19
-[]
- []
-
-)
-Overfull \vbox (4.84483pt too high) detected at line 99
- []
-
-[18
-
-] (python05.toc) [19
-
-] (python05.toc) [20
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 129
-[]
- []
-
-
-Overfull \hbox (15.36543pt too wide) detected at line 129
-[]
- []
-
-
-Overfull \hbox (15.36543pt too wide) detected at line 129
-[]
- []
-
-[21
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 129
-[]
- []
-
-
-Overfull \hbox (15.36543pt too wide) detected at line 129
-[]
- []
-
-
-Overfull \hbox (15.36543pt too wide) detected at line 129
-[]
- []
-
-[22
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 129
-[]
- []
-
-
-Overfull \hbox (15.36543pt too wide) detected at line 129
-[]
- []
-
-
-Overfull \hbox (15.36543pt too wide) detected at line 129
-[]
- []
-
-[23
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 161--161
-
- []
-
-
-Overfull \hbox (15.36543pt too wide) detected at line 161
-[]
- []
-
-[24
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 161--161
-
- []
-
-
-Overfull \hbox (15.36543pt too wide) detected at line 161
-[]
- []
-
-[25
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 161--161
-
- []
-
-
-Overfull \hbox (15.36543pt too wide) detected at line 161
-[]
- []
-
-[26
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 161--161
-
- []
-
-
-Overfull \hbox (15.36543pt too wide) detected at line 161
-[]
- []
-
-[27
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 161--161
-
- []
-
-
-Overfull \hbox (15.36543pt too wide) detected at line 161
-[]
- []
-
-[28
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 178
-[]
- []
-
-
-Overfull \hbox (15.36543pt too wide) detected at line 178
-[]
- []
-
-
-Overfull \hbox (15.36543pt too wide) detected at line 178
-[]
- []
-
-[29
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 178
-[]
- []
-
-
-Overfull \hbox (15.36543pt too wide) detected at line 178
-[]
- []
-
-
-Overfull \hbox (15.36543pt too wide) detected at line 178
-[]
- []
-
-[30
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 178
-[]
- []
-
-
-Overfull \hbox (15.36543pt too wide) detected at line 178
-[]
- []
-
-
-Overfull \hbox (15.36543pt too wide) detected at line 178
-[]
- []
-
-[31
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 201
-[]
- []
-
-[32
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 201
-[]
- []
-
-[33
-
-] (python05.toc) [34
-
-]
-Overfull \hbox (8.63925pt too wide) in paragraph at lines 290--290
-[][]  
- []
-
-[35
-
-]
-Overfull \hbox (8.63925pt too wide) in paragraph at lines 290--290
-[][]  
- []
-
-[36
-
-]
-Overfull \hbox (8.63925pt too wide) in paragraph at lines 290--290
-[][]  
- []
-
-[37
-
-]
-Overfull \hbox (8.63925pt too wide) in paragraph at lines 290--290
-[][]  
- []
-
-[38
-
-]
-Overfull \hbox (8.63925pt too wide) in paragraph at lines 290--290
-[][]  
- []
-
-[39
-
-]
-Overfull \hbox (8.63925pt too wide) in paragraph at lines 290--290
-[][]  
- []
-
-[40
-
-]
-Overfull \hbox (8.63925pt too wide) in paragraph at lines 290--290
-[][]  
- []
-
-[41
-
-]
-Overfull \hbox (8.63925pt too wide) in paragraph at lines 290--290
-[][]  
- []
-
-[42
-
-] (python05.toc) [43
-
-]
-\openout4 = `python05.vrb'.
-
- (python05.vrb
-Overfull \hbox (15.36543pt too wide) detected at line 31
-[]
- []
-
-) [44
-
-] (python05.vrb
-Overfull \hbox (15.36543pt too wide) detected at line 31
-[]
- []
-
-) [45
-
-] (python05.vrb
-Overfull \hbox (15.36543pt too wide) detected at line 31
-[]
- []
-
-) [46
-
-] (python05.vrb
-Overfull \hbox (15.36543pt too wide) detected at line 31
-[]
- []
-
-) [47
-
-] (python05.vrb
-Overfull \hbox (15.36543pt too wide) detected at line 31
-[]
- []
-
-)
-Overfull \vbox (14.31584pt too high) detected at line 330
- []
-
-[48
-
-] (python05.toc) [49
-
-] [50
-
-] [51
-
-] [52
-
-] [53
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 401
-[]
- []
-
-[54
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 401
-[]
- []
-
-[55
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 401
-[]
- []
-
-[56
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 401
-[]
- []
-
-[57
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 401
-[]
- []
-
-[58
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 401
-[]
- []
-
-[59
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 401
-[]
- []
-
-[60
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 401
-[]
- []
-
-[61
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 401
-[]
- []
-
-[62
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 401
-[]
- []
-
-[63
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 401
-[]
- []
-
-[64
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 401
-[]
- []
-
-[65
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 401
-[]
- []
-
-[66
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 401
-[]
- []
-
-[67
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 401
-[]
- []
-
-[68
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 401
-[]
- []
-
-[69
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 401
-[]
- []
-
-[70
-
-] (python05.toc) [71
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 421
-[]
- []
-
-[72
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 421
-[]
- []
-
-[73
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 421
-[]
- []
-
-[74
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 421
-[]
- []
-
-[75
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 421
-[]
- []
-
-[76
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 421
-[]
- []
-
-[77
-
-] (python05.toc) [78
-
-] [79
-
-] [80
-
-] [81
-
-] [82
-
-] [83
-
-] [84
-
-] [85
-
-] [86
-
-] [87
-
-] [88
-
-] [89
-
-]
-\openout4 = `python05.vrb'.
-
- (python05.vrb) [90
-
-] [91
-
-] [92
-
-] [93
-
-]
-[94
-
-] [95
-
-] [96
-
-] [97
-
-] (python05.toc) [98
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 761
-[]
- []
-
-
-Overfull \hbox (15.36543pt too wide) detected at line 761
-[]
- []
-
-[99
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 761
-[]
- []
-
-
-Overfull \hbox (15.36543pt too wide) detected at line 761
-[]
- []
-
-[100
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 761
-[]
- []
-
-
-Overfull \hbox (15.36543pt too wide) detected at line 761
-[]
- []
-
-[101
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 761
-[]
- []
-
-
-Overfull \hbox (15.36543pt too wide) detected at line 761
-[]
- []
-
-[102
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 761
-[]
- []
-
-
-Overfull \hbox (15.36543pt too wide) detected at line 761
-[]
- []
-
-[103
-
-]
-Overfull \hbox (15.36543pt too wide) detected at line 783
-[]
- []
-
-[104
-
-]
-\openout4 = `python05.vrb'.
-
- (python05.vrb
-Overfull \hbox (23.99998pt too wide) in paragraph at lines 10--28
-[][]  
- []
-
-
-Overfull \hbox (15.36543pt too wide) detected at line 33
-[]
- []
-
-) [105
-
-] (python05.vrb
-Overfull \hbox (23.99998pt too wide) in paragraph at lines 10--28
-[][]  
- []
-
-
-Overfull \hbox (15.36543pt too wide) detected at line 33
-[]
- []
-
-) [106
-
-] (python05.vrb
-Overfull \hbox (23.99998pt too wide) in paragraph at lines 10--28
-[][]  
- []
-
-
-Overfull \hbox (15.36543pt too wide) detected at line 33
-[]
- []
-
-) [107
-
-] (python05.vrb
-Overfull \hbox (23.99998pt too wide) in paragraph at lines 10--28
-[][]  
- []
-
-
-Overfull \hbox (15.36543pt too wide) detected at line 33
-[]
- []
-
-) [108
-
-] (python05.vrb
-Overfull \hbox (23.99998pt too wide) in paragraph at lines 10--28
-[][]  
- []
-
-
-Overfull \hbox (15.36543pt too wide) detected at line 33
-[]
- []
-
-) [109
-
-] (python05.vrb
-Overfull \hbox (23.99998pt too wide) in paragraph at lines 10--28
-[][]  
- []
-
-
-Overfull \hbox (15.36543pt too wide) detected at line 33
-[]
- []
-
-) [110
-
-])
-\tf@nav=\write7
-\openout7 = `python05.nav'.
-
-\tf@toc=\write8
-\openout8 = `python05.toc'.
-
-\tf@snm=\write9
-\openout9 = `python05.snm'.
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 57.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 57.
- (python05.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 57.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 57.
-Package rerunfilecheck Info: File `python05.out' has not changed.
-(rerunfilecheck)             Checksum: C966E5BD8B727766F8C15696BA76D0E5;764.
- ) 
+! Emergency stop.
+<*> ./transp_java.cls
+                     
+*** (job aborted, no legal \end found)
+
+ 
 Here is how much of TeX's memory you used:
- 30836 strings out of 482643
- 615493 string characters out of 2946360
- 1039786 words of memory out of 3000000
- 45587 multiletter control sequences out of 15000+200000
- 548983 words of font info for 85 fonts, out of 3000000 for 9000
+ 27556 strings out of 482643
+ 537918 string characters out of 2946360
+ 1005399 words of memory out of 3000000
+ 42770 multiletter control sequences out of 15000+200000
+ 533593 words of font info for 28 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 65i,18n,87p,801b,1201s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
-/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Program Files/MiKTeX 2
-.9/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/P
-rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmssbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Program Files/MiKTeX 2.9/f
-onts/type1/public/amsfonts/cm/cmssi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssi9.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt8.pfb><C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/sym
-bols/msam7.pfb>
-Output written on python05.pdf (110 pages, 544908 bytes).
-PDF statistics:
- 1147 PDF objects out of 1200 (max. 8388607)
- 232 named destinations out of 1000 (max. 500000)
- 320 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+ 58i,1n,83p,785b,426s stack positions out of 5000i,500n,10000p,200000b,50000s
+!  ==> Fatal error occurred, no output PDF file produced!

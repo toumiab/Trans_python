@@ -10,4 +10,3 @@
 \beamer@subsectionintoc {2}{5}{Conception d'algorithme r\'ecursif}{71}{0}{2}
 \beamer@subsectionintoc {2}{6}{Exemples}{78}{0}{2}
 \beamer@subsectionintoc {2}{7}{Notion de r\'ecursivit\'e terminale}{98}{0}{2}
-\beamer@sectionintoc {3}{Un mot sur le projet "LCLC"}{111}{0}{3}

@@ -1,7 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{transp_java}[2008/10/20]
-
 \RequirePackage{ifpdf}
+
 
 \ifpdf
 \LoadClass[pdftex,beamer]{beamer}

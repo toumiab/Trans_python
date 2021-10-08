@@ -1,0 +1,13 @@
+\babel@toc {french}{}
+\beamer@sectionintoc {1}{Rappel : Objet }{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{Type abstrait de donn\'ees}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{Notion d'objet :Concepts fondamentaux}{10}{0}{1}
+\beamer@sectionintoc {2}{H\'eritage}{13}{0}{2}
+\beamer@subsectionintoc {2}{1}{G\'en\'eralit\'es}{14}{0}{2}
+\beamer@subsectionintoc {2}{2}{H\'eritage en Python}{21}{0}{2}
+\beamer@sectionintoc {3}{Polymorphisme}{36}{0}{3}
+\beamer@subsectionintoc {3}{1}{G\'en\'eralit\'es}{37}{0}{3}
+\beamer@subsectionintoc {3}{2}{Polymorphisme d'h\'eritage (red\'efinition, sp\'ecialisation)}{40}{0}{3}
+\beamer@sectionintoc {4}{Variables et m\'ethodes de classe}{57}{0}{4}
+\beamer@sectionintoc {5}{Abstraction}{68}{0}{5}
+\beamer@subsectionintoc {5}{1}{M\'ethodes et classes abstraites}{69}{0}{5}
